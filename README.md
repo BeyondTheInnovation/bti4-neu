@@ -36,3 +36,11 @@ bun run dev
 `registry.json` lists the registry items and `registry/neu/` holds their
 source. `bun run registry:build` regenerates the served JSON in `public/r/`.
 Structure, conventions and checks are in [AGENTS.md](AGENTS.md).
+
+## Credits
+
+The light model's trig comes from [junwen-k/tailwindcss-neumorphism-ui](https://github.com/junwen-k/tailwindcss-neumorphism-ui) (MIT).
+
+## License
+
+MIT. See [LICENSE](LICENSE).
