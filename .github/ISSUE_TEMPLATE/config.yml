@@ -1,0 +1,4 @@
+contact_links:
+  - name: Report a security vulnerability
+    url: https://github.com/BeyondTheInnovation/bti4-neu/security/advisories/new
+    about: Report security issues privately, not in a public issue.

@@ -1,0 +1,46 @@
+name: Bug report
+description: Something in Neu is broken or looks wrong
+labels: [bug]
+body:
+  - type: input
+    id: component
+    attributes:
+      label: Component
+      description: The component name, for example neu-button.
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and version
+      placeholder: Chrome 131
+    validations:
+      required: true
+  - type: input
+    id: surface
+    attributes:
+      label: Surface color
+      description: The theme's surface or background color in use.
+      placeholder: "#e0e5ec"
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Minimal repro
+      description: A link or numbered steps.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual
+      description: What happens instead. Add a screenshot if it is visual.
+    validations:
+      required: true
