@@ -98,6 +98,11 @@
   --neu-dir: -1;
 }
 
+/* The sign inherits, so an ltr island inside an rtl page must reset it. */
+[dir="ltr"] {
+  --neu-dir: 1;
+}
+
 .dark {
   --neu-surface: oklch(0.25 0.02 250);
 }

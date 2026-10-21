@@ -273,7 +273,7 @@ function SidebarTrigger({
       }}
       {...props}
     >
-      <PanelLeftIcon className="rtl:rotate-180" />
+      <PanelLeftIcon className="scale-x-(--neu-dir)" />
       <span className="sr-only">Toggle Sidebar</span>
     </Button>
   )
@@ -651,7 +651,7 @@ function SidebarMenuSub({ className, ...props }: React.ComponentProps<"ul">) {
       data-slot="sidebar-menu-sub"
       data-sidebar="menu-sub"
       className={cn(
-        "mx-3.5 flex min-w-0 translate-x-px flex-col gap-1 border-s border-[color-mix(in_oklab,var(--neu-text)_12%,transparent)] px-2.5 py-0.5 rtl:-translate-x-px",
+        "mx-3.5 flex min-w-0 translate-x-[calc(var(--neu-dir)*1px)] flex-col gap-1 border-s border-[color-mix(in_oklab,var(--neu-text)_12%,transparent)] px-2.5 py-0.5",
         "group-data-[collapsible=icon]:hidden",
         className
       )}
@@ -694,7 +694,7 @@ function SidebarMenuSubButton({
       data-size={size}
       data-active={isActive}
       className={cn(
-        "neu neu-active-sink flex h-7 min-w-0 -translate-x-px items-center gap-2 overflow-hidden rounded-[calc(var(--neu-radius)/2)] px-2 [--neu-alpha:0] [--neu-depth:0.17] [--neu-glint:0] hover:bg-[color-mix(in_oklab,var(--neu-text)_6%,transparent)] active:[--neu-alpha:inherit] active:[--neu-glint:inherit] disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:[--neu-alpha:inherit] data-[active=true]:[--neu-glint:inherit] rtl:translate-x-px [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0",
+        "neu neu-active-sink flex h-7 min-w-0 translate-x-[calc(var(--neu-dir)*-1px)] items-center gap-2 overflow-hidden rounded-[calc(var(--neu-radius)/2)] px-2 [--neu-alpha:0] [--neu-depth:0.17] [--neu-glint:0] hover:bg-[color-mix(in_oklab,var(--neu-text)_6%,transparent)] active:[--neu-alpha:inherit] active:[--neu-glint:inherit] disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:[--neu-alpha:inherit] data-[active=true]:[--neu-glint:inherit] [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0",
         size === "sm" && "text-xs",
         size === "md" && "text-sm",
         "group-data-[collapsible=icon]:hidden",

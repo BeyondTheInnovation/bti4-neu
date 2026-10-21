@@ -23,7 +23,7 @@ Raw scalars are the whole public API. Everything visible derives from them.
 | `--neu-light-angle` | `<angle>` | `315deg` | Lamp position, clockwise from top. 315deg = top-left. |
 | `--neu-radius` | `<length>` | `16px` in `@property`, `1rem` on `:root` | Corner radius. `@property` initial-value must be computationally independent, so the registration says `16px`; the `:root` declaration restores `1rem` so it tracks root font size. |
 | `--neu-alpha` | `<number>` | `0.55` | Shadow translucency. Kept below 1 so shadows tint whatever they fall on. |
-| `--neu-dir` | `<number>` | `1` | RTL sign. `[dir='rtl']` sets `-1`. Directional motion reads it (switch travel, skeleton wave); the shadow math does not. |
+| `--neu-dir` | `<number>` | `1` | RTL sign. `[dir='rtl']` sets `-1` and `[dir='ltr']` sets `1`, so the nearest `dir` wins and an ltr island inside an rtl page reads `1`. Directional motion and mirrored icons read it (switch travel, skeleton wave, chevrons); the shadow math does not. Use it instead of Tailwind's `rtl:` variant, whose `[dir="rtl"] *` branch still matches inside a nested `dir="ltr"`. |
 | `--neu-corner` | plain | `round` | `corner-shape` for every shape; `squircle` for superellipse corners. See the squircle amendment. |
 | `--neu-shade-light` | unregistered | follows `--neu-shade` | Optional split intensity for the light half of the pair. Every high-end source ships asymmetric pairs; set this and `--neu-shade-dark` to join them. |
 | `--neu-shade-dark` | unregistered | follows `--neu-shade` | Optional split intensity for the dark half. |
@@ -231,7 +231,8 @@ Every future `neu-*` component follows this. No exceptions without updating this
   them into `:root` / `.dark` and auto-mirrors a `--color-neu-surface` into
   `@theme inline`, so `bg-neu-surface` works as a Tailwind utility for free.
 - The `css` field carries, as JSON, every `@property` block, the `:root` scalars,
-  `[dir='rtl']`, the whole `@layer components` block, and both `@media` fallbacks.
+  `[dir='rtl']` and `[dir='ltr']`, the whole `@layer components` block, and both
+  `@media` fallbacks.
   `shadcn add` appends it to the consumer's `globals.css` verbatim (confirmed
   against a scratch consumer; nothing was rewritten or dropped).
 - Non-color scalars go through `css` `:root`, not `cssVars`, to avoid useless

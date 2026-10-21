@@ -93,6 +93,9 @@
     "[dir='rtl']": {
       "--neu-dir": "-1"
     },
+    "[dir='ltr']": {
+      "--neu-dir": "1"
+    },
     "@layer components": {
       ".neu-ground, .neu, .neu-pressed, .neu-concave, .neu-convex, .neu-realism": {
         "--_luma": "(0.2126 * r + 0.7152 * g + 0.0722 * b)",

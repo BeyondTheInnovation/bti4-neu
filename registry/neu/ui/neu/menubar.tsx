@@ -240,7 +240,7 @@ function MenubarSubTrigger({
       {...props}
     >
       {children}
-      <ChevronRightIcon className="ms-auto rtl:rotate-180" />
+      <ChevronRightIcon className="ms-auto scale-x-(--neu-dir)" />
     </MenubarPrimitive.SubTrigger>
   )
 }

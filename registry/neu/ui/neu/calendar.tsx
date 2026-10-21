@@ -39,8 +39,8 @@ function Calendar({
       showOutsideDays={showOutsideDays}
       className={cn(
         "group/calendar p-3 [--cell-size:--spacing(8)] [--neu-depth:0.33]",
-        String.raw`rtl:**:[.rdp-button\_next>svg]:rotate-180`,
-        String.raw`rtl:**:[.rdp-button\_previous>svg]:rotate-180`,
+        String.raw`**:[.rdp-button\_next>svg]:scale-x-(--neu-dir)`,
+        String.raw`**:[.rdp-button\_previous>svg]:scale-x-(--neu-dir)`,
         className
       )}
       captionLayout={captionLayout}

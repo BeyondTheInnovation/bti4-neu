@@ -43,3 +43,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .claude/worktrees/
+
+# playwright
+/test-results/
+/playwright-report/

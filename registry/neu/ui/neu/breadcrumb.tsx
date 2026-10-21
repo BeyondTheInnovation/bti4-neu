@@ -78,7 +78,7 @@ function BreadcrumbSeparator({
       className={cn("[&>svg]:size-3.5", className)}
       {...props}
     >
-      {children ?? <ChevronRight className="rtl:rotate-180" />}
+      {children ?? <ChevronRight className="scale-x-(--neu-dir)" />}
     </li>
   )
 }
