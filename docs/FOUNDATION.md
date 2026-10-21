@@ -357,14 +357,15 @@ the token becomes pure white or pure black, which is the maximum contrast
 that surface can support. This is the graceful floor, not a failure.
 
 Measured with Playwright against the playground (rendered 8-bit colors,
-ratios per the WCAG formula):
+ratios per the WCAG formula). `tests/contrast.spec.ts` re-measures every
+row on each CI run:
 
 | Surface | `--neu-text` | ratio | `--neu-text-muted` | ratio |
 | --- | --- | --- | --- | --- |
 | `oklch(0.97 0.005 250)` very light | near-black gray | 7.17 | dark gray | 4.61 |
 | `oklch(0.15 0.02 250)` very dark | light gray | 7.17 | mid gray | 4.58 |
-| `oklch(0.55 0.005 250)` mid, worst case | pure white (clamp) | 4.84 of 4.85 possible | near-white | 4.60 |
-| `#00a4ac` teal | pure black (clamp) | 6.91 of 6.92 possible | near-black teal | 4.58 |
+| `oklch(0.55 0.005 250)` mid, worst case | pure white (clamp) | 4.84, the maximum possible | near-white | 4.60 |
+| `#00a4ac` teal | pure black (clamp) | 6.91, the maximum possible | near-black teal | 4.58 |
 
 Proof screenshots: `docs/assets/foundation/contrast-{light,dark,mid,hue}.png`
 and `contrast-components-{light,dark}.png` (components demo, no regressions).
@@ -379,9 +380,8 @@ Notes and consequences:
   pure white/black exactly when contrast demands it.
 - `.neu-text-emboss` is exempt by design: its letters are surface-colored and
   read through the shadow pair, so it is decorative, not body text.
-- Known gap, out of scope here: `--neu-ring` is still a fixed
-  mid-lightness derivation and has no contrast guarantee against checked or
-  accent fills.
+- `--neu-ring` was a fixed mid-lightness derivation when this amendment
+  landed. It is now solved for 3:1 against the surface (see Tokens).
 - Browser floor is unchanged: relative color syntax with math functions,
   Chrome 119+, Safari 16.4+, Firefox 128+.
 
