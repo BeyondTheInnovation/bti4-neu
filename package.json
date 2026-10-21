@@ -11,7 +11,8 @@
     "registry:build": "shadcn build",
     "format": "oxfmt",
     "format:check": "oxfmt --check",
-    "test": "playwright test"
+    "test": "playwright test",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.9.1",

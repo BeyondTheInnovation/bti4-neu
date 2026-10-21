@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install --frozen-lockfile
+      - run: bun run lint
+      - name: Generate fumadocs sources
+        run: bunx fumadocs-mdx
+      - run: bun run typecheck
+      - run: bun run registry:build
+      - name: Fail on stale registry build
+        run: git diff --exit-code -- public/r
+      - run: bunx playwright install --with-deps chromium
+      - run: bun run test
+      - run: bun run build

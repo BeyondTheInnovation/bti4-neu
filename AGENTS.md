@@ -22,7 +22,9 @@ A neumorphic component library distributed as a shadcn registry, with a document
 
 - `bun install`, `bun run dev`.
 - `bun run registry:build` regenerates `public/r/` from `registry.json`.
-- Before pushing: `bun run lint` and `bun run build`. There is no test suite or CI workflow in the repo.
+- `bun run typecheck` runs `tsc --noEmit`; it needs `.source/`, so run `bunx fumadocs-mdx` first on a fresh clone.
+- `bun run test` runs the Playwright tests in `tests/` (RTL direction, contrast); install the browser once with `bunx playwright install chromium`.
+- Before pushing: `bun run lint`, `bun run typecheck`, `bun run test` and `bun run build`. CI (`.github/workflows/ci.yml`) runs the same plus `registry:build` and fails if `public/r` is stale.
 
 ## Conventions
 

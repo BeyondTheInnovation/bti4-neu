@@ -1,15 +1,11 @@
-import { readFile } from "node:fs/promises"
-import path from "node:path"
-
 import { expect, test } from "@playwright/test"
 import { renderToStaticMarkup } from "react-dom/server"
-import { compile } from "tailwindcss"
 
 import { BreadcrumbSeparator } from "@/registry/neu/ui/neu/breadcrumb"
 import { PaginationNext } from "@/registry/neu/ui/neu/pagination"
 import { Switch } from "@/registry/neu/ui/neu/switch"
 
-const root = path.resolve(__dirname, "..")
+import { buildCss } from "./theme-css"
 
 const sample = renderToStaticMarkup(
   <>
@@ -18,34 +14,6 @@ const sample = renderToStaticMarkup(
     <BreadcrumbSeparator />
   </>
 )
-
-async function buildCss(html: string) {
-  const compiler = await compile(
-    '@import "tailwindcss"; @import "./registry/neu/neu-theme/neu-theme.css";',
-    {
-      base: root,
-      loadStylesheet: async (id, base) => {
-        const file =
-          id === "tailwindcss"
-            ? require.resolve("tailwindcss/index.css")
-            : path.resolve(base, id)
-        return {
-          path: file,
-          base: path.dirname(file),
-          content: await readFile(file, "utf8"),
-        }
-      },
-    }
-  )
-  const classes = [...html.matchAll(/class="([^"]*)"/g)].flatMap(([, list]) =>
-    list
-      .replaceAll("&amp;", "&")
-      .replaceAll("&gt;", ">")
-      .replaceAll("&lt;", "<")
-      .split(/\s+/)
-  )
-  return compiler.build(classes)
-}
 
 test.beforeEach(async ({ page }) => {
   const html = `<div dir="rtl"><div id="page">${sample}</div><div id="island" dir="ltr">${sample}</div></div>`
