@@ -1,0 +1,381 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-theme",
+  "title": "Neu Theme",
+  "description": "Neumorphic token foundation: surface-derived dual shadows, four shapes, trig light source, state and focus channels.",
+  "cssVars": {
+    "light": {
+      "neu-surface": "oklch(0.92 0.005 250)"
+    },
+    "dark": {
+      "neu-surface": "oklch(0.25 0.02 250)"
+    }
+  },
+  "css": {
+    "@property --neu-surface": {
+      "syntax": "'<color>'",
+      "inherits": "true",
+      "initial-value": "oklch(0.92 0.005 250)"
+    },
+    "@property --neu-distance": {
+      "syntax": "'<length>'",
+      "inherits": "true",
+      "initial-value": "12px"
+    },
+    "@property --neu-blur": {
+      "syntax": "'<length>'",
+      "inherits": "true",
+      "initial-value": "24px"
+    },
+    "@property --neu-depth": {
+      "syntax": "'<number>'",
+      "inherits": "true",
+      "initial-value": "1"
+    },
+    "@property --neu-shade": {
+      "syntax": "'<number>'",
+      "inherits": "true",
+      "initial-value": "0.1"
+    },
+    "@property --neu-face": {
+      "syntax": "'<number>'",
+      "inherits": "true",
+      "initial-value": "0.03"
+    },
+    "@property --neu-light-angle": {
+      "syntax": "'<angle>'",
+      "inherits": "true",
+      "initial-value": "315deg"
+    },
+    "@property --neu-radius": {
+      "syntax": "'<length>'",
+      "inherits": "true",
+      "initial-value": "16px"
+    },
+    "@property --neu-alpha": {
+      "syntax": "'<number>'",
+      "inherits": "true",
+      "initial-value": "0.55"
+    },
+    "@property --neu-dir": {
+      "syntax": "'<number>'",
+      "inherits": "true",
+      "initial-value": "1"
+    },
+    "@property --neu-glint": {
+      "syntax": "'<number>'",
+      "inherits": "true",
+      "initial-value": "0.25"
+    },
+    "@property --neu-highlight": {
+      "syntax": "'<number>'",
+      "inherits": "true",
+      "initial-value": "0.3"
+    },
+    ":root": {
+      "--neu-distance": "12px",
+      "--neu-blur": "24px",
+      "--neu-depth": "1",
+      "--neu-shade": "0.1",
+      "--neu-face": "0.03",
+      "--neu-light-angle": "315deg",
+      "--neu-radius": "1rem",
+      "--neu-corner": "round",
+      "--neu-alpha": "0.55",
+      "--neu-dir": "1",
+      "--neu-glint": "0.25",
+      "--neu-highlight": "0.3",
+      "--neu-ring-width": "2px",
+      "--neu-ring-offset": "2px",
+      "--neu-ease-press": "100ms cubic-bezier(0.55, 0.055, 0.675, 0.19)",
+      "--neu-ease-release": "250ms cubic-bezier(0.215, 0.61, 0.355, 1)"
+    },
+    "[dir='rtl']": {
+      "--neu-dir": "-1"
+    },
+    "@layer components": {
+      ".neu-ground, .neu, .neu-pressed, .neu-concave, .neu-convex, .neu-realism": {
+        "--_luma": "(0.2126 * r + 0.7152 * g + 0.0722 * b)",
+        "--_flip": "clamp(0, 1, (0.1791 - var(--_luma)) * 1000000)",
+        "--_text-alpha": "clamp(0, 1, var(--_flip) * ((7.2 * (var(--_luma) + 0.05) - 0.05 - var(--_luma)) / max(1 - var(--_luma), 0.0001)) + (1 - var(--_flip)) * (1 - ((var(--_luma) + 0.05) / 7.2 - 0.05) / max(var(--_luma), 0.0001)))",
+        "--_muted-alpha": "clamp(0, 1, var(--_flip) * ((4.6 * (var(--_luma) + 0.05) - 0.05 - var(--_luma)) / max(1 - var(--_luma), 0.0001)) + (1 - var(--_flip)) * (1 - ((var(--_luma) + 0.05) / 4.6 - 0.05) / max(var(--_luma), 0.0001)))",
+        "--neu-text": "color(from var(--neu-surface) srgb-linear calc(var(--_text-alpha) * var(--_flip) + (1 - var(--_text-alpha)) * r) calc(var(--_text-alpha) * var(--_flip) + (1 - var(--_text-alpha)) * g) calc(var(--_text-alpha) * var(--_flip) + (1 - var(--_text-alpha)) * b))",
+        "--neu-text-muted": "color(from var(--neu-surface) srgb-linear calc(var(--_muted-alpha) * var(--_flip) + (1 - var(--_muted-alpha)) * r) calc(var(--_muted-alpha) * var(--_flip) + (1 - var(--_muted-alpha)) * g) calc(var(--_muted-alpha) * var(--_flip) + (1 - var(--_muted-alpha)) * b))",
+        "--_l3": "(l * l * l)",
+        "--_lflip": "clamp(0, (0.5637 - l) * 1000000, 1)",
+        "--_ring-l": "calc(var(--_lflip) * max(0.55, pow(min(3.6 * (var(--_l3) + 0.05) - 0.05, 1), 1 / 3)) + (1 - var(--_lflip)) * min(0.55, pow(max((var(--_l3) + 0.05) / 3.6 - 0.05, 0), 1 / 3)))",
+        "--_ink-l": "calc(var(--_lflip) * max(0.6, pow(min(5.2 * (var(--_l3) + 0.05) - 0.05, 1), 1 / 3)) + (1 - var(--_lflip)) * min(0.5, pow(max((var(--_l3) + 0.05) / 5.2 - 0.05, 0), 1 / 3)))",
+        "--_destructive-l": "calc(var(--_lflip) * max(0.65, pow(min(5.4 * (var(--_l3) + 0.05) - 0.05, 1), 1 / 3)) + (1 - var(--_lflip)) * min(0.52, pow(max((var(--_l3) + 0.05) / 5.4 - 0.05, 0), 1 / 3)))",
+        "--_edge-l": "calc(var(--_lflip) * pow(min(3.4 * (var(--_l3) + 0.05) - 0.05, 1), 1 / 3) + (1 - var(--_lflip)) * pow(max((var(--_l3) + 0.05) / 3.4 - 0.05, 0), 1 / 3))",
+        "--neu-ring": "oklch(from var(--neu-surface) var(--_ring-l) calc(0.17 * min(1, (1 - var(--_ring-l)) * 4)) h)",
+        "--neu-knob-ink": "oklch(from var(--neu-surface) var(--_ink-l) calc(0.15 * min(1, (1 - var(--_ink-l)) * 4)) h)",
+        "--neu-destructive": "oklch(from var(--neu-surface) var(--_destructive-l) calc(0.2 * min(1, (1 - var(--_destructive-l)) * 4)) 25)",
+        "--neu-edge": "oklch(from var(--neu-surface) var(--_edge-l) c h)",
+        "--destructive": "var(--neu-destructive)",
+        "color": "var(--neu-text)"
+      },
+      ".neu-ground": {
+        "background": "var(--neu-surface)"
+      },
+      ".neu, .neu-pressed, .neu-concave, .neu-convex, .neu-realism, .neu-text-emboss, .neu-lift, .neu-lift-sm, .neu-engrave, .neu-glyph-lift, .neu-overlay, .neu-overlay-scrim": {
+        "--_dark": "oklch(from var(--neu-surface) calc(l - var(--neu-shade-dark, var(--neu-shade)) * clamp(1, 1.9 - l * 1.5, 1.6)) c h / var(--neu-alpha))",
+        "--_light": "oklch(from var(--neu-surface) calc(l + var(--neu-shade-light, var(--neu-shade)) * clamp(1, 1.9 - l * 1.5, 1.6)) c h / var(--neu-alpha))",
+        "--_drop": "var(--neu-drop, oklch(from var(--neu-surface) calc(l * 0.15) c h / min(1, var(--neu-alpha) * var(--neu-shade-dark, var(--neu-shade)) * clamp(1, 1.9 - l * 1.5, 1.6) / max(l * 0.85, 0.01))))",
+        "--_face-dark": "oklch(from var(--neu-surface) calc(l - var(--neu-face)) c h)",
+        "--_face-light": "oklch(from var(--neu-surface) calc(l + var(--neu-face)) c h)",
+        "--_x": "calc(var(--neu-distance) * var(--neu-depth) * var(--_lift, 1) * -1 * sin(var(--neu-light-angle)))",
+        "--_y": "calc(var(--neu-distance) * var(--neu-depth) * var(--_lift, 1) * cos(var(--neu-light-angle)))",
+        "--_blur": "calc(var(--neu-blur) * var(--neu-depth) * var(--_lift, 1))",
+        "--_gx": "calc(1px * sin(var(--neu-light-angle)))",
+        "--_gy": "calc(-1px * cos(var(--neu-light-angle)))",
+        "--_glint": "oklch(from var(--neu-surface) 0.97 c h / calc(clamp(0, (0.62 - l) * 3, 1) * 0.3 * var(--neu-glint) * min(1, var(--neu-alpha) * 1000)))"
+      },
+      ".neu, .neu-pressed, .neu-concave, .neu-convex, .neu-realism": {
+        "border-radius": "var(--neu-radius)",
+        "corner-shape": "var(--neu-corner)",
+        "background": "var(--neu-surface)",
+        "box-shadow": "var(--_x) var(--_y) var(--_blur) var(--_dark), calc(var(--_x) * -1) calc(var(--_y) * -1) var(--_blur) oklch(from var(--_light) l c h / calc(alpha * var(--neu-highlight))), inset var(--_gx) var(--_gy) 0 var(--_glint)"
+      },
+      ".neu-pressed": {
+        "box-shadow": "inset var(--_x) var(--_y) var(--_blur) var(--_dark), inset calc(var(--_x) * -1) calc(var(--_y) * -1) var(--_blur) var(--_light), inset calc(var(--_gx) * -1) calc(var(--_gy) * -1) 0 var(--_glint)"
+      },
+      ".neu-field": {
+        "border": "1px solid color-mix(in oklch, var(--neu-edge) 30%, var(--neu-surface))"
+      },
+      ".neu-line, .neu-line-b, .neu-line-t": {
+        "--_line-dark": "oklch(from var(--neu-surface) calc(l - var(--neu-shade-dark, var(--neu-shade)) * clamp(1, 1.9 - l * 1.5, 1.6)) c h / 0.7)",
+        "--_line-light": "oklch(from var(--neu-surface) calc(l + var(--neu-shade-light, var(--neu-shade)) * clamp(1, 1.9 - l * 1.5, 1.6)) c h / 0.3)",
+        "--_line-w": "clamp(1px, calc(var(--neu-distance) / 6), 4px)"
+      },
+      ".neu-line": {
+        "height": "var(--_line-w)",
+        "background": "linear-gradient(var(--_line-dark) 15%, var(--_line-light) 85%)",
+        "border-radius": "calc(infinity * 1px)",
+        "corner-shape": "var(--neu-corner)"
+      },
+      ".neu-line[data-orientation=\"vertical\"], .neu-line[aria-orientation=\"vertical\"]": {
+        "width": "var(--_line-w)",
+        "height": "auto",
+        "background": "linear-gradient(to right, var(--_line-dark) 15%, var(--_line-light) 85%)"
+      },
+      ".neu-line-b, .neu-line-t": {
+        "background-image": "linear-gradient(var(--_line-dark) 15%, var(--_line-light) 85%)",
+        "background-size": "100% var(--_line-w)",
+        "background-repeat": "no-repeat"
+      },
+      ".neu-line-b": {
+        "background-position": "0 100%"
+      },
+      ".neu-line-t": {
+        "background-position": "0 0"
+      },
+      ".neu-concave": {
+        "background": "linear-gradient(var(--neu-light-angle), var(--_face-light), var(--_face-dark))"
+      },
+      ".neu-convex": {
+        "background": "linear-gradient(var(--neu-light-angle), var(--_face-dark), var(--_face-light))"
+      },
+      ".neu-convex:is(.neu-active-sink:active, .neu-state-sink:is([data-state=\"checked\"], [data-state=\"on\"], [data-state=\"open\"], [aria-pressed=\"true\"], [aria-current=\"page\"]))": {
+        "background": "linear-gradient(var(--neu-light-angle), var(--_face-light), var(--_face-dark))"
+      },
+      ".neu-realism": {
+        "box-shadow": "calc(var(--_x) * 0.08) calc(var(--_y) * 0.08) calc(var(--_blur) * 0.06) calc(var(--_blur) * -0.03) oklch(from var(--_dark) l c h / calc(alpha * 0.5)), calc(var(--_x) * 0.16) calc(var(--_y) * 0.16) calc(var(--_blur) * 0.12) calc(var(--_blur) * -0.05) oklch(from var(--_dark) l c h / calc(alpha * 0.48)), calc(var(--_x) * 0.3) calc(var(--_y) * 0.3) calc(var(--_blur) * 0.24) calc(var(--_blur) * -0.08) oklch(from var(--_dark) l c h / calc(alpha * 0.44)), calc(var(--_x) * 0.55) calc(var(--_y) * 0.55) calc(var(--_blur) * 0.46) calc(var(--_blur) * -0.1) oklch(from var(--_dark) l c h / calc(alpha * 0.36)), var(--_x) var(--_y) var(--_blur) calc(var(--_blur) * -0.13) oklch(from var(--_dark) l c h / calc(alpha * 0.18)), inset var(--_gx) var(--_gy) 0 oklch(from var(--_light) l c h / calc(alpha * 0.9)), inset calc(var(--_gx) * -1) calc(var(--_gy) * -1) 0 oklch(from var(--_dark) l c h / calc(alpha * 0.5))"
+      },
+      ".neu-text-emboss": {
+        "color": "var(--neu-surface)",
+        "text-shadow": "calc(var(--_x) * -1) calc(var(--_y) * -1) var(--_blur) var(--_light), var(--_x) var(--_y) var(--_blur) var(--_dark)"
+      },
+      ".neu-knob, .neu-lift, .neu-lift-sm": {
+        "--_kx": "calc(var(--neu-distance) * var(--neu-depth) * var(--_k, 0.25) * -1 * sin(var(--neu-light-angle)))",
+        "--_ky": "calc(var(--neu-distance) * var(--neu-depth) * var(--_k, 0.25) * cos(var(--neu-light-angle)))",
+        "--_kblur": "calc(var(--neu-blur) * var(--neu-depth) * var(--_k, 0.25))"
+      },
+      ".neu-knob": {
+        "--_kf": "var(--neu-knob, var(--neu-surface))",
+        "border": "1px solid transparent",
+        "border-radius": "calc(infinity * 1px)",
+        "background": "linear-gradient(var(--neu-light-angle), oklch(from var(--_kf) calc(l - 0.03) c h), var(--_kf)) padding-box, linear-gradient(var(--neu-light-angle), oklch(from var(--_kf) calc(l - 0.09) c h), oklch(from var(--_kf) calc(l - 0.02) c h)) border-box"
+      },
+      ".neu-lift": {
+        "--_k": "0.34"
+      },
+      ".neu-lift-sm": {
+        "--_k": "0.22"
+      },
+      ".neu-lift, .neu-lift-sm": {
+        "box-shadow": "calc(var(--_kx) * 0.3) calc(var(--_ky) * 0.3) calc(var(--_kblur) * 0.25) oklch(from var(--_drop) l c h / calc(alpha * 0.9)), var(--_kx) var(--_ky) var(--_kblur) var(--_drop)"
+      },
+      ".neu-cap, .neu-cap-lift, .neu-cap-lift-sm, .neu-groove, .neu-state-cap": {
+        "--_lx": "calc(sin(var(--neu-light-angle)) * -1.41421356)",
+        "--_ly": "calc(cos(var(--neu-light-angle)) * 1.41421356)",
+        "--_u": "calc(var(--neu-distance) / 12)",
+        "--neu-knob-ink": "oklch(from var(--neu-ring) min(l, 0.42) c h)"
+      },
+      ".neu-cap, .neu-state-cap[data-state='on'], .neu-state-cap[data-state='active'], .neu-state-cap[aria-pressed='true']": {
+        "--_kb": "var(--neu-knob, oklch(from var(--neu-surface) max(calc(l + 0.08), 0.84) calc(c * 0.5) h))",
+        "border": "1px solid transparent",
+        "border-radius": "calc(infinity * 1px)",
+        "background": "linear-gradient(oklch(from var(--_kb) calc(l - 0.01) c h), oklch(from var(--_kb) calc(l - 0.035) c h)) padding-box, linear-gradient(calc(var(--neu-light-angle) - 180deg), oklch(from var(--_kb) calc(l + 0.04) c h), oklch(from var(--_kb) calc(l - 0.05) c h)) border-box"
+      },
+      ".neu-cap-lift": {
+        "box-shadow": "calc(var(--_lx) * var(--_u) * 0.59) calc(var(--_ly) * var(--_u) * 0.59) calc(var(--_u) * 1.16) calc(var(--_u) * -0.47) oklch(0 0 0 / 0.26), calc(var(--_lx) * var(--_u) * 1.39) calc(var(--_ly) * var(--_u) * 1.39) calc(var(--_u) * 2.76) calc(var(--_u) * -0.94) oklch(0 0 0 / 0.26), calc(var(--_lx) * var(--_u) * 2.54) calc(var(--_ly) * var(--_u) * 2.54) calc(var(--_u) * 5.03) calc(var(--_u) * -1.41) oklch(0 0 0 / 0.25), calc(var(--_lx) * var(--_u) * 4.23) calc(var(--_ly) * var(--_u) * 4.23) calc(var(--_u) * 8.37) calc(var(--_u) * -1.88) oklch(0 0 0 / 0.24), calc(var(--_lx) * var(--_u) * 6.82) calc(var(--_ly) * var(--_u) * 6.82) calc(var(--_u) * 13.51) calc(var(--_u) * -2.34) oklch(0 0 0 / 0.23), calc(var(--_lx) * var(--_u) * 11.17) calc(var(--_ly) * var(--_u) * 11.17) calc(var(--_u) * 22.11) calc(var(--_u) * -2.81) oklch(0 0 0 / 0.21), calc(var(--_lx) * var(--_u) * 19.23) calc(var(--_ly) * var(--_u) * 19.23) calc(var(--_u) * 38.08) calc(var(--_u) * -3.28) oklch(0 0 0 / 0.17), calc(var(--_lx) * var(--_u) * 35) calc(var(--_ly) * var(--_u) * 35) calc(var(--_u) * 69.3) calc(var(--_u) * -3.75) oklch(0 0 0 / 0.09)"
+      },
+      ".neu-cap-lift-sm, .neu-state-cap[data-state='on'], .neu-state-cap[data-state='active'], .neu-state-cap[aria-pressed='true']": {
+        "box-shadow": "calc(var(--_lx) * var(--_u) * 0.35) calc(var(--_ly) * var(--_u) * 0.35) calc(var(--_u) * 0.7) calc(var(--_u) * -0.28) oklch(0 0 0 / 0.26), calc(var(--_lx) * var(--_u) * 0.83) calc(var(--_ly) * var(--_u) * 0.83) calc(var(--_u) * 1.66) calc(var(--_u) * -0.56) oklch(0 0 0 / 0.26), calc(var(--_lx) * var(--_u) * 1.52) calc(var(--_ly) * var(--_u) * 1.52) calc(var(--_u) * 3.02) calc(var(--_u) * -0.85) oklch(0 0 0 / 0.25), calc(var(--_lx) * var(--_u) * 2.54) calc(var(--_ly) * var(--_u) * 2.54) calc(var(--_u) * 5.02) calc(var(--_u) * -1.13) oklch(0 0 0 / 0.24), calc(var(--_lx) * var(--_u) * 4.09) calc(var(--_ly) * var(--_u) * 4.09) calc(var(--_u) * 8.11) calc(var(--_u) * -1.4) oklch(0 0 0 / 0.23), calc(var(--_lx) * var(--_u) * 6.7) calc(var(--_ly) * var(--_u) * 6.7) calc(var(--_u) * 13.27) calc(var(--_u) * -1.69) oklch(0 0 0 / 0.21), calc(var(--_lx) * var(--_u) * 11.54) calc(var(--_ly) * var(--_u) * 11.54) calc(var(--_u) * 22.85) calc(var(--_u) * -1.97) oklch(0 0 0 / 0.17), calc(var(--_lx) * var(--_u) * 21) calc(var(--_ly) * var(--_u) * 21) calc(var(--_u) * 41.58) calc(var(--_u) * -2.25) oklch(0 0 0 / 0.09)"
+      },
+      ".neu-groove": {
+        "border-radius": "calc(infinity * 1px)",
+        "background": "oklch(from var(--neu-surface) calc(l - var(--neu-shade) * 0.45 * clamp(1, 1.9 - l * 1.5, 1.6)) c h)",
+        "box-shadow": "inset calc(var(--_lx) * var(--_u)) calc(var(--_ly) * var(--_u)) calc(var(--_u) * 2) 0 oklch(0 0 0 / 0.25)"
+      },
+      ".neu-rise": {
+        "transition": "opacity 160ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 280ms cubic-bezier(0.23, 1, 0.32, 1), filter 280ms cubic-bezier(0.23, 1, 0.32, 1)"
+      },
+      ".neu-rise[data-state=\"unchecked\"]": {
+        "opacity": "0",
+        "box-shadow": "none",
+        "filter": "none",
+        "transition-duration": "140ms"
+      },
+      ".neu-glyph-lift": {
+        "--_ex": "calc(var(--neu-distance) * var(--neu-depth) * -0.4 * sin(var(--neu-light-angle)))",
+        "--_ey": "calc(var(--neu-distance) * var(--neu-depth) * 0.4 * cos(var(--neu-light-angle)))",
+        "filter": "drop-shadow(calc(var(--_ex) * 0.4) calc(var(--_ey) * 0.4) 0.4px oklch(from var(--_drop) l c h / max(calc(alpha * 1.2), 0.35))) drop-shadow(var(--_ex) var(--_ey) calc(var(--neu-distance) * var(--neu-depth) * 0.5) oklch(from var(--_drop) l c h / max(alpha, 0.18)))"
+      },
+      ".neu-engrave": {
+        "box-shadow": "inset calc(var(--_gx) * -1) calc(var(--_gy) * -1) 0 oklch(from var(--_dark) l c h / calc(alpha * 1.1)), inset var(--_gx) var(--_gy) 0 oklch(from var(--_light) l c h / calc(alpha * 1.3)), inset calc(var(--_gx) * -2) calc(var(--_gy) * -2) 2px oklch(from var(--_dark) l c h / calc(alpha * 0.4)), inset calc(var(--_gx) * 2) calc(var(--_gy) * 2) 2px oklch(from var(--_light) l c h / calc(alpha * 0.5))"
+      },
+      ".neu-overlay, .neu-overlay-scrim": {
+        "--_ox": "calc(var(--neu-distance) * var(--neu-depth) * -0.5 * sin(var(--neu-light-angle)))",
+        "--_oy": "calc(var(--neu-distance) * var(--neu-depth) * 0.5 * cos(var(--neu-light-angle)))",
+        "border": "1px solid var(--neu-edge)",
+        "background": "var(--neu-surface)",
+        "color": "var(--neu-text)"
+      },
+      ".neu-overlay": {
+        "box-shadow": "var(--_ox) var(--_oy) calc(var(--neu-blur) * var(--neu-depth) * 0.6) oklch(from var(--_drop) l c h / calc(alpha * 1.2))"
+      },
+      ".neu-overlay-scrim": {
+        "box-shadow": "calc(var(--_ox) * 1.5) calc(var(--_oy) * 1.5) calc(var(--neu-blur) * var(--neu-depth)) oklch(from var(--neu-surface) 0.12 c h / calc(var(--neu-alpha) * 0.7))"
+      },
+      ".neu-overlay-motion": {
+        "--_tx": "0px",
+        "--_ty": "0px"
+      },
+      ".neu-overlay-motion[data-side='bottom']": {
+        "--_ty": "-4px"
+      },
+      ".neu-overlay-motion[data-side='top']": {
+        "--_ty": "4px"
+      },
+      ".neu-overlay-motion[data-side='left']": {
+        "--_tx": "4px"
+      },
+      ".neu-overlay-motion[data-side='right']": {
+        "--_tx": "-4px"
+      },
+      ".neu-overlay-motion.neu-overlay-scrim": {
+        "--_ty": "8px"
+      },
+      ".neu-overlay-motion:is([data-state='open'], [data-state='delayed-open'])": {
+        "animation": "neu-overlay-in 180ms cubic-bezier(0.23, 1, 0.32, 1)"
+      },
+      ".neu-overlay-motion.neu-overlay-scrim[data-state='open']": {
+        "animation-duration": "240ms"
+      },
+      ".neu-overlay-motion[data-state='closed']": {
+        "animation": "neu-overlay-out 120ms cubic-bezier(0.23, 1, 0.32, 1) forwards"
+      },
+      ".neu-preset-flat": {
+        "--neu-distance": "5px",
+        "--neu-blur": "10px",
+        "--neu-shade": "0.05",
+        "--neu-face": "0.015"
+      },
+      ".neu-preset-soft": {
+        "--neu-distance": "9px",
+        "--neu-blur": "22px",
+        "--neu-shade": "0.08",
+        "--neu-face": "0.025"
+      },
+      ".neu-preset-deep": {
+        "--neu-distance": "16px",
+        "--neu-blur": "30px",
+        "--neu-shade": "0.13",
+        "--neu-face": "0.045"
+      },
+      ".neu-preset-dramatic": {
+        "--neu-distance": "22px",
+        "--neu-blur": "36px",
+        "--neu-shade-light": "0.2",
+        "--neu-shade-dark": "0.15",
+        "--neu-face": "0.06",
+        "--neu-alpha": "0.7"
+      },
+      ".neu-active-sink, .neu-state-sink": {
+        "transition": "box-shadow var(--neu-ease-release)"
+      },
+      ".neu-active-sink:active, .neu-state-sink[data-state=\"checked\"], .neu-state-sink[data-state=\"on\"], .neu-state-sink[data-state=\"open\"], .neu-state-sink[aria-pressed=\"true\"], .neu-state-sink[aria-current=\"page\"]": {
+        "--_lift": "0.75",
+        "transition": "box-shadow var(--neu-ease-press)",
+        "box-shadow": "inset var(--_x) var(--_y) var(--_blur) var(--_dark), inset calc(var(--_x) * -1) calc(var(--_y) * -1) var(--_blur) var(--_light), inset calc(var(--_gx) * -1) calc(var(--_gy) * -1) 0 var(--_glint)"
+      },
+      ":where(.neu, .neu-pressed, .neu-concave, .neu-convex, .neu-realism, .neu-knob, .neu-groove, .neu-engrave):focus-visible": {
+        "outline": "var(--neu-ring-width) solid var(--neu-ring)",
+        "outline-offset": "var(--neu-ring-offset)"
+      }
+    },
+    "@keyframes neu-overlay-in": {
+      "from": {
+        "opacity": "0",
+        "transform": "translate(var(--_tx), var(--_ty))"
+      }
+    },
+    "@keyframes neu-overlay-out": {
+      "to": {
+        "opacity": "0",
+        "transform": "translate(var(--_tx), var(--_ty))"
+      }
+    },
+    "@media (prefers-reduced-motion: reduce)": {
+      ".neu-overlay-motion": {
+        "--_tx": "0px !important",
+        "--_ty": "0px !important"
+      },
+      ".neu-overlay-scrim[data-vaul-drawer]": {
+        "animation-duration": "0s !important"
+      },
+      ".neu-rise, .neu-active-sink, .neu-state-sink, .neu-active-sink:active, .neu-state-sink[data-state=\"checked\"], .neu-state-sink[data-state=\"on\"], .neu-state-sink[data-state=\"open\"], .neu-state-sink[aria-pressed=\"true\"], .neu-state-sink[aria-current=\"page\"]": {
+        "transition": "none"
+      }
+    },
+    "@media (prefers-contrast: more)": {
+      ".neu, .neu-pressed, .neu-concave, .neu-convex, .neu-realism, .neu-overlay, .neu-overlay-scrim, .neu-groove": {
+        "border": "1px solid var(--neu-text)"
+      },
+      ".neu-field[aria-invalid='true']": {
+        "border-color": "var(--destructive)"
+      }
+    },
+    "@media (forced-colors: active)": {
+      ".neu, .neu-pressed, .neu-concave, .neu-convex, .neu-realism, .neu-overlay, .neu-overlay-scrim, .neu-groove": {
+        "border": "1px solid ButtonText"
+      },
+      ".neu-cap[data-slot='sliding-key'], .neu-state-cap:is([data-state='on'], [data-state='active'], [aria-pressed='true']), .neu-state-sink:is([data-state='on'], [data-state='open'], [aria-pressed='true'], [data-active='true'])": {
+        "forced-color-adjust": "none",
+        "border-color": "Highlight",
+        "background": "Highlight",
+        "color": "HighlightText"
+      },
+      "[data-slot='slider-range'], [data-slot='progress-indicator'], [data-slot='radio-group-indicator']": {
+        "forced-color-adjust": "none",
+        "background": "Highlight"
+      },
+      "[data-slot=\"checkbox-indicator\"]": {
+        "forced-color-adjust": "none",
+        "color": "Highlight"
+      }
+    }
+  },
+  "type": "registry:theme"
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-textarea-demo",
+  "title": "Neu Textarea Demo",
+  "description": "Neu textarea states on a neumorphic ground.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-textarea.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-textarea-demo.tsx",
+      "content": "\"use client\"\n\nimport { Textarea } from \"@/registry/neu/ui/neu/textarea\"\n\nexport function NeuTextareaDemo() {\n  return (\n    <div className=\"neu-ground flex w-full max-w-sm flex-col gap-4 rounded-(--neu-radius) p-8\">\n      <Textarea placeholder=\"Type your message here.\" />\n      <Textarea aria-invalid placeholder=\"Invalid\" />\n      <Textarea disabled placeholder=\"Disabled\" />\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

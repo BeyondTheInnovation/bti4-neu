@@ -1,0 +1,2126 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "neu",
+  "homepage": "https://neu.beyondtheinnovation.com",
+  "items": [
+    {
+      "name": "neu-theme",
+      "type": "registry:theme",
+      "title": "Neu Theme",
+      "description": "Neumorphic token foundation: surface-derived dual shadows, four shapes, trig light source, state and focus channels.",
+      "cssVars": {
+        "light": {
+          "neu-surface": "oklch(0.92 0.005 250)"
+        },
+        "dark": {
+          "neu-surface": "oklch(0.25 0.02 250)"
+        }
+      },
+      "css": {
+        "@property --neu-surface": {
+          "syntax": "'<color>'",
+          "inherits": "true",
+          "initial-value": "oklch(0.92 0.005 250)"
+        },
+        "@property --neu-distance": {
+          "syntax": "'<length>'",
+          "inherits": "true",
+          "initial-value": "12px"
+        },
+        "@property --neu-blur": {
+          "syntax": "'<length>'",
+          "inherits": "true",
+          "initial-value": "24px"
+        },
+        "@property --neu-depth": {
+          "syntax": "'<number>'",
+          "inherits": "true",
+          "initial-value": "1"
+        },
+        "@property --neu-shade": {
+          "syntax": "'<number>'",
+          "inherits": "true",
+          "initial-value": "0.1"
+        },
+        "@property --neu-face": {
+          "syntax": "'<number>'",
+          "inherits": "true",
+          "initial-value": "0.03"
+        },
+        "@property --neu-light-angle": {
+          "syntax": "'<angle>'",
+          "inherits": "true",
+          "initial-value": "315deg"
+        },
+        "@property --neu-radius": {
+          "syntax": "'<length>'",
+          "inherits": "true",
+          "initial-value": "16px"
+        },
+        "@property --neu-alpha": {
+          "syntax": "'<number>'",
+          "inherits": "true",
+          "initial-value": "0.55"
+        },
+        "@property --neu-dir": {
+          "syntax": "'<number>'",
+          "inherits": "true",
+          "initial-value": "1"
+        },
+        "@property --neu-glint": {
+          "syntax": "'<number>'",
+          "inherits": "true",
+          "initial-value": "0.25"
+        },
+        "@property --neu-highlight": {
+          "syntax": "'<number>'",
+          "inherits": "true",
+          "initial-value": "0.3"
+        },
+        ":root": {
+          "--neu-distance": "12px",
+          "--neu-blur": "24px",
+          "--neu-depth": "1",
+          "--neu-shade": "0.1",
+          "--neu-face": "0.03",
+          "--neu-light-angle": "315deg",
+          "--neu-radius": "1rem",
+          "--neu-corner": "round",
+          "--neu-alpha": "0.55",
+          "--neu-dir": "1",
+          "--neu-glint": "0.25",
+          "--neu-highlight": "0.3",
+          "--neu-ring-width": "2px",
+          "--neu-ring-offset": "2px",
+          "--neu-ease-press": "100ms cubic-bezier(0.55, 0.055, 0.675, 0.19)",
+          "--neu-ease-release": "250ms cubic-bezier(0.215, 0.61, 0.355, 1)"
+        },
+        "[dir='rtl']": {
+          "--neu-dir": "-1"
+        },
+        "@layer components": {
+          ".neu-ground, .neu, .neu-pressed, .neu-concave, .neu-convex, .neu-realism": {
+            "--_luma": "(0.2126 * r + 0.7152 * g + 0.0722 * b)",
+            "--_flip": "clamp(0, 1, (0.1791 - var(--_luma)) * 1000000)",
+            "--_text-alpha": "clamp(0, 1, var(--_flip) * ((7.2 * (var(--_luma) + 0.05) - 0.05 - var(--_luma)) / max(1 - var(--_luma), 0.0001)) + (1 - var(--_flip)) * (1 - ((var(--_luma) + 0.05) / 7.2 - 0.05) / max(var(--_luma), 0.0001)))",
+            "--_muted-alpha": "clamp(0, 1, var(--_flip) * ((4.6 * (var(--_luma) + 0.05) - 0.05 - var(--_luma)) / max(1 - var(--_luma), 0.0001)) + (1 - var(--_flip)) * (1 - ((var(--_luma) + 0.05) / 4.6 - 0.05) / max(var(--_luma), 0.0001)))",
+            "--neu-text": "color(from var(--neu-surface) srgb-linear calc(var(--_text-alpha) * var(--_flip) + (1 - var(--_text-alpha)) * r) calc(var(--_text-alpha) * var(--_flip) + (1 - var(--_text-alpha)) * g) calc(var(--_text-alpha) * var(--_flip) + (1 - var(--_text-alpha)) * b))",
+            "--neu-text-muted": "color(from var(--neu-surface) srgb-linear calc(var(--_muted-alpha) * var(--_flip) + (1 - var(--_muted-alpha)) * r) calc(var(--_muted-alpha) * var(--_flip) + (1 - var(--_muted-alpha)) * g) calc(var(--_muted-alpha) * var(--_flip) + (1 - var(--_muted-alpha)) * b))",
+            "--_l3": "(l * l * l)",
+            "--_lflip": "clamp(0, (0.5637 - l) * 1000000, 1)",
+            "--_ring-l": "calc(var(--_lflip) * max(0.55, pow(min(3.6 * (var(--_l3) + 0.05) - 0.05, 1), 1 / 3)) + (1 - var(--_lflip)) * min(0.55, pow(max((var(--_l3) + 0.05) / 3.6 - 0.05, 0), 1 / 3)))",
+            "--_ink-l": "calc(var(--_lflip) * max(0.6, pow(min(5.2 * (var(--_l3) + 0.05) - 0.05, 1), 1 / 3)) + (1 - var(--_lflip)) * min(0.5, pow(max((var(--_l3) + 0.05) / 5.2 - 0.05, 0), 1 / 3)))",
+            "--_destructive-l": "calc(var(--_lflip) * max(0.65, pow(min(5.4 * (var(--_l3) + 0.05) - 0.05, 1), 1 / 3)) + (1 - var(--_lflip)) * min(0.52, pow(max((var(--_l3) + 0.05) / 5.4 - 0.05, 0), 1 / 3)))",
+            "--_edge-l": "calc(var(--_lflip) * pow(min(3.4 * (var(--_l3) + 0.05) - 0.05, 1), 1 / 3) + (1 - var(--_lflip)) * pow(max((var(--_l3) + 0.05) / 3.4 - 0.05, 0), 1 / 3))",
+            "--neu-ring": "oklch(from var(--neu-surface) var(--_ring-l) calc(0.17 * min(1, (1 - var(--_ring-l)) * 4)) h)",
+            "--neu-knob-ink": "oklch(from var(--neu-surface) var(--_ink-l) calc(0.15 * min(1, (1 - var(--_ink-l)) * 4)) h)",
+            "--neu-destructive": "oklch(from var(--neu-surface) var(--_destructive-l) calc(0.2 * min(1, (1 - var(--_destructive-l)) * 4)) 25)",
+            "--neu-edge": "oklch(from var(--neu-surface) var(--_edge-l) c h)",
+            "--destructive": "var(--neu-destructive)",
+            "color": "var(--neu-text)"
+          },
+          ".neu-ground": {
+            "background": "var(--neu-surface)"
+          },
+          ".neu, .neu-pressed, .neu-concave, .neu-convex, .neu-realism, .neu-text-emboss, .neu-lift, .neu-lift-sm, .neu-engrave, .neu-glyph-lift, .neu-overlay, .neu-overlay-scrim": {
+            "--_dark": "oklch(from var(--neu-surface) calc(l - var(--neu-shade-dark, var(--neu-shade)) * clamp(1, 1.9 - l * 1.5, 1.6)) c h / var(--neu-alpha))",
+            "--_light": "oklch(from var(--neu-surface) calc(l + var(--neu-shade-light, var(--neu-shade)) * clamp(1, 1.9 - l * 1.5, 1.6)) c h / var(--neu-alpha))",
+            "--_drop": "var(--neu-drop, oklch(from var(--neu-surface) calc(l * 0.15) c h / min(1, var(--neu-alpha) * var(--neu-shade-dark, var(--neu-shade)) * clamp(1, 1.9 - l * 1.5, 1.6) / max(l * 0.85, 0.01))))",
+            "--_face-dark": "oklch(from var(--neu-surface) calc(l - var(--neu-face)) c h)",
+            "--_face-light": "oklch(from var(--neu-surface) calc(l + var(--neu-face)) c h)",
+            "--_x": "calc(var(--neu-distance) * var(--neu-depth) * var(--_lift, 1) * -1 * sin(var(--neu-light-angle)))",
+            "--_y": "calc(var(--neu-distance) * var(--neu-depth) * var(--_lift, 1) * cos(var(--neu-light-angle)))",
+            "--_blur": "calc(var(--neu-blur) * var(--neu-depth) * var(--_lift, 1))",
+            "--_gx": "calc(1px * sin(var(--neu-light-angle)))",
+            "--_gy": "calc(-1px * cos(var(--neu-light-angle)))",
+            "--_glint": "oklch(from var(--neu-surface) 0.97 c h / calc(clamp(0, (0.62 - l) * 3, 1) * 0.3 * var(--neu-glint) * min(1, var(--neu-alpha) * 1000)))"
+          },
+          ".neu, .neu-pressed, .neu-concave, .neu-convex, .neu-realism": {
+            "border-radius": "var(--neu-radius)",
+            "corner-shape": "var(--neu-corner)",
+            "background": "var(--neu-surface)",
+            "box-shadow": "var(--_x) var(--_y) var(--_blur) var(--_dark), calc(var(--_x) * -1) calc(var(--_y) * -1) var(--_blur) oklch(from var(--_light) l c h / calc(alpha * var(--neu-highlight))), inset var(--_gx) var(--_gy) 0 var(--_glint)"
+          },
+          ".neu-pressed": {
+            "box-shadow": "inset var(--_x) var(--_y) var(--_blur) var(--_dark), inset calc(var(--_x) * -1) calc(var(--_y) * -1) var(--_blur) var(--_light), inset calc(var(--_gx) * -1) calc(var(--_gy) * -1) 0 var(--_glint)"
+          },
+          ".neu-field": {
+            "border": "1px solid color-mix(in oklch, var(--neu-edge) 30%, var(--neu-surface))"
+          },
+          ".neu-line, .neu-line-b, .neu-line-t": {
+            "--_line-dark": "oklch(from var(--neu-surface) calc(l - var(--neu-shade-dark, var(--neu-shade)) * clamp(1, 1.9 - l * 1.5, 1.6)) c h / 0.7)",
+            "--_line-light": "oklch(from var(--neu-surface) calc(l + var(--neu-shade-light, var(--neu-shade)) * clamp(1, 1.9 - l * 1.5, 1.6)) c h / 0.3)",
+            "--_line-w": "clamp(1px, calc(var(--neu-distance) / 6), 4px)"
+          },
+          ".neu-line": {
+            "height": "var(--_line-w)",
+            "background": "linear-gradient(var(--_line-dark) 15%, var(--_line-light) 85%)",
+            "border-radius": "calc(infinity * 1px)",
+            "corner-shape": "var(--neu-corner)"
+          },
+          ".neu-line[data-orientation=\"vertical\"], .neu-line[aria-orientation=\"vertical\"]": {
+            "width": "var(--_line-w)",
+            "height": "auto",
+            "background": "linear-gradient(to right, var(--_line-dark) 15%, var(--_line-light) 85%)"
+          },
+          ".neu-line-b, .neu-line-t": {
+            "background-image": "linear-gradient(var(--_line-dark) 15%, var(--_line-light) 85%)",
+            "background-size": "100% var(--_line-w)",
+            "background-repeat": "no-repeat"
+          },
+          ".neu-line-b": {
+            "background-position": "0 100%"
+          },
+          ".neu-line-t": {
+            "background-position": "0 0"
+          },
+          ".neu-concave": {
+            "background": "linear-gradient(var(--neu-light-angle), var(--_face-light), var(--_face-dark))"
+          },
+          ".neu-convex": {
+            "background": "linear-gradient(var(--neu-light-angle), var(--_face-dark), var(--_face-light))"
+          },
+          ".neu-convex:is(.neu-active-sink:active, .neu-state-sink:is([data-state=\"checked\"], [data-state=\"on\"], [data-state=\"open\"], [aria-pressed=\"true\"], [aria-current=\"page\"]))": {
+            "background": "linear-gradient(var(--neu-light-angle), var(--_face-light), var(--_face-dark))"
+          },
+          ".neu-realism": {
+            "box-shadow": "calc(var(--_x) * 0.08) calc(var(--_y) * 0.08) calc(var(--_blur) * 0.06) calc(var(--_blur) * -0.03) oklch(from var(--_dark) l c h / calc(alpha * 0.5)), calc(var(--_x) * 0.16) calc(var(--_y) * 0.16) calc(var(--_blur) * 0.12) calc(var(--_blur) * -0.05) oklch(from var(--_dark) l c h / calc(alpha * 0.48)), calc(var(--_x) * 0.3) calc(var(--_y) * 0.3) calc(var(--_blur) * 0.24) calc(var(--_blur) * -0.08) oklch(from var(--_dark) l c h / calc(alpha * 0.44)), calc(var(--_x) * 0.55) calc(var(--_y) * 0.55) calc(var(--_blur) * 0.46) calc(var(--_blur) * -0.1) oklch(from var(--_dark) l c h / calc(alpha * 0.36)), var(--_x) var(--_y) var(--_blur) calc(var(--_blur) * -0.13) oklch(from var(--_dark) l c h / calc(alpha * 0.18)), inset var(--_gx) var(--_gy) 0 oklch(from var(--_light) l c h / calc(alpha * 0.9)), inset calc(var(--_gx) * -1) calc(var(--_gy) * -1) 0 oklch(from var(--_dark) l c h / calc(alpha * 0.5))"
+          },
+          ".neu-text-emboss": {
+            "color": "var(--neu-surface)",
+            "text-shadow": "calc(var(--_x) * -1) calc(var(--_y) * -1) var(--_blur) var(--_light), var(--_x) var(--_y) var(--_blur) var(--_dark)"
+          },
+          ".neu-knob, .neu-lift, .neu-lift-sm": {
+            "--_kx": "calc(var(--neu-distance) * var(--neu-depth) * var(--_k, 0.25) * -1 * sin(var(--neu-light-angle)))",
+            "--_ky": "calc(var(--neu-distance) * var(--neu-depth) * var(--_k, 0.25) * cos(var(--neu-light-angle)))",
+            "--_kblur": "calc(var(--neu-blur) * var(--neu-depth) * var(--_k, 0.25))"
+          },
+          ".neu-knob": {
+            "--_kf": "var(--neu-knob, var(--neu-surface))",
+            "border": "1px solid transparent",
+            "border-radius": "calc(infinity * 1px)",
+            "background": "linear-gradient(var(--neu-light-angle), oklch(from var(--_kf) calc(l - 0.03) c h), var(--_kf)) padding-box, linear-gradient(var(--neu-light-angle), oklch(from var(--_kf) calc(l - 0.09) c h), oklch(from var(--_kf) calc(l - 0.02) c h)) border-box"
+          },
+          ".neu-lift": {
+            "--_k": "0.34"
+          },
+          ".neu-lift-sm": {
+            "--_k": "0.22"
+          },
+          ".neu-lift, .neu-lift-sm": {
+            "box-shadow": "calc(var(--_kx) * 0.3) calc(var(--_ky) * 0.3) calc(var(--_kblur) * 0.25) oklch(from var(--_drop) l c h / calc(alpha * 0.9)), var(--_kx) var(--_ky) var(--_kblur) var(--_drop)"
+          },
+          ".neu-cap, .neu-cap-lift, .neu-cap-lift-sm, .neu-groove, .neu-state-cap": {
+            "--_lx": "calc(sin(var(--neu-light-angle)) * -1.41421356)",
+            "--_ly": "calc(cos(var(--neu-light-angle)) * 1.41421356)",
+            "--_u": "calc(var(--neu-distance) / 12)",
+            "--neu-knob-ink": "oklch(from var(--neu-ring) min(l, 0.42) c h)"
+          },
+          ".neu-cap, .neu-state-cap[data-state='on'], .neu-state-cap[data-state='active'], .neu-state-cap[aria-pressed='true']": {
+            "--_kb": "var(--neu-knob, oklch(from var(--neu-surface) max(calc(l + 0.08), 0.84) calc(c * 0.5) h))",
+            "border": "1px solid transparent",
+            "border-radius": "calc(infinity * 1px)",
+            "background": "linear-gradient(oklch(from var(--_kb) calc(l - 0.01) c h), oklch(from var(--_kb) calc(l - 0.035) c h)) padding-box, linear-gradient(calc(var(--neu-light-angle) - 180deg), oklch(from var(--_kb) calc(l + 0.04) c h), oklch(from var(--_kb) calc(l - 0.05) c h)) border-box"
+          },
+          ".neu-cap-lift": {
+            "box-shadow": "calc(var(--_lx) * var(--_u) * 0.59) calc(var(--_ly) * var(--_u) * 0.59) calc(var(--_u) * 1.16) calc(var(--_u) * -0.47) oklch(0 0 0 / 0.26), calc(var(--_lx) * var(--_u) * 1.39) calc(var(--_ly) * var(--_u) * 1.39) calc(var(--_u) * 2.76) calc(var(--_u) * -0.94) oklch(0 0 0 / 0.26), calc(var(--_lx) * var(--_u) * 2.54) calc(var(--_ly) * var(--_u) * 2.54) calc(var(--_u) * 5.03) calc(var(--_u) * -1.41) oklch(0 0 0 / 0.25), calc(var(--_lx) * var(--_u) * 4.23) calc(var(--_ly) * var(--_u) * 4.23) calc(var(--_u) * 8.37) calc(var(--_u) * -1.88) oklch(0 0 0 / 0.24), calc(var(--_lx) * var(--_u) * 6.82) calc(var(--_ly) * var(--_u) * 6.82) calc(var(--_u) * 13.51) calc(var(--_u) * -2.34) oklch(0 0 0 / 0.23), calc(var(--_lx) * var(--_u) * 11.17) calc(var(--_ly) * var(--_u) * 11.17) calc(var(--_u) * 22.11) calc(var(--_u) * -2.81) oklch(0 0 0 / 0.21), calc(var(--_lx) * var(--_u) * 19.23) calc(var(--_ly) * var(--_u) * 19.23) calc(var(--_u) * 38.08) calc(var(--_u) * -3.28) oklch(0 0 0 / 0.17), calc(var(--_lx) * var(--_u) * 35) calc(var(--_ly) * var(--_u) * 35) calc(var(--_u) * 69.3) calc(var(--_u) * -3.75) oklch(0 0 0 / 0.09)"
+          },
+          ".neu-cap-lift-sm, .neu-state-cap[data-state='on'], .neu-state-cap[data-state='active'], .neu-state-cap[aria-pressed='true']": {
+            "box-shadow": "calc(var(--_lx) * var(--_u) * 0.35) calc(var(--_ly) * var(--_u) * 0.35) calc(var(--_u) * 0.7) calc(var(--_u) * -0.28) oklch(0 0 0 / 0.26), calc(var(--_lx) * var(--_u) * 0.83) calc(var(--_ly) * var(--_u) * 0.83) calc(var(--_u) * 1.66) calc(var(--_u) * -0.56) oklch(0 0 0 / 0.26), calc(var(--_lx) * var(--_u) * 1.52) calc(var(--_ly) * var(--_u) * 1.52) calc(var(--_u) * 3.02) calc(var(--_u) * -0.85) oklch(0 0 0 / 0.25), calc(var(--_lx) * var(--_u) * 2.54) calc(var(--_ly) * var(--_u) * 2.54) calc(var(--_u) * 5.02) calc(var(--_u) * -1.13) oklch(0 0 0 / 0.24), calc(var(--_lx) * var(--_u) * 4.09) calc(var(--_ly) * var(--_u) * 4.09) calc(var(--_u) * 8.11) calc(var(--_u) * -1.4) oklch(0 0 0 / 0.23), calc(var(--_lx) * var(--_u) * 6.7) calc(var(--_ly) * var(--_u) * 6.7) calc(var(--_u) * 13.27) calc(var(--_u) * -1.69) oklch(0 0 0 / 0.21), calc(var(--_lx) * var(--_u) * 11.54) calc(var(--_ly) * var(--_u) * 11.54) calc(var(--_u) * 22.85) calc(var(--_u) * -1.97) oklch(0 0 0 / 0.17), calc(var(--_lx) * var(--_u) * 21) calc(var(--_ly) * var(--_u) * 21) calc(var(--_u) * 41.58) calc(var(--_u) * -2.25) oklch(0 0 0 / 0.09)"
+          },
+          ".neu-groove": {
+            "border-radius": "calc(infinity * 1px)",
+            "background": "oklch(from var(--neu-surface) calc(l - var(--neu-shade) * 0.45 * clamp(1, 1.9 - l * 1.5, 1.6)) c h)",
+            "box-shadow": "inset calc(var(--_lx) * var(--_u)) calc(var(--_ly) * var(--_u)) calc(var(--_u) * 2) 0 oklch(0 0 0 / 0.25)"
+          },
+          ".neu-rise": {
+            "transition": "opacity 160ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 280ms cubic-bezier(0.23, 1, 0.32, 1), filter 280ms cubic-bezier(0.23, 1, 0.32, 1)"
+          },
+          ".neu-rise[data-state=\"unchecked\"]": {
+            "opacity": "0",
+            "box-shadow": "none",
+            "filter": "none",
+            "transition-duration": "140ms"
+          },
+          ".neu-glyph-lift": {
+            "--_ex": "calc(var(--neu-distance) * var(--neu-depth) * -0.4 * sin(var(--neu-light-angle)))",
+            "--_ey": "calc(var(--neu-distance) * var(--neu-depth) * 0.4 * cos(var(--neu-light-angle)))",
+            "filter": "drop-shadow(calc(var(--_ex) * 0.4) calc(var(--_ey) * 0.4) 0.4px oklch(from var(--_drop) l c h / max(calc(alpha * 1.2), 0.35))) drop-shadow(var(--_ex) var(--_ey) calc(var(--neu-distance) * var(--neu-depth) * 0.5) oklch(from var(--_drop) l c h / max(alpha, 0.18)))"
+          },
+          ".neu-engrave": {
+            "box-shadow": "inset calc(var(--_gx) * -1) calc(var(--_gy) * -1) 0 oklch(from var(--_dark) l c h / calc(alpha * 1.1)), inset var(--_gx) var(--_gy) 0 oklch(from var(--_light) l c h / calc(alpha * 1.3)), inset calc(var(--_gx) * -2) calc(var(--_gy) * -2) 2px oklch(from var(--_dark) l c h / calc(alpha * 0.4)), inset calc(var(--_gx) * 2) calc(var(--_gy) * 2) 2px oklch(from var(--_light) l c h / calc(alpha * 0.5))"
+          },
+          ".neu-overlay, .neu-overlay-scrim": {
+            "--_ox": "calc(var(--neu-distance) * var(--neu-depth) * -0.5 * sin(var(--neu-light-angle)))",
+            "--_oy": "calc(var(--neu-distance) * var(--neu-depth) * 0.5 * cos(var(--neu-light-angle)))",
+            "border": "1px solid var(--neu-edge)",
+            "background": "var(--neu-surface)",
+            "color": "var(--neu-text)"
+          },
+          ".neu-overlay": {
+            "box-shadow": "var(--_ox) var(--_oy) calc(var(--neu-blur) * var(--neu-depth) * 0.6) oklch(from var(--_drop) l c h / calc(alpha * 1.2))"
+          },
+          ".neu-overlay-scrim": {
+            "box-shadow": "calc(var(--_ox) * 1.5) calc(var(--_oy) * 1.5) calc(var(--neu-blur) * var(--neu-depth)) oklch(from var(--neu-surface) 0.12 c h / calc(var(--neu-alpha) * 0.7))"
+          },
+          ".neu-overlay-motion": {
+            "--_tx": "0px",
+            "--_ty": "0px"
+          },
+          ".neu-overlay-motion[data-side='bottom']": {
+            "--_ty": "-4px"
+          },
+          ".neu-overlay-motion[data-side='top']": {
+            "--_ty": "4px"
+          },
+          ".neu-overlay-motion[data-side='left']": {
+            "--_tx": "4px"
+          },
+          ".neu-overlay-motion[data-side='right']": {
+            "--_tx": "-4px"
+          },
+          ".neu-overlay-motion.neu-overlay-scrim": {
+            "--_ty": "8px"
+          },
+          ".neu-overlay-motion:is([data-state='open'], [data-state='delayed-open'])": {
+            "animation": "neu-overlay-in 180ms cubic-bezier(0.23, 1, 0.32, 1)"
+          },
+          ".neu-overlay-motion.neu-overlay-scrim[data-state='open']": {
+            "animation-duration": "240ms"
+          },
+          ".neu-overlay-motion[data-state='closed']": {
+            "animation": "neu-overlay-out 120ms cubic-bezier(0.23, 1, 0.32, 1) forwards"
+          },
+          ".neu-preset-flat": {
+            "--neu-distance": "5px",
+            "--neu-blur": "10px",
+            "--neu-shade": "0.05",
+            "--neu-face": "0.015"
+          },
+          ".neu-preset-soft": {
+            "--neu-distance": "9px",
+            "--neu-blur": "22px",
+            "--neu-shade": "0.08",
+            "--neu-face": "0.025"
+          },
+          ".neu-preset-deep": {
+            "--neu-distance": "16px",
+            "--neu-blur": "30px",
+            "--neu-shade": "0.13",
+            "--neu-face": "0.045"
+          },
+          ".neu-preset-dramatic": {
+            "--neu-distance": "22px",
+            "--neu-blur": "36px",
+            "--neu-shade-light": "0.2",
+            "--neu-shade-dark": "0.15",
+            "--neu-face": "0.06",
+            "--neu-alpha": "0.7"
+          },
+          ".neu-active-sink, .neu-state-sink": {
+            "transition": "box-shadow var(--neu-ease-release)"
+          },
+          ".neu-active-sink:active, .neu-state-sink[data-state=\"checked\"], .neu-state-sink[data-state=\"on\"], .neu-state-sink[data-state=\"open\"], .neu-state-sink[aria-pressed=\"true\"], .neu-state-sink[aria-current=\"page\"]": {
+            "--_lift": "0.75",
+            "transition": "box-shadow var(--neu-ease-press)",
+            "box-shadow": "inset var(--_x) var(--_y) var(--_blur) var(--_dark), inset calc(var(--_x) * -1) calc(var(--_y) * -1) var(--_blur) var(--_light), inset calc(var(--_gx) * -1) calc(var(--_gy) * -1) 0 var(--_glint)"
+          },
+          ":where(.neu, .neu-pressed, .neu-concave, .neu-convex, .neu-realism, .neu-knob, .neu-groove, .neu-engrave):focus-visible": {
+            "outline": "var(--neu-ring-width) solid var(--neu-ring)",
+            "outline-offset": "var(--neu-ring-offset)"
+          }
+        },
+        "@keyframes neu-overlay-in": {
+          "from": {
+            "opacity": "0",
+            "transform": "translate(var(--_tx), var(--_ty))"
+          }
+        },
+        "@keyframes neu-overlay-out": {
+          "to": {
+            "opacity": "0",
+            "transform": "translate(var(--_tx), var(--_ty))"
+          }
+        },
+        "@media (prefers-reduced-motion: reduce)": {
+          ".neu-overlay-motion": {
+            "--_tx": "0px !important",
+            "--_ty": "0px !important"
+          },
+          ".neu-overlay-scrim[data-vaul-drawer]": {
+            "animation-duration": "0s !important"
+          },
+          ".neu-rise, .neu-active-sink, .neu-state-sink, .neu-active-sink:active, .neu-state-sink[data-state=\"checked\"], .neu-state-sink[data-state=\"on\"], .neu-state-sink[data-state=\"open\"], .neu-state-sink[aria-pressed=\"true\"], .neu-state-sink[aria-current=\"page\"]": {
+            "transition": "none"
+          }
+        },
+        "@media (prefers-contrast: more)": {
+          ".neu, .neu-pressed, .neu-concave, .neu-convex, .neu-realism, .neu-overlay, .neu-overlay-scrim, .neu-groove": {
+            "border": "1px solid var(--neu-text)"
+          },
+          ".neu-field[aria-invalid='true']": {
+            "border-color": "var(--destructive)"
+          }
+        },
+        "@media (forced-colors: active)": {
+          ".neu, .neu-pressed, .neu-concave, .neu-convex, .neu-realism, .neu-overlay, .neu-overlay-scrim, .neu-groove": {
+            "border": "1px solid ButtonText"
+          },
+          ".neu-cap[data-slot='sliding-key'], .neu-state-cap:is([data-state='on'], [data-state='active'], [aria-pressed='true']), .neu-state-sink:is([data-state='on'], [data-state='open'], [aria-pressed='true'], [data-active='true'])": {
+            "forced-color-adjust": "none",
+            "border-color": "Highlight",
+            "background": "Highlight",
+            "color": "HighlightText"
+          },
+          "[data-slot='slider-range'], [data-slot='progress-indicator'], [data-slot='radio-group-indicator']": {
+            "forced-color-adjust": "none",
+            "background": "Highlight"
+          },
+          "[data-slot=\"checkbox-indicator\"]": {
+            "forced-color-adjust": "none",
+            "color": "Highlight"
+          }
+        }
+      }
+    },
+    {
+      "name": "neu-button",
+      "type": "registry:ui",
+      "title": "Neu Button",
+      "description": "Neumorphic button with the stock shadcn button API. Raised by default, sinks on press. Hover keeps its depth.",
+      "dependencies": [
+        "radix-ui",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-card",
+      "type": "registry:ui",
+      "title": "Neu Card",
+      "description": "Neumorphic card with the full shadcn card composition. Raised by default, plus a carved well variant.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-checkbox",
+      "type": "registry:ui",
+      "title": "Neu Checkbox",
+      "description": "Neumorphic checkbox on the Radix primitive. A carved square well; checking lifts an accent tick off its floor.",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/checkbox.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/checkbox.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-button-demo",
+      "type": "registry:example",
+      "title": "Neu Button Demo",
+      "description": "All neu button variants on a neumorphic ground.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-button-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-card-demo",
+      "type": "registry:example",
+      "title": "Neu Card Demo",
+      "description": "Raised and well neu cards side by side.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-card.json",
+        "https://neu.beyondtheinnovation.com/r/neu-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-card-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-checkbox-demo",
+      "type": "registry:example",
+      "title": "Neu Checkbox Demo",
+      "description": "Neu checkbox states including the always-visible ghost tick.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-checkbox.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-checkbox-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-input",
+      "type": "registry:ui",
+      "title": "Neu Input",
+      "description": "Neumorphic input with the stock shadcn input API. A well carved into the surface.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/input.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/input.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-textarea",
+      "type": "registry:ui",
+      "title": "Neu Textarea",
+      "description": "Neumorphic textarea with the stock shadcn textarea API. The same carved well as the input.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/textarea.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/textarea.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-select",
+      "type": "registry:ui",
+      "title": "Neu Select",
+      "description": "Neumorphic select on the Radix primitive. A raised trigger that stays sunken while its popup is open.",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/select.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/select.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-radio-group",
+      "type": "registry:ui",
+      "title": "Neu Radio Group",
+      "description": "Neumorphic radio group on the Radix primitive. A carved well; checking raises an accent cap out of it.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json",
+        "https://neu.beyondtheinnovation.com/r/neu-knob.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/radio-group.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/radio-group.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-input-demo",
+      "type": "registry:example",
+      "title": "Neu Input Demo",
+      "description": "Neu input states: empty, filled, invalid and disabled wells.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-input.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-input-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-textarea-demo",
+      "type": "registry:example",
+      "title": "Neu Textarea Demo",
+      "description": "Neu textarea states on a neumorphic ground.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-textarea.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-textarea-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-select-demo",
+      "type": "registry:example",
+      "title": "Neu Select Demo",
+      "description": "Neu select with groups, sizes and a disabled trigger.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-select.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-select-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-radio-group-demo",
+      "type": "registry:example",
+      "title": "Neu Radio Group Demo",
+      "description": "Neu radio group with checked, unchecked and disabled holes.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-radio-group.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-radio-group-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-knob",
+      "type": "registry:ui",
+      "title": "Neu Knob",
+      "description": "The shared raised handle behind the switch, slider, radio, toggle and active page.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/knob.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/knob.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-switch",
+      "type": "registry:ui",
+      "title": "Neu Switch",
+      "description": "Neumorphic switch on the Radix primitive. A shallow track that fills with the accent when checked, and a raised knob that travels. Three sizes.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json",
+        "https://neu.beyondtheinnovation.com/r/neu-knob.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/switch.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/switch.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-slider",
+      "type": "registry:ui",
+      "title": "Neu Slider",
+      "description": "Neumorphic slider on the Radix primitive. A carved groove filled with the accent up to the value, and a raised bead with an accent pip as the thumb.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json",
+        "https://neu.beyondtheinnovation.com/r/neu-knob.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/slider.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/slider.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-progress",
+      "type": "registry:ui",
+      "title": "Neu Progress",
+      "description": "Neumorphic progress on the Radix primitive. The slider minus interaction: carved groove, raised accent rod.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/progress.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/progress.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-skeleton",
+      "type": "registry:ui",
+      "title": "Neu Skeleton",
+      "description": "Neumorphic skeleton: a carved well with a travelling raised bar, shimmer derived from the surface token.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/skeleton.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/skeleton.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-switch-demo",
+      "type": "registry:example",
+      "title": "Neu Switch Demo",
+      "description": "Neu switch states and sizes on a neumorphic ground.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-switch.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-switch-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-slider-demo",
+      "type": "registry:example",
+      "title": "Neu Slider Demo",
+      "description": "Neu slider single, range, disabled and vertical.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-slider.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-slider-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-progress-demo",
+      "type": "registry:example",
+      "title": "Neu Progress Demo",
+      "description": "Neu progress at several values, one animating on mount.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-progress.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-progress-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-skeleton-demo",
+      "type": "registry:example",
+      "title": "Neu Skeleton Demo",
+      "description": "Neu skeleton in a small card mock.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-skeleton.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-skeleton-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-badge",
+      "type": "registry:ui",
+      "title": "Neu Badge",
+      "description": "Neumorphic badge with the stock shadcn variant set. A small raised chip; secondary carves in, outline sits flat with a muted border.",
+      "dependencies": [
+        "radix-ui",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/badge.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/badge.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-separator",
+      "type": "registry:ui",
+      "title": "Neu Separator",
+      "description": "Neumorphic separator on the Radix primitive. An engraved line: a rounded two-stop gradient, dark crease over lit edge, derived from the surface token and thickened by Elevation.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/separator.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/separator.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-sliding-key",
+      "type": "registry:ui",
+      "title": "Neu Sliding Key",
+      "description": "The shared sliding knob: a hook that measures the selected item in a carved tray and the raised knob that follows it. Used by the neu toggle group and tabs.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json",
+        "https://neu.beyondtheinnovation.com/r/neu-knob.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/sliding-key.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/sliding-key.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-tabs",
+      "type": "registry:ui",
+      "title": "Neu Tabs",
+      "description": "Neumorphic tabs on the Radix primitive. The same carved tray as the toggle group: idle triggers sit flat and one raised knob slides to the active one. The line variant keeps the stock underline.",
+      "dependencies": [
+        "radix-ui",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json",
+        "https://neu.beyondtheinnovation.com/r/neu-sliding-key.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/tabs.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/tabs.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-dialog",
+      "type": "registry:ui",
+      "title": "Neu Dialog",
+      "description": "Neumorphic dialog on the Radix primitive. A floating sheet that casts one shadow onto a surface-derived scrim.",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json",
+        "https://neu.beyondtheinnovation.com/r/neu-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/dialog.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/dialog.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-drawer",
+      "type": "registry:ui",
+      "title": "Neu Drawer",
+      "description": "Neumorphic drawer on vaul. A floating sheet sliding in from the screen edge, with a carved grab handle and the surface-derived scrim.",
+      "dependencies": [
+        "vaul"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/drawer.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/drawer.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-tooltip",
+      "type": "registry:ui",
+      "title": "Neu Tooltip",
+      "description": "A neumorphic tooltip that floats above the surface with an elevation shadow.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/tooltip.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/tooltip.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-popover",
+      "type": "registry:ui",
+      "title": "Neu Popover",
+      "description": "Neumorphic popover on the Radix primitive. A floating panel that re-grounds itself outside the page wrapper, with a plain elevation shadow.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/popover.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/popover.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-hover-card",
+      "type": "registry:ui",
+      "title": "Neu Hover Card",
+      "description": "Neumorphic hover card on the Radix primitive. A floating preview panel with the same re-grounded overlay treatment as the popover.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/hover-card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/hover-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-alert-dialog",
+      "type": "registry:ui",
+      "title": "Neu Alert Dialog",
+      "description": "Neumorphic alert dialog on the Radix primitive. A floating sheet that casts one shadow onto a surface-derived scrim, actions as neu buttons.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json",
+        "https://neu.beyondtheinnovation.com/r/neu-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/alert-dialog.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/alert-dialog.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-sheet",
+      "type": "registry:ui",
+      "title": "Neu Sheet",
+      "description": "Neumorphic sheet on the Radix dialog primitive. A panel sliding in from the screen edge that becomes its own ground, over the surface-derived scrim.",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/sheet.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/sheet.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-menu",
+      "type": "registry:ui",
+      "title": "Neu Menu",
+      "description": "The shared surface, item, label and separator styles of the dropdown menu, context menu and menubar.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/menu.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/menu.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-dropdown-menu",
+      "type": "registry:ui",
+      "title": "Neu Dropdown Menu",
+      "description": "Neumorphic dropdown menu on the Radix primitive. A floating clay panel with tinted item highlights.",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json",
+        "https://neu.beyondtheinnovation.com/r/neu-menu.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/dropdown-menu.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/dropdown-menu.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-context-menu",
+      "type": "registry:ui",
+      "title": "Neu Context Menu",
+      "description": "Neumorphic context menu on the Radix primitive. The same floating clay panel, summoned by right click.",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json",
+        "https://neu.beyondtheinnovation.com/r/neu-menu.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/context-menu.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/context-menu.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-menubar",
+      "type": "registry:ui",
+      "title": "Neu Menubar",
+      "description": "Neumorphic menubar on the Radix primitive. A raised bar of flat chips that sink while their menu is open.",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json",
+        "https://neu.beyondtheinnovation.com/r/neu-menu.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/menubar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/menubar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-label",
+      "type": "registry:ui",
+      "title": "Neu Label",
+      "description": "Label with the stock shadcn label API. Typography only, no depth of its own.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/label.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/label.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-form",
+      "type": "registry:ui",
+      "title": "Neu Form",
+      "description": "React-hook-form wrapper with the stock shadcn form API. Field wiring plus neu text tokens for descriptions and errors.",
+      "dependencies": [
+        "react-hook-form",
+        "@hookform/resolvers@^5.1",
+        "zod@^4",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json",
+        "https://neu.beyondtheinnovation.com/r/neu-label.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/form.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/form.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-toggle",
+      "type": "registry:ui",
+      "title": "Neu Toggle",
+      "description": "Neumorphic toggle on the Radix primitive. A raised key that is pressed into the surface and filled with the accent while on.",
+      "dependencies": [
+        "radix-ui",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/toggle.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/toggle.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-toggle-group",
+      "type": "registry:ui",
+      "title": "Neu Toggle Group",
+      "description": "Neumorphic toggle group on the Radix primitive. A carved well that follows the theme radius; in single mode one raised knob slides to the pressed item.",
+      "dependencies": [
+        "radix-ui",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json",
+        "https://neu.beyondtheinnovation.com/r/neu-toggle.json",
+        "https://neu.beyondtheinnovation.com/r/neu-sliding-key.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/toggle-group.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/toggle-group.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-input-otp",
+      "type": "registry:ui",
+      "title": "Neu Input OTP",
+      "description": "Neumorphic one-time-password input. Each slot is its own carved well; the active slot carries the focus ring.",
+      "dependencies": [
+        "input-otp",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/input-otp.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/input-otp.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-alert",
+      "type": "registry:ui",
+      "title": "Neu Alert",
+      "description": "Neumorphic alert with the stock shadcn structure. A raised surface like a card at tighter padding; destructive keeps the neu surface and alarms through text color only.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/alert.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/alert.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-avatar",
+      "type": "registry:ui",
+      "title": "Neu Avatar",
+      "description": "Neumorphic avatar on the Radix primitive. A subtly raised circular rim at tight shadow scale; the fallback is a pressed circle with muted initials.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/avatar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/avatar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-accordion",
+      "type": "registry:ui",
+      "title": "Neu Accordion",
+      "description": "Neumorphic accordion on the Radix primitive. Flat triggers with a tinted hover, groove borders between items, stock height animation untouched.",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/accordion.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/accordion.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-collapsible",
+      "type": "registry:ui",
+      "title": "Neu Collapsible",
+      "description": "Collapsible on the Radix primitive. Pure logic with data-slot attributes; styling belongs to the content you put inside.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/collapsible.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/collapsible.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-aspect-ratio",
+      "type": "registry:ui",
+      "title": "Neu Aspect Ratio",
+      "description": "Aspect ratio on the Radix primitive. Pure logic with a data-slot attribute.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/aspect-ratio.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/aspect-ratio.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-scroll-area",
+      "type": "registry:ui",
+      "title": "Neu Scroll Area",
+      "description": "Neumorphic scroll area on the Radix primitive. Stock structure with a soft rounded thumb tinted from the text token; focus is the outline ring.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/scroll-area.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/scroll-area.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-table",
+      "type": "registry:ui",
+      "title": "Neu Table",
+      "description": "Neumorphic table. Flat rows on the ground with groove borders and a tinted hover; no card chrome, so it nests inside a card when raised framing is wanted.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/table.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/table.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-breadcrumb",
+      "type": "registry:ui",
+      "title": "Neu Breadcrumb",
+      "description": "Neumorphic breadcrumb with the stock shadcn breadcrumb API. Flat muted text with the current page at full contrast.",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/breadcrumb.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/breadcrumb.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-pagination",
+      "type": "registry:ui",
+      "title": "Neu Pagination",
+      "description": "Neumorphic pagination with the stock shadcn pagination API, built on the button variants. Pages are ghost buttons and the current one is pressed into the surface; Previous and Next are raised keys that go flat at a dead end.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json",
+        "https://neu.beyondtheinnovation.com/r/neu-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/pagination.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/pagination.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-navigation-menu",
+      "type": "registry:ui",
+      "title": "Neu Navigation Menu",
+      "description": "Neumorphic navigation menu on the Radix primitive. A raised bar of flat chips that sink while their panel is open.",
+      "dependencies": [
+        "radix-ui",
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/navigation-menu.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/navigation-menu.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-carousel",
+      "type": "registry:ui",
+      "title": "Neu Carousel",
+      "description": "Neumorphic carousel on embla. Stock embla mechanics; the arrows are round engraved keys from the neu button's outline variant, and they jump instead of scroll when reduced motion is on.",
+      "dependencies": [
+        "embla-carousel-react",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json",
+        "https://neu.beyondtheinnovation.com/r/neu-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/carousel.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/carousel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-resizable",
+      "type": "registry:ui",
+      "title": "Neu Resizable",
+      "description": "Neumorphic resizable panels on react-resizable-panels. The handle is the engraved separator line with a small raised grip.",
+      "dependencies": [
+        "react-resizable-panels",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/resizable.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/resizable.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-sonner",
+      "type": "registry:ui",
+      "title": "Neu Sonner",
+      "description": "Sonner toaster on the neu surface tokens. Toasts float over the page, so they keep sonner's elevation shadow.",
+      "dependencies": [
+        "sonner",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/sonner.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/sonner.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-spinner",
+      "type": "registry:ui",
+      "title": "Neu Spinner",
+      "description": "Loading spinner in the muted text tone. Size via className.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/spinner.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/spinner.tsx"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "neu-command",
+      "type": "registry:ui",
+      "title": "Neu Command",
+      "description": "Neumorphic command palette on cmdk with the stock shadcn command API. A raised panel with a sunken search well.",
+      "dependencies": [
+        "cmdk",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json",
+        "https://neu.beyondtheinnovation.com/r/neu-dialog.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/command.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/command.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-calendar",
+      "type": "registry:ui",
+      "title": "Neu Calendar",
+      "description": "Neumorphic calendar on react-day-picker with the stock shadcn calendar API. Flat day cells; the selected day and the ends of a range carve in with the accent fill.",
+      "dependencies": [
+        "react-day-picker",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json",
+        "https://neu.beyondtheinnovation.com/r/neu-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/calendar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/calendar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neu-sidebar",
+      "type": "registry:ui",
+      "title": "Neu Sidebar",
+      "description": "Neumorphic sidebar composed from the neu sheet, tooltip, input, separator, skeleton and button. The panel is its own ground; menu items are flat chips that tint on hover and sink, with an accent bar, when active.",
+      "dependencies": [
+        "radix-ui",
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-theme.json",
+        "https://neu.beyondtheinnovation.com/r/neu-button.json",
+        "https://neu.beyondtheinnovation.com/r/neu-input.json",
+        "https://neu.beyondtheinnovation.com/r/neu-separator.json",
+        "https://neu.beyondtheinnovation.com/r/neu-sheet.json",
+        "https://neu.beyondtheinnovation.com/r/neu-skeleton.json",
+        "https://neu.beyondtheinnovation.com/r/neu-tooltip.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/ui/neu/sidebar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neu/sidebar.tsx"
+        },
+        {
+          "path": "registry/neu/hooks/use-mobile.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-mobile.ts"
+        }
+      ]
+    },
+    {
+      "name": "neu-badge-demo",
+      "type": "registry:example",
+      "title": "Neu Badge Demo",
+      "description": "All neu badge variants on a neumorphic ground.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-badge.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-badge-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-separator-demo",
+      "type": "registry:example",
+      "title": "Neu Separator Demo",
+      "description": "Horizontal and vertical carved grooves.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-separator.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-separator-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-tabs-demo",
+      "type": "registry:example",
+      "title": "Neu Tabs Demo",
+      "description": "Three tabs on the carved track, active key raised.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-tabs.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-tabs-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-dialog-demo",
+      "type": "registry:example",
+      "title": "Neu Dialog Demo",
+      "description": "Neu dialog opened from a raised trigger.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-dialog.json",
+        "https://neu.beyondtheinnovation.com/r/neu-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-dialog-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-drawer-demo",
+      "type": "registry:example",
+      "title": "Neu Drawer Demo",
+      "description": "Neu bottom drawer opened from a raised trigger.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-drawer.json",
+        "https://neu.beyondtheinnovation.com/r/neu-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-drawer-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-tooltip-demo",
+      "type": "registry:example",
+      "title": "Tooltip Demo",
+      "description": "Tooltip on a ghost button.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-tooltip.json",
+        "https://neu.beyondtheinnovation.com/r/neu-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-tooltip-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-popover-demo",
+      "type": "registry:example",
+      "title": "Neu Popover Demo",
+      "description": "Neu popover opened from a raised trigger.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-popover.json",
+        "https://neu.beyondtheinnovation.com/r/neu-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-popover-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-hover-card-demo",
+      "type": "registry:example",
+      "title": "Neu Hover Card Demo",
+      "description": "Neu hover card previewing a profile from a link trigger.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-hover-card.json",
+        "https://neu.beyondtheinnovation.com/r/neu-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-hover-card-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-alert-dialog-demo",
+      "type": "registry:example",
+      "title": "Neu Alert Dialog Demo",
+      "description": "Neu alert dialog with destructive confirm and cancel actions.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-alert-dialog.json",
+        "https://neu.beyondtheinnovation.com/r/neu-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-alert-dialog-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-sheet-demo",
+      "type": "registry:example",
+      "title": "Neu Sheet Demo",
+      "description": "Neu sheet sliding in from the right, opened from a raised trigger.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-sheet.json",
+        "https://neu.beyondtheinnovation.com/r/neu-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-sheet-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-dropdown-menu-demo",
+      "type": "registry:example",
+      "title": "Neu Dropdown Menu Demo",
+      "description": "Neu dropdown menu with groups, shortcuts, checkbox and radio items, a submenu and a destructive item.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-dropdown-menu.json",
+        "https://neu.beyondtheinnovation.com/r/neu-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-dropdown-menu-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-context-menu-demo",
+      "type": "registry:example",
+      "title": "Neu Context Menu Demo",
+      "description": "Neu context menu over a sunken well, with a submenu, checkbox and radio items and a destructive item.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-context-menu.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-context-menu-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-menubar-demo",
+      "type": "registry:example",
+      "title": "Neu Menubar Demo",
+      "description": "Neu menubar with File, Edit and View menus covering submenus, shortcuts, checkbox and radio items.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-menubar.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-menubar-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-label-demo",
+      "type": "registry:example",
+      "title": "Neu Label Demo",
+      "description": "Neu label with an input, a checkbox pairing and a disabled peer.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-label.json",
+        "https://neu.beyondtheinnovation.com/r/neu-input.json",
+        "https://neu.beyondtheinnovation.com/r/neu-checkbox.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-label-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-form-demo",
+      "type": "registry:example",
+      "title": "Neu Form Demo",
+      "description": "Zod-validated form with visible error states on neu wells.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-form.json",
+        "https://neu.beyondtheinnovation.com/r/neu-input.json",
+        "https://neu.beyondtheinnovation.com/r/neu-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-form-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-toggle-demo",
+      "type": "registry:example",
+      "title": "Neu Toggle Demo",
+      "description": "Neu toggle chips: off, pressed on, outline, sizes and disabled.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-toggle.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-toggle-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-toggle-group-demo",
+      "type": "registry:example",
+      "title": "Neu Toggle Group Demo",
+      "description": "Neu toggle group trays in single and multiple modes.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-toggle-group.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-toggle-group-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-input-otp-demo",
+      "type": "registry:example",
+      "title": "Neu Input OTP Demo",
+      "description": "Neu OTP wells in two groups with a separator.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-input-otp.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-input-otp-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-alert-demo",
+      "type": "registry:example",
+      "title": "Neu Alert Demo",
+      "description": "Default and destructive neu alerts on a neumorphic ground.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-alert.json",
+        "https://neu.beyondtheinnovation.com/r/neu-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-alert-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-avatar-demo",
+      "type": "registry:example",
+      "title": "Neu Avatar Demo",
+      "description": "Image, fallback and grouped neu avatars on a neumorphic ground.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-avatar.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-avatar-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-accordion-demo",
+      "type": "registry:example",
+      "title": "Neu Accordion Demo",
+      "description": "A single-open neu accordion on a neumorphic ground.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-accordion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-accordion-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-collapsible-demo",
+      "type": "registry:example",
+      "title": "Neu Collapsible Demo",
+      "description": "A collapsible list with pressed rows and a ghost toggle button.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-collapsible.json",
+        "https://neu.beyondtheinnovation.com/r/neu-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-collapsible-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-aspect-ratio-demo",
+      "type": "registry:example",
+      "title": "Neu Aspect Ratio Demo",
+      "description": "A 16:9 raised placeholder held by the aspect ratio primitive.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-aspect-ratio.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-aspect-ratio-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-scroll-area-demo",
+      "type": "registry:example",
+      "title": "Neu Scroll Area Demo",
+      "description": "A pressed well of long content with the tinted scrollbar thumb.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-scroll-area.json",
+        "https://neu.beyondtheinnovation.com/r/neu-separator.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-scroll-area-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-table-demo",
+      "type": "registry:example",
+      "title": "Neu Table Demo",
+      "description": "An invoice table with flat rows and groove borders on a neumorphic ground.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-table.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-table-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-breadcrumb-demo",
+      "type": "registry:example",
+      "title": "Neu Breadcrumb Demo",
+      "description": "Neu breadcrumb with links, an ellipsis and the current page.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-breadcrumb.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-breadcrumb-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-pagination-demo",
+      "type": "registry:example",
+      "title": "Neu Pagination Demo",
+      "description": "Neu pagination with a sunken active page, ellipsis and prev/next keys.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-pagination.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-pagination-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-navigation-menu-demo",
+      "type": "registry:example",
+      "title": "Neu Navigation Menu Demo",
+      "description": "Neu navigation menu with dropdown panels and a plain link chip.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-navigation-menu.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-navigation-menu-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-carousel-demo",
+      "type": "registry:example",
+      "title": "Neu Carousel Demo",
+      "description": "Neu carousel with five numbered raised cards.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-carousel.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-carousel-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-resizable-demo",
+      "type": "registry:example",
+      "title": "Neu Resizable Demo",
+      "description": "Nested horizontal and vertical neu resizable groups in a carved frame.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-resizable.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-resizable-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-sonner-demo",
+      "type": "registry:example",
+      "title": "Neu Sonner Demo",
+      "description": "Neu buttons firing the sonner toast variants.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-sonner.json",
+        "https://neu.beyondtheinnovation.com/r/neu-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-sonner-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-spinner-demo",
+      "type": "registry:example",
+      "title": "Neu Spinner Demo",
+      "description": "Neu spinner sizes on a neumorphic ground.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-spinner.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-spinner-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-command-demo",
+      "type": "registry:example",
+      "title": "Neu Command Demo",
+      "description": "Neu command palette with groups, shortcuts and a disabled item.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-command.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-command-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-calendar-demo",
+      "type": "registry:example",
+      "title": "Neu Calendar Demo",
+      "description": "Neu calendar with single-date selection on a raised panel.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-calendar.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-calendar-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-combobox-demo",
+      "type": "registry:example",
+      "title": "Neu Combobox Demo",
+      "description": "Combobox recipe: a neu popover holding a command list behind an outline trigger.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-popover.json",
+        "https://neu.beyondtheinnovation.com/r/neu-command.json",
+        "https://neu.beyondtheinnovation.com/r/neu-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-combobox-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-date-picker-demo",
+      "type": "registry:example",
+      "title": "Neu Date Picker Demo",
+      "description": "Date picker recipe: a neu calendar inside a popover behind an outline trigger.",
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-popover.json",
+        "https://neu.beyondtheinnovation.com/r/neu-calendar.json",
+        "https://neu.beyondtheinnovation.com/r/neu-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-date-picker-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-sidebar-demo",
+      "type": "registry:example",
+      "title": "Neu Sidebar Demo",
+      "description": "Neu sidebar with icon collapse, a badge, an active item and a footer profile.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-sidebar.json",
+        "https://neu.beyondtheinnovation.com/r/neu-separator.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-sidebar-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "neu-data-table-demo",
+      "type": "registry:example",
+      "title": "Neu Data Table Demo",
+      "description": "Data table recipe: TanStack Table v9 wired to the neu table, with sorting, email filtering, column visibility, row selection and pagination.",
+      "dependencies": [
+        "@tanstack/react-table"
+      ],
+      "registryDependencies": [
+        "https://neu.beyondtheinnovation.com/r/neu-table.json",
+        "https://neu.beyondtheinnovation.com/r/neu-button.json",
+        "https://neu.beyondtheinnovation.com/r/neu-checkbox.json",
+        "https://neu.beyondtheinnovation.com/r/neu-dropdown-menu.json",
+        "https://neu.beyondtheinnovation.com/r/neu-input.json"
+      ],
+      "files": [
+        {
+          "path": "registry/neu/examples/neu-data-table-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    }
+  ]
+}

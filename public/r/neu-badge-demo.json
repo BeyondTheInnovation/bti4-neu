@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-badge-demo",
+  "title": "Neu Badge Demo",
+  "description": "All neu badge variants on a neumorphic ground.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-badge.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-badge-demo.tsx",
+      "content": "import { Badge } from \"@/registry/neu/ui/neu/badge\"\n\nexport function NeuBadgeDemo() {\n  return (\n    <div className=\"neu-ground flex flex-wrap items-center gap-4 rounded-(--neu-radius) p-8\">\n      <Badge>Default</Badge>\n      <Badge variant=\"secondary\">Secondary</Badge>\n      <Badge variant=\"destructive\">Destructive</Badge>\n      <Badge variant=\"outline\">Outline</Badge>\n      <Badge variant=\"ghost\">Ghost</Badge>\n      <Badge variant=\"link\" asChild>\n        <a href=\"#\">Link</a>\n      </Badge>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

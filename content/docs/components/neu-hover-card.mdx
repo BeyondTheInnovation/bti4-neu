@@ -1,0 +1,29 @@
+---
+title: "Hover Card"
+description: "Neumorphic hover card on the Radix primitive. A floating preview panel with the same re-grounded overlay treatment as the popover."
+---
+
+<ComponentPreview name="neu-hover-card-demo" />
+
+## Installation
+
+```bash
+bunx --bun shadcn@latest add https://neu.beyondtheinnovation.com/r/neu-hover-card.json
+```
+
+## Usage
+
+```tsx
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/neu/hover-card"
+```
+
+```tsx
+<HoverCard>
+  <HoverCardTrigger>Hover</HoverCardTrigger>
+  <HoverCardContent>The React Framework, created and maintained by @vercel.</HoverCardContent>
+</HoverCard>
+```

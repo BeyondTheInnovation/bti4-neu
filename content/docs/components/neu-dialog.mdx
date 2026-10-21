@@ -1,0 +1,40 @@
+---
+title: "Dialog"
+description: "Neumorphic dialog on the Radix primitive. A floating sheet that casts one shadow onto a surface-derived scrim."
+---
+
+<ComponentPreview name="neu-dialog-demo" />
+
+## Installation
+
+```bash
+bunx --bun shadcn@latest add https://neu.beyondtheinnovation.com/r/neu-dialog.json
+```
+
+## Usage
+
+```tsx
+import { Button } from "@/components/ui/neu/button"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/neu/dialog"
+```
+
+```tsx
+<Dialog>
+  <DialogTrigger asChild>
+    <Button variant="outline">Open</Button>
+  </DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Are you absolutely sure?</DialogTitle>
+      <DialogDescription>This action cannot be undone.</DialogDescription>
+    </DialogHeader>
+  </DialogContent>
+</Dialog>
+```

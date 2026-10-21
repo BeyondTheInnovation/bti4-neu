@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-tooltip-demo",
+  "title": "Tooltip Demo",
+  "description": "Tooltip on a ghost button.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-tooltip.json",
+    "https://neu.beyondtheinnovation.com/r/neu-button.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-tooltip-demo.tsx",
+      "content": "import { Button } from \"@/registry/neu/ui/neu/button\"\nimport {\n  Tooltip,\n  TooltipContent,\n  TooltipTrigger,\n} from \"@/registry/neu/ui/neu/tooltip\"\n\nexport default function TooltipDemo() {\n  return (\n    <Tooltip>\n      <TooltipTrigger asChild>\n        <Button variant=\"ghost\">Hover me</Button>\n      </TooltipTrigger>\n      <TooltipContent>A raised hint floating above the surface.</TooltipContent>\n    </Tooltip>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

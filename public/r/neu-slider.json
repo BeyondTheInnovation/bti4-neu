@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-slider",
+  "title": "Neu Slider",
+  "description": "Neumorphic slider on the Radix primitive. A carved groove filled with the accent up to the value, and a raised bead with an accent pip as the thumb.",
+  "dependencies": [
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-theme.json",
+    "https://neu.beyondtheinnovation.com/r/neu-knob.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/ui/neu/slider.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { Slider as SliderPrimitive } from \"radix-ui\"\n\nimport { cn } from \"@/lib/utils\"\nimport { knobFaceClasses, knobLiftSmClasses } from \"@/registry/neu/ui/neu/knob\"\n\n/* A carved groove filled with the accent up to the value. The thumb is a\n   raised surface bead with an accent pip; 18px, and the ::after pad brings\n   the hit area to 28px. */\nfunction Slider({\n  className,\n  defaultValue,\n  value,\n  min = 0,\n  max = 100,\n  \"aria-label\": ariaLabel,\n  \"aria-labelledby\": ariaLabelledBy,\n  thumbLabels,\n  ...props\n}: React.ComponentProps<typeof SliderPrimitive.Root> & {\n  /** One accessible name per thumb; overrides aria-label for that thumb. */\n  thumbLabels?: string[]\n}) {\n  const _values = React.useMemo(\n    () =>\n      Array.isArray(value)\n        ? value\n        : Array.isArray(defaultValue)\n          ? defaultValue\n          : [min, max],\n    [value, defaultValue, min, max]\n  )\n\n  return (\n    <SliderPrimitive.Root\n      data-slot=\"slider\"\n      defaultValue={defaultValue}\n      value={value}\n      min={min}\n      max={max}\n      className={cn(\n        \"relative flex w-full touch-none items-center select-none data-[disabled]:opacity-50 data-[orientation=vertical]:h-full data-[orientation=vertical]:min-h-44 data-[orientation=vertical]:w-auto data-[orientation=vertical]:flex-col\",\n        className\n      )}\n      {...props}\n    >\n      <SliderPrimitive.Track\n        data-slot=\"slider-track\"\n        className=\"neu-pressed neu-concave relative grow rounded-full [--neu-depth:0.25] [--neu-radius:999px] data-[orientation=horizontal]:h-3.5 data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-3.5\"\n      >\n        <SliderPrimitive.Range\n          data-slot=\"slider-range\"\n          className=\"absolute rounded-full bg-(--neu-ring) data-[orientation=horizontal]:h-full data-[orientation=vertical]:w-full\"\n        />\n      </SliderPrimitive.Track>\n      {Array.from({ length: _values.length }, (_, index) => (\n        <SliderPrimitive.Thumb\n          data-slot=\"slider-thumb\"\n          key={index}\n          aria-label={\n            thumbLabels?.[index] ?? thumbLabel(ariaLabel, index, _values.length)\n          }\n          aria-labelledby={thumbLabels?.[index] ? undefined : ariaLabelledBy}\n          className={cn(\n            knobFaceClasses,\n            knobLiftSmClasses,\n            \"relative block size-4.5 before:absolute before:top-1/2 before:left-1/2 before:size-1.5 before:-translate-1/2 before:rounded-full before:bg-(--neu-ring) after:absolute after:-inset-[5px] after:rounded-full after:content-[''] data-[disabled]:pointer-events-none\"\n          )}\n        />\n      ))}\n    </SliderPrimitive.Root>\n  )\n}\n\nfunction thumbLabel(label: string | undefined, index: number, count: number) {\n  if (!label || count === 1) return label\n  if (count === 2) return `${label}, ${index === 0 ? \"minimum\" : \"maximum\"}`\n  return `${label}, ${index + 1} of ${count}`\n}\n\nexport { Slider }\n",
+      "type": "registry:ui",
+      "target": "components/ui/neu/slider.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

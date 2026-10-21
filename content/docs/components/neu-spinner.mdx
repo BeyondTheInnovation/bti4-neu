@@ -1,0 +1,30 @@
+---
+title: "Spinner"
+description: "Loading spinner in the muted text tone. Size via className."
+---
+
+<ComponentPreview name="neu-spinner-demo" />
+
+## Installation
+
+```bash
+bunx --bun shadcn@latest add https://neu.beyondtheinnovation.com/r/neu-spinner.json
+```
+
+## Usage
+
+```tsx
+import { Spinner } from "@/components/ui/neu/spinner"
+```
+
+```tsx
+<Spinner />
+```
+
+## Size
+
+`className` styles the icon, so size and color it there. The wrapper carries `role="status"` with an `aria-label` of "Loading"; pass `aria-label` to change it. Under reduced motion it turns slowly instead of stopping.
+
+```tsx
+<Spinner className="size-6" aria-label="Saving" />
+```

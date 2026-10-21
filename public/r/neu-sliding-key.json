@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-sliding-key",
+  "title": "Neu Sliding Key",
+  "description": "The shared sliding knob: a hook that measures the selected item in a carved tray and the raised knob that follows it. Used by the neu toggle group and tabs.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-theme.json",
+    "https://neu.beyondtheinnovation.com/r/neu-knob.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/ui/neu/sliding-key.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { capFaceClasses, capLiftSmClasses } from \"@/registry/neu/ui/neu/knob\"\n\ntype KeyRect = { left: number; top: number; width: number; height: number }\n\n/* Trays pad their keys by 4px (p-1), so a key's corner sits 4px inside the\n   tray's: concentric at any --neu-radius, square at 0. */\nconst keyRadiusClasses = \"rounded-[max(0px,calc(var(--neu-radius)-4px))]\"\n\n/**\n * Measures the element inside the container that matches `selector` and\n * follows it through resizes and state changes. `rect` stays null until the\n * first client measure, while disabled, and when nothing matches, so callers\n * can let the selected item sink itself as the fallback.\n */\nfunction useSlidingKey<T extends HTMLElement>(\n  selector: string,\n  enabled: boolean,\n  forwardedRef?: React.Ref<T>\n) {\n  const nodeRef = React.useRef<T | null>(null)\n  const [rect, setRect] = React.useState<KeyRect | null>(null)\n\n  React.useImperativeHandle(forwardedRef, () => nodeRef.current as T)\n\n  React.useLayoutEffect(() => {\n    const container = nodeRef.current\n    if (!container || !enabled) {\n      setRect(null)\n      return\n    }\n    function measure() {\n      const target = container?.querySelector<HTMLElement>(selector)\n      setRect(\n        target\n          ? {\n              left: target.offsetLeft,\n              top: target.offsetTop,\n              width: target.offsetWidth,\n              height: target.offsetHeight,\n            }\n          : null\n      )\n    }\n    measure()\n    const resize = new ResizeObserver(measure)\n    resize.observe(container)\n    const mutation = new MutationObserver(measure)\n    mutation.observe(container, {\n      attributeFilter: [\"data-state\"],\n      subtree: true,\n    })\n    return () => {\n      resize.disconnect()\n      mutation.disconnect()\n    }\n  }, [selector, enabled])\n\n  return { ref: nodeRef, rect }\n}\n\n/** The raised cap that slides between the items of a carved tray. */\nfunction SlidingKey({\n  rect,\n  className,\n}: {\n  rect: KeyRect | null\n  className?: string\n}) {\n  if (!rect) return null\n  return (\n    <span\n      aria-hidden\n      data-slot=\"sliding-key\"\n      className={cn(\n        capFaceClasses,\n        capLiftSmClasses,\n        keyRadiusClasses,\n        \"pointer-events-none absolute top-0 left-0 [transition:translate_240ms_cubic-bezier(0.23,1,0.32,1),width_240ms_cubic-bezier(0.23,1,0.32,1),height_240ms_cubic-bezier(0.23,1,0.32,1)] motion-reduce:[transition:none]\",\n        className\n      )}\n      style={{\n        translate: `${rect.left}px ${rect.top}px`,\n        width: rect.width,\n        height: rect.height,\n      }}\n    />\n  )\n}\n\nexport { SlidingKey, keyRadiusClasses, useSlidingKey, type KeyRect }\n",
+      "type": "registry:ui",
+      "target": "components/ui/neu/sliding-key.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

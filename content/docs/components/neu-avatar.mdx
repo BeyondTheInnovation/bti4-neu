@@ -1,0 +1,60 @@
+---
+title: "Avatar"
+description: "Neumorphic avatar on the Radix primitive. A subtly raised circular rim at tight shadow scale; the fallback is a pressed circle with muted initials."
+---
+
+<ComponentPreview name="neu-avatar-demo" />
+
+## Installation
+
+```bash
+bunx --bun shadcn@latest add https://neu.beyondtheinnovation.com/r/neu-avatar.json
+```
+
+## Usage
+
+```tsx
+import {
+  Avatar,
+  AvatarBadge,
+  AvatarFallback,
+  AvatarGroup,
+  AvatarGroupCount,
+  AvatarImage,
+} from "@/components/ui/neu/avatar"
+```
+
+```tsx
+<Avatar>
+  <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+  <AvatarFallback>CN</AvatarFallback>
+</Avatar>
+```
+
+## Badge
+
+`AvatarBadge` pins a status dot to the bottom corner. It hides its icon at `size="sm"`.
+
+```tsx
+<Avatar>
+  <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+  <AvatarFallback>CN</AvatarFallback>
+  <AvatarBadge />
+</Avatar>
+```
+
+## Group
+
+`AvatarGroup` overlaps its avatars; `AvatarGroupCount` closes the row with the overflow.
+
+```tsx
+<AvatarGroup>
+  <Avatar>
+    <AvatarFallback>CN</AvatarFallback>
+  </Avatar>
+  <Avatar>
+    <AvatarFallback>LR</AvatarFallback>
+  </Avatar>
+  <AvatarGroupCount>+3</AvatarGroupCount>
+</AvatarGroup>
+```

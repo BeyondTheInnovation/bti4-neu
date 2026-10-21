@@ -1,0 +1,37 @@
+---
+title: "Drawer"
+description: "Neumorphic drawer on vaul. A floating sheet sliding in from the screen edge, with a carved grab handle and the surface-derived scrim."
+---
+
+<ComponentPreview name="neu-drawer-demo" />
+
+## Installation
+
+```bash
+bunx --bun shadcn@latest add https://neu.beyondtheinnovation.com/r/neu-drawer.json
+```
+
+## Usage
+
+```tsx
+import {
+  Drawer,
+  DrawerContent,
+  DrawerDescription,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/neu/drawer"
+```
+
+```tsx
+<Drawer>
+  <DrawerTrigger>Open</DrawerTrigger>
+  <DrawerContent>
+    <DrawerHeader>
+      <DrawerTitle>Are you absolutely sure?</DrawerTitle>
+      <DrawerDescription>This action cannot be undone.</DrawerDescription>
+    </DrawerHeader>
+  </DrawerContent>
+</Drawer>
+```

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-sonner-demo",
+  "title": "Neu Sonner Demo",
+  "description": "Neu buttons firing the sonner toast variants.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-sonner.json",
+    "https://neu.beyondtheinnovation.com/r/neu-button.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-sonner-demo.tsx",
+      "content": "\"use client\"\n\nimport { toast } from \"sonner\"\n\nimport { Button } from \"@/registry/neu/ui/neu/button\"\nimport { Toaster } from \"@/registry/neu/ui/neu/sonner\"\n\nexport function NeuSonnerDemo() {\n  return (\n    <div className=\"neu-ground flex flex-wrap gap-3 rounded-(--neu-radius) p-8\">\n      <Button\n        onClick={() =>\n          toast(\"Event has been created\", {\n            description: \"Sunday, December 03, 2023 at 9:00 AM\",\n            action: {\n              label: \"Undo\",\n              onClick: () => {},\n            },\n          })\n        }\n      >\n        Show toast\n      </Button>\n      <Button\n        variant=\"secondary\"\n        onClick={() => toast.success(\"Changes saved\")}\n      >\n        Success\n      </Button>\n      <Button\n        variant=\"secondary\"\n        onClick={() => toast.warning(\"Storage almost full\")}\n      >\n        Warning\n      </Button>\n      <Button\n        variant=\"secondary\"\n        onClick={() => toast.error(\"Something went wrong\")}\n      >\n        Error\n      </Button>\n      <Toaster />\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

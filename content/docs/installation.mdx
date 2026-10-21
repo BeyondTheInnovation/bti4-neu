@@ -1,0 +1,55 @@
+---
+title: Installation
+description: Add the neu theme and components to your project with the shadcn CLI.
+---
+
+neu is distributed as a shadcn registry. You need a React project with
+Tailwind v4 and the shadcn CLI set up. Bun is used in the examples; swap in
+your package runner if you use another one.
+
+## Add the theme
+
+Everything starts with the theme item. It carries the whole token foundation:
+the `@property` registrations, the derivation rules, the shape classes, and
+the accessibility fallbacks. It appends CSS to your `globals.css` and sets
+`--neu-surface` on `:root` and `.dark`.
+
+```bash
+bunx --bun shadcn@latest add https://neu.beyondtheinnovation.com/r/neu-theme.json
+```
+
+## Add components
+
+Each component is its own registry item and pulls the theme in automatically
+through its registry dependencies:
+
+```bash
+bunx --bun shadcn@latest add https://neu.beyondtheinnovation.com/r/neu-button.json
+```
+
+Components install under `components/ui/neu/`, so they can live next to the
+stock shadcn components without collisions:
+
+```tsx
+import { Button } from "@/components/ui/neu/button";
+```
+
+## Ground the page
+
+Neumorphic surfaces need to sit on their own material. Put `.neu-ground` on a
+page or section wrapper; it paints the surface color and sets the derived text
+color so nested components blend into it:
+
+```tsx
+<main className="neu-ground min-h-screen p-8">
+  <Button>Press me</Button>
+</main>
+```
+
+## One rule to keep
+
+Never put Tailwind `shadow-*`, `ring-*`, or `transition-*` utilities on a neu
+element. Tailwind v4 implements ring and shadow as `box-shadow` from the
+utilities layer, which silently deletes the neu shadow stack, and
+`transition-*` clobbers the asymmetric press easing. Use `outline` utilities
+for focus and invalid states instead.

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-hover-card-demo",
+  "title": "Neu Hover Card Demo",
+  "description": "Neu hover card previewing a profile from a link trigger.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-hover-card.json",
+    "https://neu.beyondtheinnovation.com/r/neu-button.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-hover-card-demo.tsx",
+      "content": "\"use client\"\n\nimport { CalendarIcon } from \"lucide-react\"\n\nimport { Button } from \"@/registry/neu/ui/neu/button\"\nimport {\n  HoverCard,\n  HoverCardContent,\n  HoverCardTrigger,\n} from \"@/registry/neu/ui/neu/hover-card\"\n\nexport function NeuHoverCardDemo() {\n  return (\n    <div className=\"neu-ground flex items-center gap-4 rounded-(--neu-radius) p-8\">\n      <HoverCard>\n        <HoverCardTrigger asChild>\n          <Button variant=\"link\">@nextjs</Button>\n        </HoverCardTrigger>\n        <HoverCardContent className=\"w-80\">\n          <div className=\"flex flex-col gap-2\">\n            <h4 className=\"text-sm font-semibold\">@nextjs</h4>\n            <p className=\"text-sm\">\n              The React framework, created and maintained by @vercel.\n            </p>\n            <div className=\"flex items-center gap-2 text-xs text-(--neu-text-muted)\">\n              <CalendarIcon className=\"size-3.5\" />\n              Joined December 2021\n            </div>\n          </div>\n        </HoverCardContent>\n      </HoverCard>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

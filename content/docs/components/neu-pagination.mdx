@@ -1,0 +1,61 @@
+---
+title: "Pagination"
+description: "Neumorphic pagination with the stock shadcn pagination API, built on the button variants. Pages are ghost buttons and the current one is pressed into the surface; Previous and Next are raised keys that go flat at a dead end."
+---
+
+<ComponentPreview name="neu-pagination-demo" />
+
+## Installation
+
+```bash
+bunx --bun shadcn@latest add https://neu.beyondtheinnovation.com/r/neu-pagination.json
+```
+
+## Usage
+
+```tsx
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/neu/pagination"
+```
+
+```tsx
+<Pagination>
+  <PaginationContent>
+    <PaginationItem>
+      <PaginationPrevious href="#" />
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationLink href="#" isActive>
+        1
+      </PaginationLink>
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationEllipsis />
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationNext href="#" />
+    </PaginationItem>
+  </PaginationContent>
+</Pagination>
+```
+
+## Links
+
+`PaginationLink` takes `isActive`, which sets `aria-current="page"` and sinks the key, plus the button `size` (default `icon`) and `variant` (default `ghost`). `PaginationPrevious` and `PaginationNext` pass `variant="default"` and take a `text` prop for the visible label. Translate the `aria-label` with it, since the default one is English.
+
+```tsx
+<PaginationPrevious href="#" text="Précédent" aria-label="Page précédente" />
+```
+
+Mark a dead end with `aria-disabled` and `tabIndex={-1}`: it goes flat and dims without leaving the row.
+
+## Next.js
+
+`PaginationLink` renders an `<a>`. To route with `next/link`, change its props type to `React.ComponentProps<typeof Link>` and render `<Link>` in place of `<a>`.

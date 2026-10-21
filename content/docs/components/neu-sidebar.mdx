@@ -1,0 +1,100 @@
+---
+title: "Sidebar"
+description: "Neumorphic sidebar composed from the neu sheet, tooltip, input, separator, skeleton and button. The panel is its own ground; menu items are flat chips that tint on hover and sink, with an accent bar, when active."
+---
+
+<ComponentPreview name="neu-sidebar-demo" />
+
+## Installation
+
+```bash
+bunx --bun shadcn@latest add https://neu.beyondtheinnovation.com/r/neu-sidebar.json
+```
+
+## Usage
+
+```tsx
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarGroup,
+  SidebarGroupLabel,
+  SidebarInset,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarProvider,
+  SidebarTrigger,
+} from "@/components/ui/neu/sidebar"
+```
+
+```tsx
+<SidebarProvider>
+  <Sidebar>
+    <SidebarContent>
+      <SidebarGroup>
+        <SidebarGroupLabel>Application</SidebarGroupLabel>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton isActive>Home</SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarGroup>
+    </SidebarContent>
+  </Sidebar>
+  <SidebarInset>
+    <SidebarTrigger />
+  </SidebarInset>
+</SidebarProvider>
+```
+
+## Collapsible
+
+`collapsible="offcanvas"` (the default) slides the panel away, `"icon"` shrinks it to an icon rail whose buttons show their `tooltip`, and `"none"` keeps it fixed. `side` and `variant` (`sidebar`, `floating`, `inset`) place and frame it.
+
+```tsx
+<Sidebar side="right" variant="floating" collapsible="icon">
+  <SidebarMenuButton tooltip="Home">
+    <HomeIcon />
+    <span>Home</span>
+  </SidebarMenuButton>
+</Sidebar>
+```
+
+## Keyboard and persisted state
+
+`Cmd+B` (`Ctrl+B` on Windows and Linux) toggles the sidebar. The provider writes the state to the `sidebar_state` cookie, so a server layout can render it the same way on the next load.
+
+```tsx
+import { cookies } from "next/headers"
+
+export default async function Layout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  const cookieStore = await cookies()
+  const defaultOpen = cookieStore.get("sidebar_state")?.value !== "false"
+
+  return <SidebarProvider defaultOpen={defaultOpen}>{children}</SidebarProvider>
+}
+```
+
+## useSidebar
+
+Read or drive the sidebar from any component inside the provider.
+
+```tsx
+const { state, open, setOpen, openMobile, isMobile, toggleSidebar } =
+  useSidebar()
+```
+
+## RTL
+
+Pass `dir` and put the panel on the right. Positions inside the panel are logical, so actions, badges and sub menus follow the direction.
+
+```tsx
+<Sidebar dir="rtl" side="right">
+  {/* ... */}
+</Sidebar>
+```

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-toggle-demo",
+  "title": "Neu Toggle Demo",
+  "description": "Neu toggle chips: off, pressed on, outline, sizes and disabled.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-toggle.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-toggle-demo.tsx",
+      "content": "\"use client\"\n\nimport { BoldIcon, ItalicIcon, UnderlineIcon } from \"lucide-react\"\n\nimport { Toggle } from \"@/registry/neu/ui/neu/toggle\"\n\nexport function NeuToggleDemo() {\n  return (\n    <div className=\"neu-ground flex flex-wrap items-center gap-4 rounded-(--neu-radius) p-8\">\n      <Toggle aria-label=\"Toggle bold\">\n        <BoldIcon />\n      </Toggle>\n      <Toggle defaultPressed aria-label=\"Toggle italic\">\n        <ItalicIcon />\n      </Toggle>\n      <Toggle variant=\"outline\" aria-label=\"Toggle underline\">\n        <UnderlineIcon />\n      </Toggle>\n      <Toggle size=\"sm\">\n        <ItalicIcon />\n        Italic\n      </Toggle>\n      <Toggle size=\"lg\" aria-label=\"Toggle bold\">\n        <BoldIcon />\n        Bold\n      </Toggle>\n      <Toggle disabled aria-label=\"Toggle underline\">\n        <UnderlineIcon />\n      </Toggle>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

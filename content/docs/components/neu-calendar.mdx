@@ -1,0 +1,54 @@
+---
+title: "Calendar"
+description: "Neumorphic calendar on react-day-picker with the stock shadcn calendar API. Flat day cells; the selected day and the ends of a range carve in with the accent fill."
+---
+
+<ComponentPreview name="neu-calendar-demo" />
+
+## Installation
+
+```bash
+bunx --bun shadcn@latest add https://neu.beyondtheinnovation.com/r/neu-calendar.json
+```
+
+## Usage
+
+```tsx
+import * as React from "react"
+
+import { Calendar } from "@/components/ui/neu/calendar"
+```
+
+```tsx
+const [date, setDate] = React.useState<Date | undefined>(new Date())
+
+<Calendar mode="single" selected={date} onSelect={setDate} />
+```
+
+## Range
+
+```tsx
+import { type DateRange } from "react-day-picker"
+
+const [range, setRange] = React.useState<DateRange | undefined>()
+
+<Calendar mode="range" selected={range} onSelect={setRange} numberOfMonths={2} />
+```
+
+## Month and year selector
+
+```tsx
+<Calendar mode="single" captionLayout="dropdown" />
+```
+
+## RTL
+
+Pass a react-day-picker locale and `dir="rtl"`. The navigation chevrons and range ends flip with the direction.
+
+```tsx
+import { arSA } from "react-day-picker/locale"
+```
+
+```tsx
+<Calendar mode="single" locale={arSA} dir="rtl" />
+```

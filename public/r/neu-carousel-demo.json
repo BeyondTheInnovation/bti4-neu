@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-carousel-demo",
+  "title": "Neu Carousel Demo",
+  "description": "Neu carousel with five numbered raised cards.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-carousel.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-carousel-demo.tsx",
+      "content": "\"use client\"\n\nimport {\n  Carousel,\n  CarouselContent,\n  CarouselItem,\n  CarouselNext,\n  CarouselPrevious,\n} from \"@/registry/neu/ui/neu/carousel\"\n\nexport function NeuCarouselDemo() {\n  return (\n    <div className=\"neu-ground rounded-(--neu-radius) px-16 py-8\">\n      <Carousel className=\"mx-auto w-full max-w-xs\">\n        <CarouselContent>\n          {Array.from({ length: 5 }).map((_, index) => (\n            <CarouselItem key={index}>\n              <div className=\"p-1\">\n                <div className=\"neu flex aspect-square items-center justify-center\">\n                  <span className=\"text-4xl font-semibold\">{index + 1}</span>\n                </div>\n              </div>\n            </CarouselItem>\n          ))}\n        </CarouselContent>\n        <CarouselPrevious />\n        <CarouselNext />\n      </Carousel>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

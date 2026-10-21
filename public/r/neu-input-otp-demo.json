@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-input-otp-demo",
+  "title": "Neu Input OTP Demo",
+  "description": "Neu OTP wells in two groups with a separator.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-input-otp.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-input-otp-demo.tsx",
+      "content": "\"use client\"\n\nimport {\n  InputOTP,\n  InputOTPGroup,\n  InputOTPSeparator,\n  InputOTPSlot,\n} from \"@/registry/neu/ui/neu/input-otp\"\n\nexport function NeuInputOtpDemo() {\n  return (\n    <div className=\"neu-ground flex w-fit flex-col gap-6 rounded-(--neu-radius) p-8\">\n      <InputOTP maxLength={6} aria-label=\"One-time code\">\n        <InputOTPGroup>\n          <InputOTPSlot index={0} />\n          <InputOTPSlot index={1} />\n          <InputOTPSlot index={2} />\n        </InputOTPGroup>\n        <InputOTPSeparator />\n        <InputOTPGroup>\n          <InputOTPSlot index={3} />\n          <InputOTPSlot index={4} />\n          <InputOTPSlot index={5} />\n        </InputOTPGroup>\n      </InputOTP>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

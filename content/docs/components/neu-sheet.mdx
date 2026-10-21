@@ -1,0 +1,37 @@
+---
+title: "Sheet"
+description: "Neumorphic sheet on the Radix dialog primitive. A panel sliding in from the screen edge that becomes its own ground, over the surface-derived scrim."
+---
+
+<ComponentPreview name="neu-sheet-demo" />
+
+## Installation
+
+```bash
+bunx --bun shadcn@latest add https://neu.beyondtheinnovation.com/r/neu-sheet.json
+```
+
+## Usage
+
+```tsx
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/neu/sheet"
+```
+
+```tsx
+<Sheet>
+  <SheetTrigger>Open</SheetTrigger>
+  <SheetContent>
+    <SheetHeader>
+      <SheetTitle>Are you absolutely sure?</SheetTitle>
+      <SheetDescription>This action cannot be undone.</SheetDescription>
+    </SheetHeader>
+  </SheetContent>
+</Sheet>
+```

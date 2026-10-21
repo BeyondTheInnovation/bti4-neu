@@ -1,0 +1,52 @@
+---
+title: Introduction
+description: A neumorphism component registry for shadcn.
+---
+
+neu is a shadcn registry that ships neumorphic versions of the stock shadcn/ui
+components. You install it the same way you install anything else from a shadcn
+registry, and the components keep the APIs you already know: the button takes
+`variant` and `size`, the dialog is the Radix dialog, the form wrapper is
+react-hook-form. What changes is the surface.
+
+## How it works
+
+Everything derives from one token, `--neu-surface`. The theme computes the dual
+light and dark shadows, the concave and convex faces, the focus ring, and the
+text colors from that single color with CSS relative color syntax. Change the
+surface and the whole material follows, including dark mode, which is one token
+swap on `.dark` and nothing else.
+
+A few consequences of that design:
+
+- **Guaranteed contrast.** `--neu-text` and `--neu-text-muted` are solved
+  against the surface with the WCAG formula in CSS, targeting AAA (7.2) and AA
+  (4.6) contrast. On surfaces where a target is unreachable the color clamps to
+  pure white or black, the maximum that surface can support.
+- **Depth is state.** Raised means idle and actionable, inset means active,
+  selected, or editable. Hover never changes depth; press sink is a single
+  multiplier on the shadow math, not an extra shadow stack.
+- **Focus is never depth.** Keyboard focus is an outline in a ring color
+  derived from the surface, so it survives any surface color and any token
+  extreme. High-contrast and forced-colors modes get explicit border
+  fallbacks.
+- **Tokens are the API.** Distance, blur, shade, light angle, radius, alpha,
+  and the rest are registered custom properties. Retune them globally, per
+  component, or per element.
+
+## Requirements
+
+The theme uses relative color syntax and trigonometric functions in `calc()`.
+That puts the browser floor at Chrome 119, Safari 16.4, and Firefox 128.
+Tailwind v4 on the consumer side is assumed; the classes live in
+`@layer components` so Tailwind utilities on the same element still win.
+
+## Where to go next
+
+- [Installation](/installation) to add the theme and components to your
+  app.
+- [Theming](/theming) for the full token contract.
+- The [components gallery](/components) to see every component live on one
+  page.
+- The [playground](/playground) to drag the tokens around and watch the
+  material react.

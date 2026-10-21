@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-popover",
+  "title": "Neu Popover",
+  "description": "Neumorphic popover on the Radix primitive. A floating panel that re-grounds itself outside the page wrapper, with a plain elevation shadow.",
+  "dependencies": [
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/ui/neu/popover.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { Popover as PopoverPrimitive } from \"radix-ui\"\n\nimport { cn } from \"@/lib/utils\"\n\nfunction Popover({\n  ...props\n}: React.ComponentProps<typeof PopoverPrimitive.Root>) {\n  return <PopoverPrimitive.Root data-slot=\"popover\" {...props} />\n}\n\nfunction PopoverTrigger({\n  ...props\n}: React.ComponentProps<typeof PopoverPrimitive.Trigger>) {\n  return <PopoverPrimitive.Trigger data-slot=\"popover-trigger\" {...props} />\n}\n\n/* A floating sheet that casts one dark shadow (.neu-overlay); .neu-ground\n   re-derives the text tokens because the portal renders outside the page's\n   ground wrapper. */\nfunction PopoverContent({\n  className,\n  align = \"center\",\n  sideOffset = 4,\n  ...props\n}: React.ComponentProps<typeof PopoverPrimitive.Content>) {\n  return (\n    <PopoverPrimitive.Portal>\n      <PopoverPrimitive.Content\n        data-slot=\"popover-content\"\n        align={align}\n        sideOffset={sideOffset}\n        className={cn(\n          \"neu-ground neu-overlay neu-overlay-motion z-50 flex w-72 flex-col gap-4 origin-(--radix-popover-content-transform-origin) rounded-[calc(var(--neu-radius)*0.75)] p-4 outline-hidden\",\n          className\n        )}\n        {...props}\n      />\n    </PopoverPrimitive.Portal>\n  )\n}\n\nfunction PopoverAnchor({\n  ...props\n}: React.ComponentProps<typeof PopoverPrimitive.Anchor>) {\n  return <PopoverPrimitive.Anchor data-slot=\"popover-anchor\" {...props} />\n}\n\nfunction PopoverHeader({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"popover-header\"\n      className={cn(\"flex flex-col gap-1 text-sm\", className)}\n      {...props}\n    />\n  )\n}\n\nfunction PopoverTitle({ className, ...props }: React.ComponentProps<\"h2\">) {\n  return (\n    <div\n      data-slot=\"popover-title\"\n      className={cn(\"font-medium\", className)}\n      {...props}\n    />\n  )\n}\n\nfunction PopoverDescription({\n  className,\n  ...props\n}: React.ComponentProps<\"p\">) {\n  return (\n    <p\n      data-slot=\"popover-description\"\n      className={cn(\"text-(--neu-text-muted)\", className)}\n      {...props}\n    />\n  )\n}\n\nexport {\n  Popover,\n  PopoverTrigger,\n  PopoverContent,\n  PopoverAnchor,\n  PopoverHeader,\n  PopoverTitle,\n  PopoverDescription,\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/neu/popover.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-progress-demo",
+  "title": "Neu Progress Demo",
+  "description": "Neu progress at several values, one animating on mount.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-progress.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-progress-demo.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { Progress } from \"@/registry/neu/ui/neu/progress\"\n\nexport function NeuProgressDemo() {\n  const [value, setValue] = React.useState(13)\n\n  React.useEffect(() => {\n    const timer = setTimeout(() => setValue(66), 500)\n    return () => clearTimeout(timer)\n  }, [])\n\n  return (\n    <div className=\"neu-ground flex flex-col gap-6 rounded-(--neu-radius) p-8\">\n      <Progress value={value} aria-label=\"Upload progress\" />\n      <Progress value={0} aria-label=\"Not started\" />\n      <Progress value={100} aria-label=\"Complete\" />\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

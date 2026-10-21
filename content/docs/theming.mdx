@@ -1,0 +1,105 @@
+---
+title: Theming
+description: The --neu-* token contract. Raw scalars in, everything visible out.
+---
+
+The public API of the theme is a set of raw scalar tokens. Every shadow, face,
+gradient, ring, and text color is derived from them, so theming means setting
+tokens, never writing shadow stacks. Tokens are registered with `@property`,
+which makes them typed and animatable, and makes a bad value fall back to the
+default instead of invalidating the declaration.
+
+Tokens inherit, so you can retune them at any scope: on `:root` for the whole
+app, on a wrapper for a section, or on a single element with an arbitrary
+value like `[--neu-distance:4px]`. The derivations live on the component
+selectors, not `:root`, so per-element overrides recompute correctly.
+
+Try all of this live in the [playground](/playground). The theme you build
+there carries over to every page of this site until you reset it.
+
+## Input tokens
+
+| Token | Default | Role |
+| --- | --- | --- |
+| `--neu-surface` | `oklch(0.92 0.005 250)` | The one input. Every other color derives from it. Dark mode sets only this on `.dark`. |
+| `--neu-distance` | `12px` | Shadow offset magnitude. |
+| `--neu-blur` | `24px` | Shadow blur, by default 2x distance. |
+| `--neu-depth` | `1` | A control's share of the global depth, as a ratio. Small controls pin it (fields at `0.33`, checkbox and radio at `0.25`) so they stay shallow yet still follow `--neu-distance`. |
+| `--neu-shade` | `0.1` | Depth intensity in oklch lightness units, self-scaled up on dark surfaces. |
+| `--neu-face` | `0.03` | Gradient contrast for the concave and convex faces. |
+| `--neu-light-angle` | `315deg` | Lamp position, clockwise from top. 315deg is top-left; the dark shadow lands opposite it. |
+| `--neu-radius` | `1rem` | Corner radius. Keys inside a tray (tabs, toggle group) sit 4px inside it, the checkbox caps at 8px so it stays square, and round parts (radio, switch, slider, progress, avatar, badge) stay round. |
+| `--neu-corner` | `round` | Corner shape. Set `squircle` for superellipse corners in browsers with `corner-shape` (Chrome 139+); others fall back to round. |
+| `--neu-alpha` | `0.55` | Shadow translucency, kept below 1 so shadows tint whatever they fall on. |
+| `--neu-shade-light` / `--neu-shade-dark` | follow `--neu-shade` | Optional split intensities for the light and dark halves of the pair. |
+| `--neu-drop` | derived | The cast shadow of anything above the paper: handles such as the slider thumb, popovers, menus, tooltips. Near black and see-through, so it only ever darkens what is under it, with its depth on the paper matched to the dark half of the pair. Set a color to override it. |
+| `--neu-highlight` | `0.3` | Scales only the outer light shadow of raised surfaces. Pressed wells keep their full inset highlight. |
+| `--neu-glint` | `0.25` | Strength of the 1px inset edge highlight that fades in on dark surfaces. `0` disables it. |
+| `--neu-ring-width` / `--neu-ring-offset` | `2px` / `2px` | Focus outline geometry. |
+| `--neu-ease-press` / `--neu-ease-release` | `100ms` ease-in / `250ms` ease-out | Press and release transitions, asymmetric like a spring-loaded key. |
+
+## Derived tokens
+
+Readable anywhere, but not meant as inputs:
+
+| Token | What it is |
+| --- | --- |
+| `--neu-text` | Text color solved against the surface for a 7.2 contrast target (AAA). Where the target is unreachable it clamps to pure white or black. |
+| `--neu-text-muted` | Same solve at a 4.6 target, opaque. Quieter through lower contrast, never below AA. |
+| `--neu-ring` | Mid-lightness, saturated focus ring in the surface hue. |
+
+The text solve runs the WCAG formula in CSS against the actual surface
+luminance, so any surface color, including brand colors, gets readable text
+without a manual pairing. Components never hardcode text colors.
+
+## Shapes
+
+The shape classes consume the tokens:
+
+| Class | Effect |
+| --- | --- |
+| `.neu` | The base raised pair. |
+| `.neu-pressed` | The same pair inset. |
+| `.neu-concave` / `.neu-convex` | Curved faces via a gradient oriented by the light angle. Wells are concave and raised keys convex, so `--neu-face` reaches every control. |
+| `.neu-ground` | Surface and text color only, no shadow. Put it on the page wrapper. |
+| `.neu-realism` | Opt-in five-layer shadow ramp for higher fidelity. |
+| `.neu-text-emboss` | The shadow pair as `text-shadow`, for display type. |
+| `.neu-active-sink` / `.neu-state-sink` | Opt-in press and state sinks; depth changes through one multiplier. Hover never changes depth: neumorphic surfaces move only when pressed or held in a state. |
+| `.neu-line` / `.neu-line-b` / `.neu-line-t` | Engraved dividers: a dark crease plus one lit edge. `.neu-line` is a rounded pill; `-b`/`-t` paint the crease as a bottom/top container edge. |
+
+## Depth presets
+
+Personality bundles that only retune raw tokens. Apply to a wrapper or an
+element; they compose with any shape:
+
+| Class | Feel |
+| --- | --- |
+| `.neu-preset-flat` | Barely off the surface. |
+| `.neu-preset-soft` | Gentle, close light. |
+| `.neu-preset-deep` | Pronounced depth. |
+| `.neu-preset-dramatic` | Large, asymmetric, hot highlight. |
+
+## Dark mode
+
+```css
+.dark {
+  --neu-surface: oklch(0.25 0.02 250);
+}
+```
+
+That is the entire dark theme. The shade clamp scales depth up so it stays
+legible, the glint edge fades in to sell the lit top edge, and the text solve
+flips to light text on its own at the luminance threshold.
+
+## Example: a brand surface
+
+```css
+:root {
+  --neu-surface: #00a4ac;
+  --neu-distance: 9px;
+  --neu-blur: 22px;
+}
+```
+
+Shadows, faces, and the ring all follow the teal. Text clamps to black on this
+surface because that is the highest contrast it supports.

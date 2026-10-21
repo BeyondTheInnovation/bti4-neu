@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-scroll-area-demo",
+  "title": "Neu Scroll Area Demo",
+  "description": "A pressed well of long content with the tinted scrollbar thumb.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-scroll-area.json",
+    "https://neu.beyondtheinnovation.com/r/neu-separator.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-scroll-area-demo.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { ScrollArea } from \"@/registry/neu/ui/neu/scroll-area\"\nimport { Separator } from \"@/registry/neu/ui/neu/separator\"\n\nconst tags = Array.from({ length: 30 }).map(\n  (_, i, a) => `v1.2.0-beta.${a.length - i}`\n)\n\nexport function NeuScrollAreaDemo() {\n  return (\n    <div className=\"neu-ground rounded-(--neu-radius) p-8\">\n      <ScrollArea className=\"neu-pressed h-72 w-48 rounded-(--neu-radius)\">\n        <div className=\"p-4\">\n          <h4 className=\"mb-4 text-sm leading-none font-medium\">Tags</h4>\n          {tags.map((tag) => (\n            <React.Fragment key={tag}>\n              <div className=\"text-sm\">{tag}</div>\n              <Separator className=\"my-2\" />\n            </React.Fragment>\n          ))}\n        </div>\n      </ScrollArea>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

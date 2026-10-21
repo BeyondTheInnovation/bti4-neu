@@ -1,0 +1,68 @@
+---
+title: "Input OTP"
+description: "Neumorphic one-time-password input. Each slot is its own carved well; the active slot carries the focus ring."
+---
+
+<ComponentPreview name="neu-input-otp-demo" />
+
+## Installation
+
+```bash
+bunx --bun shadcn@latest add https://neu.beyondtheinnovation.com/r/neu-input-otp.json
+```
+
+## Usage
+
+```tsx
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSeparator,
+  InputOTPSlot,
+} from "@/components/ui/neu/input-otp"
+```
+
+```tsx
+<InputOTP maxLength={4}>
+  <InputOTPGroup>
+    <InputOTPSlot index={0} />
+    <InputOTPSlot index={1} />
+    <InputOTPSlot index={2} />
+    <InputOTPSlot index={3} />
+  </InputOTPGroup>
+</InputOTP>
+```
+
+## Separator
+
+Place `InputOTPSeparator` between groups.
+
+```tsx
+<InputOTP maxLength={6}>
+  <InputOTPGroup>
+    <InputOTPSlot index={0} />
+    <InputOTPSlot index={1} />
+    <InputOTPSlot index={2} />
+  </InputOTPGroup>
+  <InputOTPSeparator />
+  <InputOTPGroup>
+    <InputOTPSlot index={3} />
+    <InputOTPSlot index={4} />
+    <InputOTPSlot index={5} />
+  </InputOTPGroup>
+</InputOTP>
+```
+
+## Pattern
+
+`pattern` limits what each slot accepts. `input-otp` exports common patterns.
+
+```tsx
+import { REGEXP_ONLY_DIGITS_AND_CHARS } from "input-otp"
+```
+
+```tsx
+<InputOTP maxLength={4} pattern={REGEXP_ONLY_DIGITS_AND_CHARS}>
+  ...
+</InputOTP>
+```

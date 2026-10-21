@@ -1,0 +1,40 @@
+---
+title: "Button"
+description: "Neumorphic button with the stock shadcn button API. Raised by default, sinks on press. Hover keeps its depth."
+---
+
+<ComponentPreview name="neu-button-demo" />
+
+## Installation
+
+```bash
+bunx --bun shadcn@latest add https://neu.beyondtheinnovation.com/r/neu-button.json
+```
+
+## Usage
+
+```tsx
+import { Button } from "@/components/ui/neu/button"
+```
+
+```tsx
+<Button variant="outline">Button</Button>
+```
+
+## Surface
+
+`surface` sets the face. The default, `auto`, makes the raised variants (default, secondary, destructive) convex so the theme's `--neu-face` curves them, and leaves ghost, outline and link flat. Pass `flat`, `convex`, `concave` or `realism` to pin one.
+
+```tsx
+<Button surface="flat">Flat</Button>
+```
+
+## As Child
+
+Use `asChild` to give another element, such as a link, the button's styles.
+
+```tsx
+<Button asChild>
+  <a href="/login">Login</a>
+</Button>
+```

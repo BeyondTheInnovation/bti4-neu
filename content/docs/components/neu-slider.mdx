@@ -1,0 +1,43 @@
+---
+title: "Slider"
+description: "Neumorphic slider on the Radix primitive. A carved groove filled with the accent up to the value, and a raised bead with an accent pip as the thumb."
+---
+
+<ComponentPreview name="neu-slider-demo" />
+
+## Installation
+
+```bash
+bunx --bun shadcn@latest add https://neu.beyondtheinnovation.com/r/neu-slider.json
+```
+
+## Usage
+
+```tsx
+import { Slider } from "@/components/ui/neu/slider"
+```
+
+```tsx
+<Slider defaultValue={[33]} max={100} step={1} />
+```
+
+## Range
+
+Pass two or more values for a range or several thumbs. `thumbLabels` names each thumb; without it, the thumbs take `aria-label` with their position appended.
+
+```tsx
+<Slider
+  defaultValue={[20, 60]}
+  thumbLabels={["Minimum price", "Maximum price"]}
+/>
+```
+
+## Vertical
+
+Use `orientation="vertical"` and give the parent a height.
+
+```tsx
+<div className="h-44">
+  <Slider defaultValue={[66]} orientation="vertical" aria-label="Level" />
+</div>
+```

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-toggle-group",
+  "title": "Neu Toggle Group",
+  "description": "Neumorphic toggle group on the Radix primitive. A carved well that follows the theme radius; in single mode one raised knob slides to the pressed item.",
+  "dependencies": [
+    "radix-ui",
+    "class-variance-authority"
+  ],
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-theme.json",
+    "https://neu.beyondtheinnovation.com/r/neu-toggle.json",
+    "https://neu.beyondtheinnovation.com/r/neu-sliding-key.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/ui/neu/toggle-group.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { ToggleGroup as ToggleGroupPrimitive } from \"radix-ui\"\nimport { type VariantProps } from \"class-variance-authority\"\n\nimport { cn } from \"@/lib/utils\"\nimport {\n  keyRadiusClasses,\n  SlidingKey,\n  useSlidingKey,\n} from \"@/registry/neu/ui/neu/sliding-key\"\nimport { toggleChipVariants } from \"@/registry/neu/ui/neu/toggle\"\n\nconst ToggleGroupContext = React.createContext<\n  VariantProps<typeof toggleChipVariants> & {\n    spacing?: number\n  }\n>({\n  size: \"default\",\n  variant: \"default\",\n  spacing: 0,\n})\n\n/* A carved well; the pressed item is the knob raised out of it. In\n   single mode the knob is one element that slides to the pressed item. Until\n   it is measured on the client, and whenever several items can be on, each\n   pressed item paints its own knob (data-key=item), so no render shows an\n   empty well. */\nfunction ToggleGroup({\n  className,\n  variant,\n  size,\n  spacing = 0,\n  children,\n  ref,\n  ...props\n}: React.ComponentProps<typeof ToggleGroupPrimitive.Root> &\n  VariantProps<typeof toggleChipVariants> & {\n    spacing?: number\n  }) {\n  const { ref: groupRef, rect: key } = useSlidingKey<HTMLDivElement>(\n    \"[data-slot=toggle-group-item][data-state=on]\",\n    props.type === \"single\",\n    ref\n  )\n\n  return (\n    <ToggleGroupPrimitive.Root\n      data-slot=\"toggle-group\"\n      data-variant={variant}\n      data-size={size}\n      data-spacing={spacing}\n      data-orientation={props.orientation}\n      data-key={key ? \"sliding\" : \"item\"}\n      ref={groupRef}\n      style={{ \"--gap\": spacing } as React.CSSProperties}\n      className={cn(\n        \"neu-pressed neu-concave group/toggle-group relative flex w-fit items-center gap-[max(--spacing(0.5),--spacing(var(--gap)))] p-1 [--neu-depth:0.25] data-[orientation=vertical]:flex-col data-[orientation=vertical]:items-stretch\",\n        className\n      )}\n      {...props}\n    >\n      <SlidingKey rect={key} />\n      <ToggleGroupContext.Provider value={{ variant, size, spacing }}>\n        {children}\n      </ToggleGroupContext.Provider>\n    </ToggleGroupPrimitive.Root>\n  )\n}\n\nfunction ToggleGroupItem({\n  className,\n  children,\n  variant = \"default\",\n  size = \"default\",\n  ...props\n}: React.ComponentProps<typeof ToggleGroupPrimitive.Item> &\n  VariantProps<typeof toggleChipVariants>) {\n  const context = React.useContext(ToggleGroupContext)\n\n  return (\n    <ToggleGroupPrimitive.Item\n      data-slot=\"toggle-group-item\"\n      data-variant={context.variant || variant}\n      data-size={context.size || size}\n      data-spacing={context.spacing}\n      className={cn(\n        toggleChipVariants({\n          variant: context.variant || variant,\n          size: context.size || size,\n        }),\n        keyRadiusClasses,\n        \"relative shrink-0 focus:z-10 focus-visible:z-10 group-data-[key=sliding]/toggle-group:[background:none] group-data-[key=sliding]/toggle-group:[box-shadow:none]\",\n        className\n      )}\n      {...props}\n    >\n      {children}\n    </ToggleGroupPrimitive.Item>\n  )\n}\n\nexport { ToggleGroup, ToggleGroupItem }\n",
+      "type": "registry:ui",
+      "target": "components/ui/neu/toggle-group.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-dropdown-menu-demo",
+  "title": "Neu Dropdown Menu Demo",
+  "description": "Neu dropdown menu with groups, shortcuts, checkbox and radio items, a submenu and a destructive item.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-dropdown-menu.json",
+    "https://neu.beyondtheinnovation.com/r/neu-button.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-dropdown-menu-demo.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { Button } from \"@/registry/neu/ui/neu/button\"\nimport {\n  DropdownMenu,\n  DropdownMenuCheckboxItem,\n  DropdownMenuContent,\n  DropdownMenuGroup,\n  DropdownMenuItem,\n  DropdownMenuLabel,\n  DropdownMenuRadioGroup,\n  DropdownMenuRadioItem,\n  DropdownMenuSeparator,\n  DropdownMenuShortcut,\n  DropdownMenuSub,\n  DropdownMenuSubContent,\n  DropdownMenuSubTrigger,\n  DropdownMenuTrigger,\n} from \"@/registry/neu/ui/neu/dropdown-menu\"\n\nexport function NeuDropdownMenuDemo() {\n  const [showStatusBar, setShowStatusBar] = React.useState(true)\n  const [position, setPosition] = React.useState(\"bottom\")\n\n  return (\n    <div className=\"neu-ground flex items-center justify-center rounded-(--neu-radius) p-8\">\n      <DropdownMenu>\n        <DropdownMenuTrigger asChild>\n          <Button variant=\"secondary\" className=\"neu-state-sink\">\n            Open menu\n          </Button>\n        </DropdownMenuTrigger>\n        <DropdownMenuContent className=\"w-56\">\n          <DropdownMenuLabel>My Account</DropdownMenuLabel>\n          <DropdownMenuGroup>\n            <DropdownMenuItem>\n              Profile\n              <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>\n            </DropdownMenuItem>\n            <DropdownMenuItem>\n              Billing\n              <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>\n            </DropdownMenuItem>\n            <DropdownMenuItem disabled>API (disabled)</DropdownMenuItem>\n          </DropdownMenuGroup>\n          <DropdownMenuSeparator />\n          <DropdownMenuCheckboxItem\n            checked={showStatusBar}\n            onCheckedChange={setShowStatusBar}\n          >\n            Status Bar\n          </DropdownMenuCheckboxItem>\n          <DropdownMenuSeparator />\n          <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>\n            <DropdownMenuLabel>Panel Position</DropdownMenuLabel>\n            <DropdownMenuRadioItem value=\"top\">Top</DropdownMenuRadioItem>\n            <DropdownMenuRadioItem value=\"bottom\">Bottom</DropdownMenuRadioItem>\n          </DropdownMenuRadioGroup>\n          <DropdownMenuSeparator />\n          <DropdownMenuSub>\n            <DropdownMenuSubTrigger>Invite users</DropdownMenuSubTrigger>\n            <DropdownMenuSubContent>\n              <DropdownMenuItem>Email</DropdownMenuItem>\n              <DropdownMenuItem>Message</DropdownMenuItem>\n            </DropdownMenuSubContent>\n          </DropdownMenuSub>\n          <DropdownMenuSeparator />\n          <DropdownMenuItem variant=\"destructive\">\n            Delete account\n            <DropdownMenuShortcut>⌘⌫</DropdownMenuShortcut>\n          </DropdownMenuItem>\n        </DropdownMenuContent>\n      </DropdownMenu>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

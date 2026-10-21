@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-breadcrumb-demo",
+  "title": "Neu Breadcrumb Demo",
+  "description": "Neu breadcrumb with links, an ellipsis and the current page.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-breadcrumb.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-breadcrumb-demo.tsx",
+      "content": "import {\n  Breadcrumb,\n  BreadcrumbEllipsis,\n  BreadcrumbItem,\n  BreadcrumbLink,\n  BreadcrumbList,\n  BreadcrumbPage,\n  BreadcrumbSeparator,\n} from \"@/registry/neu/ui/neu/breadcrumb\"\n\nexport function NeuBreadcrumbDemo() {\n  return (\n    <div className=\"neu-ground flex flex-col gap-4 rounded-(--neu-radius) p-8\">\n      <Breadcrumb>\n        <BreadcrumbList>\n          <BreadcrumbItem>\n            <BreadcrumbLink href=\"#\">Home</BreadcrumbLink>\n          </BreadcrumbItem>\n          <BreadcrumbSeparator />\n          <BreadcrumbItem>\n            <BreadcrumbEllipsis className=\"size-4\" />\n          </BreadcrumbItem>\n          <BreadcrumbSeparator />\n          <BreadcrumbItem>\n            <BreadcrumbLink href=\"#\">Components</BreadcrumbLink>\n          </BreadcrumbItem>\n          <BreadcrumbSeparator />\n          <BreadcrumbItem>\n            <BreadcrumbPage>Breadcrumb</BreadcrumbPage>\n          </BreadcrumbItem>\n        </BreadcrumbList>\n      </Breadcrumb>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

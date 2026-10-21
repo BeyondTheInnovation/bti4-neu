@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-calendar-demo",
+  "title": "Neu Calendar Demo",
+  "description": "Neu calendar with single-date selection on a raised panel.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-calendar.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-calendar-demo.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { Calendar } from \"@/registry/neu/ui/neu/calendar\"\n\nexport function NeuCalendarDemo() {\n  const [date, setDate] = React.useState<Date | undefined>(\n    new Date(2026, 5, 12)\n  )\n\n  return (\n    <div className=\"neu-ground rounded-(--neu-radius) p-8\">\n      <Calendar\n        mode=\"single\"\n        selected={date}\n        onSelect={setDate}\n        defaultMonth={new Date(2026, 5, 12)}\n        className=\"neu mx-auto\"\n      />\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

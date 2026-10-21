@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-input-demo",
+  "title": "Neu Input Demo",
+  "description": "Neu input states: empty, filled, invalid and disabled wells.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-input.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-input-demo.tsx",
+      "content": "\"use client\"\n\nimport { Input } from \"@/registry/neu/ui/neu/input\"\n\nexport function NeuInputDemo() {\n  return (\n    <div className=\"neu-ground flex w-full max-w-sm flex-col gap-4 rounded-(--neu-radius) p-8\">\n      <Input type=\"email\" placeholder=\"Email\" aria-label=\"Email\" />\n      <Input type=\"text\" defaultValue=\"A filled well\" aria-label=\"Filled\" />\n      <Input aria-invalid placeholder=\"Invalid\" aria-label=\"Invalid\" />\n      <Input disabled placeholder=\"Disabled\" aria-label=\"Disabled\" />\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

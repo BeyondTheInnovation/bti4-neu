@@ -1,0 +1,24 @@
+---
+title: "Aspect Ratio"
+description: "Aspect ratio on the Radix primitive. Pure logic with a data-slot attribute."
+---
+
+<ComponentPreview name="neu-aspect-ratio-demo" />
+
+## Installation
+
+```bash
+bunx --bun shadcn@latest add https://neu.beyondtheinnovation.com/r/neu-aspect-ratio.json
+```
+
+## Usage
+
+```tsx
+import { AspectRatio } from "@/components/ui/neu/aspect-ratio"
+```
+
+```tsx
+<AspectRatio ratio={16 / 9}>
+  <img src="/photo.jpg" alt="Photo" className="size-full object-cover" />
+</AspectRatio>
+```

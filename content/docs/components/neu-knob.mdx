@@ -1,0 +1,20 @@
+---
+title: "Knob"
+description: "The shared raised handle behind the switch, slider, radio, toggle and active page."
+---
+
+## Installation
+
+```bash
+bunx --bun shadcn@latest add https://neu.beyondtheinnovation.com/r/neu-knob.json
+```
+
+## Usage
+
+```tsx
+import { knobFaceClasses } from "@/components/ui/neu/knob"
+
+export function Handle() {
+  return <span className={knobFaceClasses + " block size-5"} />
+}
+```

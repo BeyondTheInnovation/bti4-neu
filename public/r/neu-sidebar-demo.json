@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-sidebar-demo",
+  "title": "Neu Sidebar Demo",
+  "description": "Neu sidebar with icon collapse, a badge, an active item and a footer profile.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-sidebar.json",
+    "https://neu.beyondtheinnovation.com/r/neu-separator.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-sidebar-demo.tsx",
+      "content": "\"use client\"\n\nimport {\n  CalendarIcon,\n  HomeIcon,\n  InboxIcon,\n  SearchIcon,\n  SettingsIcon,\n} from \"lucide-react\"\n\nimport { Separator } from \"@/registry/neu/ui/neu/separator\"\nimport {\n  Sidebar,\n  SidebarContent,\n  SidebarFooter,\n  SidebarGroup,\n  SidebarGroupContent,\n  SidebarGroupLabel,\n  SidebarHeader,\n  SidebarInset,\n  SidebarMenu,\n  SidebarMenuBadge,\n  SidebarMenuButton,\n  SidebarMenuItem,\n  SidebarProvider,\n  SidebarRail,\n  SidebarTrigger,\n} from \"@/registry/neu/ui/neu/sidebar\"\n\nconst items = [\n  { title: \"Home\", icon: HomeIcon, isActive: true },\n  { title: \"Inbox\", icon: InboxIcon, badge: \"12\" },\n  { title: \"Calendar\", icon: CalendarIcon },\n  { title: \"Search\", icon: SearchIcon },\n  { title: \"Settings\", icon: SettingsIcon },\n]\n\nexport function NeuSidebarDemo() {\n  return (\n    <SidebarProvider>\n      <Sidebar collapsible=\"icon\">\n        <SidebarHeader>\n          <SidebarMenu>\n            <SidebarMenuItem>\n              <SidebarMenuButton size=\"lg\">\n                <span className=\"neu-convex flex size-8 shrink-0 items-center justify-center rounded-[calc(var(--neu-radius)/2)] text-xs font-bold [--neu-alpha:initial] [--neu-depth:0.17] [--neu-glint:initial]\">\n                  N\n                </span>\n                <span className=\"font-semibold\">Acme Inc</span>\n              </SidebarMenuButton>\n            </SidebarMenuItem>\n          </SidebarMenu>\n        </SidebarHeader>\n        <SidebarContent>\n          <SidebarGroup>\n            <SidebarGroupLabel>Application</SidebarGroupLabel>\n            <SidebarGroupContent>\n              <SidebarMenu>\n                {items.map((item) => (\n                  <SidebarMenuItem key={item.title}>\n                    <SidebarMenuButton\n                      isActive={item.isActive}\n                      tooltip={item.title}\n                    >\n                      <item.icon />\n                      <span>{item.title}</span>\n                    </SidebarMenuButton>\n                    {item.badge && (\n                      <SidebarMenuBadge>{item.badge}</SidebarMenuBadge>\n                    )}\n                  </SidebarMenuItem>\n                ))}\n              </SidebarMenu>\n            </SidebarGroupContent>\n          </SidebarGroup>\n        </SidebarContent>\n        <SidebarFooter>\n          <SidebarMenu>\n            <SidebarMenuItem>\n              <SidebarMenuButton tooltip=\"Profile\">\n                <span className=\"neu-pressed flex size-6 shrink-0 items-center justify-center rounded-full text-[10px] font-semibold [--neu-alpha:initial] [--neu-depth:0.17] [--neu-glint:initial]\">\n                  SO\n                </span>\n                <span>Sohaib</span>\n              </SidebarMenuButton>\n            </SidebarMenuItem>\n          </SidebarMenu>\n        </SidebarFooter>\n        <SidebarRail />\n      </Sidebar>\n      <SidebarInset>\n        <header className=\"flex h-14 items-center gap-2 px-4\">\n          <SidebarTrigger />\n          <Separator\n            orientation=\"vertical\"\n            className=\"data-[orientation=vertical]:h-4\"\n          />\n          <span className=\"text-sm font-medium\">Home</span>\n        </header>\n        <div className=\"grid flex-1 grid-cols-2 content-start gap-4 p-4\">\n          <div className=\"neu-pressed aspect-video rounded-(--neu-radius)\" />\n          <div className=\"neu aspect-video rounded-(--neu-radius)\" />\n        </div>\n      </SidebarInset>\n    </SidebarProvider>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

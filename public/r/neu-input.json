@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-input",
+  "title": "Neu Input",
+  "description": "Neumorphic input with the stock shadcn input API. A well carved into the surface.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/ui/neu/input.tsx",
+      "content": "import * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\n\n/* A field is a well carved into the surface, so the inset pair is always on.\n   Distance/blur retuned to control scale, per the theme's local-override rule. */\nfunction Input({ className, type, ...props }: React.ComponentProps<\"input\">) {\n  return (\n    <input\n      type={type}\n      data-slot=\"input\"\n      className={cn(\n        \"neu-pressed neu-field neu-concave h-9 w-full min-w-0 px-3.5 py-1 text-base [--neu-depth:0.33] selection:bg-(--neu-ring) selection:text-(--neu-surface) file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-current placeholder:text-(--neu-text-muted) disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-2 aria-invalid:border-destructive md:text-sm\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nexport { Input }\n",
+      "type": "registry:ui",
+      "target": "components/ui/neu/input.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

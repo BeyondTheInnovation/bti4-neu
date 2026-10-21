@@ -1,0 +1,54 @@
+---
+title: "Command"
+description: "Neumorphic command palette on cmdk with the stock shadcn command API. A raised panel with a sunken search well."
+---
+
+<ComponentPreview name="neu-command-demo" />
+
+## Installation
+
+```bash
+bunx --bun shadcn@latest add https://neu.beyondtheinnovation.com/r/neu-command.json
+```
+
+## Usage
+
+```tsx
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/neu/command"
+```
+
+```tsx
+<Command>
+  <CommandInput placeholder="Type a command or search..." />
+  <CommandList>
+    <CommandEmpty>No results found.</CommandEmpty>
+    <CommandGroup heading="Suggestions">
+      <CommandItem>Calendar</CommandItem>
+      <CommandItem>Search</CommandItem>
+    </CommandGroup>
+  </CommandList>
+</Command>
+```
+
+## Dialog
+
+`CommandDialog` opens the palette in a dialog and wraps its children in `Command`. `title` and `description` are read by screen readers only and default to "Command Palette" and "Search for a command to run...". Pass `showCloseButton={false}` to hide the close button.
+
+```tsx
+<CommandDialog open={open} onOpenChange={setOpen} title="Search docs">
+  <CommandInput placeholder="Type a command or search..." />
+  <CommandList>
+    <CommandEmpty>No results found.</CommandEmpty>
+    <CommandGroup heading="Suggestions">
+      <CommandItem>Calendar</CommandItem>
+    </CommandGroup>
+  </CommandList>
+</CommandDialog>
+```

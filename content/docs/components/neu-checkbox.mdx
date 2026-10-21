@@ -1,0 +1,38 @@
+---
+title: "Checkbox"
+description: "Neumorphic checkbox on the Radix primitive. A carved square well; checking lifts an accent tick off its floor."
+---
+
+<ComponentPreview name="neu-checkbox-demo" />
+
+## Installation
+
+```bash
+bunx --bun shadcn@latest add https://neu.beyondtheinnovation.com/r/neu-checkbox.json
+```
+
+## Usage
+
+```tsx
+import { Checkbox } from "@/components/ui/neu/checkbox"
+```
+
+```tsx
+<Checkbox />
+```
+
+## Indeterminate
+
+Pass `checked="indeterminate"` to draw a dash instead of the tick, for a parent row that is partly selected.
+
+```tsx
+<Checkbox checked="indeterminate" />
+```
+
+## Tick
+
+`tick="always"` keeps a faint tick in the empty well to preview the mark. The default, `on-check`, shows it only when checked.
+
+```tsx
+<Checkbox tick="always" />
+```

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-tabs-demo",
+  "title": "Neu Tabs Demo",
+  "description": "Three tabs on the carved track, active key raised.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-tabs.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-tabs-demo.tsx",
+      "content": "\"use client\"\n\nimport {\n  Tabs,\n  TabsContent,\n  TabsList,\n  TabsTrigger,\n} from \"@/registry/neu/ui/neu/tabs\"\n\nexport function NeuTabsDemo() {\n  return (\n    <div className=\"neu-ground rounded-(--neu-radius) p-8\">\n      <Tabs defaultValue=\"account\">\n        <TabsList>\n          <TabsTrigger value=\"account\">Account</TabsTrigger>\n          <TabsTrigger value=\"password\">Password</TabsTrigger>\n          <TabsTrigger value=\"billing\">Billing</TabsTrigger>\n        </TabsList>\n        <TabsContent value=\"account\" className=\"text-sm\">\n          The active tab rides a raised key that slides along the carved tray.\n        </TabsContent>\n        <TabsContent value=\"password\" className=\"text-sm\">\n          Idle tabs stay flat on the tray.\n        </TabsContent>\n        <TabsContent value=\"billing\" className=\"text-sm\">\n          Arrow keys move between tabs.\n        </TabsContent>\n      </Tabs>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-menubar-demo",
+  "title": "Neu Menubar Demo",
+  "description": "Neu menubar with File, Edit and View menus covering submenus, shortcuts, checkbox and radio items.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-menubar.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-menubar-demo.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport {\n  Menubar,\n  MenubarCheckboxItem,\n  MenubarContent,\n  MenubarItem,\n  MenubarMenu,\n  MenubarRadioGroup,\n  MenubarRadioItem,\n  MenubarSeparator,\n  MenubarShortcut,\n  MenubarSub,\n  MenubarSubContent,\n  MenubarSubTrigger,\n  MenubarTrigger,\n} from \"@/registry/neu/ui/neu/menubar\"\n\nexport function NeuMenubarDemo() {\n  const [wordWrap, setWordWrap] = React.useState(true)\n  const [theme, setTheme] = React.useState(\"system\")\n\n  return (\n    <div className=\"neu-ground flex items-center justify-center rounded-(--neu-radius) p-8\">\n      <Menubar>\n        <MenubarMenu>\n          <MenubarTrigger>File</MenubarTrigger>\n          <MenubarContent>\n            <MenubarItem>\n              New Tab\n              <MenubarShortcut>⌘T</MenubarShortcut>\n            </MenubarItem>\n            <MenubarItem>\n              New Window\n              <MenubarShortcut>⌘N</MenubarShortcut>\n            </MenubarItem>\n            <MenubarSeparator />\n            <MenubarSub>\n              <MenubarSubTrigger>Share</MenubarSubTrigger>\n              <MenubarSubContent>\n                <MenubarItem>Email link</MenubarItem>\n                <MenubarItem>Messages</MenubarItem>\n              </MenubarSubContent>\n            </MenubarSub>\n            <MenubarSeparator />\n            <MenubarItem disabled>\n              Print… (disabled)\n              <MenubarShortcut>⌘P</MenubarShortcut>\n            </MenubarItem>\n          </MenubarContent>\n        </MenubarMenu>\n        <MenubarMenu>\n          <MenubarTrigger>Edit</MenubarTrigger>\n          <MenubarContent>\n            <MenubarItem>\n              Undo\n              <MenubarShortcut>⌘Z</MenubarShortcut>\n            </MenubarItem>\n            <MenubarItem>\n              Redo\n              <MenubarShortcut>⇧⌘Z</MenubarShortcut>\n            </MenubarItem>\n            <MenubarSeparator />\n            <MenubarCheckboxItem\n              checked={wordWrap}\n              onCheckedChange={setWordWrap}\n            >\n              Word Wrap\n            </MenubarCheckboxItem>\n            <MenubarSeparator />\n            <MenubarItem variant=\"destructive\">Delete Draft</MenubarItem>\n          </MenubarContent>\n        </MenubarMenu>\n        <MenubarMenu>\n          <MenubarTrigger>View</MenubarTrigger>\n          <MenubarContent>\n            <MenubarRadioGroup value={theme} onValueChange={setTheme}>\n              <MenubarRadioItem value=\"light\">Light</MenubarRadioItem>\n              <MenubarRadioItem value=\"dark\">Dark</MenubarRadioItem>\n              <MenubarRadioItem value=\"system\">System</MenubarRadioItem>\n            </MenubarRadioGroup>\n          </MenubarContent>\n        </MenubarMenu>\n      </Menubar>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

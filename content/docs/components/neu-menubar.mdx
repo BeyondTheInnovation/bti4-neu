@@ -1,0 +1,39 @@
+---
+title: "Menubar"
+description: "Neumorphic menubar on the Radix primitive. A raised bar of flat chips that sink while their menu is open."
+---
+
+<ComponentPreview name="neu-menubar-demo" />
+
+## Installation
+
+```bash
+bunx --bun shadcn@latest add https://neu.beyondtheinnovation.com/r/neu-menubar.json
+```
+
+## Usage
+
+```tsx
+import {
+  Menubar,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarShortcut,
+  MenubarTrigger,
+} from "@/components/ui/neu/menubar"
+```
+
+```tsx
+<Menubar>
+  <MenubarMenu>
+    <MenubarTrigger>File</MenubarTrigger>
+    <MenubarContent>
+      <MenubarItem>
+        New Tab <MenubarShortcut>⌘T</MenubarShortcut>
+      </MenubarItem>
+      <MenubarItem>New Window</MenubarItem>
+    </MenubarContent>
+  </MenubarMenu>
+</Menubar>
+```

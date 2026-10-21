@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-separator-demo",
+  "title": "Neu Separator Demo",
+  "description": "Horizontal and vertical carved grooves.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-separator.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-separator-demo.tsx",
+      "content": "import { Separator } from \"@/registry/neu/ui/neu/separator\"\n\nexport function NeuSeparatorDemo() {\n  return (\n    <div className=\"neu-ground flex flex-col gap-4 rounded-(--neu-radius) p-8\">\n      <div className=\"flex flex-col gap-1\">\n        <p className=\"text-sm font-medium\">Engraved line</p>\n        <p className=\"text-sm text-(--neu-text-muted)\">\n          A dark crease over a lit edge, cut into the surface.\n        </p>\n      </div>\n      <Separator />\n      <div className=\"flex h-5 items-center gap-4 text-sm\">\n        <span>Docs</span>\n        <Separator orientation=\"vertical\" />\n        <span>Blog</span>\n        <Separator orientation=\"vertical\" />\n        <span>Source</span>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

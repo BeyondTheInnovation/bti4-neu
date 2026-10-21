@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-navigation-menu-demo",
+  "title": "Neu Navigation Menu Demo",
+  "description": "Neu navigation menu with dropdown panels and a plain link chip.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-navigation-menu.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-navigation-menu-demo.tsx",
+      "content": "\"use client\"\n\nimport {\n  NavigationMenu,\n  NavigationMenuContent,\n  NavigationMenuItem,\n  NavigationMenuLink,\n  NavigationMenuList,\n  NavigationMenuTrigger,\n  navigationMenuTriggerStyle,\n} from \"@/registry/neu/ui/neu/navigation-menu\"\n\nexport function NeuNavigationMenuDemo() {\n  return (\n    <div className=\"neu-ground flex min-h-96 flex-col items-start rounded-(--neu-radius) p-4 sm:p-8\">\n      <NavigationMenu className=\"max-w-full flex-none\">\n        <NavigationMenuList className=\"flex-wrap\">\n          <NavigationMenuItem>\n            <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>\n            <NavigationMenuContent>\n              <ul className=\"grid w-75 gap-1\">\n                <li>\n                  <NavigationMenuLink href=\"#\">\n                    <div className=\"font-medium\">Introduction</div>\n                    <div className=\"text-(--neu-text-muted)\">\n                      One surface token, everything derived.\n                    </div>\n                  </NavigationMenuLink>\n                </li>\n                <li>\n                  <NavigationMenuLink href=\"#\">\n                    <div className=\"font-medium\">Installation</div>\n                    <div className=\"text-(--neu-text-muted)\">\n                      Add the theme, then pull components.\n                    </div>\n                  </NavigationMenuLink>\n                </li>\n              </ul>\n            </NavigationMenuContent>\n          </NavigationMenuItem>\n          <NavigationMenuItem>\n            <NavigationMenuTrigger>Components</NavigationMenuTrigger>\n            <NavigationMenuContent>\n              <ul className=\"grid w-50 gap-1\">\n                <li>\n                  <NavigationMenuLink href=\"#\">Button</NavigationMenuLink>\n                </li>\n                <li>\n                  <NavigationMenuLink href=\"#\">Tabs</NavigationMenuLink>\n                </li>\n                <li>\n                  <NavigationMenuLink href=\"#\">Select</NavigationMenuLink>\n                </li>\n              </ul>\n            </NavigationMenuContent>\n          </NavigationMenuItem>\n          <NavigationMenuItem>\n            <NavigationMenuLink\n              href=\"#\"\n              className={navigationMenuTriggerStyle()}\n            >\n              Docs\n            </NavigationMenuLink>\n          </NavigationMenuItem>\n        </NavigationMenuList>\n      </NavigationMenu>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

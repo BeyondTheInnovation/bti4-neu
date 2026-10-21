@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-button-demo",
+  "title": "Neu Button Demo",
+  "description": "All neu button variants on a neumorphic ground.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-button.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-button-demo.tsx",
+      "content": "import { Button } from \"@/registry/neu/ui/neu/button\"\n\nexport function NeuButtonDemo() {\n  return (\n    <div className=\"neu-ground flex flex-wrap items-center gap-4 rounded-(--neu-radius) p-8\">\n      <Button>Default</Button>\n      <Button variant=\"secondary\">Secondary</Button>\n      <Button variant=\"outline\">Outline</Button>\n      <Button variant=\"ghost\">Ghost</Button>\n      <Button variant=\"destructive\">Destructive</Button>\n      <Button variant=\"link\">Link</Button>\n      <Button surface=\"flat\">Flat</Button>\n      <Button disabled>Disabled</Button>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

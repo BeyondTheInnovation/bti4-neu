@@ -1,0 +1,35 @@
+---
+title: "Scroll Area"
+description: "Neumorphic scroll area on the Radix primitive. Stock structure with a soft rounded thumb tinted from the text token; focus is the outline ring."
+---
+
+<ComponentPreview name="neu-scroll-area-demo" />
+
+## Installation
+
+```bash
+bunx --bun shadcn@latest add https://neu.beyondtheinnovation.com/r/neu-scroll-area.json
+```
+
+## Usage
+
+```tsx
+import { ScrollArea, ScrollBar } from "@/components/ui/neu/scroll-area"
+```
+
+```tsx
+<ScrollArea className="neu-pressed h-48 w-64 p-4">
+  Long content that scrolls inside a carved well.
+</ScrollArea>
+```
+
+## Horizontal
+
+Add a `ScrollBar` with `orientation="horizontal"` inside the area.
+
+```tsx
+<ScrollArea className="w-96 whitespace-nowrap">
+  <div className="flex w-max gap-4 p-4">{/* wide content */}</div>
+  <ScrollBar orientation="horizontal" />
+</ScrollArea>
+```

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-card-demo",
+  "title": "Neu Card Demo",
+  "description": "Raised and well neu cards side by side.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-card.json",
+    "https://neu.beyondtheinnovation.com/r/neu-button.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-card-demo.tsx",
+      "content": "import { Button } from \"@/registry/neu/ui/neu/button\"\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from \"@/registry/neu/ui/neu/card\"\n\nexport function NeuCardDemo() {\n  return (\n    <div className=\"neu-ground grid max-w-2xl gap-8 rounded-(--neu-radius) p-8 sm:grid-cols-2\">\n      <Card>\n        <CardHeader>\n          <CardTitle>Raised card</CardTitle>\n          <CardDescription>The default surface sits proud.</CardDescription>\n        </CardHeader>\n        <CardContent>\n          <p className=\"text-sm\">\n            Shadows, face and text all derive from the surface token.\n          </p>\n        </CardContent>\n        <CardFooter>\n          <Button size=\"sm\">Action</Button>\n        </CardFooter>\n      </Card>\n      <Card surface=\"well\">\n        <CardHeader>\n          <CardTitle>Well card</CardTitle>\n          <CardDescription>Carved into the page.</CardDescription>\n        </CardHeader>\n        <CardContent>\n          <p className=\"text-sm\">\n            The inset shade paints over content, so images stay carved.\n          </p>\n        </CardContent>\n      </Card>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

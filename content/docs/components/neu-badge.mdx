@@ -1,0 +1,32 @@
+---
+title: "Badge"
+description: "Neumorphic badge with the stock shadcn variant set. A small raised chip; secondary carves in, outline sits flat with a muted border."
+---
+
+<ComponentPreview name="neu-badge-demo" />
+
+## Installation
+
+```bash
+bunx --bun shadcn@latest add https://neu.beyondtheinnovation.com/r/neu-badge.json
+```
+
+## Usage
+
+```tsx
+import { Badge } from "@/components/ui/neu/badge"
+```
+
+```tsx
+<Badge>Badge</Badge>
+```
+
+## As Child
+
+Use `asChild` to render a link with the badge's styles. Outline and ghost tint on hover when the badge is a link.
+
+```tsx
+<Badge asChild variant="outline">
+  <a href="/changelog">New</a>
+</Badge>
+```

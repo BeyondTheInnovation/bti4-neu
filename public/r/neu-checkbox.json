@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-checkbox",
+  "title": "Neu Checkbox",
+  "description": "Neumorphic checkbox on the Radix primitive. A carved square well; checking lifts an accent tick off its floor.",
+  "dependencies": [
+    "radix-ui",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/ui/neu/checkbox.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { Checkbox as CheckboxPrimitive } from \"radix-ui\"\nimport { CheckIcon, MinusIcon } from \"lucide-react\"\n\nimport { cn } from \"@/lib/utils\"\n\n/* A square well, the radio's hole made square; checking lifts an accent\n   tick off its floor. The indicator stays mounted so the tick sinks on\n   uncheck instead of vanishing. 26px floor: on a smaller well the inset\n   ramp has no flank to fall off and the carved read collapses. The corner\n   caps at 8px so a large theme radius never turns it into a radio. */\nfunction Checkbox({\n  className,\n  tick = \"on-check\",\n  ...props\n}: React.ComponentProps<typeof CheckboxPrimitive.Root> & {\n  tick?: \"on-check\" | \"always\"\n}) {\n  return (\n    <CheckboxPrimitive.Root\n      data-slot=\"checkbox\"\n      data-tick={tick}\n      className={cn(\n        \"neu-pressed neu-field neu-concave peer relative grid size-6.5 shrink-0 cursor-pointer place-content-center rounded-[min(calc(var(--neu-radius)/2),8px)] [--neu-depth:0.25] after:absolute after:-inset-x-3 after:-inset-y-2 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-2 aria-invalid:border-destructive\",\n        className\n      )}\n      {...props}\n    >\n      <CheckboxPrimitive.Indicator\n        data-slot=\"checkbox-indicator\"\n        forceMount\n        className={cn(\n          \"group/checkbox-indicator neu-rise neu-glyph-lift grid place-content-center text-(--neu-ring)\",\n          tick === \"always\" &&\n            \"data-[state=unchecked]:text-(--neu-text-muted) data-[state=unchecked]:opacity-30\"\n        )}\n      >\n        <CheckIcon\n          className=\"size-4 group-data-[state=indeterminate]/checkbox-indicator:hidden\"\n          strokeWidth={3.5}\n        />\n        <MinusIcon\n          className=\"hidden size-4 group-data-[state=indeterminate]/checkbox-indicator:block\"\n          strokeWidth={3.5}\n        />\n      </CheckboxPrimitive.Indicator>\n    </CheckboxPrimitive.Root>\n  )\n}\n\nexport { Checkbox }\n",
+      "type": "registry:ui",
+      "target": "components/ui/neu/checkbox.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

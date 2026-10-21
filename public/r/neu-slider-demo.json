@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-slider-demo",
+  "title": "Neu Slider Demo",
+  "description": "Neu slider single, range, disabled and vertical.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-slider.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-slider-demo.tsx",
+      "content": "\"use client\"\n\nimport { Slider } from \"@/registry/neu/ui/neu/slider\"\n\nexport function NeuSliderDemo() {\n  return (\n    <div className=\"neu-ground flex flex-col gap-8 rounded-(--neu-radius) p-8\">\n      <Slider defaultValue={[33]} aria-label=\"Volume\" />\n      <Slider defaultValue={[20, 60]} aria-label=\"Price\" />\n      <Slider defaultValue={[50]} disabled aria-label=\"Locked\" />\n      <div className=\"h-44\">\n        <Slider defaultValue={[66]} orientation=\"vertical\" aria-label=\"Level\" />\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

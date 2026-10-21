@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-sonner",
+  "title": "Neu Sonner",
+  "description": "Sonner toaster on the neu surface tokens. Toasts float over the page, so they keep sonner's elevation shadow.",
+  "dependencies": [
+    "sonner",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/ui/neu/sonner.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport {\n  CircleCheckIcon,\n  InfoIcon,\n  Loader2Icon,\n  OctagonXIcon,\n  TriangleAlertIcon,\n} from \"lucide-react\"\nimport { Toaster as Sonner, type ToasterProps } from \"sonner\"\n\nimport { cn } from \"@/lib/utils\"\n\n/* Sonner's own CSS is unlayered, hence the ! on the overrides below. */\nconst focusRing =\n  \"focus-visible:outline-solid! focus-visible:outline-(length:--neu-ring-width)! focus-visible:outline-offset-(--neu-ring-offset)! focus-visible:outline-[color:var(--neu-ring)]!\"\n\n/* Toasts float over the page, so they get sonner's elevation shadow, not\n   the neumorphic pair. .neu-ground on the list derives the text tokens\n   wherever the Toaster is mounted. */\nconst Toaster = ({\n  theme = \"system\",\n  toastOptions,\n  ...props\n}: ToasterProps) => {\n  const classNames = toastOptions?.classNames\n\n  return (\n    <Sonner\n      theme={theme}\n      className=\"neu-ground toaster group\"\n      icons={{\n        success: <CircleCheckIcon className=\"size-4\" />,\n        info: <InfoIcon className=\"size-4\" />,\n        warning: <TriangleAlertIcon className=\"size-4\" />,\n        error: <OctagonXIcon className=\"size-4\" />,\n        loading: (\n          <span className=\"inline-flex animate-spin\">\n            <Loader2Icon className=\"size-4\" />\n          </span>\n        ),\n      }}\n      style={\n        {\n          \"--normal-bg\": \"var(--neu-surface)\",\n          \"--normal-text\": \"var(--neu-text)\",\n          \"--normal-border\":\n            \"color-mix(in oklab, var(--neu-text) 12%, transparent)\",\n          \"--border-radius\": \"calc(var(--neu-radius) * 0.75)\",\n        } as React.CSSProperties\n      }\n      toastOptions={{\n        ...toastOptions,\n        classNames: {\n          ...classNames,\n          toast: cn(focusRing, classNames?.toast),\n          description: cn(\"text-(--neu-text-muted)!\", classNames?.description),\n          actionButton: cn(focusRing, classNames?.actionButton),\n          cancelButton: cn(focusRing, classNames?.cancelButton),\n          closeButton: cn(focusRing, classNames?.closeButton),\n        },\n      }}\n      {...props}\n    />\n  )\n}\n\nexport { Toaster }\n",
+      "type": "registry:ui",
+      "target": "components/ui/neu/sonner.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

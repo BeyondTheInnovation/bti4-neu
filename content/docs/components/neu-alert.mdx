@@ -1,0 +1,46 @@
+---
+title: "Alert"
+description: "Neumorphic alert with the stock shadcn structure. A raised surface like a card at tighter padding; destructive keeps the neu surface and alarms through text color only."
+---
+
+<ComponentPreview name="neu-alert-demo" />
+
+## Installation
+
+```bash
+bunx --bun shadcn@latest add https://neu.beyondtheinnovation.com/r/neu-alert.json
+```
+
+## Usage
+
+```tsx
+import {
+  Alert,
+  AlertAction,
+  AlertDescription,
+  AlertTitle,
+} from "@/components/ui/neu/alert"
+```
+
+```tsx
+<Alert>
+  <AlertTitle>Heads up</AlertTitle>
+  <AlertDescription>Your changes have been saved.</AlertDescription>
+</Alert>
+```
+
+## Action
+
+`AlertAction` pins a control to the top end corner, and the alert pads its end side to keep the title clear of it.
+
+```tsx
+<Alert>
+  <AlertTitle>Update available</AlertTitle>
+  <AlertDescription>Restart to install the new version.</AlertDescription>
+  <AlertAction>
+    <Button size="xs" variant="outline">
+      Restart
+    </Button>
+  </AlertAction>
+</Alert>
+```

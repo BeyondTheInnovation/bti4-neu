@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-alert-dialog-demo",
+  "title": "Neu Alert Dialog Demo",
+  "description": "Neu alert dialog with destructive confirm and cancel actions.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-alert-dialog.json",
+    "https://neu.beyondtheinnovation.com/r/neu-button.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-alert-dialog-demo.tsx",
+      "content": "\"use client\"\n\nimport {\n  AlertDialog,\n  AlertDialogAction,\n  AlertDialogCancel,\n  AlertDialogContent,\n  AlertDialogDescription,\n  AlertDialogFooter,\n  AlertDialogHeader,\n  AlertDialogTitle,\n  AlertDialogTrigger,\n} from \"@/registry/neu/ui/neu/alert-dialog\"\nimport { Button } from \"@/registry/neu/ui/neu/button\"\n\nexport function NeuAlertDialogDemo() {\n  return (\n    <div className=\"neu-ground flex items-center gap-4 rounded-(--neu-radius) p-8\">\n      <AlertDialog>\n        <AlertDialogTrigger asChild>\n          <Button>Delete account</Button>\n        </AlertDialogTrigger>\n        <AlertDialogContent>\n          <AlertDialogHeader>\n            <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>\n            <AlertDialogDescription>\n              This action cannot be undone. This will permanently delete your\n              account and remove your data from our servers.\n            </AlertDialogDescription>\n          </AlertDialogHeader>\n          <AlertDialogFooter>\n            <AlertDialogCancel>Cancel</AlertDialogCancel>\n            <AlertDialogAction variant=\"destructive\">Delete</AlertDialogAction>\n          </AlertDialogFooter>\n        </AlertDialogContent>\n      </AlertDialog>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

@@ -1,0 +1,29 @@
+---
+title: "Popover"
+description: "Neumorphic popover on the Radix primitive. A floating panel that re-grounds itself outside the page wrapper, with a plain elevation shadow."
+---
+
+<ComponentPreview name="neu-popover-demo" />
+
+## Installation
+
+```bash
+bunx --bun shadcn@latest add https://neu.beyondtheinnovation.com/r/neu-popover.json
+```
+
+## Usage
+
+```tsx
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/neu/popover"
+```
+
+```tsx
+<Popover>
+  <PopoverTrigger>Open</PopoverTrigger>
+  <PopoverContent>Place content for the popover here.</PopoverContent>
+</Popover>
+```

@@ -1,0 +1,29 @@
+---
+title: "Sonner"
+description: "Sonner toaster on the neu surface tokens. Toasts float over the page, so they keep sonner's elevation shadow."
+---
+
+<ComponentPreview name="neu-sonner-demo" />
+
+## Installation
+
+```bash
+bunx --bun shadcn@latest add https://neu.beyondtheinnovation.com/r/neu-sonner.json
+```
+
+## Usage
+
+```tsx
+import { toast } from "sonner"
+
+import { Button } from "@/components/ui/neu/button"
+import { Toaster } from "@/components/ui/neu/sonner"
+```
+
+```tsx
+// once, in your root layout
+<Toaster />
+
+// anywhere, with toast from "sonner"
+<Button onClick={() => toast("Event has been created.")}>Show toast</Button>
+```

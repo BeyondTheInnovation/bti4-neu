@@ -1,0 +1,70 @@
+---
+title: "Carousel"
+description: "Neumorphic carousel on embla. Stock embla mechanics; the arrows are round engraved keys from the neu button's outline variant, and they jump instead of scroll when reduced motion is on."
+---
+
+<ComponentPreview name="neu-carousel-demo" />
+
+## Installation
+
+```bash
+bunx --bun shadcn@latest add https://neu.beyondtheinnovation.com/r/neu-carousel.json
+```
+
+## Usage
+
+```tsx
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/neu/carousel"
+```
+
+```tsx
+<Carousel>
+  <CarouselContent>
+    <CarouselItem>1</CarouselItem>
+    <CarouselItem>2</CarouselItem>
+    <CarouselItem>3</CarouselItem>
+  </CarouselContent>
+  <CarouselPrevious />
+  <CarouselNext />
+</Carousel>
+```
+
+## Orientation
+
+```tsx
+<Carousel orientation="vertical" className="w-full max-w-xs">
+  <CarouselContent className="h-48">
+    <CarouselItem>1</CarouselItem>
+  </CarouselContent>
+  <CarouselPrevious />
+  <CarouselNext />
+</Carousel>
+```
+
+## API
+
+Use `setApi` to read the current slide or drive the carousel.
+
+```tsx
+import { type CarouselApi } from "@/components/ui/neu/carousel"
+
+const [api, setApi] = React.useState<CarouselApi>()
+
+<Carousel setApi={setApi}>{/* ... */}</Carousel>
+```
+
+## RTL
+
+Set `dir` and the embla `direction` together. The arrows already flip, so do not rotate their icons.
+
+```tsx
+<Carousel dir="rtl" opts={{ direction: "rtl" }}>
+  {/* ... */}
+</Carousel>
+```

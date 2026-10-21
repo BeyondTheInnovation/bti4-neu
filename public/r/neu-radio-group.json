@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-radio-group",
+  "title": "Neu Radio Group",
+  "description": "Neumorphic radio group on the Radix primitive. A carved well; checking raises an accent cap out of it.",
+  "dependencies": [
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-theme.json",
+    "https://neu.beyondtheinnovation.com/r/neu-knob.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/ui/neu/radio-group.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { RadioGroup as RadioGroupPrimitive } from \"radix-ui\"\n\nimport { cn } from \"@/lib/utils\"\nimport { capFaceClasses, capLiftSmClasses } from \"@/registry/neu/ui/neu/knob\"\n\nfunction RadioGroup({\n  className,\n  ...props\n}: React.ComponentProps<typeof RadioGroupPrimitive.Root>) {\n  return (\n    <RadioGroupPrimitive.Root\n      data-slot=\"radio-group\"\n      className={cn(\"grid gap-3\", className)}\n      {...props}\n    />\n  )\n}\n\n/* A carved hole that never moves; checking raises the switch's cap out of\n   it, retinted to the accent. The indicator stays mounted so the old cap\n   sinks (140ms) while the new one rises (280ms): the sink is quicker, so\n   two radios never read as both checked. */\nfunction RadioGroupItem({\n  className,\n  ...props\n}: React.ComponentProps<typeof RadioGroupPrimitive.Item>) {\n  return (\n    <RadioGroupPrimitive.Item\n      data-slot=\"radio-group-item\"\n      className={cn(\n        \"neu-pressed neu-field neu-concave peer relative grid aspect-square size-6.5 shrink-0 cursor-pointer place-content-center rounded-full [--neu-depth:0.25] [--neu-radius:999px] after:absolute after:-inset-x-3 after:-inset-y-2 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-2 aria-invalid:border-destructive\",\n        className\n      )}\n      {...props}\n    >\n      <RadioGroupPrimitive.Indicator\n        data-slot=\"radio-group-indicator\"\n        forceMount\n        className={cn(\n          capFaceClasses,\n          capLiftSmClasses,\n          \"neu-rise block size-4 [--neu-knob:var(--neu-ring)]\"\n        )}\n      />\n    </RadioGroupPrimitive.Item>\n  )\n}\n\nexport { RadioGroup, RadioGroupItem }\n",
+      "type": "registry:ui",
+      "target": "components/ui/neu/radio-group.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

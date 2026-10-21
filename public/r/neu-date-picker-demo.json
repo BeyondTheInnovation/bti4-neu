@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-date-picker-demo",
+  "title": "Neu Date Picker Demo",
+  "description": "Date picker recipe: a neu calendar inside a popover behind an outline trigger.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-popover.json",
+    "https://neu.beyondtheinnovation.com/r/neu-calendar.json",
+    "https://neu.beyondtheinnovation.com/r/neu-button.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-date-picker-demo.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { CalendarIcon } from \"lucide-react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { Button } from \"@/registry/neu/ui/neu/button\"\nimport { Calendar } from \"@/registry/neu/ui/neu/calendar\"\nimport {\n  Popover,\n  PopoverContent,\n  PopoverTrigger,\n} from \"@/registry/neu/ui/neu/popover\"\n\nexport function NeuDatePickerDemo() {\n  const [date, setDate] = React.useState<Date>()\n\n  return (\n    <Popover>\n      <PopoverTrigger asChild>\n        <Button\n          variant=\"outline\"\n          className={cn(\n            \"w-[240px] justify-start text-start font-normal\",\n            !date && \"text-(--neu-text-muted)\"\n          )}\n        >\n          <CalendarIcon />\n          {date ? (\n            date.toLocaleDateString(\"en-US\", { dateStyle: \"long\" })\n          ) : (\n            <span>Pick a date</span>\n          )}\n        </Button>\n      </PopoverTrigger>\n      <PopoverContent className=\"w-auto p-0\" align=\"start\">\n        <Calendar mode=\"single\" selected={date} onSelect={setDate} autoFocus />\n      </PopoverContent>\n    </Popover>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

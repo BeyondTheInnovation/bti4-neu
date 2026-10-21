@@ -1,0 +1,53 @@
+---
+title: "Dropdown Menu"
+description: "Neumorphic dropdown menu on the Radix primitive. A floating clay panel with tinted item highlights."
+---
+
+<ComponentPreview name="neu-dropdown-menu-demo" />
+
+## Installation
+
+```bash
+bunx --bun shadcn@latest add https://neu.beyondtheinnovation.com/r/neu-dropdown-menu.json
+```
+
+## Usage
+
+```tsx
+import { Button } from "@/components/ui/neu/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/neu/dropdown-menu"
+```
+
+```tsx
+<DropdownMenu>
+  <DropdownMenuTrigger asChild>
+    <Button variant="outline">Open</Button>
+  </DropdownMenuTrigger>
+  <DropdownMenuContent>
+    <DropdownMenuLabel>My Account</DropdownMenuLabel>
+    <DropdownMenuSeparator />
+    <DropdownMenuItem>Profile</DropdownMenuItem>
+    <DropdownMenuItem>Billing</DropdownMenuItem>
+  </DropdownMenuContent>
+</DropdownMenu>
+```
+
+## Inset and Destructive
+
+`inset` lines an item, label or sub-trigger up with checkbox and radio rows. `variant="destructive"` tints an item for an action that removes data.
+
+```tsx
+<DropdownMenuContent>
+  <DropdownMenuLabel inset>Account</DropdownMenuLabel>
+  <DropdownMenuItem inset>Settings</DropdownMenuItem>
+  <DropdownMenuSeparator />
+  <DropdownMenuItem variant="destructive">Delete account</DropdownMenuItem>
+</DropdownMenuContent>
+```

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-checkbox-demo",
+  "title": "Neu Checkbox Demo",
+  "description": "Neu checkbox states including the always-visible ghost tick.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-checkbox.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-checkbox-demo.tsx",
+      "content": "\"use client\"\n\nimport { Checkbox } from \"@/registry/neu/ui/neu/checkbox\"\n\nexport function NeuCheckboxDemo() {\n  return (\n    <div className=\"neu-ground flex flex-col gap-4 rounded-(--neu-radius) p-8\">\n      <label className=\"flex items-center gap-3 text-sm\">\n        <Checkbox />\n        Accept terms and conditions\n      </label>\n      <label className=\"flex items-center gap-3 text-sm\">\n        <Checkbox defaultChecked />\n        Starts checked, the tick floats in the well\n      </label>\n      <label className=\"flex items-center gap-3 text-sm\">\n        <Checkbox tick=\"always\" />\n        Ghost tick previews the mark\n      </label>\n      <label className=\"flex items-center gap-3 text-sm opacity-50\">\n        <Checkbox disabled />\n        Disabled\n      </label>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-spinner-demo",
+  "title": "Neu Spinner Demo",
+  "description": "Neu spinner sizes on a neumorphic ground.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-spinner.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-spinner-demo.tsx",
+      "content": "import { Spinner } from \"@/registry/neu/ui/neu/spinner\"\n\nexport function NeuSpinnerDemo() {\n  return (\n    <div className=\"neu-ground flex items-center gap-6 rounded-(--neu-radius) p-8\">\n      <Spinner className=\"size-4\" />\n      <Spinner className=\"size-6\" />\n      <Spinner className=\"size-8\" />\n      <Spinner className=\"size-10\" />\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

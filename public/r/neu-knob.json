@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-knob",
+  "title": "Neu Knob",
+  "description": "The shared raised handle behind the switch, slider, radio, toggle and active page.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/ui/neu/knob.tsx",
+      "content": "/* The one raised bead, for the slider thumb and anything else that is a\n   handle. The theme's .neu-knob paints the shaded face and rim;\n   the lift stays with the caller because only it knows how big its\n   handle is (neu-lift-sm under ~30px, neu-lift above). */\nconst knobFaceClasses = \"neu-knob shrink-0\"\n\n/* The bead retinted to the accent. */\nconst knobAccentClasses = \"neu-knob shrink-0 [--neu-knob:var(--neu-ring)]\"\n\nconst knobLiftClasses = \"neu-lift\"\nconst knobLiftSmClasses = \"neu-lift-sm\"\n\n/* The light cap on its eight-stop lift, for the switch thumb, the radio\n   indicator and the selected key of a toggle group or tabs. */\nconst capFaceClasses = \"neu-cap shrink-0\"\nconst capLiftClasses = \"neu-cap-lift\"\nconst capLiftSmClasses = \"neu-cap-lift-sm\"\n\nexport {\n  capFaceClasses,\n  capLiftClasses,\n  capLiftSmClasses,\n  knobAccentClasses,\n  knobFaceClasses,\n  knobLiftClasses,\n  knobLiftSmClasses,\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/neu/knob.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

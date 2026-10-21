@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-popover-demo",
+  "title": "Neu Popover Demo",
+  "description": "Neu popover opened from a raised trigger.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-popover.json",
+    "https://neu.beyondtheinnovation.com/r/neu-button.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-popover-demo.tsx",
+      "content": "\"use client\"\n\nimport { Button } from \"@/registry/neu/ui/neu/button\"\nimport {\n  Popover,\n  PopoverContent,\n  PopoverDescription,\n  PopoverHeader,\n  PopoverTitle,\n  PopoverTrigger,\n} from \"@/registry/neu/ui/neu/popover\"\n\nexport function NeuPopoverDemo() {\n  return (\n    <div className=\"neu-ground flex items-center gap-4 rounded-(--neu-radius) p-8\">\n      <Popover>\n        <PopoverTrigger asChild>\n          <Button>Open popover</Button>\n        </PopoverTrigger>\n        <PopoverContent className=\"w-80\">\n          <PopoverHeader>\n            <PopoverTitle>Floating panel</PopoverTitle>\n            <PopoverDescription>\n              The popover re-grounds itself outside the page wrapper.\n            </PopoverDescription>\n          </PopoverHeader>\n          <p className=\"text-sm\">\n            Surface, border and text all derive from the one surface token.\n          </p>\n        </PopoverContent>\n      </Popover>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

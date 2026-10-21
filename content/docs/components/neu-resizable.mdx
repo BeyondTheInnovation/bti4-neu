@@ -1,0 +1,40 @@
+---
+title: "Resizable"
+description: "Neumorphic resizable panels on react-resizable-panels. The handle is the engraved separator line with a small raised grip."
+---
+
+<ComponentPreview name="neu-resizable-demo" />
+
+## Installation
+
+```bash
+bunx --bun shadcn@latest add https://neu.beyondtheinnovation.com/r/neu-resizable.json
+```
+
+## Usage
+
+```tsx
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "@/components/ui/neu/resizable"
+```
+
+```tsx
+<ResizablePanelGroup orientation="horizontal">
+  <ResizablePanel>One</ResizablePanel>
+  <ResizableHandle withHandle />
+  <ResizablePanel>Two</ResizablePanel>
+</ResizablePanelGroup>
+```
+
+## Vertical
+
+Use `orientation="vertical"` on the group; the handle line and grip turn with it.
+
+```tsx
+<ResizablePanelGroup orientation="vertical">
+```
+
+Leave out `withHandle` for the bare line. The handle takes keyboard focus and resizes with the arrow keys.

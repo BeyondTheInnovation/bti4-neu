@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-select-demo",
+  "title": "Neu Select Demo",
+  "description": "Neu select with groups, sizes and a disabled trigger.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-select.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-select-demo.tsx",
+      "content": "\"use client\"\n\nimport {\n  Select,\n  SelectContent,\n  SelectGroup,\n  SelectItem,\n  SelectLabel,\n  SelectTrigger,\n  SelectValue,\n} from \"@/registry/neu/ui/neu/select\"\n\nexport function NeuSelectDemo() {\n  return (\n    <div className=\"neu-ground flex flex-col gap-4 rounded-(--neu-radius) p-8\">\n      <Select>\n        <SelectTrigger aria-label=\"Fruit\" className=\"w-45\">\n          <SelectValue placeholder=\"Select a fruit\" />\n        </SelectTrigger>\n        <SelectContent>\n          <SelectGroup>\n            <SelectLabel>Fruits</SelectLabel>\n            <SelectItem value=\"apple\">Apple</SelectItem>\n            <SelectItem value=\"banana\">Banana</SelectItem>\n            <SelectItem value=\"cherry\">Cherry</SelectItem>\n            <SelectItem value=\"grape\" disabled>\n              Grape\n            </SelectItem>\n          </SelectGroup>\n        </SelectContent>\n      </Select>\n      <Select defaultValue=\"paused\">\n        <SelectTrigger aria-label=\"Status\" size=\"sm\" className=\"w-45\">\n          <SelectValue placeholder=\"Status\" />\n        </SelectTrigger>\n        <SelectContent>\n          <SelectItem value=\"active\">Active</SelectItem>\n          <SelectItem value=\"paused\">Paused</SelectItem>\n          <SelectItem value=\"stopped\">Stopped</SelectItem>\n        </SelectContent>\n      </Select>\n      <Select disabled>\n        <SelectTrigger aria-label=\"Disabled select\" className=\"w-45\">\n          <SelectValue placeholder=\"Disabled\" />\n        </SelectTrigger>\n        <SelectContent>\n          <SelectItem value=\"none\">None</SelectItem>\n        </SelectContent>\n      </Select>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

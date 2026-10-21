@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-collapsible-demo",
+  "title": "Neu Collapsible Demo",
+  "description": "A collapsible list with pressed rows and a ghost toggle button.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-collapsible.json",
+    "https://neu.beyondtheinnovation.com/r/neu-button.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-collapsible-demo.tsx",
+      "content": "\"use client\"\n\nimport { ChevronsUpDownIcon } from \"lucide-react\"\n\nimport { Button } from \"@/registry/neu/ui/neu/button\"\nimport {\n  Collapsible,\n  CollapsibleContent,\n  CollapsibleTrigger,\n} from \"@/registry/neu/ui/neu/collapsible\"\n\nexport function NeuCollapsibleDemo() {\n  return (\n    <div className=\"neu-ground rounded-(--neu-radius) p-8\">\n      <Collapsible className=\"flex w-full max-w-sm flex-col gap-2\">\n        <div className=\"flex items-center justify-between gap-4\">\n          <h4 className=\"text-sm font-semibold\">\n            @peduarte starred 3 repositories\n          </h4>\n          <CollapsibleTrigger asChild>\n            <Button variant=\"ghost\" size=\"icon-sm\">\n              <ChevronsUpDownIcon />\n              <span className=\"sr-only\">Toggle</span>\n            </Button>\n          </CollapsibleTrigger>\n        </div>\n        <div className=\"neu-pressed rounded-(--neu-radius) px-4 py-2 text-sm [--neu-depth:0.25]\">\n          @radix-ui/primitives\n        </div>\n        <CollapsibleContent className=\"flex flex-col gap-2\">\n          <div className=\"neu-pressed rounded-(--neu-radius) px-4 py-2 text-sm [--neu-depth:0.25]\">\n            @radix-ui/colors\n          </div>\n          <div className=\"neu-pressed rounded-(--neu-radius) px-4 py-2 text-sm [--neu-depth:0.25]\">\n            @stitches/react\n          </div>\n        </CollapsibleContent>\n      </Collapsible>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

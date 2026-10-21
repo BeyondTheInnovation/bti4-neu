@@ -1,0 +1,44 @@
+---
+title: "Context Menu"
+description: "Neumorphic context menu on the Radix primitive. The same floating clay panel, summoned by right click."
+---
+
+<ComponentPreview name="neu-context-menu-demo" />
+
+## Installation
+
+```bash
+bunx --bun shadcn@latest add https://neu.beyondtheinnovation.com/r/neu-context-menu.json
+```
+
+## Usage
+
+```tsx
+import {
+  ContextMenu,
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuTrigger,
+} from "@/components/ui/neu/context-menu"
+```
+
+```tsx
+<ContextMenu>
+  <ContextMenuTrigger>Right click</ContextMenuTrigger>
+  <ContextMenuContent>
+    <ContextMenuItem>Profile</ContextMenuItem>
+    <ContextMenuItem>Billing</ContextMenuItem>
+  </ContextMenuContent>
+</ContextMenu>
+```
+
+## Inset and Destructive
+
+`inset` lines an item, label or sub-trigger up with checkbox and radio rows. `variant="destructive"` tints an item for an action that removes data.
+
+```tsx
+<ContextMenuContent>
+  <ContextMenuItem inset>Reload</ContextMenuItem>
+  <ContextMenuItem variant="destructive">Delete</ContextMenuItem>
+</ContextMenuContent>
+```

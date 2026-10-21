@@ -1,0 +1,39 @@
+---
+title: "Date Picker"
+description: "Date picker recipe: a neu calendar inside a popover behind an outline trigger."
+---
+
+<ComponentPreview name="neu-date-picker-demo" />
+
+## Installation
+
+```bash
+bunx --bun shadcn@latest add https://neu.beyondtheinnovation.com/r/neu-date-picker-demo.json
+```
+
+This installs the recipe file plus the neu popover, calendar and button it composes.
+
+## Usage
+
+```tsx
+import { Button } from "@/components/ui/neu/button"
+import { Calendar } from "@/components/ui/neu/calendar"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/neu/popover"
+```
+
+```tsx
+<Popover>
+  <PopoverTrigger asChild>
+    <Button variant="outline">
+      {date ? date.toLocaleDateString() : "Pick a date"}
+    </Button>
+  </PopoverTrigger>
+  <PopoverContent className="w-auto p-0">
+    <Calendar mode="single" selected={date} onSelect={setDate} />
+  </PopoverContent>
+</Popover>
+```

@@ -1,0 +1,63 @@
+---
+title: "Breadcrumb"
+description: "Neumorphic breadcrumb with the stock shadcn breadcrumb API. Flat muted text with the current page at full contrast."
+---
+
+<ComponentPreview name="neu-breadcrumb-demo" />
+
+## Installation
+
+```bash
+bunx --bun shadcn@latest add https://neu.beyondtheinnovation.com/r/neu-breadcrumb.json
+```
+
+## Usage
+
+```tsx
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/neu/breadcrumb"
+```
+
+```tsx
+<Breadcrumb>
+  <BreadcrumbList>
+    <BreadcrumbItem>
+      <BreadcrumbLink href="/">Home</BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+    </BreadcrumbItem>
+  </BreadcrumbList>
+</Breadcrumb>
+```
+
+## Custom separator
+
+Pass children to `BreadcrumbSeparator` to replace the chevron. The default chevron flips in RTL.
+
+```tsx
+<BreadcrumbSeparator>
+  <SlashIcon />
+</BreadcrumbSeparator>
+```
+
+## Collapsed
+
+`BreadcrumbEllipsis` stands in for hidden levels; it can be the trigger of a dropdown menu.
+
+## Link component
+
+Use `asChild` on `BreadcrumbLink` to render your router's link.
+
+```tsx
+<BreadcrumbLink asChild>
+  <Link href="/">Home</Link>
+</BreadcrumbLink>
+```

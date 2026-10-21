@@ -1,0 +1,62 @@
+---
+title: "Table"
+description: "Neumorphic table. Flat rows on the ground with groove borders and a tinted hover; no card chrome, so it nests inside a card when raised framing is wanted."
+---
+
+<ComponentPreview name="neu-table-demo" />
+
+## Installation
+
+```bash
+bunx --bun shadcn@latest add https://neu.beyondtheinnovation.com/r/neu-table.json
+```
+
+## Usage
+
+```tsx
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableFooter,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/neu/table"
+```
+
+```tsx
+<Table>
+  <TableCaption>A list of your recent invoices.</TableCaption>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Invoice</TableHead>
+      <TableHead>Status</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>INV001</TableCell>
+      <TableCell>Paid</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+```
+
+## Footer
+
+`TableFooter` sits under an engraved line on a faint tint.
+
+```tsx
+<TableFooter>
+  <TableRow>
+    <TableCell colSpan={3}>Total</TableCell>
+    <TableCell className="text-end">$2,500.00</TableCell>
+  </TableRow>
+</TableFooter>
+```
+
+## Data Table
+
+For sorting, filtering and pagination, combine `Table` with `@tanstack/react-table`. See [Data Table](/components/neu-data-table).

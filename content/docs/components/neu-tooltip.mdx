@@ -1,0 +1,29 @@
+---
+title: "Tooltip"
+description: "A neumorphic tooltip that floats above the surface with an elevation shadow."
+---
+
+<ComponentPreview name="neu-tooltip-demo" />
+
+## Installation
+
+```bash
+bunx --bun shadcn@latest add https://neu.beyondtheinnovation.com/r/neu-tooltip.json
+```
+
+## Usage
+
+```tsx
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/neu/tooltip"
+```
+
+```tsx
+<Tooltip>
+  <TooltipTrigger>Hover</TooltipTrigger>
+  <TooltipContent>Add to library</TooltipContent>
+</Tooltip>
+```

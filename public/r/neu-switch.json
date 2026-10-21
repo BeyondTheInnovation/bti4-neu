@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-switch",
+  "title": "Neu Switch",
+  "description": "Neumorphic switch on the Radix primitive. A shallow track that fills with the accent when checked, and a raised knob that travels. Three sizes.",
+  "dependencies": [
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-theme.json",
+    "https://neu.beyondtheinnovation.com/r/neu-knob.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/ui/neu/switch.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { Switch as SwitchPrimitive } from \"radix-ui\"\n\nimport { cn } from \"@/lib/utils\"\nimport {\n  capFaceClasses,\n  capLiftClasses,\n  capLiftSmClasses,\n} from \"@/registry/neu/ui/neu/knob\"\n\n/* Travel is width - 2 * padding - thumb, so the checked knob sits as far from\n   the end as the unchecked one from the start: sm 44-4-18=22, default\n   56-6-22=28, lg 80-6-34=40. --neu-dir flips the sign in RTL. Arbitrary\n   transition properties only: transition-* utilities clobber the theme. */\nfunction Switch({\n  className,\n  size = \"default\",\n  ...props\n}: React.ComponentProps<typeof SwitchPrimitive.Root> & {\n  size?: \"sm\" | \"default\" | \"lg\"\n}) {\n  return (\n    <SwitchPrimitive.Root\n      data-slot=\"switch\"\n      data-size={size}\n      className={cn(\n        \"neu-groove peer group/switch relative inline-flex shrink-0 cursor-pointer items-center after:absolute after:-inset-x-3 after:-inset-y-2 [transition:background-color_400ms_cubic-bezier(0.23,1,0.32,1)] motion-reduce:[transition:none] disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:outline-2 aria-invalid:outline-offset-2 aria-invalid:outline-destructive data-[size=default]:h-7 data-[size=default]:w-14 data-[size=default]:p-[3px] data-[size=lg]:h-10 data-[size=lg]:w-20 data-[size=lg]:p-[3px] data-[size=sm]:h-5.5 data-[size=sm]:w-11 data-[size=sm]:p-0.5 data-[state=checked]:bg-(--neu-ring) data-[size=default]:[--switch-travel:calc(28px*var(--neu-dir))] data-[size=lg]:[--switch-travel:calc(40px*var(--neu-dir))] data-[size=sm]:[--switch-travel:calc(22px*var(--neu-dir))]\",\n        className\n      )}\n      {...props}\n    >\n      <SwitchPrimitive.Thumb\n        data-slot=\"switch-thumb\"\n        className={cn(\n          capFaceClasses,\n          \"pointer-events-none block translate-x-0 [transition:translate_400ms_cubic-bezier(0.23,1,0.32,1)] group-data-[size=default]/switch:size-5.5 group-data-[size=lg]/switch:size-[34px] group-data-[size=sm]/switch:size-4.5 data-[state=checked]:translate-x-(--switch-travel) motion-reduce:[transition:none]\",\n          size === \"lg\" ? capLiftClasses : capLiftSmClasses\n        )}\n      />\n    </SwitchPrimitive.Root>\n  )\n}\n\nexport { Switch }\n",
+      "type": "registry:ui",
+      "target": "components/ui/neu/switch.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

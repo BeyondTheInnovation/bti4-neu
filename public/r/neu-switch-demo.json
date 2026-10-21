@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-switch-demo",
+  "title": "Neu Switch Demo",
+  "description": "Neu switch states and sizes on a neumorphic ground.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-switch.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-switch-demo.tsx",
+      "content": "\"use client\"\n\nimport { Switch } from \"@/registry/neu/ui/neu/switch\"\n\nexport function NeuSwitchDemo() {\n  return (\n    <div className=\"neu-ground flex flex-col gap-4 rounded-(--neu-radius) p-8\">\n      <label className=\"flex items-center gap-3 text-sm\">\n        <Switch />\n        Off\n      </label>\n      <label className=\"flex items-center gap-3 text-sm\">\n        <Switch defaultChecked />\n        On\n      </label>\n      <label className=\"flex items-center gap-3 text-sm\">\n        <Switch size=\"sm\" />\n        Small\n      </label>\n      <label className=\"flex items-center gap-3 text-sm\">\n        <Switch size=\"lg\" defaultChecked />\n        Large\n      </label>\n      <label className=\"flex items-center gap-3 text-sm opacity-50\">\n        <Switch disabled />\n        Disabled\n      </label>\n      <label className=\"flex items-center gap-3 text-sm opacity-50\">\n        <Switch disabled defaultChecked />\n        Disabled on\n      </label>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

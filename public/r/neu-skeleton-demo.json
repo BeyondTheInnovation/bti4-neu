@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-skeleton-demo",
+  "title": "Neu Skeleton Demo",
+  "description": "Neu skeleton in a small card mock.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-skeleton.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-skeleton-demo.tsx",
+      "content": "\"use client\"\n\nimport { Skeleton } from \"@/registry/neu/ui/neu/skeleton\"\n\nexport function NeuSkeletonDemo() {\n  return (\n    <div className=\"neu-ground flex items-center gap-4 rounded-(--neu-radius) p-8\">\n      <Skeleton className=\"size-12 rounded-full\" />\n      <div className=\"flex flex-col gap-3\">\n        <Skeleton className=\"h-4 w-48\" />\n        <Skeleton className=\"h-4 w-32\" />\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

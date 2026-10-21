@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-spinner",
+  "title": "Neu Spinner",
+  "description": "Loading spinner in the muted text tone. Size via className.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/ui/neu/spinner.tsx",
+      "content": "import * as React from \"react\"\nimport { Loader2Icon } from \"lucide-react\"\n\nimport { cn } from \"@/lib/utils\"\n\n/* The wrapper spins, not the svg: Chrome runs transform animations on svg\n   elements on the main thread, but composites them on an HTML box. */\nfunction Spinner({\n  className,\n  \"aria-label\": label = \"Loading\",\n  ...props\n}: React.ComponentProps<\"svg\">) {\n  return (\n    <span\n      data-slot=\"spinner\"\n      role=\"status\"\n      aria-label={label}\n      className=\"inline-flex shrink-0 animate-spin motion-reduce:[animation-duration:3s]\"\n    >\n      <Loader2Icon\n        aria-hidden\n        className={cn(\"size-4 text-(--neu-text-muted)\", className)}\n        {...props}\n      />\n    </span>\n  )\n}\n\nexport { Spinner }\n",
+      "type": "registry:ui",
+      "target": "components/ui/neu/spinner.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

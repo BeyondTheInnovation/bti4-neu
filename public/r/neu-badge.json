@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-badge",
+  "title": "Neu Badge",
+  "description": "Neumorphic badge with the stock shadcn variant set. A small raised chip; secondary carves in, outline sits flat with a muted border.",
+  "dependencies": [
+    "radix-ui",
+    "class-variance-authority"
+  ],
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/ui/neu/badge.tsx",
+      "content": "import * as React from \"react\"\nimport { Slot as SlotPrimitive } from \"radix-ui\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\n\nimport { cn } from \"@/lib/utils\"\n\n/* Chip-scale retune: at badge size the default 12px ramp has no flank, so\n   distance/blur shrink locally, same rule as the checkbox. */\nconst badgeVariants = cva(\n  \"inline-flex w-fit shrink-0 items-center justify-center gap-1 overflow-hidden rounded-full px-2.5 py-0.5 text-xs font-medium whitespace-nowrap select-none [--neu-depth:0.25] focus-visible:outline-solid focus-visible:outline-(length:--neu-ring-width) focus-visible:outline-offset-(--neu-ring-offset) focus-visible:outline-[color:var(--neu-ring,currentColor)] aria-invalid:outline-2 aria-invalid:outline-offset-2 aria-invalid:outline-destructive [&>svg]:pointer-events-none [&>svg]:size-3\",\n  {\n    variants: {\n      variant: {\n        default: \"neu\",\n        secondary: \"neu-pressed\",\n        destructive: \"neu bg-destructive text-(--neu-surface)\",\n        outline:\n          \"neu border border-(--neu-text-muted) [--neu-alpha:0] [a&]:hover:bg-[color-mix(in_oklab,var(--neu-text)_6%,transparent)]\",\n        ghost:\n          \"neu [--neu-alpha:0] [a&]:hover:bg-[color-mix(in_oklab,var(--neu-text)_6%,transparent)]\",\n        link: \"text-[var(--neu-knob-ink,currentColor)] underline-offset-4 [a&]:hover:underline\",\n      },\n    },\n    defaultVariants: {\n      variant: \"default\",\n    },\n  }\n)\n\nfunction Badge({\n  className,\n  variant = \"default\",\n  asChild = false,\n  ...props\n}: React.ComponentProps<\"span\"> &\n  VariantProps<typeof badgeVariants> & { asChild?: boolean }) {\n  const Comp = asChild ? SlotPrimitive.Slot : \"span\"\n\n  return (\n    <Comp\n      data-slot=\"badge\"\n      data-variant={variant}\n      className={cn(badgeVariants({ variant }), className)}\n      {...props}\n    />\n  )\n}\n\nexport { Badge, badgeVariants }\n",
+      "type": "registry:ui",
+      "target": "components/ui/neu/badge.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

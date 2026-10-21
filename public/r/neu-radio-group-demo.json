@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-radio-group-demo",
+  "title": "Neu Radio Group Demo",
+  "description": "Neu radio group with checked, unchecked and disabled holes.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-radio-group.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-radio-group-demo.tsx",
+      "content": "\"use client\"\n\nimport { RadioGroup, RadioGroupItem } from \"@/registry/neu/ui/neu/radio-group\"\n\nexport function NeuRadioGroupDemo() {\n  return (\n    <div className=\"neu-ground rounded-(--neu-radius) p-8\">\n      <RadioGroup defaultValue=\"comfortable\">\n        <label className=\"flex items-center gap-3 text-sm\">\n          <RadioGroupItem value=\"default\" />\n          Default\n        </label>\n        <label className=\"flex items-center gap-3 text-sm\">\n          <RadioGroupItem value=\"comfortable\" />\n          Comfortable, the cap rises from the hole\n        </label>\n        <label className=\"flex items-center gap-3 text-sm\">\n          <RadioGroupItem value=\"compact\" />\n          Compact\n        </label>\n        <label className=\"flex items-center gap-3 text-sm opacity-50\">\n          <RadioGroupItem value=\"disabled\" disabled />\n          Disabled\n        </label>\n      </RadioGroup>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

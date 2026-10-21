@@ -1,0 +1,34 @@
+---
+title: "Separator"
+description: "Neumorphic separator on the Radix primitive. An engraved line: a rounded two-stop gradient, dark crease over lit edge, derived from the surface token and thickened by Elevation."
+---
+
+<ComponentPreview name="neu-separator-demo" />
+
+## Installation
+
+```bash
+bunx --bun shadcn@latest add https://neu.beyondtheinnovation.com/r/neu-separator.json
+```
+
+## Usage
+
+```tsx
+import { Separator } from "@/components/ui/neu/separator"
+```
+
+```tsx
+<Separator />
+```
+
+## Vertical
+
+Use `orientation="vertical"`. It fills the parent's height, so give the row a height.
+
+```tsx
+<div className="flex h-5 items-center gap-4">
+  <span>Docs</span>
+  <Separator orientation="vertical" />
+  <span>Blog</span>
+</div>
+```

@@ -1,0 +1,40 @@
+---
+title: "Accordion"
+description: "Neumorphic accordion on the Radix primitive. Flat triggers with a tinted hover, groove borders between items, stock height animation untouched."
+---
+
+<ComponentPreview name="neu-accordion-demo" />
+
+## Installation
+
+```bash
+bunx --bun shadcn@latest add https://neu.beyondtheinnovation.com/r/neu-accordion.json
+```
+
+## Usage
+
+```tsx
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/neu/accordion"
+```
+
+```tsx
+<Accordion type="single" collapsible>
+  <AccordionItem value="item-1">
+    <AccordionTrigger>Is it accessible?</AccordionTrigger>
+    <AccordionContent>Yes. It follows the WAI-ARIA pattern.</AccordionContent>
+  </AccordionItem>
+</Accordion>
+```
+
+## Multiple
+
+`type="multiple"` lets several items stay open. `disabled` on an `AccordionItem` dims it and blocks its trigger. Under reduced motion the content opens without the height animation and the chevron turns without a transition.
+
+```tsx
+<Accordion type="multiple">
+```

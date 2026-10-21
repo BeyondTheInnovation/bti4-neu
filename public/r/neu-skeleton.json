@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-skeleton",
+  "title": "Neu Skeleton",
+  "description": "Neumorphic skeleton: a carved well with a travelling raised bar, shimmer derived from the surface token.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/ui/neu/skeleton.tsx",
+      "content": "import * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\n\n/* Shallow carved well with a travelling raised bar carrying the real shadow\n   pair, so the shimmer derives from the surface with no hardcoded grays.\n   Keyframe percentages are relative to the bar, so every skeleton animates in\n   lockstep; --neu-dir signs the run for RTL. React dedupes the <style> via\n   href + precedence. Reduced motion hides the bar, leaving the still well. */\nconst waveKeyframes =\n  \"@keyframes neu-skeleton-wave{from{translate:calc(-150% * var(--neu-dir)) 0}to{translate:calc(450% * var(--neu-dir)) 0}}\"\n\nfunction Skeleton({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"skeleton\"\n      className={cn(\n        \"neu-pressed relative overflow-hidden rounded-[calc(var(--neu-radius)/2)] [--neu-depth:0.25]\",\n        className\n      )}\n      {...props}\n    >\n      <style href=\"neu-skeleton-wave\" precedence=\"medium\">\n        {waveKeyframes}\n      </style>\n      <div\n        aria-hidden\n        className=\"neu pointer-events-none absolute inset-y-0 start-0 w-2/5 rounded-full [--neu-depth:0.17] [animation:neu-skeleton-wave_2s_ease-in-out_infinite] motion-reduce:hidden\"\n      />\n    </div>\n  )\n}\n\nexport { Skeleton }\n",
+      "type": "registry:ui",
+      "target": "components/ui/neu/skeleton.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

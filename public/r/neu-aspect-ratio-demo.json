@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-aspect-ratio-demo",
+  "title": "Neu Aspect Ratio Demo",
+  "description": "A 16:9 raised placeholder held by the aspect ratio primitive.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-aspect-ratio.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-aspect-ratio-demo.tsx",
+      "content": "\"use client\"\n\nimport { AspectRatio } from \"@/registry/neu/ui/neu/aspect-ratio\"\n\nexport function NeuAspectRatioDemo() {\n  return (\n    <div className=\"neu-ground rounded-(--neu-radius) p-8\">\n      <AspectRatio\n        ratio={16 / 9}\n        className=\"neu overflow-hidden rounded-(--neu-radius)\"\n      >\n        <div className=\"size-full bg-[linear-gradient(135deg,color-mix(in_oklab,var(--neu-text)_12%,var(--neu-surface)),var(--neu-surface))]\" />\n      </AspectRatio>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

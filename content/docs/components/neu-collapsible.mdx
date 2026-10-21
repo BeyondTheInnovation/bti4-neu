@@ -1,0 +1,44 @@
+---
+title: "Collapsible"
+description: "Collapsible on the Radix primitive. Pure logic with data-slot attributes; styling belongs to the content you put inside."
+---
+
+<ComponentPreview name="neu-collapsible-demo" />
+
+## Installation
+
+```bash
+bunx --bun shadcn@latest add https://neu.beyondtheinnovation.com/r/neu-collapsible.json
+```
+
+## Usage
+
+```tsx
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/neu/collapsible"
+```
+
+```tsx
+<Collapsible>
+  <CollapsibleTrigger>Can I use this in my project?</CollapsibleTrigger>
+  <CollapsibleContent>
+    Yes. Free to use for personal and commercial projects.
+  </CollapsibleContent>
+</Collapsible>
+```
+
+## Controlled state
+
+Use `open` and `onOpenChange` to control the state.
+
+```tsx
+const [open, setOpen] = React.useState(false)
+
+<Collapsible open={open} onOpenChange={setOpen}>
+  <CollapsibleTrigger>Toggle</CollapsibleTrigger>
+  <CollapsibleContent>Content</CollapsibleContent>
+</Collapsible>
+```

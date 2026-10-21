@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-context-menu-demo",
+  "title": "Neu Context Menu Demo",
+  "description": "Neu context menu over a sunken well, with a submenu, checkbox and radio items and a destructive item.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-context-menu.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-context-menu-demo.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport {\n  ContextMenu,\n  ContextMenuCheckboxItem,\n  ContextMenuContent,\n  ContextMenuItem,\n  ContextMenuLabel,\n  ContextMenuRadioGroup,\n  ContextMenuRadioItem,\n  ContextMenuSeparator,\n  ContextMenuShortcut,\n  ContextMenuSub,\n  ContextMenuSubContent,\n  ContextMenuSubTrigger,\n  ContextMenuTrigger,\n} from \"@/registry/neu/ui/neu/context-menu\"\n\nexport function NeuContextMenuDemo() {\n  const [showBookmarks, setShowBookmarks] = React.useState(true)\n  const [person, setPerson] = React.useState(\"pedro\")\n\n  return (\n    <div className=\"neu-ground rounded-(--neu-radius) p-8\">\n      <ContextMenu>\n        <ContextMenuTrigger className=\"neu-pressed flex h-36 w-full items-center justify-center text-sm text-(--neu-text-muted)\">\n          Right click here\n        </ContextMenuTrigger>\n        <ContextMenuContent className=\"w-52\">\n          <ContextMenuItem>\n            Back\n            <ContextMenuShortcut>⌘[</ContextMenuShortcut>\n          </ContextMenuItem>\n          <ContextMenuItem disabled>\n            Forward\n            <ContextMenuShortcut>⌘]</ContextMenuShortcut>\n          </ContextMenuItem>\n          <ContextMenuSub>\n            <ContextMenuSubTrigger>More Tools</ContextMenuSubTrigger>\n            <ContextMenuSubContent className=\"w-44\">\n              <ContextMenuItem>Save Page As…</ContextMenuItem>\n              <ContextMenuItem>Create Shortcut…</ContextMenuItem>\n              <ContextMenuSeparator />\n              <ContextMenuItem>Developer Tools</ContextMenuItem>\n            </ContextMenuSubContent>\n          </ContextMenuSub>\n          <ContextMenuSeparator />\n          <ContextMenuCheckboxItem\n            checked={showBookmarks}\n            onCheckedChange={setShowBookmarks}\n          >\n            Show Bookmarks\n          </ContextMenuCheckboxItem>\n          <ContextMenuSeparator />\n          <ContextMenuRadioGroup value={person} onValueChange={setPerson}>\n            <ContextMenuLabel>People</ContextMenuLabel>\n            <ContextMenuRadioItem value=\"pedro\">Pedro</ContextMenuRadioItem>\n            <ContextMenuRadioItem value=\"colm\">Colm</ContextMenuRadioItem>\n          </ContextMenuRadioGroup>\n          <ContextMenuSeparator />\n          <ContextMenuItem variant=\"destructive\">Delete</ContextMenuItem>\n        </ContextMenuContent>\n      </ContextMenu>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

@@ -1,0 +1,56 @@
+---
+title: "Combobox"
+description: "Combobox recipe: a neu popover holding a command list behind an outline trigger."
+---
+
+<ComponentPreview name="neu-combobox-demo" />
+
+## Installation
+
+```bash
+bunx --bun shadcn@latest add https://neu.beyondtheinnovation.com/r/neu-combobox-demo.json
+```
+
+This installs the recipe file plus the neu popover, command and button it composes.
+
+## Usage
+
+```tsx
+import { Button } from "@/components/ui/neu/button"
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/neu/command"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/neu/popover"
+```
+
+```tsx
+<Popover open={open} onOpenChange={setOpen}>
+  <PopoverTrigger asChild>
+    <Button variant="outline" role="combobox" aria-expanded={open}>
+      {value || "Select framework..."}
+    </Button>
+  </PopoverTrigger>
+  <PopoverContent className="p-0">
+    <Command>
+      <CommandInput placeholder="Search framework..." />
+      <CommandList>
+        <CommandEmpty>No framework found.</CommandEmpty>
+        <CommandGroup>
+          <CommandItem value="next" onSelect={(v) => { setValue(v); setOpen(false) }}>
+            Next.js
+          </CommandItem>
+        </CommandGroup>
+      </CommandList>
+    </Command>
+  </PopoverContent>
+</Popover>
+```

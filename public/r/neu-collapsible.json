@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-collapsible",
+  "title": "Neu Collapsible",
+  "description": "Collapsible on the Radix primitive. Pure logic with data-slot attributes; styling belongs to the content you put inside.",
+  "dependencies": [
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/ui/neu/collapsible.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { Collapsible as CollapsiblePrimitive } from \"radix-ui\"\n\nfunction Collapsible({\n  ...props\n}: React.ComponentProps<typeof CollapsiblePrimitive.Root>) {\n  return <CollapsiblePrimitive.Root data-slot=\"collapsible\" {...props} />\n}\n\nfunction CollapsibleTrigger({\n  ...props\n}: React.ComponentProps<typeof CollapsiblePrimitive.CollapsibleTrigger>) {\n  return (\n    <CollapsiblePrimitive.CollapsibleTrigger\n      data-slot=\"collapsible-trigger\"\n      {...props}\n    />\n  )\n}\n\nfunction CollapsibleContent({\n  ...props\n}: React.ComponentProps<typeof CollapsiblePrimitive.CollapsibleContent>) {\n  return (\n    <CollapsiblePrimitive.CollapsibleContent\n      data-slot=\"collapsible-content\"\n      {...props}\n    />\n  )\n}\n\nexport { Collapsible, CollapsibleTrigger, CollapsibleContent }\n",
+      "type": "registry:ui",
+      "target": "components/ui/neu/collapsible.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

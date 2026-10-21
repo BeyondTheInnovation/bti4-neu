@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-card",
+  "title": "Neu Card",
+  "description": "Neumorphic card with the full shadcn card composition. Raised by default, plus a carved well variant.",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/ui/neu/card.tsx",
+      "content": "import * as React from \"react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst cardVariants = cva(\n  \"group/card flex flex-col gap-(--card-spacing) py-(--card-spacing) [--card-spacing:--spacing(6)] has-[>img:first-child]:pt-0 data-[size=sm]:[--card-spacing:--spacing(4)] *:[img:first-child]:rounded-t-(--neu-radius) *:[img:last-child]:rounded-b-(--neu-radius)\",\n  {\n    variants: {\n      surface: {\n        raised: \"neu\",\n        well: \"neu-ground relative rounded-(--neu-radius)\",\n      },\n    },\n    defaultVariants: {\n      surface: \"raised\",\n    },\n  }\n)\n\nfunction Card({\n  className,\n  surface = \"raised\",\n  size = \"default\",\n  children,\n  ...props\n}: React.ComponentProps<\"div\"> &\n  VariantProps<typeof cardVariants> & { size?: \"default\" | \"sm\" }) {\n  return (\n    <div\n      data-slot=\"card\"\n      data-surface={surface}\n      data-size={size}\n      className={cn(cardVariants({ surface, className }))}\n      {...props}\n    >\n      {children}\n      {surface === \"well\" && (\n        /* inset shade must paint over children (cover images included), so\n           the well is a transparent positioned overlay, not a root shadow */\n        <div\n          aria-hidden\n          data-slot=\"card-well\"\n          className=\"neu-pressed pointer-events-none absolute inset-0 rounded-[inherit] bg-transparent\"\n        />\n      )}\n    </div>\n  )\n}\n\nfunction CardHeader({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"card-header\"\n      className={cn(\n        \"@container/card-header grid auto-rows-min items-start gap-2 px-(--card-spacing) has-data-[slot=card-action]:grid-cols-[1fr_auto] has-data-[slot=card-description]:grid-rows-[auto_auto] [.border-b]:pb-(--card-spacing)\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nfunction CardTitle({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"card-title\"\n      className={cn(\n        \"leading-none font-semibold group-data-[size=sm]/card:text-sm\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nfunction CardDescription({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"card-description\"\n      className={cn(\"text-sm text-(--neu-text-muted)\", className)}\n      {...props}\n    />\n  )\n}\n\nfunction CardAction({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"card-action\"\n      className={cn(\n        \"col-start-2 row-span-2 row-start-1 self-start justify-self-end\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nfunction CardContent({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"card-content\"\n      className={cn(\"px-(--card-spacing)\", className)}\n      {...props}\n    />\n  )\n}\n\nfunction CardFooter({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"card-footer\"\n      className={cn(\n        \"flex items-center px-(--card-spacing) [.border-t]:pt-(--card-spacing)\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nexport {\n  Card,\n  CardHeader,\n  CardFooter,\n  CardTitle,\n  CardAction,\n  CardDescription,\n  CardContent,\n  cardVariants,\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/neu/card.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

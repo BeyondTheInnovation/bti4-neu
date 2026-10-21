@@ -1,0 +1,66 @@
+---
+title: "Navigation Menu"
+description: "Neumorphic navigation menu on the Radix primitive. A raised bar of flat chips that sink while their panel is open."
+---
+
+<ComponentPreview name="neu-navigation-menu-demo" />
+
+## Installation
+
+```bash
+bunx --bun shadcn@latest add https://neu.beyondtheinnovation.com/r/neu-navigation-menu.json
+```
+
+## Usage
+
+```tsx
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/neu/navigation-menu"
+```
+
+```tsx
+<NavigationMenu>
+  <NavigationMenuList>
+    <NavigationMenuItem>
+      <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
+      <NavigationMenuContent>
+        <NavigationMenuLink href="/docs">Link</NavigationMenuLink>
+      </NavigationMenuContent>
+    </NavigationMenuItem>
+  </NavigationMenuList>
+</NavigationMenu>
+```
+
+## Link Component
+
+Use `asChild` with `navigationMenuTriggerStyle()` to give a router link the trigger's styles. Set `active` on the link for the current page; it sets `aria-current="page"`, which tints the link and sinks a trigger-styled one.
+
+```tsx
+import Link from "next/link"
+
+import { navigationMenuTriggerStyle } from "@/components/ui/neu/navigation-menu"
+```
+
+```tsx
+<NavigationMenuItem>
+  <NavigationMenuLink asChild active className={navigationMenuTriggerStyle()}>
+    <Link href="/docs">Documentation</Link>
+  </NavigationMenuLink>
+</NavigationMenuItem>
+```
+
+## Without Viewport
+
+Pass `viewport={false}` to drop the shared viewport. Each content panel then opens directly under its own trigger as its own overlay sheet.
+
+```tsx
+<NavigationMenu viewport={false}>
+  <NavigationMenuList>{/* items */}</NavigationMenuList>
+</NavigationMenu>
+```

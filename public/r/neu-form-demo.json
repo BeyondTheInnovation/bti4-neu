@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-form-demo",
+  "title": "Neu Form Demo",
+  "description": "Zod-validated form with visible error states on neu wells.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-form.json",
+    "https://neu.beyondtheinnovation.com/r/neu-input.json",
+    "https://neu.beyondtheinnovation.com/r/neu-button.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-form-demo.tsx",
+      "content": "\"use client\"\n\nimport { zodResolver } from \"@hookform/resolvers/zod\"\nimport { useForm } from \"react-hook-form\"\nimport { z } from \"zod\"\n\nimport { Button } from \"@/registry/neu/ui/neu/button\"\nimport {\n  Form,\n  FormControl,\n  FormDescription,\n  FormField,\n  FormItem,\n  FormLabel,\n  FormMessage,\n} from \"@/registry/neu/ui/neu/form\"\nimport { Input } from \"@/registry/neu/ui/neu/input\"\n\nconst formSchema = z.object({\n  username: z.string().min(2, \"Username must be at least 2 characters.\"),\n  email: z.email(\"Enter a valid email address.\"),\n})\n\nexport function NeuFormDemo() {\n  const form = useForm<z.infer<typeof formSchema>>({\n    resolver: zodResolver(formSchema),\n    defaultValues: { username: \"\", email: \"\" },\n  })\n\n  function onSubmit(values: z.infer<typeof formSchema>) {\n    console.log(values)\n  }\n\n  return (\n    <div className=\"neu-ground w-full max-w-sm rounded-(--neu-radius) p-8\">\n      <Form {...form}>\n        <form\n          onSubmit={form.handleSubmit(onSubmit)}\n          className=\"flex flex-col gap-6\"\n        >\n          <FormField\n            control={form.control}\n            name=\"username\"\n            render={({ field }) => (\n              <FormItem>\n                <FormLabel>Username</FormLabel>\n                <FormControl>\n                  <Input placeholder=\"clay\" {...field} />\n                </FormControl>\n                <FormDescription>Your public display name.</FormDescription>\n                <FormMessage />\n              </FormItem>\n            )}\n          />\n          <FormField\n            control={form.control}\n            name=\"email\"\n            render={({ field }) => (\n              <FormItem>\n                <FormLabel>Email</FormLabel>\n                <FormControl>\n                  <Input\n                    type=\"email\"\n                    placeholder=\"clay@example.com\"\n                    {...field}\n                  />\n                </FormControl>\n                <FormMessage />\n              </FormItem>\n            )}\n          />\n          <Button type=\"submit\" className=\"self-start\">\n            Submit\n          </Button>\n        </form>\n      </Form>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

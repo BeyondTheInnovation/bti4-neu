@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-resizable-demo",
+  "title": "Neu Resizable Demo",
+  "description": "Nested horizontal and vertical neu resizable groups in a carved frame.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-resizable.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-resizable-demo.tsx",
+      "content": "\"use client\"\n\nimport {\n  ResizableHandle,\n  ResizablePanel,\n  ResizablePanelGroup,\n} from \"@/registry/neu/ui/neu/resizable\"\n\nexport function NeuResizableDemo() {\n  return (\n    <div className=\"neu-ground rounded-(--neu-radius) p-8\">\n      <ResizablePanelGroup\n        orientation=\"horizontal\"\n        className=\"neu-pressed mx-auto max-w-md rounded-(--neu-radius)\"\n      >\n        <ResizablePanel defaultSize=\"50\">\n          <div className=\"flex h-[200px] items-center justify-center p-6\">\n            <span className=\"font-semibold\">One</span>\n          </div>\n        </ResizablePanel>\n        <ResizableHandle withHandle />\n        <ResizablePanel defaultSize=\"50\">\n          <ResizablePanelGroup orientation=\"vertical\">\n            <ResizablePanel defaultSize=\"50\">\n              <div className=\"flex h-full items-center justify-center p-6\">\n                <span className=\"font-semibold\">Two</span>\n              </div>\n            </ResizablePanel>\n            <ResizableHandle withHandle />\n            <ResizablePanel defaultSize=\"50\">\n              <div className=\"flex h-full items-center justify-center p-6\">\n                <span className=\"font-semibold\">Three</span>\n              </div>\n            </ResizablePanel>\n          </ResizablePanelGroup>\n        </ResizablePanel>\n      </ResizablePanelGroup>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

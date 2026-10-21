@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-toggle-group-demo",
+  "title": "Neu Toggle Group Demo",
+  "description": "Neu toggle group trays in single and multiple modes.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-toggle-group.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-toggle-group-demo.tsx",
+      "content": "\"use client\"\n\nimport {\n  AlignCenterIcon,\n  AlignLeftIcon,\n  AlignRightIcon,\n  BoldIcon,\n  ItalicIcon,\n  UnderlineIcon,\n} from \"lucide-react\"\n\nimport {\n  ToggleGroup,\n  ToggleGroupItem,\n} from \"@/registry/neu/ui/neu/toggle-group\"\n\nexport function NeuToggleGroupDemo() {\n  return (\n    <div className=\"neu-ground flex flex-wrap items-center gap-4 rounded-(--neu-radius) p-8\">\n      <ToggleGroup type=\"multiple\" defaultValue={[\"bold\"]}>\n        <ToggleGroupItem value=\"bold\" aria-label=\"Toggle bold\">\n          <BoldIcon />\n        </ToggleGroupItem>\n        <ToggleGroupItem value=\"italic\" aria-label=\"Toggle italic\">\n          <ItalicIcon />\n        </ToggleGroupItem>\n        <ToggleGroupItem value=\"underline\" aria-label=\"Toggle underline\">\n          <UnderlineIcon />\n        </ToggleGroupItem>\n      </ToggleGroup>\n      <ToggleGroup type=\"single\" defaultValue=\"left\">\n        <ToggleGroupItem value=\"left\" aria-label=\"Align left\">\n          <AlignLeftIcon />\n        </ToggleGroupItem>\n        <ToggleGroupItem value=\"center\" aria-label=\"Align center\">\n          <AlignCenterIcon />\n        </ToggleGroupItem>\n        <ToggleGroupItem value=\"right\" aria-label=\"Align right\">\n          <AlignRightIcon />\n        </ToggleGroupItem>\n      </ToggleGroup>\n      <ToggleGroup type=\"single\" defaultValue=\"week\">\n        <ToggleGroupItem value=\"day\" className=\"px-4\">\n          Day\n        </ToggleGroupItem>\n        <ToggleGroupItem value=\"week\" className=\"px-4\">\n          Week\n        </ToggleGroupItem>\n        <ToggleGroupItem value=\"month\" className=\"px-4\">\n          Month\n        </ToggleGroupItem>\n      </ToggleGroup>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

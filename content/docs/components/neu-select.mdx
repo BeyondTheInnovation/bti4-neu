@@ -1,0 +1,45 @@
+---
+title: "Select"
+description: "Neumorphic select on the Radix primitive. A raised trigger that stays sunken while its popup is open."
+---
+
+<ComponentPreview name="neu-select-demo" />
+
+## Installation
+
+```bash
+bunx --bun shadcn@latest add https://neu.beyondtheinnovation.com/r/neu-select.json
+```
+
+## Usage
+
+```tsx
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/neu/select"
+```
+
+```tsx
+<Select>
+  <SelectTrigger className="w-44">
+    <SelectValue placeholder="Theme" />
+  </SelectTrigger>
+  <SelectContent>
+    <SelectItem value="light">Light</SelectItem>
+    <SelectItem value="dark">Dark</SelectItem>
+    <SelectItem value="system">System</SelectItem>
+  </SelectContent>
+</Select>
+```
+
+## Position
+
+`SelectContent` defaults to `position="item-aligned"`, which lays the list over the trigger with the chosen item on top of it. Pass `popper` to open it below the trigger instead.
+
+```tsx
+<SelectContent position="popper">...</SelectContent>
+```

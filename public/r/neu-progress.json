@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-progress",
+  "title": "Neu Progress",
+  "description": "Neumorphic progress on the Radix primitive. The slider minus interaction: carved groove, raised accent rod.",
+  "dependencies": [
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/ui/neu/progress.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { Progress as ProgressPrimitive } from \"radix-ui\"\n\nimport { cn } from \"@/lib/utils\"\n\n/* The slider minus interaction: the same groove and raised accent rod. The\n   rod grows by width rather than sliding under a clip, so it keeps its lift\n   and rounded ends and fills from the inline start in RTL too. */\nfunction Progress({\n  className,\n  value,\n  ...props\n}: React.ComponentProps<typeof ProgressPrimitive.Root>) {\n  return (\n    <ProgressPrimitive.Root\n      data-slot=\"progress\"\n      className={cn(\n        \"neu-pressed neu-concave relative h-3.5 w-full rounded-full [--neu-depth:0.25] [--neu-radius:999px]\",\n        className\n      )}\n      {...props}\n    >\n      <ProgressPrimitive.Indicator\n        data-slot=\"progress-indicator\"\n        className=\"neu h-full rounded-full bg-(--neu-ring) [--neu-depth:0.125] [--neu-radius:999px] [transition:width_var(--neu-ease-release)] motion-reduce:[transition:none]\"\n        style={{ width: `${Math.min(100, Math.max(0, value || 0))}%` }}\n      />\n    </ProgressPrimitive.Root>\n  )\n}\n\nexport { Progress }\n",
+      "type": "registry:ui",
+      "target": "components/ui/neu/progress.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

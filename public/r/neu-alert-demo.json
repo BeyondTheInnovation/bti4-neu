@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-alert-demo",
+  "title": "Neu Alert Demo",
+  "description": "Default and destructive neu alerts on a neumorphic ground.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-alert.json",
+    "https://neu.beyondtheinnovation.com/r/neu-button.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-alert-demo.tsx",
+      "content": "\"use client\"\n\nimport { AlertCircleIcon, CheckCircle2Icon, DownloadIcon } from \"lucide-react\"\n\nimport {\n  Alert,\n  AlertAction,\n  AlertDescription,\n  AlertTitle,\n} from \"@/registry/neu/ui/neu/alert\"\nimport { Button } from \"@/registry/neu/ui/neu/button\"\n\nexport function NeuAlertDemo() {\n  return (\n    <div className=\"neu-ground flex flex-col gap-6 rounded-(--neu-radius) p-8\">\n      <Alert>\n        <CheckCircle2Icon />\n        <AlertTitle>Changes saved</AlertTitle>\n        <AlertDescription>\n          A raised slab on the surface, same shadow pair as a card.\n        </AlertDescription>\n      </Alert>\n      <Alert>\n        <DownloadIcon />\n        <AlertTitle>Update available</AlertTitle>\n        <AlertDescription>Restart to install the new version.</AlertDescription>\n        <AlertAction>\n          <Button size=\"xs\" variant=\"outline\">\n            Restart\n          </Button>\n        </AlertAction>\n      </Alert>\n      <Alert variant=\"destructive\">\n        <AlertCircleIcon />\n        <AlertTitle>Unable to process your payment.</AlertTitle>\n        <AlertDescription>\n          The surface stays neu; only the text carries the alarm.\n        </AlertDescription>\n      </Alert>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

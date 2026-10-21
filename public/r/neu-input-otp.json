@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-input-otp",
+  "title": "Neu Input OTP",
+  "description": "Neumorphic one-time-password input. Each slot is its own carved well; the active slot carries the focus ring.",
+  "dependencies": [
+    "input-otp",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/ui/neu/input-otp.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { OTPInput, OTPInputContext } from \"input-otp\"\nimport { MinusIcon } from \"lucide-react\"\n\nimport { cn } from \"@/lib/utils\"\n\nfunction InputOTP({\n  className,\n  containerClassName,\n  ...props\n}: React.ComponentProps<typeof OTPInput> & {\n  containerClassName?: string\n}) {\n  return (\n    <OTPInput\n      data-slot=\"input-otp\"\n      containerClassName={cn(\n        \"flex items-center gap-2 has-disabled:opacity-50\",\n        containerClassName\n      )}\n      spellCheck={false}\n      className={cn(\"disabled:cursor-not-allowed\", className)}\n      {...props}\n    />\n  )\n}\n\nfunction InputOTPGroup({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"input-otp-group\"\n      className={cn(\"flex items-center gap-1.5\", className)}\n      {...props}\n    />\n  )\n}\n\n/* Each slot is its own carved well, so the stock joined-border run becomes a\n   row of separate wells; the active slot gets the focus outline, not depth. */\nfunction InputOTPSlot({\n  index,\n  className,\n  ...props\n}: React.ComponentProps<\"div\"> & {\n  index: number\n}) {\n  const inputOTPContext = React.useContext(OTPInputContext)\n  const { char, hasFakeCaret, isActive } = inputOTPContext?.slots[index] ?? {}\n\n  return (\n    <div\n      data-slot=\"input-otp-slot\"\n      data-active={isActive}\n      className={cn(\n        \"neu-pressed neu-field neu-concave relative flex h-9 w-9 items-center justify-center rounded-[calc(var(--neu-radius)/2)] text-sm [--neu-depth:0.33] aria-invalid:border-2 aria-invalid:border-destructive data-[active=true]:z-10 data-[active=true]:outline-(length:--neu-ring-width) data-[active=true]:outline-offset-(--neu-ring-offset) data-[active=true]:outline-[color:var(--neu-ring)] data-[active=true]:aria-invalid:outline-destructive\",\n        className\n      )}\n      {...props}\n    >\n      {char}\n      {hasFakeCaret && (\n        <div className=\"pointer-events-none absolute inset-0 flex items-center justify-center\">\n          <div className=\"animate-caret-blink h-4 w-px bg-current duration-1000 motion-reduce:animate-none\" />\n        </div>\n      )}\n    </div>\n  )\n}\n\nfunction InputOTPSeparator({\n  className,\n  ...props\n}: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"input-otp-separator\"\n      className={cn(\"flex items-center\", className)}\n      role=\"separator\"\n      {...props}\n    >\n      <MinusIcon className=\"size-4 text-(--neu-text-muted)\" />\n    </div>\n  )\n}\n\nexport { InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator }\n",
+      "type": "registry:ui",
+      "target": "components/ui/neu/input-otp.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

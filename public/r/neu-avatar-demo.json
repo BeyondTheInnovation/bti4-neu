@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-avatar-demo",
+  "title": "Neu Avatar Demo",
+  "description": "Image, fallback and grouped neu avatars on a neumorphic ground.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-avatar.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-avatar-demo.tsx",
+      "content": "\"use client\"\n\nimport {\n  Avatar,\n  AvatarBadge,\n  AvatarFallback,\n  AvatarGroup,\n  AvatarGroupCount,\n  AvatarImage,\n} from \"@/registry/neu/ui/neu/avatar\"\n\nexport function NeuAvatarDemo() {\n  return (\n    <div className=\"neu-ground flex items-center gap-6 rounded-(--neu-radius) p-8\">\n      <Avatar>\n        <AvatarImage src=\"https://github.com/shadcn.png\" alt=\"@shadcn\" />\n        <AvatarFallback>CN</AvatarFallback>\n      </Avatar>\n      <Avatar>\n        <AvatarFallback>NE</AvatarFallback>\n        <AvatarBadge />\n      </Avatar>\n      <AvatarGroup>\n        <Avatar>\n          <AvatarImage src=\"https://github.com/shadcn.png\" alt=\"@shadcn\" />\n          <AvatarFallback>CN</AvatarFallback>\n        </Avatar>\n        <Avatar>\n          <AvatarFallback>NE</AvatarFallback>\n        </Avatar>\n        <Avatar>\n          <AvatarFallback>UI</AvatarFallback>\n        </Avatar>\n        <AvatarGroupCount>+3</AvatarGroupCount>\n      </AvatarGroup>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

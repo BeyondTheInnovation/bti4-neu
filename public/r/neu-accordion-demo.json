@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-accordion-demo",
+  "title": "Neu Accordion Demo",
+  "description": "A single-open neu accordion on a neumorphic ground.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-accordion.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-accordion-demo.tsx",
+      "content": "\"use client\"\n\nimport {\n  Accordion,\n  AccordionContent,\n  AccordionItem,\n  AccordionTrigger,\n} from \"@/registry/neu/ui/neu/accordion\"\n\nexport function NeuAccordionDemo() {\n  return (\n    <div className=\"neu-ground rounded-(--neu-radius) p-8\">\n      <Accordion type=\"single\" collapsible defaultValue=\"item-1\">\n        <AccordionItem value=\"item-1\">\n          <AccordionTrigger>Is it accessible?</AccordionTrigger>\n          <AccordionContent>\n            Yes. It adheres to the WAI-ARIA design pattern.\n          </AccordionContent>\n        </AccordionItem>\n        <AccordionItem value=\"item-2\">\n          <AccordionTrigger>Does it cast shadows?</AccordionTrigger>\n          <AccordionContent>\n            No. Triggers and content sit flat on the ground; only the groove\n            borders separate the items.\n          </AccordionContent>\n        </AccordionItem>\n        <AccordionItem value=\"item-3\">\n          <AccordionTrigger>Is it animated?</AccordionTrigger>\n          <AccordionContent>\n            Yes. The stock accordion height animation is untouched.\n          </AccordionContent>\n        </AccordionItem>\n      </Accordion>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

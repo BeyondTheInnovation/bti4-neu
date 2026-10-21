@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-pagination-demo",
+  "title": "Neu Pagination Demo",
+  "description": "Neu pagination with a sunken active page, ellipsis and prev/next keys.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-pagination.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-pagination-demo.tsx",
+      "content": "import {\n  Pagination,\n  PaginationContent,\n  PaginationEllipsis,\n  PaginationItem,\n  PaginationLink,\n  PaginationNext,\n  PaginationPrevious,\n} from \"@/registry/neu/ui/neu/pagination\"\n\nexport function NeuPaginationDemo() {\n  return (\n    <div className=\"neu-ground flex flex-col gap-6 rounded-(--neu-radius) p-8\">\n      <Pagination>\n        <PaginationContent>\n          <PaginationItem>\n            <PaginationPrevious href=\"#\" />\n          </PaginationItem>\n          <PaginationItem>\n            <PaginationLink href=\"#\">1</PaginationLink>\n          </PaginationItem>\n          <PaginationItem>\n            <PaginationLink href=\"#\" isActive>\n              2\n            </PaginationLink>\n          </PaginationItem>\n          <PaginationItem>\n            <PaginationLink href=\"#\">3</PaginationLink>\n          </PaginationItem>\n          <PaginationItem>\n            <PaginationEllipsis />\n          </PaginationItem>\n          <PaginationItem>\n            <PaginationNext href=\"#\" />\n          </PaginationItem>\n        </PaginationContent>\n      </Pagination>\n      <Pagination>\n        <PaginationContent>\n          <PaginationItem>\n            <PaginationPrevious aria-disabled tabIndex={-1} />\n          </PaginationItem>\n          <PaginationItem>\n            <PaginationLink href=\"#\" isActive>\n              1\n            </PaginationLink>\n          </PaginationItem>\n          <PaginationItem>\n            <PaginationLink href=\"#\">2</PaginationLink>\n          </PaginationItem>\n          <PaginationItem>\n            <PaginationLink href=\"#\">3</PaginationLink>\n          </PaginationItem>\n          <PaginationItem>\n            <PaginationNext href=\"#\" />\n          </PaginationItem>\n        </PaginationContent>\n      </Pagination>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

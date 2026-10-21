@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-separator",
+  "title": "Neu Separator",
+  "description": "Neumorphic separator on the Radix primitive. An engraved line: a rounded two-stop gradient, dark crease over lit edge, derived from the surface token and thickened by Elevation.",
+  "dependencies": [
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/ui/neu/separator.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { Separator as SeparatorPrimitive } from \"radix-ui\"\n\nimport { cn } from \"@/lib/utils\"\n\n/* The engraved pill: the theme's .neu-line is a rounded two-stop gradient,\n   dark crease over lit edge, one element, no fill. */\nfunction Separator({\n  className,\n  orientation = \"horizontal\",\n  decorative = true,\n  ...props\n}: React.ComponentProps<typeof SeparatorPrimitive.Root>) {\n  return (\n    <SeparatorPrimitive.Root\n      data-slot=\"separator\"\n      decorative={decorative}\n      orientation={orientation}\n      className={cn(\n        \"neu-line shrink-0 data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nexport { Separator }\n",
+      "type": "registry:ui",
+      "target": "components/ui/neu/separator.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

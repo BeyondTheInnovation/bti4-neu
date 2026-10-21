@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-label-demo",
+  "title": "Neu Label Demo",
+  "description": "Neu label with an input, a checkbox pairing and a disabled peer.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-label.json",
+    "https://neu.beyondtheinnovation.com/r/neu-input.json",
+    "https://neu.beyondtheinnovation.com/r/neu-checkbox.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/examples/neu-label-demo.tsx",
+      "content": "\"use client\"\n\nimport { Checkbox } from \"@/registry/neu/ui/neu/checkbox\"\nimport { Input } from \"@/registry/neu/ui/neu/input\"\nimport { Label } from \"@/registry/neu/ui/neu/label\"\n\nexport function NeuLabelDemo() {\n  return (\n    <div className=\"neu-ground flex w-full max-w-sm flex-col gap-6 rounded-(--neu-radius) p-8\">\n      <div className=\"flex flex-col gap-2\">\n        <Label htmlFor=\"label-demo-email\">Email</Label>\n        <Input id=\"label-demo-email\" type=\"email\" placeholder=\"Email\" />\n      </div>\n      <div className=\"flex items-center gap-3\">\n        <Checkbox id=\"label-demo-terms\" />\n        <Label htmlFor=\"label-demo-terms\">Accept terms and conditions</Label>\n      </div>\n      <div className=\"flex flex-col-reverse gap-2\">\n        <Input\n          id=\"label-demo-disabled\"\n          className=\"peer\"\n          disabled\n          placeholder=\"Disabled\"\n        />\n        <Label htmlFor=\"label-demo-disabled\">Disabled field</Label>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}
