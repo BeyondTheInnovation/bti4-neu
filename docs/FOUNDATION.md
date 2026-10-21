@@ -24,6 +24,8 @@ Raw scalars are the whole public API. Everything visible derives from them.
 | `--neu-radius` | `<length>` | `16px` in `@property`, `1rem` on `:root` | Corner radius. `@property` initial-value must be computationally independent, so the registration says `16px`; the `:root` declaration restores `1rem` so it tracks root font size. |
 | `--neu-alpha` | `<number>` | `0.55` | Shadow translucency. Kept below 1 so shadows tint whatever they fall on. |
 | `--neu-dir` | `<number>` | `1` | RTL sign. `[dir='rtl']` sets `-1` and `[dir='ltr']` sets `1`, so the nearest `dir` wins and an ltr island inside an rtl page reads `1`. Directional motion and mirrored icons read it (switch travel, skeleton wave, chevrons); the shadow math does not. Use it instead of Tailwind's `rtl:` variant, whose `[dir="rtl"] *` branch still matches inside a nested `dir="ltr"`. |
+| `--neu-resize-start` | plain | `w-resize` | Resize cursor pointing to the inline start. The same `[dir]` rules as `--neu-dir` swap it to `e-resize`, so the nearest `dir` wins. A cursor keyword cannot be flipped by a sign, and `:dir()` is no way out: Lightning CSS rewrites it to a `:lang()` list, which misses `lang="en" dir="rtl"`. The sidebar rail reads it. |
+| `--neu-resize-end` | plain | `e-resize` | The mirror of `--neu-resize-start`. |
 | `--neu-corner` | plain | `round` | `corner-shape` for every shape; `squircle` for superellipse corners. See the squircle amendment. |
 | `--neu-shade-light` | unregistered | follows `--neu-shade` | Optional split intensity for the light half of the pair. Every high-end source ships asymmetric pairs; set this and `--neu-shade-dark` to join them. |
 | `--neu-shade-dark` | unregistered | follows `--neu-shade` | Optional split intensity for the dark half. |

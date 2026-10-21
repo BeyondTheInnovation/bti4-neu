@@ -88,6 +88,8 @@
           "--neu-corner": "round",
           "--neu-alpha": "0.55",
           "--neu-dir": "1",
+          "--neu-resize-start": "w-resize",
+          "--neu-resize-end": "e-resize",
           "--neu-glint": "0.25",
           "--neu-highlight": "0.3",
           "--neu-ring-width": "2px",
@@ -96,10 +98,14 @@
           "--neu-ease-release": "250ms cubic-bezier(0.215, 0.61, 0.355, 1)"
         },
         "[dir='rtl']": {
-          "--neu-dir": "-1"
+          "--neu-dir": "-1",
+          "--neu-resize-start": "e-resize",
+          "--neu-resize-end": "w-resize"
         },
         "[dir='ltr']": {
-          "--neu-dir": "1"
+          "--neu-dir": "1",
+          "--neu-resize-start": "w-resize",
+          "--neu-resize-end": "e-resize"
         },
         "@layer components": {
           ".neu-ground, .neu, .neu-pressed, .neu-concave, .neu-convex, .neu-realism": {

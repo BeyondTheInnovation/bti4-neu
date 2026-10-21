@@ -35,3 +35,7 @@ import {
   </SheetContent>
 </Sheet>
 ```
+
+## RTL
+
+`side="left"` and `side="right"` are flow-relative, as on the sidebar: `"right"`, the default, is the inline end, so on an rtl page the sheet slides in from the left edge. The content renders in a portal, so pass `dir` to `SheetContent` when the direction is set below `<html>`.

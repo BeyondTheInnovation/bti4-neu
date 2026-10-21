@@ -53,6 +53,7 @@ function SheetContent({
   showCloseButton = true,
   ...props
 }: React.ComponentProps<typeof SheetPrimitive.Content> & {
+  /** `left` and `right` are flow-relative, as on Sidebar: `left` is the inline start, the right edge on an rtl page. */
   side?: "top" | "right" | "bottom" | "left"
   showCloseButton?: boolean
 }) {
@@ -64,10 +65,11 @@ function SheetContent({
         data-side={side}
         className={cn(
           "neu-ground neu-overlay-scrim fixed z-50 flex flex-col gap-4 data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:animate-in data-[state=open]:duration-500 motion-reduce:data-[state=closed]:animate-none motion-reduce:data-[state=open]:animate-none",
+          // tw-animate's start and end slides use :dir(), which Lightning CSS rewrites to a :lang() list, so the sign comes from --neu-dir.
           side === "right" &&
-            "inset-y-0 right-0 h-full w-3/4 data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right sm:max-w-sm",
+            "inset-y-0 end-0 h-full w-3/4 data-[state=closed]:slide-out-to-right-[calc(100%*var(--neu-dir))] data-[state=open]:slide-in-from-right-[calc(100%*var(--neu-dir))] sm:max-w-sm",
           side === "left" &&
-            "inset-y-0 left-0 h-full w-3/4 data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left sm:max-w-sm",
+            "inset-y-0 start-0 h-full w-3/4 data-[state=closed]:slide-out-to-left-[calc(100%*var(--neu-dir))] data-[state=open]:slide-in-from-left-[calc(100%*var(--neu-dir))] sm:max-w-sm",
           side === "top" &&
             "inset-x-0 top-0 h-auto data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top",
           side === "bottom" &&

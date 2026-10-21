@@ -155,6 +155,7 @@ function Sidebar({
   dir,
   ...props
 }: React.ComponentProps<"div"> & {
+  /** Flow-relative, unlike upstream shadcn: `left` is the inline start, so it is the right edge on an rtl page. */
   side?: "left" | "right"
   variant?: "sidebar" | "floating" | "inset"
   collapsible?: "offcanvas" | "icon" | "none"
@@ -232,11 +233,11 @@ function Sidebar({
         className={cn(
           "fixed inset-y-0 z-10 hidden h-svh w-(--sidebar-width) transition-[left,right,width] duration-200 ease-linear motion-reduce:transition-none md:flex",
           side === "left"
-            ? "left-0 group-data-[collapsible=offcanvas]:left-[calc(var(--sidebar-width)*-1)]"
-            : "right-0 group-data-[collapsible=offcanvas]:right-[calc(var(--sidebar-width)*-1)]",
+            ? "start-0 group-data-[collapsible=offcanvas]:start-[calc(var(--sidebar-width)*-1)]"
+            : "end-0 group-data-[collapsible=offcanvas]:end-[calc(var(--sidebar-width)*-1)]",
           variant === "floating" || variant === "inset"
             ? "p-2 group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)+(--spacing(4))+2px)]"
-            : "border-[color-mix(in_oklab,var(--neu-text)_12%,transparent)] group-data-[collapsible=icon]:w-(--sidebar-width-icon) group-data-[side=left]:border-r group-data-[side=right]:border-l",
+            : "border-[color-mix(in_oklab,var(--neu-text)_12%,transparent)] group-data-[collapsible=icon]:w-(--sidebar-width-icon) group-data-[side=left]:border-e group-data-[side=right]:border-s",
           className
         )}
         {...props}
@@ -291,12 +292,12 @@ function SidebarRail({ className, ...props }: React.ComponentProps<"button">) {
       onClick={toggleSidebar}
       title="Toggle Sidebar"
       className={cn(
-        "absolute inset-y-0 z-20 hidden w-4 -translate-x-1/2 transition-all ease-linear group-data-[side=left]:-right-4 group-data-[side=right]:left-0 after:absolute after:inset-y-0 after:left-1/2 after:w-[2px] hover:after:bg-[color-mix(in_oklab,var(--neu-text)_12%,transparent)] motion-reduce:transition-none sm:flex",
-        "in-data-[side=left]:cursor-w-resize in-data-[side=right]:cursor-e-resize",
-        "[[data-side=left][data-state=collapsed]_&]:cursor-e-resize [[data-side=right][data-state=collapsed]_&]:cursor-w-resize",
-        "group-data-[collapsible=offcanvas]:translate-x-0 group-data-[collapsible=offcanvas]:after:left-full hover:group-data-[collapsible=offcanvas]:bg-[color-mix(in_oklab,var(--neu-text)_6%,transparent)]",
-        "[[data-side=left][data-collapsible=offcanvas]_&]:-right-2",
-        "[[data-side=right][data-collapsible=offcanvas]_&]:-left-2",
+        "absolute inset-y-0 z-20 hidden w-4 translate-x-[calc(var(--neu-dir)*-50%)] transition-all ease-linear group-data-[side=left]:-end-4 group-data-[side=right]:start-0 after:absolute after:inset-y-0 after:start-1/2 after:w-[2px] hover:after:bg-[color-mix(in_oklab,var(--neu-text)_12%,transparent)] motion-reduce:transition-none sm:flex",
+        "in-data-[side=left]:cursor-(--neu-resize-start) in-data-[side=right]:cursor-(--neu-resize-end)",
+        "[[data-side=left][data-state=collapsed]_&]:cursor-(--neu-resize-end) [[data-side=right][data-state=collapsed]_&]:cursor-(--neu-resize-start)",
+        "group-data-[collapsible=offcanvas]:translate-x-0 group-data-[collapsible=offcanvas]:after:start-full hover:group-data-[collapsible=offcanvas]:bg-[color-mix(in_oklab,var(--neu-text)_6%,transparent)]",
+        "[[data-side=left][data-collapsible=offcanvas]_&]:-end-2",
+        "[[data-side=right][data-collapsible=offcanvas]_&]:-start-2",
         className
       )}
       {...props}
@@ -310,7 +311,7 @@ function SidebarInset({ className, ...props }: React.ComponentProps<"main">) {
       data-slot="sidebar-inset"
       className={cn(
         "relative flex w-full flex-1 flex-col",
-        "md:peer-data-[variant=inset]:m-2 md:peer-data-[variant=inset]:rounded-(--neu-radius) md:peer-data-[variant=inset]:border md:peer-data-[variant=inset]:border-[color-mix(in_oklab,var(--neu-text)_12%,transparent)] md:peer-data-[variant=inset]:peer-data-[state=expanded]:peer-data-[side=left]:ml-0 md:peer-data-[variant=inset]:peer-data-[state=expanded]:peer-data-[side=right]:mr-0",
+        "md:peer-data-[variant=inset]:m-2 md:peer-data-[variant=inset]:rounded-(--neu-radius) md:peer-data-[variant=inset]:border md:peer-data-[variant=inset]:border-[color-mix(in_oklab,var(--neu-text)_12%,transparent)] md:peer-data-[variant=inset]:peer-data-[state=expanded]:peer-data-[side=left]:ms-0 md:peer-data-[variant=inset]:peer-data-[state=expanded]:peer-data-[side=right]:me-0",
         className
       )}
       {...props}

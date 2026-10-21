@@ -86,6 +86,8 @@
   --neu-corner: round;
   --neu-alpha: 0.55;
   --neu-dir: 1;
+  --neu-resize-start: w-resize;
+  --neu-resize-end: e-resize;
   --neu-glint: 0.25;
   --neu-highlight: 0.3;
   --neu-ring-width: 2px;
@@ -96,11 +98,15 @@
 
 [dir="rtl"] {
   --neu-dir: -1;
+  --neu-resize-start: e-resize;
+  --neu-resize-end: w-resize;
 }
 
-/* The sign inherits, so an ltr island inside an rtl page must reset it. */
+/* These inherit, so an ltr island inside an rtl page must reset them. */
 [dir="ltr"] {
   --neu-dir: 1;
+  --neu-resize-start: w-resize;
+  --neu-resize-end: e-resize;
 }
 
 .dark {

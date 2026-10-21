@@ -91,10 +91,14 @@ const { state, open, setOpen, openMobile, isMobile, toggleSidebar } =
 
 ## RTL
 
-Pass `dir` and put the panel on the right. Positions inside the panel are logical, so actions, badges and sub menus follow the direction.
+`side` is flow-relative: `"left"` is the inline start, so on an rtl page the default sidebar sits on the right edge, and its border, rail, cursors and mobile sheet follow it. Positions inside the panel are logical too, so actions, badges and sub menus follow the direction.
+
+This differs from upstream shadcn, where `side` is physical. When porting, drop a `side={dir === "rtl" ? "right" : "left"}` and keep the default.
+
+Pass `dir` when the direction is set below `<html>`, so the mobile sheet, which renders in a portal, opens from the right edge too.
 
 ```tsx
-<Sidebar dir="rtl" side="right">
+<Sidebar dir="rtl">
   {/* ... */}
 </Sidebar>
 ```
