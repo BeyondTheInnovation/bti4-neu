@@ -240,13 +240,23 @@
         )
         c h / var(--neu-alpha)
     );
+    /* l above 1 is white anyway; chroma goes to 0 there because Chromium
+       paints a tinted out-of-gamut shadow yellow inside an opacity layer */
     --_light: oklch(
       from var(--neu-surface)
         calc(
           l + var(--neu-shade-light, var(--neu-shade)) *
             clamp(1, 1.9 - l * 1.5, 1.6)
         )
-        c h / var(--neu-alpha)
+        calc(
+          c *
+            clamp(
+              0,
+              (1 - (l + var(--neu-shade-light, var(--neu-shade)) *
+                clamp(1, 1.9 - l * 1.5, 1.6))) * 1000,
+              1
+            )
+        ) h / var(--neu-alpha)
     );
     /* the cast shadow of anything above the paper (handles, floating panels):
        near black and see-through, so over an accent, an image or a darker
@@ -341,7 +351,15 @@
           l + var(--neu-shade-light, var(--neu-shade)) *
             clamp(1, 1.9 - l * 1.5, 1.6)
         )
-        c h / 0.3
+        calc(
+          c *
+            clamp(
+              0,
+              (1 - (l + var(--neu-shade-light, var(--neu-shade)) *
+                clamp(1, 1.9 - l * 1.5, 1.6))) * 1000,
+              1
+            )
+        ) h / 0.3
     );
     /* 2px at the default depth, so Elevation thickens every line */
     --_line-w: clamp(1px, calc(var(--neu-distance) / 6), 4px);
@@ -832,6 +850,15 @@
   .neu-overlay-scrim,
   .neu-groove {
     border: 1px solid var(--neu-text);
+  }
+
+  .neu-cap[data-slot="sliding-key"],
+  .neu-state-cap:is(
+      [data-state="on"],
+      [data-state="active"],
+      [aria-pressed="true"]
+    ) {
+    border-color: var(--neu-text);
   }
 
   .neu-field[aria-invalid="true"] {

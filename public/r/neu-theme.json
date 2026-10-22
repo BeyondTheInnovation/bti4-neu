@@ -128,7 +128,7 @@
       },
       ".neu, .neu-pressed, .neu-concave, .neu-convex, .neu-realism, .neu-text-emboss, .neu-lift, .neu-lift-sm, .neu-engrave, .neu-glyph-lift, .neu-overlay, .neu-overlay-scrim": {
         "--_dark": "oklch(from var(--neu-surface) calc(l - var(--neu-shade-dark, var(--neu-shade)) * clamp(1, 1.9 - l * 1.5, 1.6)) c h / var(--neu-alpha))",
-        "--_light": "oklch(from var(--neu-surface) calc(l + var(--neu-shade-light, var(--neu-shade)) * clamp(1, 1.9 - l * 1.5, 1.6)) c h / var(--neu-alpha))",
+        "--_light": "oklch(from var(--neu-surface) calc(l + var(--neu-shade-light, var(--neu-shade)) * clamp(1, 1.9 - l * 1.5, 1.6)) calc(c * clamp(0, (1 - (l + var(--neu-shade-light, var(--neu-shade)) * clamp(1, 1.9 - l * 1.5, 1.6))) * 1000, 1)) h / var(--neu-alpha))",
         "--_drop": "var(--neu-drop, oklch(from var(--neu-surface) calc(l * 0.15) c h / min(1, var(--neu-alpha) * var(--neu-shade-dark, var(--neu-shade)) * clamp(1, 1.9 - l * 1.5, 1.6) / max(l * 0.85, 0.01))))",
         "--_face-dark": "oklch(from var(--neu-surface) calc(l - var(--neu-face)) c h)",
         "--_face-light": "oklch(from var(--neu-surface) calc(l + var(--neu-face)) c h)",
@@ -153,7 +153,7 @@
       },
       ".neu-line, .neu-line-b, .neu-line-t": {
         "--_line-dark": "oklch(from var(--neu-surface) calc(l - var(--neu-shade-dark, var(--neu-shade)) * clamp(1, 1.9 - l * 1.5, 1.6)) c h / 0.7)",
-        "--_line-light": "oklch(from var(--neu-surface) calc(l + var(--neu-shade-light, var(--neu-shade)) * clamp(1, 1.9 - l * 1.5, 1.6)) c h / 0.3)",
+        "--_line-light": "oklch(from var(--neu-surface) calc(l + var(--neu-shade-light, var(--neu-shade)) * clamp(1, 1.9 - l * 1.5, 1.6)) calc(c * clamp(0, (1 - (l + var(--neu-shade-light, var(--neu-shade)) * clamp(1, 1.9 - l * 1.5, 1.6))) * 1000, 1)) h / 0.3)",
         "--_line-w": "clamp(1px, calc(var(--neu-distance) / 6), 4px)"
       },
       ".neu-line": {
@@ -361,6 +361,9 @@
     "@media (prefers-contrast: more)": {
       ".neu, .neu-pressed, .neu-concave, .neu-convex, .neu-realism, .neu-overlay, .neu-overlay-scrim, .neu-groove": {
         "border": "1px solid var(--neu-text)"
+      },
+      ".neu-cap[data-slot='sliding-key'], .neu-state-cap:is([data-state='on'], [data-state='active'], [aria-pressed='true'])": {
+        "border-color": "var(--neu-text)"
       },
       ".neu-field[aria-invalid='true']": {
         "border-color": "var(--destructive)"
