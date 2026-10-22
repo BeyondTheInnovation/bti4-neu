@@ -234,7 +234,9 @@ function CalendarDayButton({
       className={cn(
         "flex aspect-square size-auto w-full min-w-(--cell-size) flex-col gap-1 rounded-[calc(var(--neu-radius)*0.5)] bg-transparent leading-none font-normal [--neu-glint:0] group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10 data-[range-end=true]:rounded-[calc(var(--neu-radius)*0.5)] data-[range-end=true]:rounded-e-[calc(var(--neu-radius)*0.5)] data-[range-middle=true]:rounded-none data-[range-middle=true]:bg-transparent data-[range-start=true]:rounded-[calc(var(--neu-radius)*0.5)] data-[range-start=true]:rounded-s-[calc(var(--neu-radius)*0.5)] [&>span]:text-xs [&>span]:opacity-70",
         sunken &&
-          "neu-pressed bg-(--neu-knob-ink) text-(--neu-surface) [--neu-alpha:1] [--neu-glint:inherit]",
+          "neu-pressed bg-(--neu-knob-ink) text-(--neu-surface) [--neu-alpha:1] [--neu-glint:inherit] contrast-more:bg-(--neu-text) contrast-more:[--neu-alpha:0] forced-colors:forced-color-adjust-none forced-colors:bg-[Highlight] forced-colors:text-[HighlightText]",
+        modifiers.range_middle &&
+          "forced-colors:forced-color-adjust-none forced-colors:text-[Highlight] forced-colors:underline",
         defaultClassNames.day,
         className
       )}
