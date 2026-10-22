@@ -191,7 +191,9 @@ function Calendar({
   )
 }
 
-/* A selected day or range endpoint carves in via .neu-pressed, which outranks
+/* The accessible name leads with the visible day text so voice control
+   ("click 31") matches; the library's full date, today and selected follow.
+   A selected day or range endpoint carves in via .neu-pressed, which outranks
    the ghost variant's raised stack by rule order, and takes the accent fill so
    selection never rests on the shadow alone. */
 function CalendarDayButton({
@@ -208,6 +210,11 @@ function CalendarDayButton({
   React.useEffect(() => {
     if (modifiers.focused) ref.current?.focus()
   }, [modifiers.focused])
+
+  const label =
+    typeof props.children === "string" && props["aria-label"]
+      ? `${props.children}, ${props["aria-label"]}`
+      : props["aria-label"]
 
   const sunken =
     (modifiers.selected && !modifiers.range_middle) ||
@@ -241,6 +248,7 @@ function CalendarDayButton({
         className
       )}
       {...props}
+      aria-label={label}
     />
   )
 }
