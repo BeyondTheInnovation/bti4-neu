@@ -1,0 +1,2033 @@
+{
+  "measuredAt": "2026-10-22T13:23:58.991Z",
+  "commit": "b4e8f7a plus uncommitted fixes",
+  "browser": "Chrome 155.0.8059.85",
+  "viewport": "1440x900 at device scale 1",
+  "base": "http://localhost:3419",
+  "errors": [],
+  "tokens": [
+    {
+      "surface": "very light",
+      "css": "oklch(0.97 0.005 250)",
+      "rendered": "#f3f5f8",
+      "maxPossible": 19.23,
+      "tokens": {
+        "--neu-text": {
+          "color": "#515253",
+          "ratio": 7.17
+        },
+        "--neu-text-muted": {
+          "color": "#6e6f71",
+          "ratio": 4.61
+        },
+        "--neu-ring": {
+          "color": "#0073cf",
+          "ratio": 4.42
+        },
+        "--neu-destructive": {
+          "color": "#bc0b20",
+          "ratio": 6
+        },
+        "--neu-knob-ink": {
+          "color": "#0065b4",
+          "ratio": 5.46
+        },
+        "--neu-edge": {
+          "color": "#838588",
+          "ratio": 3.39
+        }
+      }
+    },
+    {
+      "surface": "Paper",
+      "css": "#f8f8f2",
+      "rendered": "#f8f8f2",
+      "maxPossible": 19.7,
+      "tokens": {
+        "--neu-text": {
+          "color": "#535351",
+          "ratio": 7.23
+        },
+        "--neu-text-muted": {
+          "color": "#71716e",
+          "ratio": 4.59
+        },
+        "--neu-ring": {
+          "color": "#807500",
+          "ratio": 4.41
+        },
+        "--neu-destructive": {
+          "color": "#be0f22",
+          "ratio": 6
+        },
+        "--neu-knob-ink": {
+          "color": "#706600",
+          "ratio": 5.49
+        },
+        "--neu-edge": {
+          "color": "#878781",
+          "ratio": 3.39
+        }
+      }
+    },
+    {
+      "surface": "Fog (site light)",
+      "css": "#e2e5e8",
+      "rendered": "#e2e5e8",
+      "maxPossible": 16.61,
+      "tokens": {
+        "--neu-text": {
+          "color": "#47484a",
+          "ratio": 7.24
+        },
+        "--neu-text-muted": {
+          "color": "#646567",
+          "ratio": 4.61
+        },
+        "--neu-ring": {
+          "color": "#0074ce",
+          "ratio": 3.78
+        },
+        "--neu-destructive": {
+          "color": "#b00014",
+          "ratio": 5.81
+        },
+        "--neu-knob-ink": {
+          "color": "#005fac",
+          "ratio": 5.14
+        },
+        "--neu-edge": {
+          "color": "#787a7d",
+          "ratio": 3.4
+        }
+      }
+    },
+    {
+      "surface": "Sand",
+      "css": "#e8dfd1",
+      "rendered": "#e8dfd1",
+      "maxPossible": 15.91,
+      "tokens": {
+        "--neu-text": {
+          "color": "#484540",
+          "ratio": 7.23
+        },
+        "--neu-text-muted": {
+          "color": "#66625b",
+          "ratio": 4.59
+        },
+        "--neu-ring": {
+          "color": "#a56000",
+          "ratio": 3.72
+        },
+        "--neu-destructive": {
+          "color": "#ac0010",
+          "ratio": 5.76
+        },
+        "--neu-knob-ink": {
+          "color": "#864b00",
+          "ratio": 5.27
+        },
+        "--neu-edge": {
+          "color": "#7e7669",
+          "ratio": 3.4
+        }
+      }
+    },
+    {
+      "surface": "Blush",
+      "css": "#efdcdc",
+      "rendered": "#efdcdc",
+      "maxPossible": 15.94,
+      "tokens": {
+        "--neu-text": {
+          "color": "#4b4444",
+          "ratio": 7.21
+        },
+        "--neu-text-muted": {
+          "color": "#696060",
+          "ratio": 4.63
+        },
+        "--neu-ring": {
+          "color": "#c03a4b",
+          "ratio": 4.04
+        },
+        "--neu-destructive": {
+          "color": "#ad0011",
+          "ratio": 5.72
+        },
+        "--neu-knob-ink": {
+          "color": "#9e2b3b",
+          "ratio": 5.57
+        },
+        "--neu-edge": {
+          "color": "#847373",
+          "ratio": 3.41
+        }
+      }
+    },
+    {
+      "surface": "Sage",
+      "css": "#d6e0d6",
+      "rendered": "#d6e0d6",
+      "maxPossible": 15.49,
+      "tokens": {
+        "--neu-text": {
+          "color": "#414541",
+          "ratio": 7.2
+        },
+        "--neu-text-muted": {
+          "color": "#5d625d",
+          "ratio": 4.6
+        },
+        "--neu-ring": {
+          "color": "#028926",
+          "ratio": 3.36
+        },
+        "--neu-destructive": {
+          "color": "#aa000d",
+          "ratio": 5.71
+        },
+        "--neu-knob-ink": {
+          "color": "#006c16",
+          "ratio": 4.91
+        },
+        "--neu-edge": {
+          "color": "#6f786f",
+          "ratio": 3.37
+        }
+      }
+    },
+    {
+      "surface": "teal",
+      "css": "#00a4ac",
+      "rendered": "#00a4ac",
+      "maxPossible": 6.91,
+      "tokens": {
+        "--neu-text": {
+          "color": "#000000",
+          "ratio": 6.91
+        },
+        "--neu-text-muted": {
+          "color": "#003235",
+          "ratio": 4.58
+        },
+        "--neu-ring": {
+          "color": "#004d5d",
+          "ratio": 3.11
+        },
+        "--neu-destructive": {
+          "color": "#590000",
+          "ratio": 4.85
+        },
+        "--neu-knob-ink": {
+          "color": "#002d3b",
+          "ratio": 4.8
+        },
+        "--neu-edge": {
+          "color": "#004c55",
+          "ratio": 3.19
+        }
+      }
+    },
+    {
+      "surface": "mid gray",
+      "css": "oklch(0.55 0.005 250)",
+      "rendered": "#6f7274",
+      "maxPossible": 4.84,
+      "tokens": {
+        "--neu-text": {
+          "color": "#ffffff",
+          "ratio": 4.84
+        },
+        "--neu-text-muted": {
+          "color": "#f9f9f9",
+          "ratio": 4.6
+        },
+        "--neu-ring": {
+          "color": "#bce2ff",
+          "ratio": 3.57
+        },
+        "--neu-destructive": {
+          "color": "#ffffff",
+          "ratio": 4.84
+        },
+        "--neu-knob-ink": {
+          "color": "#ffffff",
+          "ratio": 4.84
+        },
+        "--neu-edge": {
+          "color": "#d6d8db",
+          "ratio": 3.39
+        }
+      }
+    },
+    {
+      "surface": "Slate",
+      "css": "#262c38",
+      "rendered": "#262c38",
+      "maxPossible": 14,
+      "tokens": {
+        "--neu-text": {
+          "color": "#b9babb",
+          "ratio": 7.2
+        },
+        "--neu-text-muted": {
+          "color": "#939496",
+          "ratio": 4.61
+        },
+        "--neu-ring": {
+          "color": "#4c7be6",
+          "ratio": 3.52
+        },
+        "--neu-destructive": {
+          "color": "#ff625e",
+          "ratio": 4.77
+        },
+        "--neu-knob-ink": {
+          "color": "#6e9afb",
+          "ratio": 5.12
+        },
+        "--neu-edge": {
+          "color": "#767d8c",
+          "ratio": 3.39
+        }
+      }
+    },
+    {
+      "surface": "Night (site dark)",
+      "css": "#1a222b",
+      "rendered": "#1a222b",
+      "maxPossible": 16.06,
+      "tokens": {
+        "--neu-text": {
+          "color": "#adaeaf",
+          "ratio": 7.23
+        },
+        "--neu-text-muted": {
+          "color": "#88898b",
+          "ratio": 4.59
+        },
+        "--neu-ring": {
+          "color": "#0078d7",
+          "ratio": 3.57
+        },
+        "--neu-destructive": {
+          "color": "#f85553",
+          "ratio": 4.91
+        },
+        "--neu-knob-ink": {
+          "color": "#4396eb",
+          "ratio": 5.2
+        },
+        "--neu-edge": {
+          "color": "#6b747f",
+          "ratio": 3.39
+        }
+      }
+    },
+    {
+      "surface": "very dark",
+      "css": "oklch(0.15 0.02 250)",
+      "rendered": "#050c13",
+      "maxPossible": 19.65,
+      "tokens": {
+        "--neu-text": {
+          "color": "#9c9c9d",
+          "ratio": 7.17
+        },
+        "--neu-text-muted": {
+          "color": "#7a7a7b",
+          "ratio": 4.58
+        },
+        "--neu-ring": {
+          "color": "#0073cf",
+          "ratio": 4.07
+        },
+        "--neu-destructive": {
+          "color": "#f14d4c",
+          "ratio": 5.53
+        },
+        "--neu-knob-ink": {
+          "color": "#2c87d9",
+          "ratio": 5.22
+        },
+        "--neu-edge": {
+          "color": "#5d6771",
+          "ratio": 3.41
+        }
+      }
+    }
+  ],
+  "light": {
+    "pageSurface": "#e2e5e8",
+    "states": {
+      "switch-on": {
+        "ratio": 3.64,
+        "where": "track top vs page",
+        "fg": "#0073cf",
+        "bg": "#dde0e2"
+      },
+      "checkbox-checked": {
+        "ratio": 3.47,
+        "where": "well start",
+        "fg": "#0073cf",
+        "bg": "#d8dbdd"
+      },
+      "radio-checked": {
+        "ratio": 3.61,
+        "where": "well floor start",
+        "fg": "#006dc8",
+        "bg": "#d4d7d8"
+      },
+      "toggle-on": {
+        "ratio": 3.96,
+        "where": "page start",
+        "fg": "#2873b3",
+        "bg": "#e2e5e8"
+      },
+      "tabs-active": {
+        "ratio": 1.42,
+        "where": "tray top (face)",
+        "fg": "#f6f8f9",
+        "bg": "#d0d2d5",
+        "note": "active label #004ba4 vs inactive #646567: 1.42, same weight"
+      },
+      "toggle-group-on": {
+        "ratio": 1.44,
+        "where": "tray top (face)",
+        "fg": "#f6f8f9",
+        "bg": "#cfd1d4",
+        "note": "active label #004ba4 vs inactive #646567: 1.42, same weight"
+      },
+      "slider-range": {
+        "ratio": 3.81,
+        "where": "page above",
+        "fg": "#0073cf",
+        "bg": "#e2e5e8"
+      },
+      "progress-fill": {
+        "ratio": 3.71,
+        "where": "page below",
+        "fg": "#0073cf",
+        "bg": "#dfe2e5"
+      },
+      "calendar-selected": {
+        "ratio": 3.16,
+        "where": "calendar start",
+        "fg": "#4784b8",
+        "bg": "#e2e5e8"
+      },
+      "sidebar-active": {
+        "ratio": 3.81,
+        "where": "chip beside the bar",
+        "fg": "#0073cf",
+        "bg": "#e2e5e8"
+      },
+      "menu-highlight": {
+        "ratio": 3.28,
+        "where": "inset ring vs row tint",
+        "fg": "#0073cf",
+        "bg": "#d3d5d8",
+        "note": "row tint alone vs menu 1.16"
+      }
+    },
+    "overlays": {
+      "dialog": {
+        "ratio": 4.69,
+        "line": 1.3788813559174777,
+        "lamp": true,
+        "where": "top 15-40%",
+        "fg": "#e2e5e8",
+        "bg": "#626467",
+        "lineOnly": 1.38,
+        "lampSides": 4.69
+      },
+      "popover": {
+        "ratio": 3.07,
+        "line": 3.0690937655209436,
+        "lamp": false,
+        "where": "bottom 15-40%",
+        "fg": "#787a7d",
+        "bg": "#d7dade",
+        "lineOnly": 3.07,
+        "lampSides": 3.19
+      },
+      "menu": {
+        "ratio": 3.07,
+        "line": 3.0690937655209436,
+        "lamp": false,
+        "where": "bottom 15-40%",
+        "fg": "#787a7d",
+        "bg": "#d7dade",
+        "lineOnly": 3.07,
+        "lampSides": 3.28
+      },
+      "tooltip": {
+        "ratio": 3.04,
+        "line": 3.0395154192083416,
+        "lamp": false,
+        "where": "bottom 15-40%",
+        "fg": "#787a7d",
+        "bg": "#d6d9dd",
+        "lineOnly": 3.04,
+        "lampSides": 3.28
+      }
+    },
+    "fields": {
+      "input": {
+        "ratio": 1.39,
+        "where": "top",
+        "fg": "#c1c4c6",
+        "bg": "#e2e5e8",
+        "computedBorder": "#c1c4c6"
+      },
+      "textarea": {
+        "ratio": 1.39,
+        "where": "top",
+        "fg": "#c1c4c6",
+        "bg": "#e2e5e8",
+        "computedBorder": "#c1c4c6"
+      },
+      "select": {
+        "ratio": 1.4,
+        "where": "start",
+        "fg": "#c1c4c6",
+        "bg": "#e3e6e8",
+        "computedBorder": "#c1c4c6"
+      },
+      "checkbox": {
+        "ratio": 1.39,
+        "where": "top",
+        "fg": "#c1c4c6",
+        "bg": "#e2e5e8",
+        "computedBorder": "#c1c4c6"
+      },
+      "radio": {
+        "ratio": 1.39,
+        "where": "top",
+        "fg": "#c1c4c6",
+        "bg": "#e2e5e8",
+        "computedBorder": "#c1c4c6"
+      },
+      "otp slot": {
+        "ratio": 1.39,
+        "where": "top",
+        "fg": "#c1c4c6",
+        "bg": "#e2e5e8",
+        "computedBorder": "#c1c4c6"
+      }
+    },
+    "targets": {
+      "named": {
+        "checkbox": {
+          "equivalent": false,
+          "label": "checkbox: ",
+          "visible": "26x26",
+          "hitArea": "49x41",
+          "min": 41,
+          "spacingOk": true
+        },
+        "radio": {
+          "equivalent": true,
+          "label": "radio-group-item: ",
+          "visible": "26x26",
+          "hitArea": "49x38",
+          "min": 38,
+          "spacingOk": true
+        },
+        "switch sm": {
+          "equivalent": false,
+          "label": "switch: ",
+          "visible": "44x22",
+          "hitArea": "69x38",
+          "min": 38,
+          "spacingOk": true
+        },
+        "switch": {
+          "equivalent": false,
+          "label": "switch: ",
+          "visible": "56x28",
+          "hitArea": "81x44",
+          "min": 44,
+          "spacingOk": true
+        },
+        "slider thumb": {
+          "equivalent": false,
+          "label": "slider-thumb: Volume",
+          "visible": "18x18",
+          "hitArea": "27x27",
+          "min": 27,
+          "spacingOk": true
+        }
+      },
+      "checked": 168,
+      "undersized": [
+        {
+          "label": "badge: Link",
+          "hitArea": "45x21",
+          "exception": "spacing"
+        },
+        {
+          "label": "breadcrumb-link: Home",
+          "hitArea": "39x21",
+          "exception": "spacing"
+        },
+        {
+          "label": "breadcrumb-link: Components",
+          "hitArea": "84x21",
+          "exception": "spacing"
+        },
+        {
+          "label": "sidebar-rail: Toggle Sidebar",
+          "hitArea": "17x240",
+          "exception": "equivalent control"
+        },
+        {
+          "label": "resizable-handle: ",
+          "hitArea": "11x201",
+          "exception": "spacing"
+        },
+        {
+          "label": "resizable-handle: ",
+          "hitArea": "153x13",
+          "exception": "spacing"
+        }
+      ],
+      "failing": []
+    },
+    "labelInName": {
+      "test": "accessible name (Playwright aria snapshot) contains the button's visible text as a whole word; nameStartsWithVisible counts the advised form",
+      "dayButtons": 70,
+      "failing": 0,
+      "pages": [
+        {
+          "route": "/components",
+          "dayButtons": 35,
+          "nameContainsVisible": 35,
+          "nameStartsWithVisible": 35,
+          "example": {
+            "visible": "31",
+            "name": "31, Sunday, May 31st, 2026"
+          },
+          "failing": [],
+          "failingCount": 0
+        },
+        {
+          "route": "/components/neu-calendar",
+          "dayButtons": 35,
+          "nameContainsVisible": 35,
+          "nameStartsWithVisible": 35,
+          "example": {
+            "visible": "31",
+            "name": "31, Sunday, May 31st, 2026"
+          },
+          "failing": [],
+          "failingCount": 0
+        }
+      ]
+    },
+    "focus": {
+      "total": 253,
+      "visible": 246,
+      "neuTotal": 115,
+      "neuVisible": 115,
+      "missing": [
+        {
+          "n": 62,
+          "label": "button: Copy Anchor Link",
+          "changed": 0
+        },
+        {
+          "n": 82,
+          "label": "button: Copy Anchor Link",
+          "changed": 0
+        },
+        {
+          "n": 128,
+          "label": "button: Copy Anchor Link",
+          "changed": 0
+        },
+        {
+          "n": 161,
+          "label": "button: Copy Anchor Link",
+          "changed": 0
+        },
+        {
+          "n": 173,
+          "label": "button: Copy Anchor Link",
+          "changed": 0
+        },
+        {
+          "n": 196,
+          "label": "button: Copy Anchor Link",
+          "changed": 0
+        },
+        {
+          "n": 227,
+          "label": "button: Copy Anchor Link",
+          "changed": 0
+        }
+      ],
+      "ringMeasured": 113,
+      "worstRing": {
+        "ratio": 3.36,
+        "stop": "resizable-handle: DIV",
+        "where": "left"
+      },
+      "ringsBelow3": [],
+      "shadeSideBelow3": [
+        {
+          "stop": "toggle-group-item: Toggle bold",
+          "ratio": 2.96
+        },
+        {
+          "stop": "toggle-group-item: Align left",
+          "ratio": 2.96
+        },
+        {
+          "stop": "toggle-group-item: Week",
+          "ratio": 2.36
+        },
+        {
+          "stop": "tabs-trigger: Account",
+          "ratio": 2.15
+        }
+      ],
+      "ringMergesWithFill": [
+        {
+          "stop": "slider-thumb: Volume",
+          "sides": [
+            "left"
+          ]
+        },
+        {
+          "stop": "slider-thumb: Price, minimum",
+          "sides": [
+            "right"
+          ]
+        },
+        {
+          "stop": "slider-thumb: Price, maximum",
+          "sides": [
+            "left"
+          ]
+        },
+        {
+          "stop": "slider-thumb: Level",
+          "sides": [
+            "bottom"
+          ]
+        },
+        {
+          "stop": "resizable-handle: DIV",
+          "sides": [
+            "top",
+            "bottom"
+          ]
+        },
+        {
+          "stop": "resizable-handle: DIV",
+          "sides": [
+            "right"
+          ]
+        }
+      ],
+      "weakestIndicator": [
+        {
+          "label": "a: ThemingThe --neu-* token contrac",
+          "contrast": 1.26
+        },
+        {
+          "label": "a: ButtonNeumorphic button with the",
+          "contrast": 1.26
+        },
+        {
+          "label": "a: neu",
+          "contrast": 1.39
+        }
+      ]
+    },
+    "contrast-more": {
+      "fields": {
+        "input": {
+          "ratio": 7.25,
+          "where": "top",
+          "fg": "#474849",
+          "bg": "#e2e5e8",
+          "computedBorder": "#474849"
+        },
+        "textarea": {
+          "ratio": 7.25,
+          "where": "top",
+          "fg": "#474849",
+          "bg": "#e2e5e8",
+          "computedBorder": "#474849"
+        },
+        "select": {
+          "ratio": 7.31,
+          "where": "start",
+          "fg": "#474849",
+          "bg": "#e3e6e8",
+          "computedBorder": "#474849"
+        },
+        "checkbox": {
+          "ratio": 7.25,
+          "where": "top",
+          "fg": "#474849",
+          "bg": "#e2e5e8",
+          "computedBorder": "#474849"
+        },
+        "radio": {
+          "ratio": 7.25,
+          "where": "top",
+          "fg": "#474849",
+          "bg": "#e2e5e8",
+          "computedBorder": "#474849"
+        },
+        "otp slot": {
+          "ratio": 7.25,
+          "where": "top",
+          "fg": "#474849",
+          "bg": "#e2e5e8",
+          "computedBorder": "#474849"
+        }
+      },
+      "states": {
+        "switch-on": {
+          "ratio": 3.64,
+          "where": "track top vs page",
+          "fg": "#0073cf",
+          "bg": "#dde0e2"
+        },
+        "checkbox-checked": {
+          "ratio": 3.47,
+          "where": "well start",
+          "fg": "#0073cf",
+          "bg": "#d8dbdd"
+        },
+        "radio-checked": {
+          "ratio": 3.61,
+          "where": "well floor start",
+          "fg": "#006dc8",
+          "bg": "#d4d7d8"
+        },
+        "toggle-on": {
+          "ratio": 3.51,
+          "where": "page start",
+          "fg": "#387cb6",
+          "bg": "#e2e5e8"
+        },
+        "tabs-active": {
+          "ratio": 5.92,
+          "where": "tray start (border)",
+          "fg": "#474849",
+          "bg": "#cdd0d3",
+          "note": "active label #004ba4 vs inactive #646567: 1.42, same weight"
+        },
+        "toggle-group-on": {
+          "ratio": 5.93,
+          "where": "tray start (border)",
+          "fg": "#474849",
+          "bg": "#ced0d3",
+          "note": "active label #004ba4 vs inactive #646567: 1.42, same weight"
+        },
+        "slider-range": {
+          "ratio": 3.81,
+          "where": "page above",
+          "fg": "#0073cf",
+          "bg": "#e2e5e8"
+        },
+        "progress-fill": {
+          "ratio": 3.78,
+          "where": "page below",
+          "fg": "#0073cf",
+          "bg": "#e1e4e7"
+        },
+        "calendar-selected": {
+          "ratio": 7.25,
+          "where": "calendar start",
+          "fg": "#474849",
+          "bg": "#e2e5e8"
+        },
+        "sidebar-active": {
+          "ratio": 3.81,
+          "where": "chip beside the bar",
+          "fg": "#0073cf",
+          "bg": "#e2e5e8"
+        },
+        "menu-highlight": {
+          "ratio": 3.28,
+          "where": "inset ring vs row tint",
+          "fg": "#0073cf",
+          "bg": "#d3d5d8",
+          "note": "row tint alone vs menu 1.16"
+        }
+      }
+    },
+    "forced-colors": {
+      "fields": {
+        "input": {
+          "ratio": 21,
+          "where": "top",
+          "fg": "#000000",
+          "bg": "#ffffff",
+          "computedBorder": "#000000"
+        },
+        "textarea": {
+          "ratio": 21,
+          "where": "top",
+          "fg": "#000000",
+          "bg": "#ffffff",
+          "computedBorder": "#000000"
+        },
+        "select": {
+          "ratio": 21,
+          "where": "top",
+          "fg": "#000000",
+          "bg": "#ffffff",
+          "computedBorder": "#000000"
+        },
+        "checkbox": {
+          "ratio": 21,
+          "where": "top",
+          "fg": "#000000",
+          "bg": "#ffffff",
+          "computedBorder": "#000000"
+        },
+        "radio": {
+          "ratio": 21,
+          "where": "top",
+          "fg": "#000000",
+          "bg": "#ffffff",
+          "computedBorder": "#000000"
+        },
+        "otp slot": {
+          "ratio": 21,
+          "where": "top",
+          "fg": "#000000",
+          "bg": "#ffffff",
+          "computedBorder": "#000000"
+        }
+      },
+      "states": {
+        "switch-on": {
+          "ratio": 21,
+          "where": "thumb rim vs track",
+          "fg": "#000000",
+          "bg": "#ffffff",
+          "note": "forced colors drop the fill; the state reads from the thumb's side"
+        },
+        "checkbox-checked": {
+          "ratio": 11.14,
+          "where": "well start",
+          "fg": "#37336c",
+          "bg": "#fdfdfd"
+        },
+        "radio-checked": {
+          "ratio": 11.02,
+          "where": "well floor start",
+          "fg": "#37336d",
+          "bg": "#fcfcfc"
+        },
+        "toggle-on": {
+          "ratio": 6.32,
+          "where": "page start",
+          "fg": "#5d5b89",
+          "bg": "#ffffff"
+        },
+        "tabs-active": {
+          "ratio": 16.62,
+          "where": "tray start (face)",
+          "fg": "#0f0a50",
+          "bg": "#f7f7f7",
+          "note": "active label #ffffff vs inactive #000000: 21, same weight"
+        },
+        "toggle-group-on": {
+          "ratio": 16.47,
+          "where": "tray start (face)",
+          "fg": "#0f0a50",
+          "bg": "#f6f6f6",
+          "note": "active label #ffffff vs inactive #000000: 21, same weight"
+        },
+        "slider-range": {
+          "ratio": 11.31,
+          "where": "page above",
+          "fg": "#37336d",
+          "bg": "#ffffff"
+        },
+        "progress-fill": {
+          "ratio": 11.12,
+          "where": "page below",
+          "fg": "#37336d",
+          "bg": "#fdfdfd"
+        },
+        "calendar-selected": {
+          "ratio": 4.18,
+          "where": "calendar start",
+          "fg": "#7a7999",
+          "bg": "#ffffff"
+        },
+        "sidebar-active": {
+          "ratio": 2.31,
+          "where": "chip beside the bar",
+          "fg": "#0073cf",
+          "bg": "#38346e"
+        },
+        "menu-highlight": {
+          "ratio": 1,
+          "where": "inset ring vs row tint",
+          "fg": "#ffffff",
+          "bg": "#ffffff",
+          "note": "row tint alone vs menu 1"
+        }
+      },
+      "peers": {
+        "checkbox": {
+          "ratio": 14.48,
+          "where": "selected vs unselected (center)",
+          "fg": "#25215c",
+          "bg": "#ffffff"
+        },
+        "radio": {
+          "ratio": 11.31,
+          "where": "selected vs unselected (center)",
+          "fg": "#37336d",
+          "bg": "#ffffff"
+        },
+        "toggle": {
+          "ratio": 6.11,
+          "where": "selected vs unselected (band)",
+          "fg": "#605d8b",
+          "bg": "#ffffff"
+        },
+        "tabs": {
+          "ratio": 17.8,
+          "where": "selected vs unselected (band)",
+          "fg": "#0f0a50",
+          "bg": "#ffffff"
+        },
+        "toggle group": {
+          "ratio": 11.21,
+          "where": "selected vs unselected (band)",
+          "fg": "#37336d",
+          "bg": "#fefefe"
+        },
+        "calendar day": {
+          "ratio": 3.54,
+          "where": "selected vs unselected (band)",
+          "fg": "#8686a1",
+          "bg": "#ffffff"
+        },
+        "sidebar item": {
+          "ratio": 8.61,
+          "where": "selected vs unselected (band)",
+          "fg": "#49467a",
+          "bg": "#ffffff"
+        },
+        "menu highlight": {
+          "ratio": 5.32,
+          "where": "selected vs unselected (band)",
+          "fg": "#000000",
+          "bg": "#808080"
+        }
+      },
+      "note": "states are raw fill-vs-surround readings; under forced colors the selected-vs-unselected peers decide"
+    },
+    "motion": {
+      "no-preference": {
+        "onInteraction": {
+          "dialog": [
+            "dialog-content: animation neu-overlay-in moves transform+rect"
+          ],
+          "alert dialog": [
+            "alert-dialog-content: animation neu-overlay-in moves transform+rect"
+          ],
+          "sheet": [
+            "sheet-content: animation enter moves transform+rect"
+          ],
+          "drawer": [
+            "drawer-content: animation slideFromBottom moves transform+rect"
+          ],
+          "popover": [
+            "popover-content: animation neu-overlay-in moves transform+rect"
+          ],
+          "menu": [
+            "dropdown-menu-content: animation neu-overlay-in moves transform+rect"
+          ],
+          "tooltip": [
+            "tooltip-content: animation neu-overlay-in moves transform+rect"
+          ],
+          "navigation menu": [
+            "navigation-menu-trigger: transition rotate moves rotate",
+            "navigation-menu-trigger: transition rotate moves rotate",
+            "navigation-menu-content: animation enter moves transform+rect"
+          ],
+          "accordion": [
+            "accordion-trigger-icon: transition rotate moves rotate",
+            "accordion-trigger-icon: transition rotate moves rotate",
+            "accordion-content: animation accordion-up moves rect",
+            "accordion-content: animation accordion-down moves rect"
+          ],
+          "switch": [
+            "switch-thumb: transition translate moves translate+rect"
+          ],
+          "checkbox": [],
+          "radio": [
+            "radio-group-indicator: transition box-shadow moves boxShadow",
+            "radio-group-indicator: transition box-shadow moves boxShadow"
+          ],
+          "toggle": [],
+          "tabs": [
+            "sliding-key: transition translate moves translate+rect",
+            "sliding-key: transition width moves rect"
+          ],
+          "progress": [],
+          "button press": []
+        },
+        "fades": {
+          "dialog": [
+            "dialog-overlay: animation enter changes opacity"
+          ],
+          "alert dialog": [
+            "alert-dialog-overlay: animation enter changes opacity"
+          ],
+          "sheet": [
+            "sheet-overlay: animation enter changes opacity"
+          ],
+          "drawer": [
+            "drawer-overlay: animation fadeIn changes opacity"
+          ],
+          "popover": [],
+          "menu": [],
+          "tooltip": [],
+          "navigation menu": [],
+          "accordion": [],
+          "switch": [],
+          "checkbox": [
+            "checkbox-indicator: transition filter changes filter",
+            "checkbox-indicator: transition opacity changes opacity"
+          ],
+          "radio": [
+            "radio-group-indicator: transition opacity changes opacity",
+            "radio-group-indicator: transition opacity changes opacity"
+          ],
+          "toggle": [],
+          "tabs": [],
+          "progress": [],
+          "button press": []
+        },
+        "ambient": [
+          "skeleton: neu-skeleton-wave 2s",
+          "spinner: spin 1s"
+        ],
+        "unmeasured": []
+      },
+      "reduce": {
+        "onInteraction": {
+          "dialog": [],
+          "alert dialog": [],
+          "sheet": [],
+          "drawer": [],
+          "popover": [],
+          "menu": [],
+          "tooltip": [],
+          "navigation menu": [],
+          "accordion": [],
+          "switch": [],
+          "checkbox": [],
+          "radio": [],
+          "toggle": [],
+          "tabs": [],
+          "progress": [],
+          "button press": []
+        },
+        "fades": {
+          "dialog": [
+            "dialog-content: animation neu-overlay-in changes opacity"
+          ],
+          "alert dialog": [
+            "alert-dialog-content: animation neu-overlay-in changes opacity"
+          ],
+          "sheet": [],
+          "drawer": [
+            "drawer-overlay: animation fadeIn changes opacity"
+          ],
+          "popover": [
+            "popover-content: animation neu-overlay-in changes opacity"
+          ],
+          "menu": [
+            "dropdown-menu-content: animation neu-overlay-in changes opacity"
+          ],
+          "tooltip": [
+            "tooltip-content: animation neu-overlay-in changes opacity"
+          ],
+          "navigation menu": [],
+          "accordion": [],
+          "switch": [],
+          "checkbox": [],
+          "radio": [],
+          "toggle": [],
+          "tabs": [],
+          "progress": [],
+          "button press": []
+        },
+        "ambient": [
+          "spinner: spin 3s"
+        ],
+        "unmeasured": []
+      },
+      "removedUnderReduce": [
+        "dialog",
+        "alert dialog",
+        "sheet",
+        "drawer",
+        "popover",
+        "menu",
+        "tooltip",
+        "navigation menu",
+        "accordion",
+        "switch",
+        "radio",
+        "tabs"
+      ],
+      "stillMovesUnderReduce": {},
+      "stillFadesUnderReduce": {
+        "dialog": [
+          "dialog-content: animation neu-overlay-in changes opacity"
+        ],
+        "alert dialog": [
+          "alert-dialog-content: animation neu-overlay-in changes opacity"
+        ],
+        "drawer": [
+          "drawer-overlay: animation fadeIn changes opacity"
+        ],
+        "popover": [
+          "popover-content: animation neu-overlay-in changes opacity"
+        ],
+        "menu": [
+          "dropdown-menu-content: animation neu-overlay-in changes opacity"
+        ],
+        "tooltip": [
+          "tooltip-content: animation neu-overlay-in changes opacity"
+        ]
+      },
+      "ambientUnderReduce": [
+        "spinner: spin 3s"
+      ]
+    },
+    "axe": {
+      "engine": "axe-core 4.14.0",
+      "pages": 51,
+      "violations": 15,
+      "wcag412RulesRun": 30,
+      "wcag412Violations": 0,
+      "byRule": {
+        "color-contrast": {
+          "impact": "serious",
+          "criteria": [
+            "wcag143"
+          ],
+          "nodes": 15,
+          "pages": [
+            "/components",
+            "/components/neu-checkbox",
+            "/components/neu-radio-group",
+            "/components/neu-switch",
+            "/components/neu-carousel",
+            "/components/neu-sonner",
+            "/components/neu-navigation-menu",
+            "/components/neu-sidebar",
+            "/components/neu-scroll-area"
+          ],
+          "where": {
+            "label of a disabled control (inactive, exempt)": 8,
+            "docs code block": 7
+          },
+          "example": "<label class=\"flex items-center gap-3 text-sm opacity-50\" data-insp-path=\"registry/neu/examples/neu-checkbox-demo.tsx:20 : Element has insufficient color contrast of 2.31 (foreground color: #959799, background color: #e2e5e8, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      },
+      "needsReview": {
+        "color-contrast": 1326,
+        "aria-prohibited-attr": 2,
+        "aria-valid-attr-value": 2,
+        "target-size": 1
+      }
+    }
+  },
+  "dark": {
+    "pageSurface": "#1a222b",
+    "states": {
+      "switch-on": {
+        "ratio": 3.64,
+        "where": "track end vs page",
+        "fg": "#007ad6",
+        "bg": "#1a222b"
+      },
+      "checkbox-checked": {
+        "ratio": 3.19,
+        "where": "well end",
+        "fg": "#007ad6",
+        "bg": "#252c35"
+      },
+      "radio-checked": {
+        "ratio": 3.7,
+        "where": "well floor start",
+        "fg": "#0073cf",
+        "bg": "#121820"
+      },
+      "toggle-on": {
+        "ratio": 4.53,
+        "where": "page start",
+        "fg": "#3d8cd6",
+        "bg": "#1a222b"
+      },
+      "tabs-active": {
+        "ratio": 9.86,
+        "where": "tray top (face)",
+        "fg": "#bfc4ca",
+        "bg": "#161b22",
+        "note": "active label #004ba4 vs inactive #898a8b: 2.39, same weight"
+      },
+      "toggle-group-on": {
+        "ratio": 9.86,
+        "where": "tray top (face)",
+        "fg": "#bfc4ca",
+        "bg": "#161b22",
+        "note": "active label #004ba4 vs inactive #898a8b: 2.39, same weight"
+      },
+      "slider-range": {
+        "ratio": 3.24,
+        "where": "empty groove",
+        "fg": "#007ad6",
+        "bg": "#232b34"
+      },
+      "progress-fill": {
+        "ratio": 3.42,
+        "where": "empty groove",
+        "fg": "#007ad6",
+        "bg": "#1f272f"
+      },
+      "calendar-selected": {
+        "ratio": 3.15,
+        "where": "calendar start",
+        "fg": "#2f71b1",
+        "bg": "#1a222b"
+      },
+      "sidebar-active": {
+        "ratio": 3.64,
+        "where": "chip beside the bar",
+        "fg": "#007ad6",
+        "bg": "#1a222b"
+      },
+      "menu-highlight": {
+        "ratio": 3.02,
+        "where": "inset ring vs row tint",
+        "fg": "#007ad6",
+        "bg": "#293038",
+        "note": "row tint alone vs menu 1.2"
+      }
+    },
+    "overlays": {
+      "dialog": {
+        "ratio": 3.86,
+        "line": 3.864136269778922,
+        "lamp": false,
+        "where": "bottom 60-85%",
+        "fg": "#68727c",
+        "bg": "#0b111a",
+        "lineOnly": 3.86,
+        "lampSides": 3.94
+      },
+      "popover": {
+        "ratio": 3.17,
+        "line": 3.1723506446364143,
+        "lamp": false,
+        "where": "bottom 15-40%",
+        "fg": "#6b757f",
+        "bg": "#22282e",
+        "lineOnly": 3.17,
+        "lampSides": 3.54
+      },
+      "menu": {
+        "ratio": 3.54,
+        "line": 3.5408854601882314,
+        "lamp": true,
+        "where": "top 15-40%",
+        "fg": "#6b757f",
+        "bg": "#181f27",
+        "lineOnly": 3.54,
+        "lampSides": 3.54
+      },
+      "tooltip": {
+        "ratio": 3.5,
+        "line": 3.497095606788758,
+        "lamp": true,
+        "where": "start 15-40%",
+        "fg": "#6b757f",
+        "bg": "#192029",
+        "lineOnly": 3.5,
+        "lampSides": 3.5
+      }
+    },
+    "fields": {
+      "input": {
+        "ratio": 1.37,
+        "where": "top",
+        "fg": "#313943",
+        "bg": "#1a222b",
+        "computedBorder": "#313943"
+      },
+      "textarea": {
+        "ratio": 1.37,
+        "where": "top",
+        "fg": "#313943",
+        "bg": "#1a222b",
+        "computedBorder": "#313943"
+      },
+      "select": {
+        "ratio": 1.34,
+        "where": "top",
+        "fg": "#313943",
+        "bg": "#1c242d",
+        "computedBorder": "#313943"
+      },
+      "checkbox": {
+        "ratio": 1.37,
+        "where": "top",
+        "fg": "#313943",
+        "bg": "#1a222b",
+        "computedBorder": "#313943"
+      },
+      "radio": {
+        "ratio": 1.37,
+        "where": "top",
+        "fg": "#313943",
+        "bg": "#1a222b",
+        "computedBorder": "#313943"
+      },
+      "otp slot": {
+        "ratio": 1.37,
+        "where": "top",
+        "fg": "#313943",
+        "bg": "#1a222b",
+        "computedBorder": "#313943"
+      }
+    },
+    "focus": {
+      "total": 253,
+      "visible": 246,
+      "neuTotal": 115,
+      "neuVisible": 115,
+      "missing": [
+        {
+          "n": 62,
+          "label": "button: Copy Anchor Link",
+          "changed": 0
+        },
+        {
+          "n": 82,
+          "label": "button: Copy Anchor Link",
+          "changed": 0
+        },
+        {
+          "n": 128,
+          "label": "button: Copy Anchor Link",
+          "changed": 0
+        },
+        {
+          "n": 161,
+          "label": "button: Copy Anchor Link",
+          "changed": 0
+        },
+        {
+          "n": 173,
+          "label": "button: Copy Anchor Link",
+          "changed": 0
+        },
+        {
+          "n": 196,
+          "label": "button: Copy Anchor Link",
+          "changed": 0
+        },
+        {
+          "n": 227,
+          "label": "button: Copy Anchor Link",
+          "changed": 0
+        }
+      ],
+      "ringMeasured": 113,
+      "worstRing": {
+        "ratio": 3.25,
+        "stop": "sidebar-menu-button: Inbox",
+        "where": "top"
+      },
+      "ringsBelow3": [],
+      "shadeSideBelow3": [
+        {
+          "stop": "switch: BUTTON",
+          "ratio": 2.91
+        }
+      ],
+      "ringMergesWithFill": [
+        {
+          "stop": "slider-thumb: Volume",
+          "sides": [
+            "left"
+          ]
+        },
+        {
+          "stop": "slider-thumb: Price, minimum",
+          "sides": [
+            "right"
+          ]
+        },
+        {
+          "stop": "slider-thumb: Price, maximum",
+          "sides": [
+            "left"
+          ]
+        },
+        {
+          "stop": "slider-thumb: Level",
+          "sides": [
+            "bottom"
+          ]
+        },
+        {
+          "stop": "resizable-handle: DIV",
+          "sides": [
+            "top",
+            "bottom"
+          ]
+        },
+        {
+          "stop": "resizable-handle: DIV",
+          "sides": [
+            "right"
+          ]
+        }
+      ],
+      "weakestIndicator": [
+        {
+          "label": "a: ThemingThe --neu-* token contrac",
+          "contrast": 1.68
+        },
+        {
+          "label": "a: ButtonNeumorphic button with the",
+          "contrast": 1.68
+        },
+        {
+          "label": "button: Search⌘K",
+          "contrast": 1.77
+        }
+      ]
+    },
+    "contrast-more": {
+      "fields": {
+        "input": {
+          "ratio": 7.23,
+          "where": "top",
+          "fg": "#adaeaf",
+          "bg": "#1a222b",
+          "computedBorder": "#adaeaf"
+        },
+        "textarea": {
+          "ratio": 7.23,
+          "where": "top",
+          "fg": "#adaeaf",
+          "bg": "#1a222b",
+          "computedBorder": "#adaeaf"
+        },
+        "select": {
+          "ratio": 7.05,
+          "where": "top",
+          "fg": "#adaeaf",
+          "bg": "#1c242d",
+          "computedBorder": "#adaeaf"
+        },
+        "checkbox": {
+          "ratio": 7.23,
+          "where": "top",
+          "fg": "#adaeaf",
+          "bg": "#1a222b",
+          "computedBorder": "#adaeaf"
+        },
+        "radio": {
+          "ratio": 7.23,
+          "where": "top",
+          "fg": "#adaeaf",
+          "bg": "#1a222b",
+          "computedBorder": "#adaeaf"
+        },
+        "otp slot": {
+          "ratio": 7.23,
+          "where": "top",
+          "fg": "#adaeaf",
+          "bg": "#1a222b",
+          "computedBorder": "#adaeaf"
+        }
+      },
+      "states": {
+        "switch-on": {
+          "ratio": 3.64,
+          "where": "track end vs page",
+          "fg": "#007ad6",
+          "bg": "#1a222b"
+        },
+        "checkbox-checked": {
+          "ratio": 3.19,
+          "where": "well end",
+          "fg": "#007ad6",
+          "bg": "#252c35"
+        },
+        "radio-checked": {
+          "ratio": 3.7,
+          "where": "well floor start",
+          "fg": "#0073cf",
+          "bg": "#121820"
+        },
+        "toggle-on": {
+          "ratio": 4.04,
+          "where": "page start",
+          "fg": "#3683cd",
+          "bg": "#1a222b"
+        },
+        "tabs-active": {
+          "ratio": 10.07,
+          "where": "tray top (face)",
+          "fg": "#bfc4ca",
+          "bg": "#131920",
+          "note": "active label #004ba4 vs inactive #898a8b: 2.39, same weight"
+        },
+        "toggle-group-on": {
+          "ratio": 9.98,
+          "where": "tray top (face)",
+          "fg": "#bfc4ca",
+          "bg": "#141a20",
+          "note": "active label #004ba4 vs inactive #898a8b: 2.39, same weight"
+        },
+        "slider-range": {
+          "ratio": 3.24,
+          "where": "empty groove",
+          "fg": "#007ad6",
+          "bg": "#232b34"
+        },
+        "progress-fill": {
+          "ratio": 3.49,
+          "where": "empty groove",
+          "fg": "#007ad6",
+          "bg": "#1e252f"
+        },
+        "calendar-selected": {
+          "ratio": 7.23,
+          "where": "calendar start",
+          "fg": "#adaeaf",
+          "bg": "#1a222b"
+        },
+        "sidebar-active": {
+          "ratio": 3.64,
+          "where": "chip beside the bar",
+          "fg": "#007ad6",
+          "bg": "#1a222b"
+        },
+        "menu-highlight": {
+          "ratio": 3.02,
+          "where": "inset ring vs row tint",
+          "fg": "#007ad6",
+          "bg": "#293038",
+          "note": "row tint alone vs menu 1.2"
+        }
+      }
+    },
+    "forced-colors": {
+      "fields": {
+        "input": {
+          "ratio": 21,
+          "where": "top",
+          "fg": "#ffffff",
+          "bg": "#000000",
+          "computedBorder": "#ffffff"
+        },
+        "textarea": {
+          "ratio": 21,
+          "where": "top",
+          "fg": "#ffffff",
+          "bg": "#000000",
+          "computedBorder": "#ffffff"
+        },
+        "select": {
+          "ratio": 21,
+          "where": "top",
+          "fg": "#ffffff",
+          "bg": "#000000",
+          "computedBorder": "#ffffff"
+        },
+        "checkbox": {
+          "ratio": 21,
+          "where": "top",
+          "fg": "#ffffff",
+          "bg": "#000000",
+          "computedBorder": "#ffffff"
+        },
+        "radio": {
+          "ratio": 21,
+          "where": "top",
+          "fg": "#ffffff",
+          "bg": "#000000",
+          "computedBorder": "#ffffff"
+        },
+        "otp slot": {
+          "ratio": 21,
+          "where": "top",
+          "fg": "#ffffff",
+          "bg": "#000000",
+          "computedBorder": "#ffffff"
+        }
+      },
+      "states": {
+        "switch-on": {
+          "ratio": 21,
+          "where": "thumb rim vs track",
+          "fg": "#ffffff",
+          "bg": "#000000",
+          "note": "forced colors drop the fill; the state reads from the thumb's side"
+        },
+        "checkbox-checked": {
+          "ratio": 9.1,
+          "where": "well start",
+          "fg": "#15bccc",
+          "bg": "#000000"
+        },
+        "radio-checked": {
+          "ratio": 9.1,
+          "where": "well floor start",
+          "fg": "#15bccc",
+          "bg": "#000000"
+        },
+        "toggle-on": {
+          "ratio": 6.93,
+          "where": "page start",
+          "fg": "#1da3b2",
+          "bg": "#000000"
+        },
+        "tabs-active": {
+          "ratio": 13.24,
+          "where": "tray start (face)",
+          "fg": "#19e2f5",
+          "bg": "#000000",
+          "note": "active label #000000 vs inactive #ffffff: 21, same weight"
+        },
+        "toggle-group-on": {
+          "ratio": 13.24,
+          "where": "tray start (face)",
+          "fg": "#19e2f5",
+          "bg": "#000000",
+          "note": "active label #000000 vs inactive #ffffff: 21, same weight"
+        },
+        "slider-range": {
+          "ratio": 9.1,
+          "where": "page above",
+          "fg": "#15bccc",
+          "bg": "#000000"
+        },
+        "progress-fill": {
+          "ratio": 9.1,
+          "where": "page above",
+          "fg": "#15bccc",
+          "bg": "#000000"
+        },
+        "calendar-selected": {
+          "ratio": 4.2,
+          "where": "calendar start",
+          "fg": "#0f7b87",
+          "bg": "#000000"
+        },
+        "sidebar-active": {
+          "ratio": 1.89,
+          "where": "chip beside the bar",
+          "fg": "#007ad6",
+          "bg": "#15bbcb"
+        },
+        "menu-highlight": {
+          "ratio": 1,
+          "where": "inset ring vs row tint",
+          "fg": "#000000",
+          "bg": "#000000",
+          "note": "row tint alone vs menu 1"
+        }
+      },
+      "peers": {
+        "checkbox": {
+          "ratio": 9.1,
+          "where": "selected vs unselected (center)",
+          "fg": "#15bccc",
+          "bg": "#000000"
+        },
+        "radio": {
+          "ratio": 9.1,
+          "where": "selected vs unselected (center)",
+          "fg": "#15bccc",
+          "bg": "#000000"
+        },
+        "toggle": {
+          "ratio": 6,
+          "where": "selected vs unselected (band)",
+          "fg": "#1297a5",
+          "bg": "#000000"
+        },
+        "tabs": {
+          "ratio": 13.24,
+          "where": "selected vs unselected (band)",
+          "fg": "#19e2f5",
+          "bg": "#000000"
+        },
+        "toggle group": {
+          "ratio": 9.1,
+          "where": "selected vs unselected (band)",
+          "fg": "#15bccc",
+          "bg": "#000000"
+        },
+        "calendar day": {
+          "ratio": 4.55,
+          "where": "selected vs unselected (band)",
+          "fg": "#25808d",
+          "bg": "#000000"
+        },
+        "sidebar item": {
+          "ratio": 8,
+          "where": "selected vs unselected (band)",
+          "fg": "#19b0bf",
+          "bg": "#000000"
+        },
+        "menu highlight": {
+          "ratio": 3.95,
+          "where": "selected vs unselected (band)",
+          "fg": "#ffffff",
+          "bg": "#808080"
+        }
+      },
+      "note": "states are raw fill-vs-surround readings; under forced colors the selected-vs-unselected peers decide"
+    },
+    "motion": {
+      "no-preference": {
+        "onInteraction": {
+          "dialog": [
+            "dialog-content: animation neu-overlay-in moves transform+rect"
+          ],
+          "alert dialog": [
+            "alert-dialog-content: animation neu-overlay-in moves transform+rect"
+          ],
+          "sheet": [
+            "sheet-content: animation enter moves transform+rect"
+          ],
+          "drawer": [
+            "drawer-content: animation slideFromBottom moves transform+rect"
+          ],
+          "popover": [
+            "popover-content: animation neu-overlay-in moves transform+rect"
+          ],
+          "menu": [
+            "dropdown-menu-content: animation neu-overlay-in moves transform+rect"
+          ],
+          "tooltip": [
+            "tooltip-content: animation neu-overlay-in moves transform+rect"
+          ],
+          "navigation menu": [
+            "navigation-menu-trigger: transition rotate moves rotate",
+            "navigation-menu-trigger: transition rotate moves rotate",
+            "navigation-menu-content: animation enter moves transform+rect"
+          ],
+          "accordion": [
+            "accordion-trigger-icon: transition rotate moves rotate",
+            "accordion-trigger-icon: transition rotate moves rotate",
+            "accordion-content: animation accordion-up moves rect",
+            "accordion-content: animation accordion-down moves rect"
+          ],
+          "switch": [
+            "switch-thumb: transition translate moves translate+rect"
+          ],
+          "checkbox": [],
+          "radio": [
+            "radio-group-indicator: transition box-shadow moves boxShadow",
+            "radio-group-indicator: transition box-shadow moves boxShadow"
+          ],
+          "toggle": [],
+          "tabs": [
+            "sliding-key: transition translate moves translate+rect",
+            "sliding-key: transition width moves rect"
+          ],
+          "progress": [],
+          "button press": []
+        },
+        "fades": {
+          "dialog": [
+            "dialog-overlay: animation enter changes opacity"
+          ],
+          "alert dialog": [
+            "alert-dialog-overlay: animation enter changes opacity"
+          ],
+          "sheet": [
+            "sheet-overlay: animation enter changes opacity"
+          ],
+          "drawer": [
+            "drawer-overlay: animation fadeIn changes opacity"
+          ],
+          "popover": [],
+          "menu": [],
+          "tooltip": [],
+          "navigation menu": [],
+          "accordion": [],
+          "switch": [],
+          "checkbox": [
+            "checkbox-indicator: transition filter changes filter",
+            "checkbox-indicator: transition opacity changes opacity"
+          ],
+          "radio": [
+            "radio-group-indicator: transition opacity changes opacity",
+            "radio-group-indicator: transition opacity changes opacity"
+          ],
+          "toggle": [],
+          "tabs": [],
+          "progress": [],
+          "button press": []
+        },
+        "ambient": [
+          "skeleton: neu-skeleton-wave 2s",
+          "spinner: spin 1s"
+        ],
+        "unmeasured": []
+      },
+      "reduce": {
+        "onInteraction": {
+          "dialog": [],
+          "alert dialog": [],
+          "sheet": [],
+          "drawer": [],
+          "popover": [],
+          "menu": [],
+          "tooltip": [],
+          "navigation menu": [],
+          "accordion": [],
+          "switch": [],
+          "checkbox": [],
+          "radio": [],
+          "toggle": [],
+          "tabs": [],
+          "progress": [],
+          "button press": []
+        },
+        "fades": {
+          "dialog": [
+            "dialog-content: animation neu-overlay-in changes opacity"
+          ],
+          "alert dialog": [
+            "alert-dialog-content: animation neu-overlay-in changes opacity"
+          ],
+          "sheet": [],
+          "drawer": [
+            "drawer-overlay: animation fadeIn changes opacity"
+          ],
+          "popover": [
+            "popover-content: animation neu-overlay-in changes opacity"
+          ],
+          "menu": [
+            "dropdown-menu-content: animation neu-overlay-in changes opacity"
+          ],
+          "tooltip": [
+            "tooltip-content: animation neu-overlay-in changes opacity"
+          ],
+          "navigation menu": [],
+          "accordion": [],
+          "switch": [],
+          "checkbox": [],
+          "radio": [],
+          "toggle": [],
+          "tabs": [],
+          "progress": [],
+          "button press": []
+        },
+        "ambient": [
+          "spinner: spin 3s"
+        ],
+        "unmeasured": []
+      },
+      "removedUnderReduce": [
+        "dialog",
+        "alert dialog",
+        "sheet",
+        "drawer",
+        "popover",
+        "menu",
+        "tooltip",
+        "navigation menu",
+        "accordion",
+        "switch",
+        "radio",
+        "tabs"
+      ],
+      "stillMovesUnderReduce": {},
+      "stillFadesUnderReduce": {
+        "dialog": [
+          "dialog-content: animation neu-overlay-in changes opacity"
+        ],
+        "alert dialog": [
+          "alert-dialog-content: animation neu-overlay-in changes opacity"
+        ],
+        "drawer": [
+          "drawer-overlay: animation fadeIn changes opacity"
+        ],
+        "popover": [
+          "popover-content: animation neu-overlay-in changes opacity"
+        ],
+        "menu": [
+          "dropdown-menu-content: animation neu-overlay-in changes opacity"
+        ],
+        "tooltip": [
+          "tooltip-content: animation neu-overlay-in changes opacity"
+        ]
+      },
+      "ambientUnderReduce": [
+        "spinner: spin 3s"
+      ]
+    },
+    "axe": {
+      "engine": "axe-core 4.14.0",
+      "pages": 51,
+      "violations": 15,
+      "wcag412RulesRun": 30,
+      "wcag412Violations": 0,
+      "byRule": {
+        "color-contrast": {
+          "impact": "serious",
+          "criteria": [
+            "wcag143"
+          ],
+          "nodes": 15,
+          "pages": [
+            "/components",
+            "/components/neu-checkbox",
+            "/components/neu-radio-group",
+            "/components/neu-switch",
+            "/components/neu-carousel",
+            "/components/neu-sonner",
+            "/components/neu-navigation-menu",
+            "/components/neu-sidebar",
+            "/components/neu-scroll-area"
+          ],
+          "where": {
+            "label of a disabled control (inactive, exempt)": 8,
+            "docs code block": 7
+          },
+          "example": "<label class=\"flex items-center gap-3 text-sm opacity-50\" data-insp-path=\"registry/neu/examples/neu-checkbox-demo.tsx:20 : Element has insufficient color contrast of 2.86 (foreground color: #64686d, background color: #1a222b, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      },
+      "needsReview": {
+        "color-contrast": 1326,
+        "aria-prohibited-attr": 2,
+        "aria-valid-attr-value": 2,
+        "target-size": 1
+      }
+    }
+  }
+}

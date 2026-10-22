@@ -24,6 +24,7 @@ A neumorphic component library distributed as a shadcn registry, with a document
 - `bun run registry:build` regenerates `public/r/` from `registry.json`.
 - `bun run typecheck` runs `tsc --noEmit`; it needs `.source/`, so run `bunx fumadocs-mdx` first on a fresh clone.
 - `bun run test` runs the Playwright tests in `tests/` (RTL direction, contrast); install the browser once with `bunx playwright install chromium`.
+- `bun run scorecard:measure` measures the WCAG scorecard in Google Chrome against a running dev server (`--base`, default `http://localhost:3000`) and writes `docs/assets/readme/wcag-scorecard.json`, the figures behind the README accessibility table.
 - Before pushing: `bun run lint`, `bun run typecheck`, `bun run test` and `bun run build`. CI (`.github/workflows/ci.yml`) runs the same plus `registry:build` and fails if `public/r` is stale.
 
 ## Conventions
