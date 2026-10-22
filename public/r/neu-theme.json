@@ -362,6 +362,9 @@
       ".neu, .neu-pressed, .neu-concave, .neu-convex, .neu-realism, .neu-overlay, .neu-overlay-scrim, .neu-groove": {
         "border": "1px solid var(--neu-text)"
       },
+      ".neu-cap[data-slot='sliding-key'], .neu-state-cap:is([data-state='on'], [data-state='active'], [aria-pressed='true'])": {
+        "border-color": "var(--neu-text)"
+      },
       ".neu-field[aria-invalid='true']": {
         "border-color": "var(--destructive)"
       }
