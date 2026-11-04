@@ -1,5 +1,7 @@
 # neu
 
+A neumorphic component library for React and Tailwind, installed through the shadcn CLI, with a docs and playground site built on the same components.
+
 Neumorphic components for React and Tailwind v4, distributed as a shadcn
 registry. The components keep the shadcn/ui APIs. One token, `--neu-surface`,
 drives the shadows, faces, focus ring and text colors, and text contrast is
