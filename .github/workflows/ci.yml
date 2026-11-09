@@ -14,8 +14,6 @@ jobs:
       - uses: oven-sh/setup-bun@v2
       - run: bun install --frozen-lockfile
       - run: bun run lint
-      - name: Generate fumadocs sources
-        run: bunx fumadocs-mdx
       - run: bun run typecheck
       - run: bun run registry:build
       - name: Fail on stale registry build
