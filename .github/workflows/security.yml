@@ -1,0 +1,83 @@
+name: Security
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+env:
+  GITLEAKS_VERSION: 8.30.1
+
+jobs:
+  gitleaks:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+    env:
+      BTI_OS_URL: ${{ secrets.BTI_OS_URL }}
+      BTI_OS_REPORT_TOKEN: ${{ secrets.BTI_OS_REPORT_TOKEN }}
+    steps:
+      - name: Record start time
+        run: echo "STARTED_AT=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_ENV"
+
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Install gitleaks
+        run: |
+          curl -sSfL "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz" -o "$RUNNER_TEMP/gitleaks.tgz"
+          mkdir "$RUNNER_TEMP/gitleaks-bin"
+          tar -xzf "$RUNNER_TEMP/gitleaks.tgz" -C "$RUNNER_TEMP/gitleaks-bin" gitleaks
+          echo "$RUNNER_TEMP/gitleaks-bin" >> "$GITHUB_PATH"
+
+      - name: Scan
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          PR_BASE: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD: ${{ github.event.pull_request.head.sha }}
+        run: |
+          args=(detect --source . --redact --report-format sarif --report-path "$RUNNER_TEMP/gitleaks.sarif" --exit-code 1)
+          if [ "$EVENT_NAME" = "pull_request" ]; then
+            args+=(--log-opts "${PR_BASE}..${PR_HEAD}")
+          fi
+          gitleaks "${args[@]}"
+
+      - name: Upload SARIF
+        if: always() && github.event.repository.private == false
+        continue-on-error: true
+        uses: github/codeql-action/upload-sarif@v4
+        with:
+          sarif_file: ${{ runner.temp }}/gitleaks.sarif
+          category: gitleaks
+
+      - name: Report to BTI OS
+        if: always() && env.BTI_OS_URL != '' && env.BTI_OS_REPORT_TOKEN != ''
+        env:
+          JOB_STATUS: ${{ job.status }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          findings=0
+          if [ -f "$RUNNER_TEMP/gitleaks.sarif" ]; then
+            findings=$(jq '[.runs[].results[]?] | length' "$RUNNER_TEMP/gitleaks.sarif")
+          fi
+          status=failed
+          [ "$JOB_STATUS" = "success" ] && status=succeeded
+          jq -n \
+            --arg event "$EVENT_NAME" \
+            --arg repo "$GITHUB_REPOSITORY" \
+            --arg id "${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}" \
+            --arg status "$status" \
+            --arg started "$STARTED_AT" \
+            --arg finished "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            --arg url "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" \
+            --argjson findings "$findings" \
+            '{tool:"ai.report_run",input:{runner:"gitleaks",externalId:$id,event:$event,repo:$repo,status:$status,startedAt:$started,finishedAt:$finished,summary:("Secret scan found \($findings) leak(s)"),findings:$findings,runUrl:$url}}' > payload.json
+          curl -sf -X POST "$BTI_OS_URL/api/rpc" \
+            -H "Authorization: Bearer $BTI_OS_REPORT_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d @payload.json || echo "::warning::BTI OS report failed"
