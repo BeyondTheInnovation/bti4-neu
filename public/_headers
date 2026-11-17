@@ -13,3 +13,8 @@
 
 /api/search
   Content-Type: application/json
+
+/healthz
+  ! Cache-Control
+  Cache-Control: no-store
+  Content-Type: text/plain; charset=utf-8

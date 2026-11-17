@@ -6,7 +6,7 @@ The site is a static Next.js export served by a Cloudflare Worker, `bti4-neu`, c
 - **Watched ref**: Workers Builds builds `main` for production.
 - **Build**: `bun install --frozen-lockfile && bun run build`. `output: "export"` in `next.config.ts` writes the site to `out/`, including `public/_headers`. Search is a static index at `/api/search` that the dialog downloads and queries in the browser.
 - **Deploy**: Workers Builds runs `bunx wrangler deploy` after the build on `main`.
-- **Health**: `GET /` returns 200, and `/r/registry.json` returns the registry as `application/json`.
+- **Health**: `GET /healthz` returns 200 with `ok` and `Cache-Control: no-store`; the BTI OS deploy monitor probes it. `/r/registry.json` returns the registry as `application/json`.
 - **Build environment**: `GA_MEASUREMENT_ID`, the GA4 web stream id (`G-...`), set on the Workers Builds production build. The tag loads only on the production hostname, records the path without query string, fragment or referrer, and sends a page view per client-side navigation. Unset, the export ships without it. It is read at build time, so it belongs in the build environment, not the Worker. Enhanced Measurement stays off on the stream, so navigations are not counted twice.
 - **Search Console**: a Domain property for `neu.beyondtheinnovation.com`, verified through the parent domain's DNS record, with `/sitemap.xml` submitted.
 
@@ -21,7 +21,7 @@ Build the export on Linux (CI, Workers Builds or a container). On Windows, Next.
 - `/page` serves `page.html`; a trailing slash redirects to the clean URL.
 - An unknown path returns `404.html` with status 404.
 - `/_next/static/*` is cached for a year as immutable; everything else is `no-cache` and revalidates by ETag.
-- `/opengraph-image` and `/api/search` have no file extension, so `_headers` sets their content types.
+- `/opengraph-image`, `/api/search` and `/healthz` have no file extension, so `_headers` sets their content types.
 - `public/_redirects` sends `/index`, `/index.html` and any `*.html` to the clean URL.
 - Each docs page has its own share image at `/og/<slug>/image.png`.
 
