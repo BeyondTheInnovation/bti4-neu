@@ -1,8 +1,10 @@
 import type { Metadata, Viewport } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
+import { GoogleAnalytics } from "@/components/google-analytics"
 import { SiteProvider } from "@/components/site-provider"
 import { SiteThemeScript } from "@/components/site-theme-script"
 import { DevTools } from "@/lib/dev/dev-tools"
+import { analytics } from "@/lib/analytics"
 import { SITE_DESCRIPTION, SITE_URL } from "@/lib/site"
 import { JsonLd, ORGANIZATION, WEBSITE } from "@/lib/structured-data"
 import "./globals.css"
@@ -64,6 +66,7 @@ export default function RootLayout({
         <SiteProvider>{children}</SiteProvider>
         <DevTools />
         <JsonLd data={{ "@graph": [WEBSITE, ORGANIZATION] }} />
+        {analytics && <GoogleAnalytics {...analytics} />}
       </body>
     </html>
   )

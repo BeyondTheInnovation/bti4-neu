@@ -7,7 +7,8 @@ The site is a static Next.js export served by a Cloudflare Worker, `bti4-neu`, c
 - **Build**: `bun install --frozen-lockfile && bun run build`. `output: "export"` in `next.config.ts` writes the site to `out/`, including `public/_headers`. Search is a static index at `/api/search` that the dialog downloads and queries in the browser.
 - **Deploy**: Workers Builds runs `bunx wrangler deploy` after the build on `main`.
 - **Health**: `GET /` returns 200, and `/r/registry.json` returns the registry as `application/json`.
-- **Environment**: none. A `NEXT_PUBLIC_*` variable added later is baked into the export at build time.
+- **Build environment**: `GA_MEASUREMENT_ID`, the GA4 web stream id (`G-...`), set on the Workers Builds production build. The tag loads only on the production hostname, records the path without query string, fragment or referrer, and sends a page view per client-side navigation. Unset, the export ships without it. It is read at build time, so it belongs in the build environment, not the Worker. Enhanced Measurement stays off on the stream, so navigations are not counted twice.
+- **Search Console**: a Domain property for `neu.beyondtheinnovation.com`, verified through the parent domain's DNS record, with `/sitemap.xml` submitted.
 
 ## Build on Linux
 
