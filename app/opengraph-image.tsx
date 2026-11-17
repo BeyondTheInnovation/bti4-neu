@@ -3,6 +3,7 @@ import { ImageResponse } from "next/og"
 export const alt = "neu: neumorphic shadcn components by Beyond The Innovation"
 export const size = { width: 1200, height: 630 }
 export const contentType = "image/png"
+export const dynamic = "force-static"
 
 const SURFACE = "#e2e5e8"
 const INK = "#1f2933"
