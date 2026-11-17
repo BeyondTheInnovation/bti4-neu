@@ -24,9 +24,9 @@ const origins: Reference[] = [
     image: { src: "/inspo/neumorphism-io.webp", width: 1080, height: 567 },
   },
   {
-    name: "Berwel components",
+    name: "Berwel",
     url: "https://berwel.ly/",
-    took: "Also built by us for a client. The first neumorphic shadcn components; their carved holes, clay beads and traveling knobs got ported in.",
+    took: "Also built by us for a client: a Libyan music platform, neumorphic from the player to the mixtapes. Our first neumorphic shadcn set; its carved holes, clay beads and traveling knobs were ported in.",
     image: { src: "/inspo/berwel.webp", width: 1200, height: 630 },
   },
   {
