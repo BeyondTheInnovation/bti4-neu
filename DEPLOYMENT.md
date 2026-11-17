@@ -21,6 +21,8 @@ Build the export on Linux (CI, Workers Builds or a container). On Windows, Next.
 - An unknown path returns `404.html` with status 404.
 - `/_next/static/*` is cached for a year as immutable; everything else is `no-cache` and revalidates by ETag.
 - `/opengraph-image` and `/api/search` have no file extension, so `_headers` sets their content types.
+- `public/_redirects` sends `/index`, `/index.html` and any `*.html` to the clean URL.
+- Each docs page has its own share image at `/og/<slug>/image.png`.
 
 ## Local preview
 
