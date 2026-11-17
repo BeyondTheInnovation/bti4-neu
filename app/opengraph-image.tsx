@@ -1,55 +1,10 @@
 import { ImageResponse } from "next/og"
+import { BtiMark, INK, MUTED, PRESSED, RAISED, SURFACE } from "@/lib/og"
 
 export const alt = "neu: neumorphic shadcn components by Beyond The Innovation"
 export const size = { width: 1200, height: 630 }
 export const contentType = "image/png"
 export const dynamic = "force-static"
-
-const SURFACE = "#e2e5e8"
-const INK = "#1f2933"
-const MUTED = "#56616d"
-const RAISED = "14px 14px 28px #bcc1c7, -14px -14px 28px #ffffff"
-const PRESSED = "inset 6px 6px 12px #bcc1c7, inset -6px -6px 12px #ffffff"
-
-const BTI_MARK = [
-  ["#686867", "#0C5494", "#3C84C4"],
-  ["#3C84C4", "#CBCBCA", "#0C5494"],
-  ["#0C5494", "#3C84C4", "#686867"],
-]
-
-function BtiMark({ size }: { size: number }) {
-  const cell = size * 0.28
-  return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        width: size,
-        height: size,
-      }}
-    >
-      {BTI_MARK.map((row, r) => (
-        <div
-          key={r}
-          style={{ display: "flex", justifyContent: "space-between" }}
-        >
-          {row.map((fill, c) => (
-            <div
-              key={c}
-              style={{
-                display: "flex",
-                width: cell,
-                height: cell,
-                background: fill,
-              }}
-            />
-          ))}
-        </div>
-      ))}
-    </div>
-  )
-}
 
 export default function OpengraphImage() {
   return new ImageResponse(

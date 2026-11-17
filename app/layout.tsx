@@ -1,9 +1,12 @@
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
+import { GoogleAnalytics } from "@/components/google-analytics"
 import { SiteProvider } from "@/components/site-provider"
 import { SiteThemeScript } from "@/components/site-theme-script"
 import { DevTools } from "@/lib/dev/dev-tools"
-import { SITE_URL } from "@/lib/site"
+import { analytics } from "@/lib/analytics"
+import { SITE_DESCRIPTION, SITE_URL } from "@/lib/site"
+import { JsonLd, ORGANIZATION, WEBSITE } from "@/lib/structured-data"
 import "./globals.css"
 
 const geistSans = Geist({
@@ -16,16 +19,13 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 })
 
-const description =
-  "Neumorphic shadcn components with soft surfaces, token-driven theming and guaranteed-contrast text."
-
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: "neu · Neumorphic shadcn components",
     template: "%s · neu",
   },
-  description,
+  description: SITE_DESCRIPTION,
   applicationName: "neu",
   authors: [
     { name: "Beyond The Innovation", url: "https://beyondtheinnovation.com" },
@@ -35,10 +35,17 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "neu",
     title: "neu · Neumorphic shadcn components",
-    description,
+    description: SITE_DESCRIPTION,
     url: "/",
   },
   twitter: { card: "summary_large_image" },
+}
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#e2e5e8" },
+    { media: "(prefers-color-scheme: dark)", color: "#1a222b" },
+  ],
 }
 
 export default function RootLayout({
@@ -58,6 +65,8 @@ export default function RootLayout({
       >
         <SiteProvider>{children}</SiteProvider>
         <DevTools />
+        <JsonLd data={{ "@graph": [WEBSITE, ORGANIZATION] }} />
+        {analytics && <GoogleAnalytics {...analytics} />}
       </body>
     </html>
   )
