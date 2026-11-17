@@ -1,6 +1,8 @@
 /*
   Cache-Control: no-cache
   X-Content-Type-Options: nosniff
+  Link: </sitemap.xml>; rel="sitemap"
+  Link: </llms.txt>; rel="describedby"; type="text/plain"
 
 /_next/static/*
   ! Cache-Control
@@ -11,3 +13,8 @@
 
 /api/search
   Content-Type: application/json
+
+/healthz
+  ! Cache-Control
+  Cache-Control: no-store
+  Content-Type: text/plain; charset=utf-8

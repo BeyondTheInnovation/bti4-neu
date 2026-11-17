@@ -196,7 +196,8 @@ function Section({
   )
 }
 
-const description = "The sites, pens and references neu was built from."
+const description =
+  "The sites, pens and references neu was built from, collected as the inspiration behind its neumorphic shadcn components and design choices."
 
 export const metadata: Metadata = {
   title: "Inspiration",

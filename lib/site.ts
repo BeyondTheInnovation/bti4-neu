@@ -1,4 +1,6 @@
 export const SITE_URL = "https://neu.beyondtheinnovation.com"
+export const SITE_DESCRIPTION =
+  "Neumorphic shadcn components with soft surfaces, token-driven theming and guaranteed-contrast text."
 export const BTI_URL =
   "https://beyondtheinnovation.com/?utm_source=neu&utm_medium=footer"
 
