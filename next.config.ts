@@ -38,6 +38,8 @@ const sourceStampRules = Object.fromEntries(
 )
 
 const nextConfig: NextConfig = {
+  output: "export",
+  images: { unoptimized: true },
   agentRules: false,
   // Always defined, so the gate folds to a literal and prod drops the tools.
   env: { DEV_TOOLS: String(stampSources) },

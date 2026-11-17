@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { useDocsSearch } from "fumadocs-core/search/client"
-import { fetchClient } from "fumadocs-core/search/client/fetch"
+import { staticClient } from "fumadocs-core/search/client/orama-static"
 import {
   SearchDialog as Dialog,
   SearchDialogClose,
@@ -15,7 +15,7 @@ import {
   type SharedProps,
 } from "fumadocs-ui/components/dialog/search"
 
-const client = fetchClient()
+const client = staticClient()
 
 /**
  * The stock Fumadocs dialog has no trigger element to return to, so closing
