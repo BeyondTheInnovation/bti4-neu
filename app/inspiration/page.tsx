@@ -15,20 +15,25 @@ const origins: Reference[] = [
     name: "Jhey Tompkins, neumorphic pen",
     url: "https://codepen.io/jh3y/pen/yLNeMao",
     took: "The CSS structure the whole build started from, ancestor of the token system.",
+    image: { src: "/inspo/jh3y-pen.webp", width: 800, height: 450 },
   },
   {
     name: "neumorphism.io",
     url: "https://github.com/adamgiebl/neumorphism",
     took: "The parameter vocabulary: distance, blur, shape, intensity.",
+    image: { src: "/inspo/neumorphism-io.webp", width: 1080, height: 567 },
   },
   {
-    name: "Berwel components",
-    took: "The first neumorphic shadcn components; their carved holes, clay beads and traveling knobs got ported in.",
+    name: "Berwel",
+    url: "https://berwel.ly/",
+    took: "Also built by us for a client: a Libyan music platform, neumorphic from the player to the mixtapes. Our first neumorphic shadcn set; its carved holes, clay beads and traveling knobs were ported in.",
+    image: { src: "/inspo/berwel.webp", width: 1200, height: 630 },
   },
   {
     name: "shadcn libraries directory",
     url: "https://ui.shadcn.com/docs/directory",
     took: "The registry survey that confirmed the neumorphism niche was open.",
+    image: { src: "/inspo/shadcn-directory.webp", width: 1200, height: 628 },
   },
   {
     name: "Devon Govett, transparent foreground",
@@ -71,13 +76,13 @@ const gallery: Reference[] = [
     name: "SND",
     url: "https://snd.dev/",
     took: "Every surface is a pressable key; taught us asymmetric press and release easing.",
-    image: { src: "/inspo/snd-dev.png", width: 1600, height: 1000 },
+    image: { src: "/inspo/snd-dev.webp", width: 1200, height: 630 },
   },
   {
-    name: "Motion GPU",
-    url: "https://motion-gpu.dev/",
+    name: "Spektral (formerly Motion GPU)",
+    url: "https://spektral.madebyhex.com/",
     took: "oklch-tokenized dark soft UI with hue-tinted shadows; source of the glint edge.",
-    image: { src: "/inspo/motion-gpu.png", width: 1600, height: 1000 },
+    image: { src: "/inspo/spektral.webp", width: 1200, height: 630 },
   },
   {
     name: "Sam Xie",
@@ -87,13 +92,13 @@ const gallery: Reference[] = [
   },
   {
     name: "DM1 The Drum Machine",
-    url: "https://the-drum-machine.webflow.io/",
+    url: "https://web.archive.org/web/20260418003808/https://the-drum-machine.webflow.io/",
     took: "A whole drum machine in HTML/CSS; state changes append an accent glow layer.",
     image: { src: "/inspo/drum-machine.png", width: 1280, height: 577 },
   },
   {
     name: "Neumorphic UI player",
-    url: "https://neumorphic-ui.webflow.io/",
+    url: "https://web.archive.org/web/20260108164014/https://neumorphic-ui.webflow.io/",
     took: "Vinyl player with the recessed backlit-LCD screen recipe.",
     image: {
       src: "/inspo/neumorphic-ui-webflow.png",
@@ -105,7 +110,7 @@ const gallery: Reference[] = [
     name: "Solomid.Tech",
     url: "https://solomidtech.webflow.io/",
     took: "Textbook light-mode production neumorphism; engraved 1px divider grooves.",
-    image: { src: "/inspo/solomid.png", width: 1280, height: 577 },
+    image: { src: "/inspo/solomid.webp", width: 1200, height: 630 },
   },
 ]
 
