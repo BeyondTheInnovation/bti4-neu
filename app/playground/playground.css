@@ -358,7 +358,7 @@
 
 .ill-hero-reads {
   display: grid;
-  grid-template-columns: repeat(4, auto);
+  grid-template-columns: repeat(3, auto);
   justify-content: space-between;
   gap: 1rem;
 }

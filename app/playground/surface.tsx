@@ -8,7 +8,7 @@ import { Button } from "@/registry/neu/ui/neu/button"
 import { Input } from "@/registry/neu/ui/neu/input"
 import { RadioGroup, RadioGroupItem } from "@/registry/neu/ui/neu/radio-group"
 
-import { type Swatches, isHex, surfaceTone } from "./color"
+import { isHex } from "./color"
 import { Card } from "./parts"
 import { PALETTE } from "./theme"
 
@@ -21,19 +21,16 @@ function toHex(value: string) {
 
 function SurfaceInstrument({
   surfaceHex,
-  sw,
   onChange,
 }: {
   surfaceHex: string
-  sw: Swatches
   onChange: (hex: string) => void
 }) {
   const [draft, setDraft] = React.useState<string | null>(null)
-  const tone = surfaceTone(surfaceHex)
   const custom = !PALETTE.some((p) => p.hex === surfaceHex.toLowerCase())
 
   return (
-    <Card title="Surface" wide value={`L ${sw.l.toFixed(2)} · ${tone}`}>
+    <Card title="Surface" wide>
       <div className="flex flex-col gap-2.5">
         <Input
           aria-label="Surface hex"
