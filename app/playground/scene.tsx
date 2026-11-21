@@ -637,6 +637,7 @@ function Hero({
         </figure>
 
         <figure className="ill-hero-result">
+          <figcaption className="ill-group">Preview</figcaption>
           <div className="ill-specimen-stage">
             <div className={cn(shape, "ill-specimen")}>
               <span className="text-xl font-bold tracking-tight">
@@ -644,7 +645,6 @@ function Hero({
               </span>
             </div>
           </div>
-          <figcaption className="ill-group">Preview</figcaption>
         </figure>
       </div>
 

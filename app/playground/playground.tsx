@@ -13,7 +13,6 @@ import {
   updateSiteTheme,
   useSiteTheme,
 } from "@/lib/use-site-theme"
-import { Separator } from "@/registry/neu/ui/neu/separator"
 import { Button } from "@/registry/neu/ui/neu/button"
 import {
   Dialog,
@@ -23,6 +22,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/registry/neu/ui/neu/dialog"
+import { Separator } from "@/registry/neu/ui/neu/separator"
 
 import { oklchToRgb, rgbToHex, surfaceTone, swatches } from "./color"
 import {
@@ -64,14 +64,14 @@ const PREVIEW = [
 
 const Gallery = React.memo(function Gallery() {
   return (
-    <div className="grid grid-cols-1 gap-x-8 xl:grid-cols-2">
+    <div className="grid grid-cols-1 gap-8 xl:grid-cols-2">
       {PREVIEW.map((entry) => {
         const Example = EXAMPLES[entry.example]
         // Off-screen demos skip the restyle every token drag triggers.
         return (
           <figure
             key={entry.slug}
-            className="mb-8 flex flex-col gap-3 [contain-intrinsic-size:auto_320px] [content-visibility:auto]"
+            className="flex flex-col gap-3 [contain-intrinsic-size:auto_320px] [content-visibility:auto]"
           >
             <figcaption>
               <Link
@@ -83,7 +83,7 @@ const Gallery = React.memo(function Gallery() {
                 <ArrowUpRight className="size-3.5" aria-hidden />
               </Link>
             </figcaption>
-            <div className="flex min-h-56 min-w-0 items-center overflow-x-auto p-2 *:w-full">
+            <div className="flex min-h-56 min-w-0 flex-1 items-center overflow-x-auto p-2 *:w-full">
               <Example />
             </div>
           </figure>
