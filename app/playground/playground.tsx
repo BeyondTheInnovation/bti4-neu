@@ -254,8 +254,14 @@ export function Playground() {
             </Group>
           </aside>
 
-          <section aria-label="Components" className="min-w-0 lg:col-start-2">
-            <Separator className="mb-6" />
+          <section
+            aria-labelledby="playground-components"
+            className="flex min-w-0 flex-col gap-6 lg:col-start-2"
+          >
+            <h2 id="playground-components" className="sr-only">
+              Components
+            </h2>
+            <Separator />
             <Gallery />
           </section>
         </div>
