@@ -177,3 +177,25 @@ for (const { name, node } of labelled) {
     ).toEqual(["none", "none"])
   })
 }
+
+for (const { name, node } of [
+  { name: "raised button", node: <Button id="key">Save</Button> },
+  { name: "toggle", node: <Toggle id="key">B</Toggle> },
+]) {
+  test(`a pressed ${name} crossfades its convex face instead of snapping`, async ({
+    page,
+  }) => {
+    await mount(page, node, slowPress)
+    const face = () =>
+      page
+        .locator("#key")
+        .evaluate((el) => getComputedStyle(el).backgroundImage)
+    const rest = await face()
+    await holdOn(page, "#key")
+    await page.waitForTimeout(300)
+    const midway = await face()
+    expect(midway).not.toBe(rest)
+    await page.waitForTimeout(400)
+    expect(await face()).not.toBe(midway)
+  })
+}
