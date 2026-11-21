@@ -5,7 +5,7 @@ import { SiteShell } from "@/components/site-shell"
 import { Playground } from "./playground"
 
 const description =
-  "Build your own neu theme: tune every token live and copy the CSS."
+  "Build your own neu theme in the playground. Tune every neumorphic token live, preview the result on real components and copy the CSS into your project."
 
 export const metadata: Metadata = {
   title: "Playground",

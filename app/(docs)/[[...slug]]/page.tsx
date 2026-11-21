@@ -8,7 +8,9 @@ import { PageFooter } from "fumadocs-ui/layouts/docs/page"
 import { notFound } from "next/navigation"
 import { getMDXComponents } from "@/mdx-components"
 import { SiteFooter } from "@/components/site-footer"
+import { SITE_URL } from "@/lib/site"
 import { source } from "@/lib/source"
+import { JsonLd, ORGANIZATION, WEBSITE } from "@/lib/structured-data"
 
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>
@@ -37,6 +39,20 @@ export default async function Page(props: {
       <DocsBody>
         <MDX components={getMDXComponents()} />
       </DocsBody>
+      {page.slugs.length > 0 && (
+        <JsonLd
+          data={{
+            "@type": "TechArticle",
+            headline: page.data.title,
+            description: page.data.description,
+            url: new URL(page.url, SITE_URL).href,
+            image: new URL(ogImageOf(page.slugs), SITE_URL).href,
+            inLanguage: "en",
+            isPartOf: { "@id": WEBSITE["@id"] },
+            publisher: { "@id": ORGANIZATION["@id"] },
+          }}
+        />
+      )}
     </DocsPage>
   )
 }
@@ -54,14 +70,27 @@ export async function generateMetadata(props: {
   const page = source.getPage(params.slug)
   if (!page) notFound()
 
+  const isHome = page.slugs.length === 0
+  const image = isHome ? "/opengraph-image" : ogImageOf(page.slugs)
+  const title = isHome ? HOME_TITLE : `${page.data.title} · neu`
+
   return {
-    title: page.data.title,
+    title: isHome ? { absolute: HOME_TITLE } : page.data.title,
     description: page.data.description,
     openGraph: {
-      title: `${page.data.title} · neu`,
+      type: isHome ? "website" : "article",
+      siteName: "neu",
+      title,
       description: page.data.description,
       url: page.url,
-      images: "/opengraph-image",
+      images: image,
     },
+    twitter: { card: "summary_large_image", images: image },
   }
+}
+
+const HOME_TITLE = "neu · Neumorphic shadcn components"
+
+function ogImageOf(slugs: string[]) {
+  return ["/og", ...slugs, "image.png"].join("/")
 }

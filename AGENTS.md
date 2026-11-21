@@ -41,7 +41,10 @@ A neumorphic component library distributed as a shadcn registry, with a document
 
 ## Deployment
 
-`main` is the default branch. No `DEPLOYMENT.md` exists yet; hosting details live on the BTI OS record.
+`main` is the default branch and deploys the static export (`output: "export"`) to a Cloudflare Worker through Workers Builds. `DEPLOYMENT.md` has the build, URL and health rules; ids and domains live on the BTI OS record.
+
+- Every route must prerender: no request-time APIs, and a route handler needs `export const dynamic = "force-static"`.
+- Build the export on Linux. A Windows build misnames the router's prefetch files.
 
 <!-- >>> bti-os-project (managed by BTI OS — refresh with `bti sync`; edit app/public/onboarding/TEAM.md in the bti-os repo, not here) >>> -->
 <!-- bti-os-project: BTI4 · 1206ebf2685e · rendered 2026-09-28 -->
