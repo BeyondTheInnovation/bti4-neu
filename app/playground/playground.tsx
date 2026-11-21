@@ -22,6 +22,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/registry/neu/ui/neu/dialog"
+import { Separator } from "@/registry/neu/ui/neu/separator"
 
 import { oklchToRgb, rgbToHex, surfaceTone, swatches } from "./color"
 import {
@@ -63,14 +64,14 @@ const PREVIEW = [
 
 const Gallery = React.memo(function Gallery() {
   return (
-    <div className="columns-1 gap-8 xl:columns-2">
+    <div className="grid grid-cols-1 gap-8 xl:grid-cols-2">
       {PREVIEW.map((entry) => {
         const Example = EXAMPLES[entry.example]
         // Off-screen demos skip the restyle every token drag triggers.
         return (
           <figure
             key={entry.slug}
-            className="mb-8 flex break-inside-avoid flex-col gap-3 [contain-intrinsic-size:auto_320px] [content-visibility:auto]"
+            className="flex flex-col gap-3 [contain-intrinsic-size:auto_320px] [content-visibility:auto]"
           >
             <figcaption>
               <Link
@@ -82,7 +83,7 @@ const Gallery = React.memo(function Gallery() {
                 <ArrowUpRight className="size-3.5" aria-hidden />
               </Link>
             </figcaption>
-            <div className="min-w-0 overflow-x-auto p-2">
+            <div className="flex min-h-56 min-w-0 flex-1 items-center overflow-x-auto p-2 *:w-full">
               <Example />
             </div>
           </figure>
@@ -242,20 +243,25 @@ export function Playground() {
             <Group title="Color">
               <SurfaceInstrument
                 surfaceHex={surfaceHex}
-                sw={sw}
                 onChange={setSurface}
               />
-              <ShadeInstrument {...props} />
             </Group>
             <Group title="Material">
               <AlphaInstrument {...props} />
               <GlintInstrument {...props} />
               <CurvatureInstrument {...props} model={model} />
+              <ShadeInstrument {...props} />
             </Group>
           </aside>
 
-          <section aria-label="Components" className="min-w-0 lg:col-start-2">
-            <h2 className="ill-group mb-6">Components</h2>
+          <section
+            aria-labelledby="playground-components"
+            className="flex min-w-0 flex-col gap-6 lg:col-start-2"
+          >
+            <h2 id="playground-components" className="sr-only">
+              Components
+            </h2>
+            <Separator />
             <Gallery />
           </section>
         </div>

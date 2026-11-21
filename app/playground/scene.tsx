@@ -634,13 +634,10 @@ function Hero({
               }}
             />
           </div>
-          <figcaption className="ill-caption">
-            <span className="ill-label mr-2">Model</span>
-            Drag the sun, lift or sink the slab, pull the corner for radius.
-          </figcaption>
         </figure>
 
         <figure className="ill-hero-result">
+          <figcaption className="ill-group">Preview</figcaption>
           <div className="ill-specimen-stage">
             <div className={cn(shape, "ill-specimen")}>
               <span className="text-xl font-bold tracking-tight">
@@ -648,11 +645,6 @@ function Hero({
               </span>
             </div>
           </div>
-          <figcaption className="ill-caption">
-            <span className="ill-label mr-2">CSS</span>
-            The same tokens on <code className="ill-read">.{shape}</code>, seen
-            from above.
-          </figcaption>
         </figure>
       </div>
 
@@ -701,11 +693,6 @@ function Hero({
             note={signed === 0 ? "flat" : signed < 0 ? "pressed in" : "raised"}
           />
           <Readout label="Blur" value={`${t.blur}`} note="2x elevation" />
-          <Readout
-            label="Radius"
-            value={`${t.radius}`}
-            note={t.squircle ? "squircle" : "round"}
-          />
         </div>
 
         <div className="ill-hero-tools">
