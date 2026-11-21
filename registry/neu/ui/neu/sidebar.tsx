@@ -8,6 +8,7 @@ import { PanelLeftIcon } from "lucide-react"
 import { useIsMobile } from "@/registry/neu/hooks/use-mobile"
 import { cn } from "@/lib/utils"
 import { Button } from "@/registry/neu/ui/neu/button"
+import { withPressLabel } from "@/registry/neu/ui/neu/press-label"
 import { Input } from "@/registry/neu/ui/neu/input"
 import { Separator } from "@/registry/neu/ui/neu/separator"
 import {
@@ -479,7 +480,7 @@ function SidebarMenuItem({ className, ...props }: React.ComponentProps<"li">) {
    submenu trigger sinks via neu-state-sink. The active item also carries
    an accent bar, so it reads without the shadow. */
 const sidebarMenuButtonVariants = cva(
-  "peer/menu-button group/menu-button neu neu-active-sink neu-state-sink relative flex w-full items-center gap-2 overflow-hidden rounded-[calc(var(--neu-radius)/2)] p-2 text-start text-sm [--neu-alpha:0] [--neu-depth:0.17] [--neu-glint:0] group-has-data-[sidebar=menu-action]/menu-item:pe-8 group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! hover:bg-[color-mix(in_oklab,var(--neu-text)_6%,transparent)] active:[--neu-alpha:inherit] active:[--neu-glint:inherit] disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:font-medium data-[active=true]:[--neu-alpha:inherit] data-[active=true]:[--neu-glint:inherit] before:absolute before:inset-y-2 before:start-0.5 before:w-[3px] before:rounded-full data-[active=true]:before:bg-(--neu-ring) data-[state=open]:[--neu-alpha:inherit] data-[state=open]:[--neu-glint:inherit] [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0",
+  "peer/menu-button group/menu-button neu neu-active-sink neu-state-sink relative flex w-full items-center gap-2 overflow-hidden rounded-[calc(var(--neu-radius)/2)] p-2 text-start text-sm [--neu-alpha:0] [--neu-depth:0.17] [--neu-glint:0] group-has-data-[sidebar=menu-action]/menu-item:pe-8 group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! hover:bg-[color-mix(in_oklab,var(--neu-text)_6%,transparent)] active:[--neu-alpha:inherit] active:[--neu-glint:inherit] disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:font-medium data-[active=true]:[--neu-alpha:inherit] data-[active=true]:[--neu-glint:inherit] before:absolute before:inset-y-2 before:start-0.5 before:w-[3px] before:rounded-full data-[active=true]:before:bg-(--neu-ring) data-[state=open]:[--neu-alpha:inherit] data-[state=open]:[--neu-glint:inherit] [&>[data-slot=press-label]>span:last-child]:truncate [&>[data-slot=press-label]>svg]:size-4 [&>[data-slot=press-label]>svg]:shrink-0 *:data-[slot=press-label]:origin-left rtl:*:data-[slot=press-label]:origin-right",
   {
     variants: {
       variant: {
@@ -507,6 +508,7 @@ function SidebarMenuButton({
   size = "default",
   tooltip,
   className,
+  children,
   ...props
 }: React.ComponentProps<"button"> & {
   asChild?: boolean
@@ -528,7 +530,9 @@ function SidebarMenuButton({
         className
       )}
       {...props}
-    />
+    >
+      {withPressLabel(children, asChild)}
+    </Comp>
   )
 
   if (!tooltip) {
@@ -680,6 +684,7 @@ function SidebarMenuSubButton({
   size = "md",
   isActive = false,
   className,
+  children,
   ...props
 }: React.ComponentProps<"a"> & {
   asChild?: boolean
@@ -695,7 +700,7 @@ function SidebarMenuSubButton({
       data-size={size}
       data-active={isActive}
       className={cn(
-        "neu neu-active-sink flex h-7 min-w-0 translate-x-[calc(var(--neu-dir)*-1px)] items-center gap-2 overflow-hidden rounded-[calc(var(--neu-radius)/2)] px-2 [--neu-alpha:0] [--neu-depth:0.17] [--neu-glint:0] hover:bg-[color-mix(in_oklab,var(--neu-text)_6%,transparent)] active:[--neu-alpha:inherit] active:[--neu-glint:inherit] disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:[--neu-alpha:inherit] data-[active=true]:[--neu-glint:inherit] [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0",
+        "neu neu-active-sink flex h-7 min-w-0 translate-x-[calc(var(--neu-dir)*-1px)] items-center gap-2 overflow-hidden rounded-[calc(var(--neu-radius)/2)] px-2 [--neu-alpha:0] [--neu-depth:0.17] [--neu-glint:0] hover:bg-[color-mix(in_oklab,var(--neu-text)_6%,transparent)] active:[--neu-alpha:inherit] active:[--neu-glint:inherit] disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:[--neu-alpha:inherit] data-[active=true]:[--neu-glint:inherit] [&>[data-slot=press-label]>span:last-child]:truncate [&>[data-slot=press-label]>svg]:size-4 [&>[data-slot=press-label]>svg]:shrink-0 *:data-[slot=press-label]:origin-left rtl:*:data-[slot=press-label]:origin-right",
         size === "sm" && "text-xs",
         size === "md" && "text-sm",
         "group-data-[collapsible=icon]:hidden",
@@ -703,7 +708,9 @@ function SidebarMenuSubButton({
         className
       )}
       {...props}
-    />
+    >
+      {withPressLabel(children, asChild)}
+    </Comp>
   )
 }
 

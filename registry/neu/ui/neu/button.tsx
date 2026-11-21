@@ -3,6 +3,7 @@ import { Slot as SlotPrimitive } from "radix-ui"
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
+import { withPressLabel } from "@/registry/neu/ui/neu/press-label"
 
 /* No shadow-*, ring-* or transition-* utilities on neu elements: they set
    box-shadow/transition from the utilities layer and clobber the theme's
@@ -24,10 +25,10 @@ const buttonVariants = cva(
         link: "text-[var(--neu-knob-ink,currentColor)] underline-offset-4 hover:underline focus-visible:outline-solid focus-visible:outline-(length:--neu-ring-width) focus-visible:outline-offset-(--neu-ring-offset) focus-visible:outline-[color:var(--neu-ring,currentColor)]",
       },
       size: {
-        default: "h-9 px-4 py-2 has-[>svg]:px-3",
-        xs: "h-7 gap-1 px-2.5 text-xs has-[>svg]:px-2 [&_svg:not([class*='size-'])]:size-3",
-        sm: "h-8 gap-1.5 px-3 has-[>svg]:px-2.5",
-        lg: "h-10 px-6 has-[>svg]:px-4",
+        default: "h-9 px-4 py-2 has-[>svg,>[data-slot=press-label]>svg]:px-3",
+        xs: "h-7 gap-1 px-2.5 text-xs has-[>svg,>[data-slot=press-label]>svg]:px-2 [&_svg:not([class*='size-'])]:size-3",
+        sm: "h-8 gap-1.5 px-3 has-[>svg,>[data-slot=press-label]>svg]:px-2.5",
+        lg: "h-10 px-6 has-[>svg,>[data-slot=press-label]>svg]:px-4",
         icon: "size-9",
         "icon-xs": "size-7 [&_svg:not([class*='size-'])]:size-3",
         "icon-sm": "size-8",
@@ -62,6 +63,7 @@ function Button({
   size = "default",
   surface = "auto",
   asChild = false,
+  children,
   ...props
 }: React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
@@ -77,7 +79,9 @@ function Button({
       data-surface={surface}
       className={cn(buttonVariants({ variant, size, surface, className }))}
       {...props}
-    />
+    >
+      {withPressLabel(children, asChild)}
+    </Comp>
   )
 }
 

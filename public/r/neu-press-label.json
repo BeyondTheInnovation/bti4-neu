@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neu-press-label",
+  "title": "Neu Press Label",
+  "description": "The shared label wrapper that lets a key's content ride its face down when it sinks. Used by the neu button, toggle, select, pagination, menubar, navigation menu and sidebar.",
+  "registryDependencies": [
+    "https://neu.beyondtheinnovation.com/r/neu-theme.json"
+  ],
+  "files": [
+    {
+      "path": "registry/neu/ui/neu/press-label.tsx",
+      "content": "import * as React from \"react\"\n\n/** The content of a key that sinks, wrapped so it can ride the face down\n    (`.neu-press-label`). With asChild the label goes inside the slotted\n    child, around that child's own content. */\nfunction withPressLabel(\n  children: React.ReactNode,\n  asChild = false\n): React.ReactNode {\n  if (!asChild) {\n    return (\n      <span data-slot=\"press-label\" className=\"neu-press-label\">\n        {children}\n      </span>\n    )\n  }\n  if (\n    !React.isValidElement<{ children?: React.ReactNode }>(children) ||\n    children.props.children == null\n  ) {\n    return children\n  }\n  return React.cloneElement(\n    children,\n    undefined,\n    withPressLabel(children.props.children)\n  )\n}\n\nexport { withPressLabel }\n",
+      "type": "registry:ui",
+      "target": "components/ui/neu/press-label.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

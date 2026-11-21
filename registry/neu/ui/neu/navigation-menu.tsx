@@ -6,6 +6,7 @@ import { cva } from "class-variance-authority"
 import { ChevronDownIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
+import { withPressLabel } from "@/registry/neu/ui/neu/press-label"
 
 const NavigationMenuViewportContext = React.createContext(true)
 
@@ -88,11 +89,15 @@ function NavigationMenuTrigger({
       )}
       {...props}
     >
-      {children}{" "}
-      <ChevronDownIcon
-        className="relative top-[1px] ms-1 size-3 transition duration-300 group-data-[state=open]:rotate-180 motion-reduce:transition-none"
-        aria-hidden="true"
-      />
+      {withPressLabel(
+        <>
+          {children}{" "}
+          <ChevronDownIcon
+            className="relative top-[1px] ms-1 size-3 transition duration-300 group-data-[state=open]:rotate-180 motion-reduce:transition-none"
+            aria-hidden="true"
+          />
+        </>
+      )}
     </NavigationMenuPrimitive.Trigger>
   )
 }

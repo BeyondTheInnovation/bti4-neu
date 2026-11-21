@@ -5,6 +5,7 @@ import { Select as SelectPrimitive } from "radix-ui"
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
+import { withPressLabel } from "@/registry/neu/ui/neu/press-label"
 
 function Select({
   ...props
@@ -39,15 +40,19 @@ function SelectTrigger({
       data-slot="select-trigger"
       data-size={size}
       className={cn(
-        "neu neu-convex neu-field neu-active-sink neu-state-sink flex w-fit items-center justify-between gap-2 px-3.5 py-2 text-sm whitespace-nowrap [--neu-depth:0.33] data-[placeholder]:text-(--neu-text-muted) data-[size=default]:h-9 data-[size=sm]:h-8 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-2 aria-invalid:border-destructive *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 [&_svg:not([class*='text-'])]:text-(--neu-text-muted)",
+        "neu neu-convex neu-field neu-active-sink neu-state-sink flex w-fit items-center justify-between gap-2 px-3.5 py-2 text-sm whitespace-nowrap [--neu-depth:0.33] data-[placeholder]:text-(--neu-text-muted) data-[size=default]:h-9 data-[size=sm]:h-8 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-2 aria-invalid:border-destructive **:data-[slot=select-value]:line-clamp-1 **:data-[slot=select-value]:flex **:data-[slot=select-value]:items-center **:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 [&_svg:not([class*='text-'])]:text-(--neu-text-muted)",
         className
       )}
       {...props}
     >
-      {children}
-      <SelectPrimitive.Icon asChild>
-        <ChevronDownIcon className="size-4" />
-      </SelectPrimitive.Icon>
+      {withPressLabel(
+        <>
+          {children}
+          <SelectPrimitive.Icon asChild>
+            <ChevronDownIcon className="size-4" />
+          </SelectPrimitive.Icon>
+        </>
+      )}
     </SelectPrimitive.Trigger>
   )
 }

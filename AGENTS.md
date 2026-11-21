@@ -30,7 +30,8 @@ A neumorphic component library distributed as a shadcn registry, with a document
 ## Conventions
 
 - Read `docs/FOUNDATION.md` before touching the shadow tokens; every component derives its shadows from the shared `--neu-*` variables.
-- A new component needs a `registry.json` item, a `lib/catalog.ts` entry, an example mapped in `lib/examples.tsx`, and an MDX page listed in `content/docs/components/meta.json`. Internal primitives (`neu-knob`, `neu-sliding-key`, `neu-menu`) need only the registry item.
+- A new component needs a `registry.json` item, a `lib/catalog.ts` entry, an example mapped in `lib/examples.tsx`, and an MDX page listed in `content/docs/components/meta.json`. Internal primitives (`neu-knob`, `neu-sliding-key`, `neu-menu`, `neu-press-label`) need only the registry item.
+- A key that sinks on press wraps its content with `withPressLabel` (and lists `neu-press-label` in its registry dependencies) so the label rides the face down.
 - The theme CSS exists twice: `registry/neu/neu-theme/neu-theme.css` and the `neu-theme` item's `css` field in `registry.json`. Change both together.
 
 ## Gotchas

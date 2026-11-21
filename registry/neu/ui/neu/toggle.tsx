@@ -5,13 +5,14 @@ import { Toggle as TogglePrimitive } from "radix-ui"
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
+import { withPressLabel } from "@/registry/neu/ui/neu/press-label"
 
 /* A key. Off it stands raised (default) or sits flat in an engraved rim
    (outline); on, it is pressed into the surface and filled with the accent
    ink, so the state reads without the shadow. The theme's .neu-state-sink
    holds the pressed depth. */
 const toggleVariants = cva(
-  "neu neu-convex neu-active-sink neu-state-sink group/toggle inline-flex items-center justify-center gap-2 text-sm font-medium whitespace-nowrap select-none text-(--neu-text-muted) [--neu-depth:0.33] [transition:box-shadow_var(--neu-ease-release),color_var(--neu-ease-release)] hover:not-data-[state=on]:text-(--neu-text) active:[transition:box-shadow_var(--neu-ease-press)] data-[state=on]:bg-(--neu-knob-ink) data-[state=on]:bg-none data-[state=on]:text-(--neu-surface) motion-reduce:[transition:none] disabled:pointer-events-none disabled:opacity-50 aria-invalid:outline-2 aria-invalid:outline-offset-2 aria-invalid:outline-destructive [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  "neu neu-convex neu-active-sink neu-state-sink group/toggle inline-flex items-center justify-center gap-2 text-sm font-medium whitespace-nowrap select-none text-(--neu-text-muted) [--neu-depth:0.33] [transition:box-shadow_var(--neu-ease-release),--\\_face-from_var(--neu-ease-release),--\\_face-to_var(--neu-ease-release),color_var(--neu-ease-release)] hover:not-data-[state=on]:text-(--neu-text) active:[transition:box-shadow_var(--neu-ease-press),--\\_face-from_var(--neu-ease-press),--\\_face-to_var(--neu-ease-press)] data-[state=on]:bg-(--neu-knob-ink) data-[state=on]:bg-none data-[state=on]:text-(--neu-surface) motion-reduce:[transition:none] disabled:pointer-events-none disabled:opacity-50 aria-invalid:outline-2 aria-invalid:outline-offset-2 aria-invalid:outline-destructive [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
       variant: {
@@ -59,6 +60,8 @@ function Toggle({
   className,
   variant,
   size,
+  asChild,
+  children,
   ...props
 }: React.ComponentProps<typeof TogglePrimitive.Root> &
   VariantProps<typeof toggleVariants>) {
@@ -66,8 +69,11 @@ function Toggle({
     <TogglePrimitive.Root
       data-slot="toggle"
       className={cn(toggleVariants({ variant, size, className }))}
+      asChild={asChild}
       {...props}
-    />
+    >
+      {withPressLabel(children, asChild)}
+    </TogglePrimitive.Root>
   )
 }
 

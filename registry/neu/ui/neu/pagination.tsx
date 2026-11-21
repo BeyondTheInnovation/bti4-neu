@@ -7,6 +7,7 @@ import {
 
 import { cn } from "@/lib/utils"
 import { buttonVariants, type Button } from "@/registry/neu/ui/neu/button"
+import { withPressLabel } from "@/registry/neu/ui/neu/press-label"
 
 function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
   return (
@@ -51,6 +52,7 @@ function PaginationLink({
   isActive,
   size = "icon",
   variant = "ghost",
+  children,
   ...props
 }: PaginationLinkProps) {
   return (
@@ -64,7 +66,9 @@ function PaginationLink({
         className
       )}
       {...props}
-    />
+    >
+      {withPressLabel(children)}
+    </a>
   )
 }
 

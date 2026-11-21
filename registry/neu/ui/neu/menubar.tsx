@@ -5,6 +5,7 @@ import { Menubar as MenubarPrimitive } from "radix-ui"
 import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
+import { withPressLabel } from "@/registry/neu/ui/neu/press-label"
 import {
   menuCheckItemClasses,
   menuIndicatorClasses,
@@ -64,6 +65,7 @@ function MenubarRadioGroup({
    the state never rests on the shadow alone. */
 function MenubarTrigger({
   className,
+  children,
   ...props
 }: React.ComponentProps<typeof MenubarPrimitive.Trigger>) {
   return (
@@ -74,7 +76,9 @@ function MenubarTrigger({
         className
       )}
       {...props}
-    />
+    >
+      {withPressLabel(children)}
+    </MenubarPrimitive.Trigger>
   )
 }
 
