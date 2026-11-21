@@ -5,6 +5,7 @@ import { Toggle as TogglePrimitive } from "radix-ui"
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
+import { withPressLabel } from "@/registry/neu/ui/neu/press-label"
 
 /* A key. Off it stands raised (default) or sits flat in an engraved rim
    (outline); on, it is pressed into the surface and filled with the accent
@@ -59,6 +60,8 @@ function Toggle({
   className,
   variant,
   size,
+  asChild,
+  children,
   ...props
 }: React.ComponentProps<typeof TogglePrimitive.Root> &
   VariantProps<typeof toggleVariants>) {
@@ -66,8 +69,11 @@ function Toggle({
     <TogglePrimitive.Root
       data-slot="toggle"
       className={cn(toggleVariants({ variant, size, className }))}
+      asChild={asChild}
       {...props}
-    />
+    >
+      {withPressLabel(children, asChild)}
+    </TogglePrimitive.Root>
   )
 }
 

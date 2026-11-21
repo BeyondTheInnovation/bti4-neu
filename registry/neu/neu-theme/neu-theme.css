@@ -73,6 +73,18 @@
   inherits: true;
   initial-value: 0.3;
 }
+/* the one registered private pair: gradients don't interpolate, colors do,
+   so a convex key crossfades its face through these when it sinks */
+@property --_face-from {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: transparent;
+}
+@property --_face-to {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: transparent;
+}
 
 :root {
   --neu-surface: oklch(0.92 0.005 250);
@@ -92,7 +104,7 @@
   --neu-highlight: 0.3;
   --neu-ring-width: 2px;
   --neu-ring-offset: 2px;
-  --neu-ease-press: 100ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  --neu-ease-press: 80ms cubic-bezier(0.215, 0.61, 0.355, 1);
   --neu-ease-release: 250ms cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
@@ -306,10 +318,15 @@
     border-radius: var(--neu-radius);
     corner-shape: var(--neu-corner);
     background: var(--neu-surface);
+    /* box-shadow eases slot by slot only where both ends agree on inset, so
+       the raised and sunk stacks share one shape: two outer slots, then the
+       insets, with see-through placeholders holding the unused slots */
     box-shadow:
       var(--_x) var(--_y) var(--_blur) var(--_dark),
       calc(var(--_x) * -1) calc(var(--_y) * -1) var(--_blur)
         oklch(from var(--_light) l c h / calc(alpha * var(--neu-highlight))),
+      inset 0 0 0 oklch(from var(--_dark) l c h / 0),
+      inset 0 0 0 oklch(from var(--_light) l c h / 0),
       inset var(--_gx) var(--_gy) 0 var(--_glint);
   }
 
@@ -413,10 +430,12 @@
   }
 
   .neu-convex {
+    --_face-from: var(--_face-dark);
+    --_face-to: var(--_face-light);
     background: linear-gradient(
       var(--neu-light-angle),
-      var(--_face-dark),
-      var(--_face-light)
+      var(--_face-from),
+      var(--_face-to)
     );
   }
 
@@ -431,11 +450,8 @@
           [aria-current="page"]
         )
     ) {
-    background: linear-gradient(
-      var(--neu-light-angle),
-      var(--_face-light),
-      var(--_face-dark)
-    );
+    --_face-from: var(--_face-light);
+    --_face-to: var(--_face-dark);
   }
 
   /* opt-in realism ramp: five dark layers, offsets near-doubling, alpha
@@ -667,6 +683,8 @@
      The outline variants use it instead of a stroke. */
   .neu-engrave {
     box-shadow:
+      0 0 0 oklch(from var(--_dark) l c h / 0),
+      0 0 0 oklch(from var(--_light) l c h / 0),
       inset calc(var(--_gx) * -1) calc(var(--_gy) * -1) 0
         oklch(from var(--_dark) l c h / calc(alpha * 1.1)),
       inset var(--_gx) var(--_gy) 0
@@ -779,7 +797,10 @@
 
   .neu-active-sink,
   .neu-state-sink {
-    transition: box-shadow var(--neu-ease-release);
+    transition:
+      box-shadow var(--neu-ease-release),
+      --_face-from var(--neu-ease-release),
+      --_face-to var(--neu-ease-release);
   }
 
   .neu-active-sink:active,
@@ -789,12 +810,74 @@
   .neu-state-sink[aria-pressed="true"],
   .neu-state-sink[aria-current="page"] {
     --_lift: 0.75;
-    transition: box-shadow var(--neu-ease-press);
+    transition:
+      box-shadow var(--neu-ease-press),
+      --_face-from var(--neu-ease-press),
+      --_face-to var(--neu-ease-press);
     box-shadow:
+      0 0 0 oklch(from var(--_dark) l c h / 0),
+      0 0 0 oklch(from var(--_light) l c h / 0),
       inset var(--_x) var(--_y) var(--_blur) var(--_dark),
       inset calc(var(--_x) * -1) calc(var(--_y) * -1) var(--_blur)
         var(--_light),
       inset calc(var(--_gx) * -1) calc(var(--_gy) * -1) 0 var(--_glint);
+  }
+
+  .neu-realism:is(
+      .neu-active-sink:active,
+      .neu-state-sink:is(
+          [data-state="checked"],
+          [data-state="on"],
+          [data-state="open"],
+          [aria-pressed="true"],
+          [aria-current="page"]
+        )
+    ) {
+    box-shadow:
+      0 0 0 oklch(from var(--_dark) l c h / 0),
+      0 0 0 oklch(from var(--_dark) l c h / 0),
+      0 0 0 oklch(from var(--_dark) l c h / 0),
+      0 0 0 oklch(from var(--_dark) l c h / 0),
+      0 0 0 oklch(from var(--_dark) l c h / 0),
+      inset var(--_x) var(--_y) var(--_blur) var(--_dark),
+      inset calc(var(--_x) * -1) calc(var(--_y) * -1) var(--_blur)
+        var(--_light),
+      inset calc(var(--_gx) * -1) calc(var(--_gy) * -1) 0 var(--_glint);
+  }
+
+  /* the label rides the face down: it drifts toward the lamp along the
+     shadow vector and shrinks a little, never the key itself. It inherits
+     the key's flex layout so wrapping the content changes nothing at rest. */
+  .neu-press-label {
+    display: inline-flex;
+    flex-grow: 1;
+    min-width: 0;
+    flex-direction: inherit;
+    align-items: inherit;
+    justify-content: inherit;
+    gap: inherit;
+    transition:
+      translate var(--neu-ease-release),
+      scale var(--neu-ease-release);
+  }
+
+  :is(
+      .neu-pressed,
+      .neu-active-sink:active,
+      .neu-state-sink:is(
+          [data-state="checked"],
+          [data-state="on"],
+          [data-state="open"],
+          [aria-pressed="true"],
+          [aria-current="page"]
+        )
+    )
+    > .neu-press-label {
+    translate: calc(var(--_x) * -0.15) calc(var(--_y) * -0.15);
+    scale: 0.95;
+    transition:
+      translate var(--neu-ease-press),
+      scale var(--neu-ease-press);
   }
 
   :where(.neu, .neu-pressed, .neu-concave, .neu-convex, .neu-realism, .neu-knob, .neu-groove, .neu-engrave):focus-visible {
@@ -828,6 +911,7 @@
   }
 
   .neu-rise,
+  .neu-press-label,
   .neu-active-sink,
   .neu-state-sink,
   .neu-active-sink:active,

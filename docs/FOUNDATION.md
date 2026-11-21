@@ -34,7 +34,7 @@ Raw scalars are the whole public API. Everything visible derives from them.
 | `--neu-glint` | `<number>` | `0.25` | Strength multiplier for the 1px inset edge highlight that fades in on dark surfaces. `0` disables it. |
 | `--neu-ring-width` | plain | `2px` | Focus outline width. Not registered; no need to animate. |
 | `--neu-ring-offset` | plain | `2px` | Focus outline offset. |
-| `--neu-ease-press` | plain | `100ms cubic-bezier(0.55, 0.055, 0.675, 0.19)` | Press-down transition: fast ease-in, like a spring-loaded key going down. Duration plus easing in one token. |
+| `--neu-ease-press` | plain | `80ms cubic-bezier(0.215, 0.61, 0.355, 1)` | Press-down transition: fast ease-out, so the key answers the finger at once and settles into the press. Duration plus easing in one token. |
 | `--neu-ease-release` | plain | `250ms cubic-bezier(0.215, 0.61, 0.355, 1)` | Release and hover transition: slower ease-out. |
 
 Derived, readable but not meant as inputs:
@@ -59,7 +59,10 @@ them would freeze a literal default and sever the live link to `--neu-shade`. Th
 derivations read them as `var(--neu-shade-dark, var(--neu-shade))`, which is what
 keeps them tracking `--neu-shade` until a consumer sets them.
 Private intermediates use `--_` prefixes and are unregistered on purpose: they are
-recomputed per element and not part of the API.
+recomputed per element and not part of the API. The exception is `--_face-from` and
+`--_face-to`, the two stops of the convex face: they are registered as `<color>`
+so a sinking key's face crossfades instead of snapping, since gradients themselves
+do not interpolate.
 
 ## Derivation rules
 
@@ -219,7 +222,7 @@ Every future `neu-*` component follows this. No exceptions without updating this
 - **Transitions** are opt-in via `.neu-active-sink` / `.neu-state-sink` and
   asymmetric on purpose, like a spring-loaded key: the resting rule carries
   `box-shadow var(--neu-ease-release)` (250ms ease-out) and `:active` overrides to
-  `var(--neu-ease-press)` (100ms ease-in), so pressing is fast and settling is
+  `var(--neu-ease-press)` (80ms ease-out), so pressing is fast and settling is
   slow. CSS picks the transition from the state being entered, which is what makes
   two declarations enough. `@media (prefers-reduced-motion: reduce)` sets
   `transition: none` on both classes and their state selectors.
@@ -417,3 +420,21 @@ https://caniuse.com/mdn-css_properties_corner-shape_squircle
   its well with a contact and a cast `--_drop`, no light, like a handle or a
   dialog. A thin stroke covers little area, so the alpha has a floor (0.35
   contact, 0.18 cast) or the drop vanishes on light surfaces.
+
+## Amendment: the press glides and the label rides it
+
+- **Slot-aligned stacks.** `box-shadow` interpolates slot by slot only when each
+  slot is inset at both ends; otherwise it snaps. Every resting stack therefore
+  carries transparent inset placeholders, and every sunk stack carries
+  transparent outer ones, so raised, ghost, outline, engraved and realism keys
+  all ease into the press. Keep the slot order when you add a layer.
+- **The press is an ease-out.** `--neu-ease-press` is 80ms ease-out: it reaches
+  the bottom fast and decelerates into it, the same curve the release uses.
+- **The label rides the face.** Pressable components wrap their content in
+  `.neu-press-label` (`data-slot="press-label"`, through `withPressLabel` in the
+  `neu-press-label` item). When the key sinks, the label moves toward the lamp by
+  15% of the shadow offset and scales to 0.95, on the same token as the shadow.
+  The key itself never changes size. The label inherits the key's flex layout,
+  so direct-child selectors on a key (`[&>svg]`) go through
+  `[data-slot=press-label]`. Wells whose selected item rises (tabs, toggle
+  group) do not carry it.

@@ -38,3 +38,9 @@ Use `asChild` to give another element, such as a link, the button's styles.
   <a href="/login">Login</a>
 </Button>
 ```
+
+The link keeps its own element. Its content is wrapped inside it, so the label still sinks on press.
+
+## Pressed label
+
+The button's content sits in a `<span data-slot="press-label">`. When the key sinks, the label moves toward the light and shrinks slightly while the button keeps its size. Style the content through that span, for example `[&>[data-slot=press-label]>svg]:size-5` rather than `[&>svg]:size-5`.

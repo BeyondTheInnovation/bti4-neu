@@ -72,6 +72,16 @@
       "inherits": "true",
       "initial-value": "0.3"
     },
+    "@property --_face-from": {
+      "syntax": "'<color>'",
+      "inherits": "false",
+      "initial-value": "transparent"
+    },
+    "@property --_face-to": {
+      "syntax": "'<color>'",
+      "inherits": "false",
+      "initial-value": "transparent"
+    },
     ":root": {
       "--neu-distance": "12px",
       "--neu-blur": "24px",
@@ -89,7 +99,7 @@
       "--neu-highlight": "0.3",
       "--neu-ring-width": "2px",
       "--neu-ring-offset": "2px",
-      "--neu-ease-press": "100ms cubic-bezier(0.55, 0.055, 0.675, 0.19)",
+      "--neu-ease-press": "80ms cubic-bezier(0.215, 0.61, 0.355, 1)",
       "--neu-ease-release": "250ms cubic-bezier(0.215, 0.61, 0.355, 1)"
     },
     "[dir='rtl']": {
@@ -143,7 +153,7 @@
         "border-radius": "var(--neu-radius)",
         "corner-shape": "var(--neu-corner)",
         "background": "var(--neu-surface)",
-        "box-shadow": "var(--_x) var(--_y) var(--_blur) var(--_dark), calc(var(--_x) * -1) calc(var(--_y) * -1) var(--_blur) oklch(from var(--_light) l c h / calc(alpha * var(--neu-highlight))), inset var(--_gx) var(--_gy) 0 var(--_glint)"
+        "box-shadow": "var(--_x) var(--_y) var(--_blur) var(--_dark), calc(var(--_x) * -1) calc(var(--_y) * -1) var(--_blur) oklch(from var(--_light) l c h / calc(alpha * var(--neu-highlight))), inset 0 0 0 oklch(from var(--_dark) l c h / 0), inset 0 0 0 oklch(from var(--_light) l c h / 0), inset var(--_gx) var(--_gy) 0 var(--_glint)"
       },
       ".neu-pressed": {
         "box-shadow": "inset var(--_x) var(--_y) var(--_blur) var(--_dark), inset calc(var(--_x) * -1) calc(var(--_y) * -1) var(--_blur) var(--_light), inset calc(var(--_gx) * -1) calc(var(--_gy) * -1) 0 var(--_glint)"
@@ -182,10 +192,13 @@
         "background": "linear-gradient(var(--neu-light-angle), var(--_face-light), var(--_face-dark))"
       },
       ".neu-convex": {
-        "background": "linear-gradient(var(--neu-light-angle), var(--_face-dark), var(--_face-light))"
+        "--_face-from": "var(--_face-dark)",
+        "--_face-to": "var(--_face-light)",
+        "background": "linear-gradient(var(--neu-light-angle), var(--_face-from), var(--_face-to))"
       },
       ".neu-convex:is(.neu-active-sink:active, .neu-state-sink:is([data-state=\"checked\"], [data-state=\"on\"], [data-state=\"open\"], [aria-pressed=\"true\"], [aria-current=\"page\"]))": {
-        "background": "linear-gradient(var(--neu-light-angle), var(--_face-light), var(--_face-dark))"
+        "--_face-from": "var(--_face-light)",
+        "--_face-to": "var(--_face-dark)"
       },
       ".neu-realism": {
         "box-shadow": "calc(var(--_x) * 0.08) calc(var(--_y) * 0.08) calc(var(--_blur) * 0.06) calc(var(--_blur) * -0.03) oklch(from var(--_dark) l c h / calc(alpha * 0.5)), calc(var(--_x) * 0.16) calc(var(--_y) * 0.16) calc(var(--_blur) * 0.12) calc(var(--_blur) * -0.05) oklch(from var(--_dark) l c h / calc(alpha * 0.48)), calc(var(--_x) * 0.3) calc(var(--_y) * 0.3) calc(var(--_blur) * 0.24) calc(var(--_blur) * -0.08) oklch(from var(--_dark) l c h / calc(alpha * 0.44)), calc(var(--_x) * 0.55) calc(var(--_y) * 0.55) calc(var(--_blur) * 0.46) calc(var(--_blur) * -0.1) oklch(from var(--_dark) l c h / calc(alpha * 0.36)), var(--_x) var(--_y) var(--_blur) calc(var(--_blur) * -0.13) oklch(from var(--_dark) l c h / calc(alpha * 0.18)), inset var(--_gx) var(--_gy) 0 oklch(from var(--_light) l c h / calc(alpha * 0.9)), inset calc(var(--_gx) * -1) calc(var(--_gy) * -1) 0 oklch(from var(--_dark) l c h / calc(alpha * 0.5))"
@@ -252,7 +265,7 @@
         "filter": "drop-shadow(calc(var(--_ex) * 0.4) calc(var(--_ey) * 0.4) 0.4px oklch(from var(--_drop) l c h / max(calc(alpha * 1.2), 0.35))) drop-shadow(var(--_ex) var(--_ey) calc(var(--neu-distance) * var(--neu-depth) * 0.5) oklch(from var(--_drop) l c h / max(alpha, 0.18)))"
       },
       ".neu-engrave": {
-        "box-shadow": "inset calc(var(--_gx) * -1) calc(var(--_gy) * -1) 0 oklch(from var(--_dark) l c h / calc(alpha * 1.1)), inset var(--_gx) var(--_gy) 0 oklch(from var(--_light) l c h / calc(alpha * 1.3)), inset calc(var(--_gx) * -2) calc(var(--_gy) * -2) 2px oklch(from var(--_dark) l c h / calc(alpha * 0.4)), inset calc(var(--_gx) * 2) calc(var(--_gy) * 2) 2px oklch(from var(--_light) l c h / calc(alpha * 0.5))"
+        "box-shadow": "0 0 0 oklch(from var(--_dark) l c h / 0), 0 0 0 oklch(from var(--_light) l c h / 0), inset calc(var(--_gx) * -1) calc(var(--_gy) * -1) 0 oklch(from var(--_dark) l c h / calc(alpha * 1.1)), inset var(--_gx) var(--_gy) 0 oklch(from var(--_light) l c h / calc(alpha * 1.3)), inset calc(var(--_gx) * -2) calc(var(--_gy) * -2) 2px oklch(from var(--_dark) l c h / calc(alpha * 0.4)), inset calc(var(--_gx) * 2) calc(var(--_gy) * 2) 2px oklch(from var(--_light) l c h / calc(alpha * 0.5))"
       },
       ".neu-overlay, .neu-overlay-scrim": {
         "--_ox": "calc(var(--neu-distance) * var(--neu-depth) * -0.5 * sin(var(--neu-light-angle)))",
@@ -322,12 +335,30 @@
         "--neu-alpha": "0.7"
       },
       ".neu-active-sink, .neu-state-sink": {
-        "transition": "box-shadow var(--neu-ease-release)"
+        "transition": "box-shadow var(--neu-ease-release), --_face-from var(--neu-ease-release), --_face-to var(--neu-ease-release)"
       },
       ".neu-active-sink:active, .neu-state-sink[data-state=\"checked\"], .neu-state-sink[data-state=\"on\"], .neu-state-sink[data-state=\"open\"], .neu-state-sink[aria-pressed=\"true\"], .neu-state-sink[aria-current=\"page\"]": {
         "--_lift": "0.75",
-        "transition": "box-shadow var(--neu-ease-press)",
-        "box-shadow": "inset var(--_x) var(--_y) var(--_blur) var(--_dark), inset calc(var(--_x) * -1) calc(var(--_y) * -1) var(--_blur) var(--_light), inset calc(var(--_gx) * -1) calc(var(--_gy) * -1) 0 var(--_glint)"
+        "transition": "box-shadow var(--neu-ease-press), --_face-from var(--neu-ease-press), --_face-to var(--neu-ease-press)",
+        "box-shadow": "0 0 0 oklch(from var(--_dark) l c h / 0), 0 0 0 oklch(from var(--_light) l c h / 0), inset var(--_x) var(--_y) var(--_blur) var(--_dark), inset calc(var(--_x) * -1) calc(var(--_y) * -1) var(--_blur) var(--_light), inset calc(var(--_gx) * -1) calc(var(--_gy) * -1) 0 var(--_glint)"
+      },
+      ".neu-realism:is(.neu-active-sink:active, .neu-state-sink:is([data-state=\"checked\"], [data-state=\"on\"], [data-state=\"open\"], [aria-pressed=\"true\"], [aria-current=\"page\"]))": {
+        "box-shadow": "0 0 0 oklch(from var(--_dark) l c h / 0), 0 0 0 oklch(from var(--_dark) l c h / 0), 0 0 0 oklch(from var(--_dark) l c h / 0), 0 0 0 oklch(from var(--_dark) l c h / 0), 0 0 0 oklch(from var(--_dark) l c h / 0), inset var(--_x) var(--_y) var(--_blur) var(--_dark), inset calc(var(--_x) * -1) calc(var(--_y) * -1) var(--_blur) var(--_light), inset calc(var(--_gx) * -1) calc(var(--_gy) * -1) 0 var(--_glint)"
+      },
+      ".neu-press-label": {
+        "display": "inline-flex",
+        "flex-grow": "1",
+        "min-width": "0",
+        "flex-direction": "inherit",
+        "align-items": "inherit",
+        "justify-content": "inherit",
+        "gap": "inherit",
+        "transition": "translate var(--neu-ease-release), scale var(--neu-ease-release)"
+      },
+      ":is(.neu-pressed, .neu-active-sink:active, .neu-state-sink:is([data-state=\"checked\"], [data-state=\"on\"], [data-state=\"open\"], [aria-pressed=\"true\"], [aria-current=\"page\"])) > .neu-press-label": {
+        "translate": "calc(var(--_x) * -0.15) calc(var(--_y) * -0.15)",
+        "scale": "0.95",
+        "transition": "translate var(--neu-ease-press), scale var(--neu-ease-press)"
       },
       ":where(.neu, .neu-pressed, .neu-concave, .neu-convex, .neu-realism, .neu-knob, .neu-groove, .neu-engrave):focus-visible": {
         "outline": "var(--neu-ring-width) solid var(--neu-ring)",
@@ -354,7 +385,7 @@
       ".neu-overlay-scrim[data-vaul-drawer]": {
         "animation-duration": "0s !important"
       },
-      ".neu-rise, .neu-active-sink, .neu-state-sink, .neu-active-sink:active, .neu-state-sink[data-state=\"checked\"], .neu-state-sink[data-state=\"on\"], .neu-state-sink[data-state=\"open\"], .neu-state-sink[aria-pressed=\"true\"], .neu-state-sink[aria-current=\"page\"]": {
+      ".neu-rise, .neu-press-label, .neu-active-sink, .neu-state-sink, .neu-active-sink:active, .neu-state-sink[data-state=\"checked\"], .neu-state-sink[data-state=\"on\"], .neu-state-sink[data-state=\"open\"], .neu-state-sink[aria-pressed=\"true\"], .neu-state-sink[aria-current=\"page\"]": {
         "transition": "none"
       }
     },
